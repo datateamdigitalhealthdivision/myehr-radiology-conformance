@@ -1,0 +1,348 @@
+{
+  "resourceType": "Bundle",
+  "id": "my-radiology-order-workflow-bundle-example",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/ServiceRequest/my-radiology-service-request-example",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "id": "my-radiology-service-request-example",
+        "meta": {
+          "profile": [
+            "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-service-request"
+          ]
+        },
+        "intent": "order",
+        "identifier": [
+          {
+            "system": "https://sandbox.myehr.kkmhub.moh.gov.my/id/radiology-order",
+            "value": "RAD-ORD-20260317-0001"
+          },
+          {
+            "system": "https://facility.kkmhub.moh.gov.my/id/accession/provisional",
+            "value": "HSAH-20260317-0001"
+          }
+        ],
+        "status": "active",
+        "code": {
+          "coding": [
+            {
+              "system": "https://terminology.kkmhub.moh.gov.my/CodeSystem/radlex-imaging-procedures",
+              "code": "RADLEX-CT-HEAD-WO",
+              "display": "CT head without contrast"
+            }
+          ],
+          "text": "CT head without contrast"
+        },
+        "subject": {
+          "reference": "Patient/my-patient-example"
+        },
+        "encounter": {
+          "reference": "Encounter/my-encounter-example"
+        },
+        "authoredOn": "2026-03-17T09:15:00+08:00",
+        "requester": {
+          "reference": "PractitionerRole/my-practitioner-role-example"
+        },
+        "priority": "asap",
+        "reasonCode": [
+          {
+            "text": "Acute onset severe headache"
+          }
+        ],
+        "bodySite": [
+          {
+            "text": "Head"
+          }
+        ],
+        "occurrenceDateTime": "2026-03-17T11:00:00+08:00",
+        "note": [
+          {
+            "text": "Urgent CT requested to exclude acute intracranial event."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/Task/my-radiology-task-example",
+      "resource": {
+        "resourceType": "Task",
+        "id": "my-radiology-task-example",
+        "meta": {
+          "profile": [
+            "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-task"
+          ]
+        },
+        "intent": "order",
+        "status": "accepted",
+        "code": {
+          "text": "Radiology workflow management"
+        },
+        "focus": {
+          "reference": "ServiceRequest/my-radiology-service-request-example"
+        },
+        "for": {
+          "reference": "Patient/my-patient-example"
+        },
+        "encounter": {
+          "reference": "Encounter/my-encounter-example"
+        },
+        "authoredOn": "2026-03-17T09:16:00+08:00",
+        "lastModified": "2026-03-17T09:20:00+08:00",
+        "owner": {
+          "reference": "Organization/my-organisation-example"
+        },
+        "businessStatus": {
+          "coding": [
+            {
+              "code": "scheduled",
+              "system": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/CodeSystem/my-radiology-workflow-state-cs",
+              "display": "Scheduled"
+            }
+          ]
+        },
+        "statusReason": {
+          "text": "Order accepted and booked."
+        }
+      }
+    },
+    {
+      "fullUrl": "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/Appointment/my-radiology-appointment-example",
+      "resource": {
+        "resourceType": "Appointment",
+        "id": "my-radiology-appointment-example",
+        "meta": {
+          "profile": [
+            "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-appointment"
+          ]
+        },
+        "status": "booked",
+        "serviceType": [
+          {
+            "text": "CT"
+          }
+        ],
+        "basedOn": [
+          {
+            "reference": "ServiceRequest/my-radiology-service-request-example"
+          }
+        ],
+        "description": "CT head without contrast",
+        "start": "2026-03-17T11:00:00+08:00",
+        "end": "2026-03-17T11:30:00+08:00",
+        "participant": [
+          {
+            "actor": {
+              "reference": "Patient/my-patient-example"
+            },
+            "status": "accepted"
+          },
+          {
+            "actor": {
+              "reference": "Location/my-location-example"
+            },
+            "status": "accepted"
+          }
+        ],
+        "supportingInformation": [
+          {
+            "reference": "ServiceRequest/my-radiology-service-request-example"
+          }
+        ],
+        "comment": "No oral intake restriction required."
+      }
+    },
+    {
+      "fullUrl": "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/Procedure/my-radiology-procedure-example",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "my-radiology-procedure-example",
+        "meta": {
+          "profile": [
+            "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-procedure"
+          ]
+        },
+        "status": "completed",
+        "basedOn": [
+          {
+            "reference": "ServiceRequest/my-radiology-service-request-example"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "https://terminology.kkmhub.moh.gov.my/CodeSystem/radlex-imaging-procedures",
+              "code": "RADLEX-CT-HEAD-WO",
+              "display": "CT head without contrast"
+            }
+          ],
+          "text": "CT head without contrast"
+        },
+        "subject": {
+          "reference": "Patient/my-patient-example"
+        },
+        "encounter": {
+          "reference": "Encounter/my-encounter-example"
+        },
+        "performedDateTime": "2026-03-17T11:18:00+08:00",
+        "recorder": {
+          "reference": "Practitioner/my-practitioner-example"
+        },
+        "performer": [
+          {
+            "actor": {
+              "reference": "Practitioner/my-practitioner-example"
+            }
+          }
+        ],
+        "location": {
+          "reference": "Location/my-location-example"
+        },
+        "bodySite": [
+          {
+            "text": "Head"
+          }
+        ],
+        "note": [
+          {
+            "text": "Study completed without contrast."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/ImagingStudy/my-radiology-imaging-study-example",
+      "resource": {
+        "resourceType": "ImagingStudy",
+        "id": "my-radiology-imaging-study-example",
+        "meta": {
+          "profile": [
+            "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-imaging-study"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "urn:dicom:uid",
+            "value": "urn:oid:1.2.840.113619.2.55.3.604688321.783.1456849848.467"
+          },
+          {
+            "system": "https://facility.kkmhub.moh.gov.my/id/accession/provisional",
+            "value": "HSAH-20260317-0001"
+          }
+        ],
+        "status": "available",
+        "subject": {
+          "reference": "Patient/my-patient-example"
+        },
+        "encounter": {
+          "reference": "Encounter/my-encounter-example"
+        },
+        "basedOn": [
+          {
+            "reference": "ServiceRequest/my-radiology-service-request-example"
+          }
+        ],
+        "procedureReference": {
+          "reference": "Procedure/my-radiology-procedure-example"
+        },
+        "procedureCode": [
+          {
+            "text": "CT head without contrast"
+          }
+        ],
+        "modality": [
+          {
+            "code": "CT",
+            "system": "http://dicom.nema.org/resources/ontology/DCM",
+            "display": "Computed Tomography"
+          }
+        ],
+        "numberOfSeries": 1,
+        "numberOfInstances": 120,
+        "started": "2026-03-17T11:18:00+08:00",
+        "description": "CT head without contrast",
+        "series": [
+          {
+            "uid": "1.2.840.113619.2.55.3.604688321.783.1456849848.468",
+            "number": 1,
+            "modality": {
+              "code": "CT",
+              "system": "http://dicom.nema.org/resources/ontology/DCM",
+              "display": "Computed Tomography"
+            },
+            "description": "Axial head",
+            "numberOfInstances": 120
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/DiagnosticReport/my-radiology-diagnostic-report-example",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "id": "my-radiology-diagnostic-report-example",
+        "meta": {
+          "profile": [
+            "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-diagnostic-report"
+          ]
+        },
+        "status": "final",
+        "basedOn": [
+          {
+            "reference": "ServiceRequest/my-radiology-service-request-example"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "code": "18748-4",
+              "system": "http://loinc.org",
+              "display": "Diagnostic imaging study"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/my-patient-example"
+        },
+        "encounter": {
+          "reference": "Encounter/my-encounter-example"
+        },
+        "effectiveDateTime": "2026-03-17T12:05:00+08:00",
+        "issued": "2026-03-17T12:15:00+08:00",
+        "performer": [
+          {
+            "reference": "Organization/my-organisation-example"
+          }
+        ],
+        "resultsInterpreter": [
+          {
+            "reference": "Practitioner/my-practitioner-example"
+          }
+        ],
+        "imagingStudy": [
+          {
+            "reference": "ImagingStudy/my-radiology-imaging-study-example"
+          }
+        ],
+        "result": [
+          {
+            "reference": "Observation/my-radiology-observation-example"
+          }
+        ],
+        "conclusion": "No acute intracranial haemorrhage.",
+        "conclusionCode": [
+          {
+            "text": "No acute intracranial haemorrhage"
+          }
+        ],
+        "presentedForm": [
+          {
+            "contentType": "text/plain",
+            "data": "Tm8gYWN1dGUgaW50cmFjcmFuaWFsIGhhZW1vcnJoYWdlLg=="
+          }
+        ]
+      }
+    }
+  ]
+}

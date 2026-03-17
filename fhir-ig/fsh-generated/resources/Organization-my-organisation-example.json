@@ -1,0 +1,11 @@
+{
+  "resourceType": "Organization",
+  "id": "my-organisation-example",
+  "identifier": [
+    {
+      "system": "https://facility.kkmhub.moh.gov.my/id/facility",
+      "value": "HSAH"
+    }
+  ],
+  "name": "Hospital Sultan Abdul Halim"
+}

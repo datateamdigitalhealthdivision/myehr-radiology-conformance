@@ -1,0 +1,85 @@
+{
+  "resourceType": "CapabilityStatement",
+  "id": "my-radiology-his-order-placer",
+  "url": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/CapabilityStatement/my-radiology-his-order-placer",
+  "version": "0.1.0",
+  "name": "MYRadiologyHISOrderPlacerCapabilityStatement",
+  "title": "MY Radiology HIS Order Placer CapabilityStatement",
+  "status": "draft",
+  "date": "2026-03-17",
+  "publisher": "Data Team, Digital Health Division, Ministry of Health Malaysia",
+  "kind": "requirements",
+  "fhirVersion": "4.0.1",
+  "format": [
+    "json",
+    "xml"
+  ],
+  "description": "Client capability expectations for a HIS or CPOE system that places radiology orders and consumes workflow acknowledgements.",
+  "rest": [
+    {
+      "mode": "client",
+      "resource": [
+        {
+          "type": "ServiceRequest",
+          "profile": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-service-request",
+          "interaction": [
+            {
+              "code": "create"
+            },
+            {
+              "code": "read"
+            },
+            {
+              "code": "search-type"
+            }
+          ],
+          "searchParam": [
+            {
+              "name": "identifier",
+              "type": "token",
+              "documentation": "Search by order identifier or accession identifier."
+            }
+          ]
+        },
+        {
+          "type": "Task",
+          "profile": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-task",
+          "interaction": [
+            {
+              "code": "read"
+            },
+            {
+              "code": "search-type"
+            }
+          ],
+          "searchParam": [
+            {
+              "name": "focus",
+              "type": "reference",
+              "documentation": "Search by the linked ServiceRequest."
+            }
+          ]
+        },
+        {
+          "type": "Appointment",
+          "profile": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-appointment",
+          "interaction": [
+            {
+              "code": "read"
+            },
+            {
+              "code": "search-type"
+            }
+          ],
+          "searchParam": [
+            {
+              "name": "based-on",
+              "type": "reference",
+              "documentation": "Search booked appointments by the originating order."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "resourceType": "NamingSystem",
+  "id": "MYFacilityIdentifierNamingSystem",
+  "name": "MYFacilityIdentifierNamingSystem",
+  "status": "draft",
+  "kind": "identifier",
+  "date": "2026-03-17",
+  "publisher": "Data Team, Digital Health Division, Ministry of Health Malaysia",
+  "responsible": "Ministry of Health Malaysia",
+  "description": "PROVISIONAL placeholder naming system for facility identifiers.",
+  "usage": "Use as a placeholder only until the final national facility identifier URI and governance rules are approved.",
+  "uniqueId": [
+    {
+      "type": "uri",
+      "value": "https://facility.kkmhub.moh.gov.my/id/facility",
+      "preferred": true,
+      "comment": "PROVISIONAL placeholder only."
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "resourceType": "Practitioner",
+  "id": "my-practitioner-example",
+  "identifier": [
+    {
+      "system": "https://myhcw.kkmhub.moh.gov.my/id/healthcare-worker",
+      "value": "MYHCW-00004567"
+    }
+  ],
+  "name": [
+    {
+      "family": "Rahman",
+      "given": [
+        "Nurul"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "resourceType": "Location",
+  "id": "my-location-example",
+  "status": "active",
+  "name": "CT Suite 1",
+  "managingOrganization": {
+    "reference": "Organization/my-organisation-example"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "resourceType": "CodeSystem",
+  "status": "draft",
+  "content": "complete",
+  "name": "MYRadiologyWorkflowStateCS",
+  "id": "my-radiology-workflow-state-cs",
+  "title": "MY Radiology Workflow State CodeSystem",
+  "description": "Technical workflow state codes for radiology Task.businessStatus in sandbox and conformance testing scenarios.",
+  "url": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/CodeSystem/my-radiology-workflow-state-cs",
+  "concept": [
+    {
+      "code": "received",
+      "display": "Received"
+    },
+    {
+      "code": "accepted",
+      "display": "Accepted"
+    },
+    {
+      "code": "scheduled",
+      "display": "Scheduled"
+    },
+    {
+      "code": "in-progress",
+      "display": "In Progress"
+    },
+    {
+      "code": "completed",
+      "display": "Completed"
+    },
+    {
+      "code": "cancelled",
+      "display": "Cancelled"
+    },
+    {
+      "code": "rejected",
+      "display": "Rejected"
+    },
+    {
+      "code": "amended",
+      "display": "Amended"
+    }
+  ],
+  "experimental": false,
+  "caseSensitive": true,
+  "count": 8
+}

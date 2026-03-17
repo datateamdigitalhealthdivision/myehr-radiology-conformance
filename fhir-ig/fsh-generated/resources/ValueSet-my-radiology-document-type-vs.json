@@ -1,0 +1,23 @@
+{
+  "resourceType": "ValueSet",
+  "status": "draft",
+  "name": "MYRadiologyDocumentTypeVS",
+  "id": "my-radiology-document-type-vs",
+  "title": "MY Radiology Document Type ValueSet",
+  "description": "Document types for packaged radiology report documents.",
+  "url": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/ValueSet/my-radiology-document-type-vs",
+  "experimental": false,
+  "compose": {
+    "include": [
+      {
+        "system": "http://loinc.org",
+        "concept": [
+          {
+            "code": "18748-4",
+            "display": "Diagnostic imaging study"
+          }
+        ]
+      }
+    ]
+  }
+}

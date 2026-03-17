@@ -1,0 +1,20 @@
+{
+  "resourceType": "NamingSystem",
+  "id": "MYRadiologyOrderIdentifierNamingSystem",
+  "name": "MYRadiologyOrderIdentifierNamingSystem",
+  "status": "draft",
+  "kind": "identifier",
+  "date": "2026-03-17",
+  "publisher": "Data Team, Digital Health Division, Ministry of Health Malaysia",
+  "responsible": "Ministry of Health Malaysia",
+  "description": "PROVISIONAL placeholder naming system for radiology order identifiers issued by sandbox order placer systems.",
+  "usage": "Use as a placeholder only until the national order identifier policy and issuing authority are approved.",
+  "uniqueId": [
+    {
+      "type": "uri",
+      "value": "https://sandbox.myehr.kkmhub.moh.gov.my/id/radiology-order",
+      "preferred": true,
+      "comment": "Sandbox-first placeholder only."
+    }
+  ]
+}

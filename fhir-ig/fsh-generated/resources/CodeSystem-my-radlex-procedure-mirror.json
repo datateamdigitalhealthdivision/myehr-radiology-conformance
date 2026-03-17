@@ -1,0 +1,19 @@
+{
+  "resourceType": "CodeSystem",
+  "status": "draft",
+  "content": "fragment",
+  "name": "MYRadLexProcedureMirror",
+  "id": "my-radlex-procedure-mirror",
+  "title": "MY RadLex Procedure Mirror Placeholder",
+  "description": "PROVISIONAL canonical placeholder for a locally hosted mirror of the RadLex imaging procedure catalogue.",
+  "url": "https://terminology.kkmhub.moh.gov.my/CodeSystem/radlex-imaging-procedures",
+  "concept": [
+    {
+      "code": "RADLEX-CT-HEAD-WO",
+      "display": "CT head without contrast",
+      "definition": "EXAMPLE ONLY placeholder code carried in this repository so the sample radiology workflow instances can validate before the full RadLex mirror is hosted locally."
+    }
+  ],
+  "experimental": false,
+  "caseSensitive": false
+}

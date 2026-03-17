@@ -1,0 +1,40 @@
+{
+  "resourceType": "Task",
+  "id": "my-radiology-task-example",
+  "meta": {
+    "profile": [
+      "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-task"
+    ]
+  },
+  "intent": "order",
+  "status": "accepted",
+  "code": {
+    "text": "Radiology workflow management"
+  },
+  "focus": {
+    "reference": "ServiceRequest/my-radiology-service-request-example"
+  },
+  "for": {
+    "reference": "Patient/my-patient-example"
+  },
+  "encounter": {
+    "reference": "Encounter/my-encounter-example"
+  },
+  "authoredOn": "2026-03-17T09:16:00+08:00",
+  "lastModified": "2026-03-17T09:20:00+08:00",
+  "owner": {
+    "reference": "Organization/my-organisation-example"
+  },
+  "businessStatus": {
+    "coding": [
+      {
+        "code": "scheduled",
+        "system": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/CodeSystem/my-radiology-workflow-state-cs",
+        "display": "Scheduled"
+      }
+    ]
+  },
+  "statusReason": {
+    "text": "Order accepted and booked."
+  }
+}

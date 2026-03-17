@@ -1,0 +1,23 @@
+{
+  "resourceType": "ValueSet",
+  "status": "draft",
+  "name": "MYRadiologyReportCodeVS",
+  "id": "my-radiology-report-code-vs",
+  "title": "MY Radiology Report Code ValueSet",
+  "description": "Representative LOINC document and report codes suitable for radiology report exchange.",
+  "url": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/ValueSet/my-radiology-report-code-vs",
+  "experimental": false,
+  "compose": {
+    "include": [
+      {
+        "system": "http://loinc.org",
+        "concept": [
+          {
+            "code": "18748-4",
+            "display": "Diagnostic imaging study"
+          }
+        ]
+      }
+    ]
+  }
+}

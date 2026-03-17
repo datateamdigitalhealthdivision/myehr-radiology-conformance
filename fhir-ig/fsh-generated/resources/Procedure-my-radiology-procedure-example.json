@@ -1,0 +1,55 @@
+{
+  "resourceType": "Procedure",
+  "id": "my-radiology-procedure-example",
+  "meta": {
+    "profile": [
+      "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-procedure"
+    ]
+  },
+  "status": "completed",
+  "basedOn": [
+    {
+      "reference": "ServiceRequest/my-radiology-service-request-example"
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "https://terminology.kkmhub.moh.gov.my/CodeSystem/radlex-imaging-procedures",
+        "code": "RADLEX-CT-HEAD-WO",
+        "display": "CT head without contrast"
+      }
+    ],
+    "text": "CT head without contrast"
+  },
+  "subject": {
+    "reference": "Patient/my-patient-example"
+  },
+  "encounter": {
+    "reference": "Encounter/my-encounter-example"
+  },
+  "performedDateTime": "2026-03-17T11:18:00+08:00",
+  "recorder": {
+    "reference": "Practitioner/my-practitioner-example"
+  },
+  "performer": [
+    {
+      "actor": {
+        "reference": "Practitioner/my-practitioner-example"
+      }
+    }
+  ],
+  "location": {
+    "reference": "Location/my-location-example"
+  },
+  "bodySite": [
+    {
+      "text": "Head"
+    }
+  ],
+  "note": [
+    {
+      "text": "Study completed without contrast."
+    }
+  ]
+}

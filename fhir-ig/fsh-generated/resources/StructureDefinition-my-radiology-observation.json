@@ -1,0 +1,118 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "my-radiology-observation",
+  "url": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-observation",
+  "name": "MYRadiologyObservation",
+  "title": "MY Radiology Observation",
+  "status": "draft",
+  "description": "Structured radiology finding or quantitative measurement profile to be used only when narrative reporting alone is insufficient.",
+  "fhirVersion": "4.0.1",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Observation",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Observation",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Observation.basedOn",
+        "path": "Observation.basedOn",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-service-request"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.partOf",
+        "path": "Observation.partOf",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-procedure"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.status",
+        "path": "Observation.status",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.category",
+        "path": "Observation.category",
+        "min": 1,
+        "patternCodeableConcept": {
+          "coding": [
+            {
+              "code": "imaging",
+              "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+              "display": "Imaging"
+            }
+          ]
+        },
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code",
+        "path": "Observation.code",
+        "mustSupport": true,
+        "binding": {
+          "strength": "preferred",
+          "valueSet": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/ValueSet/my-radiology-finding-code-vs"
+        }
+      },
+      {
+        "id": "Observation.subject",
+        "path": "Observation.subject",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.encounter",
+        "path": "Observation.encounter",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.effective[x]",
+        "path": "Observation.effective[x]",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.performer",
+        "path": "Observation.performer",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.value[x]",
+        "path": "Observation.value[x]",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.bodySite",
+        "path": "Observation.bodySite",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.derivedFrom",
+        "path": "Observation.derivedFrom",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-imaging-study"
+            ]
+          }
+        ],
+        "mustSupport": true
+      }
+    ]
+  }
+}

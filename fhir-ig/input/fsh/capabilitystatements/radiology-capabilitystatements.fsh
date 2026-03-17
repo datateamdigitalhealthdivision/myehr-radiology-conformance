@@ -1,0 +1,206 @@
+Instance: MYRadiologyHISOrderPlacerCapabilityStatement
+InstanceOf: CapabilityStatement
+Usage: #definition
+* id = "my-radiology-his-order-placer"
+* url = "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/CapabilityStatement/my-radiology-his-order-placer"
+* version = "0.1.0"
+* name = "MYRadiologyHISOrderPlacerCapabilityStatement"
+* title = "MY Radiology HIS Order Placer CapabilityStatement"
+* status = #draft
+* date = "2026-03-17"
+* publisher = "Data Team, Digital Health Division, Ministry of Health Malaysia"
+* kind = #requirements
+* fhirVersion = #4.0.1
+* format[0] = #json
+* format[1] = #xml
+* description = "Client capability expectations for a HIS or CPOE system that places radiology orders and consumes workflow acknowledgements."
+* rest[0].mode = #client
+* rest[0].resource[0].type = #ServiceRequest
+* rest[0].resource[0].profile = "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-service-request"
+* rest[0].resource[0].interaction[0].code = #create
+* rest[0].resource[0].interaction[1].code = #read
+* rest[0].resource[0].interaction[2].code = #search-type
+* rest[0].resource[0].searchParam[0].name = "identifier"
+* rest[0].resource[0].searchParam[0].type = #token
+* rest[0].resource[0].searchParam[0].documentation = "Search by order identifier or accession identifier."
+* rest[0].resource[1].type = #Task
+* rest[0].resource[1].profile = "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-task"
+* rest[0].resource[1].interaction[0].code = #read
+* rest[0].resource[1].interaction[1].code = #search-type
+* rest[0].resource[1].searchParam[0].name = "focus"
+* rest[0].resource[1].searchParam[0].type = #reference
+* rest[0].resource[1].searchParam[0].documentation = "Search by the linked ServiceRequest."
+* rest[0].resource[2].type = #Appointment
+* rest[0].resource[2].profile = "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-appointment"
+* rest[0].resource[2].interaction[0].code = #read
+* rest[0].resource[2].interaction[1].code = #search-type
+* rest[0].resource[2].searchParam[0].name = "based-on"
+* rest[0].resource[2].searchParam[0].type = #reference
+* rest[0].resource[2].searchParam[0].documentation = "Search booked appointments by the originating order."
+
+Instance: MYRadiologyRISWorkflowManagerCapabilityStatement
+InstanceOf: CapabilityStatement
+Usage: #definition
+* id = "my-radiology-ris-workflow-manager"
+* url = "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/CapabilityStatement/my-radiology-ris-workflow-manager"
+* version = "0.1.0"
+* name = "MYRadiologyRISWorkflowManagerCapabilityStatement"
+* title = "MY Radiology RIS Workflow Manager CapabilityStatement"
+* status = #draft
+* date = "2026-03-17"
+* publisher = "Data Team, Digital Health Division, Ministry of Health Malaysia"
+* kind = #requirements
+* fhirVersion = #4.0.1
+* format[0] = #json
+* format[1] = #xml
+* description = "Server capability expectations for a RIS acting as the operational workflow manager and order filler."
+* rest[0].mode = #server
+* rest[0].resource[0].type = #ServiceRequest
+* rest[0].resource[0].profile = "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-service-request"
+* rest[0].resource[0].interaction[0].code = #create
+* rest[0].resource[0].interaction[1].code = #read
+* rest[0].resource[0].interaction[2].code = #update
+* rest[0].resource[0].interaction[3].code = #search-type
+* rest[0].resource[0].searchParam[0].name = "identifier"
+* rest[0].resource[0].searchParam[0].type = #token
+* rest[0].resource[1].type = #Task
+* rest[0].resource[1].profile = "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-task"
+* rest[0].resource[1].interaction[0].code = #create
+* rest[0].resource[1].interaction[1].code = #read
+* rest[0].resource[1].interaction[2].code = #update
+* rest[0].resource[1].interaction[3].code = #search-type
+* rest[0].resource[1].searchParam[0].name = "focus"
+* rest[0].resource[1].searchParam[0].type = #reference
+* rest[0].resource[2].type = #Appointment
+* rest[0].resource[2].profile = "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-appointment"
+* rest[0].resource[2].interaction[0].code = #create
+* rest[0].resource[2].interaction[1].code = #read
+* rest[0].resource[2].interaction[2].code = #update
+* rest[0].resource[2].interaction[3].code = #search-type
+* rest[0].resource[3].type = #Procedure
+* rest[0].resource[3].profile = "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-procedure"
+* rest[0].resource[3].interaction[0].code = #create
+* rest[0].resource[3].interaction[1].code = #read
+* rest[0].resource[3].interaction[2].code = #update
+* rest[0].resource[3].interaction[3].code = #search-type
+* rest[0].resource[4].type = #ImagingStudy
+* rest[0].resource[4].profile = "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-imaging-study"
+* rest[0].resource[4].interaction[0].code = #create
+* rest[0].resource[4].interaction[1].code = #read
+* rest[0].resource[4].interaction[2].code = #search-type
+* rest[0].resource[4].searchParam[0].name = "identifier"
+* rest[0].resource[4].searchParam[0].type = #token
+* rest[0].resource[5].type = #DiagnosticReport
+* rest[0].resource[5].profile = "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-diagnostic-report"
+* rest[0].resource[5].interaction[0].code = #create
+* rest[0].resource[5].interaction[1].code = #read
+* rest[0].resource[5].interaction[2].code = #search-type
+* rest[0].resource[5].searchParam[0].name = "based-on"
+* rest[0].resource[5].searchParam[0].type = #reference
+* rest[0].resource[6].type = #Observation
+* rest[0].resource[6].profile = "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-observation"
+* rest[0].resource[6].interaction[0].code = #create
+* rest[0].resource[6].interaction[1].code = #read
+* rest[0].resource[6].interaction[2].code = #search-type
+
+Instance: MYRadiologyPACSMetadataPublisherCapabilityStatement
+InstanceOf: CapabilityStatement
+Usage: #definition
+* id = "my-radiology-pacs-metadata-publisher"
+* url = "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/CapabilityStatement/my-radiology-pacs-metadata-publisher"
+* version = "0.1.0"
+* name = "MYRadiologyPACSMetadataPublisherCapabilityStatement"
+* title = "MY Radiology PACS Metadata Publisher CapabilityStatement"
+* status = #draft
+* date = "2026-03-17"
+* publisher = "Data Team, Digital Health Division, Ministry of Health Malaysia"
+* kind = #requirements
+* fhirVersion = #4.0.1
+* format[0] = #json
+* format[1] = #xml
+* description = "Server capability expectations for a PACS or VNA exposing FHIR-facing imaging metadata for consumers."
+* rest[0].mode = #server
+* rest[0].resource[0].type = #ImagingStudy
+* rest[0].resource[0].profile = "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-imaging-study"
+* rest[0].resource[0].interaction[0].code = #read
+* rest[0].resource[0].interaction[1].code = #search-type
+* rest[0].resource[0].searchParam[0].name = "identifier"
+* rest[0].resource[0].searchParam[0].type = #token
+* rest[0].resource[0].searchParam[1].name = "subject"
+* rest[0].resource[0].searchParam[1].type = #reference
+* rest[0].resource[1].type = #DocumentReference
+* rest[0].resource[1].profile = "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-document-reference"
+* rest[0].resource[1].interaction[0].code = #read
+* rest[0].resource[1].interaction[1].code = #search-type
+
+Instance: MYRadiologyViewerConsumerCapabilityStatement
+InstanceOf: CapabilityStatement
+Usage: #definition
+* id = "my-radiology-viewer-consumer"
+* url = "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/CapabilityStatement/my-radiology-viewer-consumer"
+* version = "0.1.0"
+* name = "MYRadiologyViewerConsumerCapabilityStatement"
+* title = "MY Radiology Viewer Consumer CapabilityStatement"
+* status = #draft
+* date = "2026-03-17"
+* publisher = "Data Team, Digital Health Division, Ministry of Health Malaysia"
+* kind = #requirements
+* fhirVersion = #4.0.1
+* format[0] = #json
+* format[1] = #xml
+* description = "Client capability expectations for a clinical viewer or EHR that consumes reports and imaging study metadata."
+* rest[0].mode = #client
+* rest[0].resource[0].type = #DiagnosticReport
+* rest[0].resource[0].profile = "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-diagnostic-report"
+* rest[0].resource[0].interaction[0].code = #read
+* rest[0].resource[0].interaction[1].code = #search-type
+* rest[0].resource[0].searchParam[0].name = "subject"
+* rest[0].resource[0].searchParam[0].type = #reference
+* rest[0].resource[1].type = #ImagingStudy
+* rest[0].resource[1].profile = "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-imaging-study"
+* rest[0].resource[1].interaction[0].code = #read
+* rest[0].resource[1].interaction[1].code = #search-type
+* rest[0].resource[1].searchParam[0].name = "identifier"
+* rest[0].resource[1].searchParam[0].type = #token
+* rest[0].resource[2].type = #DocumentReference
+* rest[0].resource[2].profile = "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-document-reference"
+* rest[0].resource[2].interaction[0].code = #read
+* rest[0].resource[2].interaction[1].code = #search-type
+
+Instance: MYRadiologyValidationConsumerCapabilityStatement
+InstanceOf: CapabilityStatement
+Usage: #definition
+* id = "my-radiology-validation-consumer"
+* url = "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/CapabilityStatement/my-radiology-validation-consumer"
+* version = "0.1.0"
+* name = "MYRadiologyValidationConsumerCapabilityStatement"
+* title = "MY Radiology Validation Consumer CapabilityStatement"
+* status = #draft
+* date = "2026-03-17"
+* publisher = "Data Team, Digital Health Division, Ministry of Health Malaysia"
+* kind = #requirements
+* fhirVersion = #4.0.1
+* format[0] = #json
+* format[1] = #xml
+* description = "Client capability expectations for a national validation or conformance consumer that reads and tests core radiology resources."
+* rest[0].mode = #client
+* rest[0].resource[0].type = #ServiceRequest
+* rest[0].resource[0].profile = "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-service-request"
+* rest[0].resource[0].interaction[0].code = #read
+* rest[0].resource[0].interaction[1].code = #search-type
+* rest[0].resource[1].type = #Task
+* rest[0].resource[1].profile = "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-task"
+* rest[0].resource[1].interaction[0].code = #read
+* rest[0].resource[1].interaction[1].code = #search-type
+* rest[0].resource[2].type = #Procedure
+* rest[0].resource[2].profile = "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-procedure"
+* rest[0].resource[2].interaction[0].code = #read
+* rest[0].resource[2].interaction[1].code = #search-type
+* rest[0].resource[3].type = #ImagingStudy
+* rest[0].resource[3].profile = "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-imaging-study"
+* rest[0].resource[3].interaction[0].code = #read
+* rest[0].resource[3].interaction[1].code = #search-type
+* rest[0].resource[4].type = #DiagnosticReport
+* rest[0].resource[4].profile = "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-diagnostic-report"
+* rest[0].resource[4].interaction[0].code = #read
+* rest[0].resource[4].interaction[1].code = #search-type

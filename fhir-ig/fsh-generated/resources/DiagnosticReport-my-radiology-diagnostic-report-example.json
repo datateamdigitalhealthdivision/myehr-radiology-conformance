@@ -1,0 +1,64 @@
+{
+  "resourceType": "DiagnosticReport",
+  "id": "my-radiology-diagnostic-report-example",
+  "meta": {
+    "profile": [
+      "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-diagnostic-report"
+    ]
+  },
+  "status": "final",
+  "basedOn": [
+    {
+      "reference": "ServiceRequest/my-radiology-service-request-example"
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "code": "18748-4",
+        "system": "http://loinc.org",
+        "display": "Diagnostic imaging study"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/my-patient-example"
+  },
+  "encounter": {
+    "reference": "Encounter/my-encounter-example"
+  },
+  "effectiveDateTime": "2026-03-17T12:05:00+08:00",
+  "issued": "2026-03-17T12:15:00+08:00",
+  "performer": [
+    {
+      "reference": "Organization/my-organisation-example"
+    }
+  ],
+  "resultsInterpreter": [
+    {
+      "reference": "Practitioner/my-practitioner-example"
+    }
+  ],
+  "imagingStudy": [
+    {
+      "reference": "ImagingStudy/my-radiology-imaging-study-example"
+    }
+  ],
+  "result": [
+    {
+      "reference": "Observation/my-radiology-observation-example"
+    }
+  ],
+  "conclusion": "No acute intracranial haemorrhage.",
+  "conclusionCode": [
+    {
+      "text": "No acute intracranial haemorrhage"
+    }
+  ],
+  "presentedForm": [
+    {
+      "contentType": "text/plain",
+      "data": "Tm8gYWN1dGUgaW50cmFjcmFuaWFsIGhhZW1vcnJoYWdlLg=="
+    }
+  ]
+}

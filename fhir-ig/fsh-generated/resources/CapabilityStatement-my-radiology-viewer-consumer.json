@@ -1,0 +1,73 @@
+{
+  "resourceType": "CapabilityStatement",
+  "id": "my-radiology-viewer-consumer",
+  "url": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/CapabilityStatement/my-radiology-viewer-consumer",
+  "version": "0.1.0",
+  "name": "MYRadiologyViewerConsumerCapabilityStatement",
+  "title": "MY Radiology Viewer Consumer CapabilityStatement",
+  "status": "draft",
+  "date": "2026-03-17",
+  "publisher": "Data Team, Digital Health Division, Ministry of Health Malaysia",
+  "kind": "requirements",
+  "fhirVersion": "4.0.1",
+  "format": [
+    "json",
+    "xml"
+  ],
+  "description": "Client capability expectations for a clinical viewer or EHR that consumes reports and imaging study metadata.",
+  "rest": [
+    {
+      "mode": "client",
+      "resource": [
+        {
+          "type": "DiagnosticReport",
+          "profile": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-diagnostic-report",
+          "interaction": [
+            {
+              "code": "read"
+            },
+            {
+              "code": "search-type"
+            }
+          ],
+          "searchParam": [
+            {
+              "name": "subject",
+              "type": "reference"
+            }
+          ]
+        },
+        {
+          "type": "ImagingStudy",
+          "profile": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-imaging-study",
+          "interaction": [
+            {
+              "code": "read"
+            },
+            {
+              "code": "search-type"
+            }
+          ],
+          "searchParam": [
+            {
+              "name": "identifier",
+              "type": "token"
+            }
+          ]
+        },
+        {
+          "type": "DocumentReference",
+          "profile": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-document-reference",
+          "interaction": [
+            {
+              "code": "read"
+            },
+            {
+              "code": "search-type"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

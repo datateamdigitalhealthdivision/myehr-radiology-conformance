@@ -1,0 +1,30 @@
+{
+  "resourceType": "CodeSystem",
+  "status": "draft",
+  "content": "complete",
+  "name": "MYRadiologyAccessionPatternCS",
+  "id": "my-radiology-accession-pattern-cs",
+  "title": "MY Radiology Accession Pattern CodeSystem",
+  "description": "Draft policy options for accession identifier patterns. These codes describe candidate strategies rather than final national production policy.",
+  "url": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/CodeSystem/my-radiology-accession-pattern-cs",
+  "concept": [
+    {
+      "code": "facility-date-sequence",
+      "display": "Facility-Date-Sequence",
+      "definition": "Pattern FACILITYCODE-YYYYMMDD-SEQUENCE."
+    },
+    {
+      "code": "facility-modality-date-sequence",
+      "display": "Facility-Modality-Date-Sequence",
+      "definition": "Pattern FACILITYCODE-MODALITY-YYYYMMDD-SEQUENCE."
+    },
+    {
+      "code": "uuid-with-alias",
+      "display": "UUID With Alias",
+      "definition": "Pattern using a centrally minted UUID with a human-readable alias."
+    }
+  ],
+  "experimental": false,
+  "caseSensitive": true,
+  "count": 3
+}

@@ -1,0 +1,58 @@
+{
+  "resourceType": "ServiceRequest",
+  "id": "my-radiology-service-request-example",
+  "meta": {
+    "profile": [
+      "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-service-request"
+    ]
+  },
+  "intent": "order",
+  "identifier": [
+    {
+      "system": "https://sandbox.myehr.kkmhub.moh.gov.my/id/radiology-order",
+      "value": "RAD-ORD-20260317-0001"
+    },
+    {
+      "system": "https://facility.kkmhub.moh.gov.my/id/accession/provisional",
+      "value": "HSAH-20260317-0001"
+    }
+  ],
+  "status": "active",
+  "code": {
+    "coding": [
+      {
+        "system": "https://terminology.kkmhub.moh.gov.my/CodeSystem/radlex-imaging-procedures",
+        "code": "RADLEX-CT-HEAD-WO",
+        "display": "CT head without contrast"
+      }
+    ],
+    "text": "CT head without contrast"
+  },
+  "subject": {
+    "reference": "Patient/my-patient-example"
+  },
+  "encounter": {
+    "reference": "Encounter/my-encounter-example"
+  },
+  "authoredOn": "2026-03-17T09:15:00+08:00",
+  "requester": {
+    "reference": "PractitionerRole/my-practitioner-role-example"
+  },
+  "priority": "asap",
+  "reasonCode": [
+    {
+      "text": "Acute onset severe headache"
+    }
+  ],
+  "bodySite": [
+    {
+      "text": "Head"
+    }
+  ],
+  "occurrenceDateTime": "2026-03-17T11:00:00+08:00",
+  "note": [
+    {
+      "text": "Urgent CT requested to exclude acute intracranial event."
+    }
+  ]
+}

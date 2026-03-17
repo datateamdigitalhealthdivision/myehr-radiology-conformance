@@ -1,0 +1,15 @@
+{
+  "resourceType": "PractitionerRole",
+  "id": "my-practitioner-role-example",
+  "practitioner": {
+    "reference": "Practitioner/my-practitioner-example"
+  },
+  "organization": {
+    "reference": "Organization/my-organisation-example"
+  },
+  "code": [
+    {
+      "text": "Consultant Radiologist"
+    }
+  ]
+}

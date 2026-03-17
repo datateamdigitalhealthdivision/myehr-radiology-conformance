@@ -1,0 +1,166 @@
+{
+  "resourceType": "CapabilityStatement",
+  "id": "my-radiology-ris-workflow-manager",
+  "url": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/CapabilityStatement/my-radiology-ris-workflow-manager",
+  "version": "0.1.0",
+  "name": "MYRadiologyRISWorkflowManagerCapabilityStatement",
+  "title": "MY Radiology RIS Workflow Manager CapabilityStatement",
+  "status": "draft",
+  "date": "2026-03-17",
+  "publisher": "Data Team, Digital Health Division, Ministry of Health Malaysia",
+  "kind": "requirements",
+  "fhirVersion": "4.0.1",
+  "format": [
+    "json",
+    "xml"
+  ],
+  "description": "Server capability expectations for a RIS acting as the operational workflow manager and order filler.",
+  "rest": [
+    {
+      "mode": "server",
+      "resource": [
+        {
+          "type": "ServiceRequest",
+          "profile": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-service-request",
+          "interaction": [
+            {
+              "code": "create"
+            },
+            {
+              "code": "read"
+            },
+            {
+              "code": "update"
+            },
+            {
+              "code": "search-type"
+            }
+          ],
+          "searchParam": [
+            {
+              "name": "identifier",
+              "type": "token"
+            }
+          ]
+        },
+        {
+          "type": "Task",
+          "profile": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-task",
+          "interaction": [
+            {
+              "code": "create"
+            },
+            {
+              "code": "read"
+            },
+            {
+              "code": "update"
+            },
+            {
+              "code": "search-type"
+            }
+          ],
+          "searchParam": [
+            {
+              "name": "focus",
+              "type": "reference"
+            }
+          ]
+        },
+        {
+          "type": "Appointment",
+          "profile": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-appointment",
+          "interaction": [
+            {
+              "code": "create"
+            },
+            {
+              "code": "read"
+            },
+            {
+              "code": "update"
+            },
+            {
+              "code": "search-type"
+            }
+          ]
+        },
+        {
+          "type": "Procedure",
+          "profile": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-procedure",
+          "interaction": [
+            {
+              "code": "create"
+            },
+            {
+              "code": "read"
+            },
+            {
+              "code": "update"
+            },
+            {
+              "code": "search-type"
+            }
+          ]
+        },
+        {
+          "type": "ImagingStudy",
+          "profile": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-imaging-study",
+          "interaction": [
+            {
+              "code": "create"
+            },
+            {
+              "code": "read"
+            },
+            {
+              "code": "search-type"
+            }
+          ],
+          "searchParam": [
+            {
+              "name": "identifier",
+              "type": "token"
+            }
+          ]
+        },
+        {
+          "type": "DiagnosticReport",
+          "profile": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-diagnostic-report",
+          "interaction": [
+            {
+              "code": "create"
+            },
+            {
+              "code": "read"
+            },
+            {
+              "code": "search-type"
+            }
+          ],
+          "searchParam": [
+            {
+              "name": "based-on",
+              "type": "reference"
+            }
+          ]
+        },
+        {
+          "type": "Observation",
+          "profile": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-observation",
+          "interaction": [
+            {
+              "code": "create"
+            },
+            {
+              "code": "read"
+            },
+            {
+              "code": "search-type"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

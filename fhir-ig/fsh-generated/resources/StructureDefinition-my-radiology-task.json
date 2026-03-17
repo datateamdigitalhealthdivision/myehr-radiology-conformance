@@ -1,0 +1,128 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "my-radiology-task",
+  "url": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-task",
+  "name": "MYRadiologyTask",
+  "title": "MY Radiology Task",
+  "status": "draft",
+  "description": "Workflow tracking profile used to communicate radiology order receipt, acceptance, scheduling, in-progress, completion, rejection, cancellation, and amendment states.",
+  "fhirVersion": "4.0.1",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Task",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Task",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Task.status",
+        "path": "Task.status",
+        "mustSupport": true
+      },
+      {
+        "id": "Task.statusReason",
+        "path": "Task.statusReason",
+        "mustSupport": true
+      },
+      {
+        "id": "Task.businessStatus",
+        "path": "Task.businessStatus",
+        "mustSupport": true,
+        "binding": {
+          "strength": "preferred",
+          "valueSet": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/ValueSet/my-radiology-workflow-state-vs"
+        }
+      },
+      {
+        "id": "Task.intent",
+        "path": "Task.intent",
+        "patternCode": "order"
+      },
+      {
+        "id": "Task.code",
+        "path": "Task.code",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Task.code.text",
+        "path": "Task.code.text",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Task.focus",
+        "path": "Task.focus",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-service-request"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Task.for",
+        "path": "Task.for",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.org/fhir/StructureDefinition/Patient"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Task.encounter",
+        "path": "Task.encounter",
+        "mustSupport": true
+      },
+      {
+        "id": "Task.authoredOn",
+        "path": "Task.authoredOn",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Task.lastModified",
+        "path": "Task.lastModified",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Task.owner",
+        "path": "Task.owner",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.org/fhir/StructureDefinition/Organization"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Task.note",
+        "path": "Task.note",
+        "mustSupport": true
+      },
+      {
+        "id": "Task.input",
+        "path": "Task.input",
+        "mustSupport": true
+      },
+      {
+        "id": "Task.output",
+        "path": "Task.output",
+        "mustSupport": true
+      }
+    ]
+  }
+}

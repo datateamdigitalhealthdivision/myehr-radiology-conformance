@@ -1,0 +1,189 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "my-radiology-imaging-study",
+  "url": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-imaging-study",
+  "name": "MYRadiologyImagingStudy",
+  "title": "MY Radiology ImagingStudy",
+  "status": "draft",
+  "description": "FHIR-facing imaging study metadata aligned to the DICOM study, including linkage to the order, performed procedure, and study identifiers.",
+  "fhirVersion": "4.0.1",
+  "kind": "resource",
+  "abstract": false,
+  "type": "ImagingStudy",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/ImagingStudy",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "ImagingStudy.identifier",
+        "path": "ImagingStudy.identifier",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "system"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1
+      },
+      {
+        "id": "ImagingStudy.identifier:studyInstanceUID",
+        "path": "ImagingStudy.identifier",
+        "sliceName": "studyInstanceUID",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "ImagingStudy.identifier:studyInstanceUID.system",
+        "path": "ImagingStudy.identifier.system",
+        "min": 1,
+        "fixedUri": "urn:dicom:uid"
+      },
+      {
+        "id": "ImagingStudy.identifier:studyInstanceUID.value",
+        "path": "ImagingStudy.identifier.value",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "ImagingStudy.identifier:accession",
+        "path": "ImagingStudy.identifier",
+        "sliceName": "accession",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "ImagingStudy.identifier:accession.system",
+        "path": "ImagingStudy.identifier.system",
+        "min": 1,
+        "fixedUri": "https://facility.kkmhub.moh.gov.my/id/accession/provisional"
+      },
+      {
+        "id": "ImagingStudy.identifier:accession.value",
+        "path": "ImagingStudy.identifier.value",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "ImagingStudy.status",
+        "path": "ImagingStudy.status",
+        "mustSupport": true
+      },
+      {
+        "id": "ImagingStudy.modality",
+        "path": "ImagingStudy.modality",
+        "min": 1,
+        "mustSupport": true,
+        "binding": {
+          "strength": "extensible",
+          "valueSet": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/ValueSet/my-radiology-modality-vs"
+        }
+      },
+      {
+        "id": "ImagingStudy.subject",
+        "path": "ImagingStudy.subject",
+        "mustSupport": true
+      },
+      {
+        "id": "ImagingStudy.encounter",
+        "path": "ImagingStudy.encounter",
+        "mustSupport": true
+      },
+      {
+        "id": "ImagingStudy.started",
+        "path": "ImagingStudy.started",
+        "mustSupport": true
+      },
+      {
+        "id": "ImagingStudy.basedOn",
+        "path": "ImagingStudy.basedOn",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-service-request"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "ImagingStudy.numberOfSeries",
+        "path": "ImagingStudy.numberOfSeries",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "ImagingStudy.numberOfInstances",
+        "path": "ImagingStudy.numberOfInstances",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "ImagingStudy.procedureReference",
+        "path": "ImagingStudy.procedureReference",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-procedure"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "ImagingStudy.procedureCode",
+        "path": "ImagingStudy.procedureCode",
+        "mustSupport": true,
+        "binding": {
+          "strength": "extensible",
+          "valueSet": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/ValueSet/my-radiology-procedure-code-vs"
+        }
+      },
+      {
+        "id": "ImagingStudy.description",
+        "path": "ImagingStudy.description",
+        "mustSupport": true
+      },
+      {
+        "id": "ImagingStudy.series",
+        "path": "ImagingStudy.series",
+        "mustSupport": true
+      },
+      {
+        "id": "ImagingStudy.series.uid",
+        "path": "ImagingStudy.series.uid",
+        "mustSupport": true
+      },
+      {
+        "id": "ImagingStudy.series.number",
+        "path": "ImagingStudy.series.number",
+        "mustSupport": true
+      },
+      {
+        "id": "ImagingStudy.series.modality",
+        "path": "ImagingStudy.series.modality",
+        "mustSupport": true,
+        "binding": {
+          "strength": "extensible",
+          "valueSet": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/ValueSet/my-radiology-modality-vs"
+        }
+      },
+      {
+        "id": "ImagingStudy.series.description",
+        "path": "ImagingStudy.series.description",
+        "mustSupport": true
+      },
+      {
+        "id": "ImagingStudy.series.numberOfInstances",
+        "path": "ImagingStudy.series.numberOfInstances",
+        "mustSupport": true
+      }
+    ]
+  }
+}

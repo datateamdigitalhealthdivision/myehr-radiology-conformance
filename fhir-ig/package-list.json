@@ -1,0 +1,24 @@
+{
+  "package-id": "my.moh.kkmhub.myehr.radiology",
+  "canonical": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology",
+  "title": "Malaysian National Radiology Interoperability And Conformance Guide",
+  "introduction": "Draft national radiology implementation guide and conformance specification for Malaysia.",
+  "list": [
+    {
+      "version": "current",
+      "desc": "Continuous Integration Build",
+      "path": "https://datateamdigitalhealthdivision.github.io/myehr-radiology-conformance",
+      "status": "ci-build",
+      "current": true
+    },
+    {
+      "version": "0.1.0",
+      "date": "2026-03-17",
+      "desc": "Initial public draft release",
+      "path": "https://datateamdigitalhealthdivision.github.io/myehr-radiology-conformance/0.1.0",
+      "status": "draft",
+      "sequence": "Draft"
+    }
+  ]
+}
+

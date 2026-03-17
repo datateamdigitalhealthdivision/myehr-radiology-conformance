@@ -1,0 +1,63 @@
+{
+  "resourceType": "ImagingStudy",
+  "id": "my-radiology-imaging-study-example",
+  "meta": {
+    "profile": [
+      "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-imaging-study"
+    ]
+  },
+  "identifier": [
+    {
+      "system": "urn:dicom:uid",
+      "value": "urn:oid:1.2.840.113619.2.55.3.604688321.783.1456849848.467"
+    },
+    {
+      "system": "https://facility.kkmhub.moh.gov.my/id/accession/provisional",
+      "value": "HSAH-20260317-0001"
+    }
+  ],
+  "status": "available",
+  "subject": {
+    "reference": "Patient/my-patient-example"
+  },
+  "encounter": {
+    "reference": "Encounter/my-encounter-example"
+  },
+  "basedOn": [
+    {
+      "reference": "ServiceRequest/my-radiology-service-request-example"
+    }
+  ],
+  "procedureReference": {
+    "reference": "Procedure/my-radiology-procedure-example"
+  },
+  "procedureCode": [
+    {
+      "text": "CT head without contrast"
+    }
+  ],
+  "modality": [
+    {
+      "code": "CT",
+      "system": "http://dicom.nema.org/resources/ontology/DCM",
+      "display": "Computed Tomography"
+    }
+  ],
+  "numberOfSeries": 1,
+  "numberOfInstances": 120,
+  "started": "2026-03-17T11:18:00+08:00",
+  "description": "CT head without contrast",
+  "series": [
+    {
+      "uid": "1.2.840.113619.2.55.3.604688321.783.1456849848.468",
+      "number": 1,
+      "modality": {
+        "code": "CT",
+        "system": "http://dicom.nema.org/resources/ontology/DCM",
+        "display": "Computed Tomography"
+      },
+      "description": "Axial head",
+      "numberOfInstances": 120
+    }
+  ]
+}

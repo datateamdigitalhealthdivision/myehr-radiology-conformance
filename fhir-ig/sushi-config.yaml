@@ -1,0 +1,61 @@
+id: my.moh.kkmhub.myehr.radiology
+canonical: https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology
+name: MYRadiologyImplementationGuide
+title: Malaysian National Radiology Interoperability And Conformance Guide
+description: Draft national FHIR R4 radiology implementation guide for Malaysia, aligned to the national MY Core baseline and published as the computable core of a wider one-repository radiology conformance specification.
+status: draft
+version: 0.1.0
+fhirVersion: 4.0.1
+copyrightYear: 2026+
+releaseLabel: ci-build
+license: Apache-2.0
+publisher:
+  name: Data Team, Digital Health Division, Ministry of Health Malaysia
+  url: https://github.com/datateamdigitalhealthdivision
+contact:
+  - name: Data Team, Digital Health Division, Ministry of Health Malaysia
+    telecom:
+      - system: url
+        value: https://github.com/datateamdigitalhealthdivision
+dependencies:
+  # The core R4 package is implied by fhirVersion and should not be repeated here,
+  # otherwise the publisher emits a duplicate package dependency during packaging.
+  # Official MY Core publication endpoint provided for this repository currently advertises
+  # hl7.fhir.uv.mycore#1.0.0 as of 2026-03-18. The national policy target remains MY Core v1.0.1.
+  hl7.fhir.uv.mycore: 1.0.0
+pages:
+  index.md:
+    title: Home
+  overview.md:
+    title: Overview
+  conformance-model.md:
+    title: Conformance Model
+  workflow-summary.md:
+    title: Workflow Summary
+  terminology.md:
+    title: Terminology
+  security.md:
+    title: Security
+  testing.md:
+    title: Testing
+  downloads.md:
+    title: Downloads
+menu:
+  Home: index.html
+  Overview: overview.html
+  Conformance Model: conformance-model.html
+  Workflow Summary: workflow-summary.html
+  Terminology: terminology.html
+  Security: security.html
+  Testing: testing.html
+  Downloads: downloads.html
+parameters:
+  path-resource:
+    - input/resources
+  special-url-base:
+    - https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology
+  special-url:
+    - https://terminology.kkmhub.moh.gov.my/CodeSystem/radlex-imaging-procedures
+  show-inherited-invariants: false
+  usage-stats-opt-out: true
+  excludettl: true

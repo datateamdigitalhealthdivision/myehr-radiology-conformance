@@ -1,0 +1,43 @@
+{
+  "resourceType": "Appointment",
+  "id": "my-radiology-appointment-example",
+  "meta": {
+    "profile": [
+      "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-appointment"
+    ]
+  },
+  "status": "booked",
+  "serviceType": [
+    {
+      "text": "CT"
+    }
+  ],
+  "basedOn": [
+    {
+      "reference": "ServiceRequest/my-radiology-service-request-example"
+    }
+  ],
+  "description": "CT head without contrast",
+  "start": "2026-03-17T11:00:00+08:00",
+  "end": "2026-03-17T11:30:00+08:00",
+  "participant": [
+    {
+      "actor": {
+        "reference": "Patient/my-patient-example"
+      },
+      "status": "accepted"
+    },
+    {
+      "actor": {
+        "reference": "Location/my-location-example"
+      },
+      "status": "accepted"
+    }
+  ],
+  "supportingInformation": [
+    {
+      "reference": "ServiceRequest/my-radiology-service-request-example"
+    }
+  ],
+  "comment": "No oral intake restriction required."
+}

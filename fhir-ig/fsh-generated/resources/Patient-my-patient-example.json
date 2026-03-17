@@ -1,0 +1,20 @@
+{
+  "resourceType": "Patient",
+  "id": "my-patient-example",
+  "identifier": [
+    {
+      "system": "https://myhrn.kkmhub.moh.gov.my/id/patient",
+      "value": "MYHRN-0000001234"
+    }
+  ],
+  "name": [
+    {
+      "family": "Ahmad",
+      "given": [
+        "Aisyah"
+      ]
+    }
+  ],
+  "gender": "female",
+  "birthDate": "1980-04-12"
+}

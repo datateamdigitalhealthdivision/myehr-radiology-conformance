@@ -1,0 +1,32 @@
+{
+  "resourceType": "ValueSet",
+  "status": "draft",
+  "name": "MYRadiologyFindingCodeVS",
+  "id": "my-radiology-finding-code-vs",
+  "title": "MY Radiology Finding Code ValueSet",
+  "description": "Placeholder binding envelope for structured radiology findings or measurements using SNOMED CT or LOINC.",
+  "url": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/ValueSet/my-radiology-finding-code-vs",
+  "experimental": false,
+  "compose": {
+    "include": [
+      {
+        "system": "http://snomed.info/sct",
+        "concept": [
+          {
+            "code": "118247008",
+            "display": "Radiologic finding"
+          }
+        ]
+      },
+      {
+        "system": "http://loinc.org",
+        "concept": [
+          {
+            "code": "18748-4",
+            "display": "Diagnostic imaging study"
+          }
+        ]
+      }
+    ]
+  }
+}

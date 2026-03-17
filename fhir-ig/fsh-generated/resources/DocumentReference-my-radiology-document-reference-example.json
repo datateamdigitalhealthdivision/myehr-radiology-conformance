@@ -1,0 +1,45 @@
+{
+  "resourceType": "DocumentReference",
+  "id": "my-radiology-document-reference-example",
+  "meta": {
+    "profile": [
+      "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-document-reference"
+    ]
+  },
+  "status": "current",
+  "docStatus": "final",
+  "type": {
+    "coding": [
+      {
+        "code": "18748-4",
+        "system": "http://loinc.org",
+        "display": "Diagnostic imaging study"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/my-patient-example"
+  },
+  "date": "2026-03-17T12:15:00+08:00",
+  "author": [
+    {
+      "reference": "Practitioner/my-practitioner-example"
+    }
+  ],
+  "description": "Packaged final radiology report document.",
+  "content": [
+    {
+      "attachment": {
+        "contentType": "application/pdf",
+        "url": "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/Binary/example-report-pdf"
+      }
+    }
+  ],
+  "context": {
+    "encounter": [
+      {
+        "reference": "Encounter/my-encounter-example"
+      }
+    ]
+  }
+}

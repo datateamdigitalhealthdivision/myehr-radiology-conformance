@@ -1,0 +1,59 @@
+{
+  "resourceType": "CapabilityStatement",
+  "id": "my-radiology-pacs-metadata-publisher",
+  "url": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/CapabilityStatement/my-radiology-pacs-metadata-publisher",
+  "version": "0.1.0",
+  "name": "MYRadiologyPACSMetadataPublisherCapabilityStatement",
+  "title": "MY Radiology PACS Metadata Publisher CapabilityStatement",
+  "status": "draft",
+  "date": "2026-03-17",
+  "publisher": "Data Team, Digital Health Division, Ministry of Health Malaysia",
+  "kind": "requirements",
+  "fhirVersion": "4.0.1",
+  "format": [
+    "json",
+    "xml"
+  ],
+  "description": "Server capability expectations for a PACS or VNA exposing FHIR-facing imaging metadata for consumers.",
+  "rest": [
+    {
+      "mode": "server",
+      "resource": [
+        {
+          "type": "ImagingStudy",
+          "profile": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-imaging-study",
+          "interaction": [
+            {
+              "code": "read"
+            },
+            {
+              "code": "search-type"
+            }
+          ],
+          "searchParam": [
+            {
+              "name": "identifier",
+              "type": "token"
+            },
+            {
+              "name": "subject",
+              "type": "reference"
+            }
+          ]
+        },
+        {
+          "type": "DocumentReference",
+          "profile": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-document-reference",
+          "interaction": [
+            {
+              "code": "read"
+            },
+            {
+              "code": "search-type"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

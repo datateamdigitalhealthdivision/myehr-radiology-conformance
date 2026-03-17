@@ -1,0 +1,21 @@
+{
+  "resourceType": "ServiceRequest",
+  "meta": {
+    "profile": [
+      "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-service-request"
+    ]
+  },
+  "status": "active",
+  "intent": "order",
+  "identifier": [
+    {
+      "system": "https://sandbox.myehr.kkmhub.moh.gov.my/id/radiology-order",
+      "value": "RAD-ORD-20260317-9999"
+    }
+  ],
+  "subject": {
+    "reference": "Patient/my-patient-example"
+  },
+  "authoredOn": "2026-03-17T09:15:00+08:00"
+}
+
