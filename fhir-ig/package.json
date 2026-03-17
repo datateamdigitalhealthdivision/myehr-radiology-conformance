@@ -1,0 +1,13 @@
+{
+  "name": "my-moh-kkmhub-myehr-radiology-ig",
+  "private": true,
+  "scripts": {
+    "validate": "bash ./scripts/validate.sh",
+    "build": "bash ./scripts/build.sh",
+    "validate:ps": "powershell -ExecutionPolicy Bypass -File ./scripts/validate.ps1",
+    "build:ps": "powershell -ExecutionPolicy Bypass -File ./scripts/build.ps1"
+  },
+  "devDependencies": {
+    "fsh-sushi": "^3.18.1"
+  }
+}

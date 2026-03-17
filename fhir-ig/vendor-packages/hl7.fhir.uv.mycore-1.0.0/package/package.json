@@ -1,0 +1,24 @@
+{
+  "name": "hl7.fhir.uv.mycore",
+  "version": "1.0.0",
+  "tools-version": 3,
+  "type": "IG",
+  "date": "20251201105400",
+  "license": "CC0-1.0",
+  "canonical": "http://hl7.org/fhir/uv/mycore",
+  "url": "http://hl7.org/fhir/uv/mycore/1.0.0",
+  "title": "Malaysia Core FHIR Implementation Guide",
+  "description": "Vendored snapshot of the officially published MY Core package resources sourced from https://mysejahtera.malaysia.gov.my/ig-mycore/en/ on 2026-03-18 to stabilise downstream builds.",
+  "fhirVersions": [
+    "4.0.1"
+  ],
+  "dependencies": {
+    "hl7.fhir.r4.core": "4.0.1"
+  },
+  "author": "Malaysia MOH - HIE Steering Committee",
+  "homepage": "https://mysejahtera.malaysia.gov.my/ig-mycore/en/",
+  "directories": {
+    "lib": "package"
+  }
+}
+

@@ -1,0 +1,58 @@
+name: Build IG
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: fhir-ig
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install Node dependencies
+        run: npm ci
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+
+      - name: Install Jekyll
+        run: gem install bundler jekyll
+
+      - name: Make scripts executable
+        run: chmod +x scripts/*.sh
+
+      - name: Validate FSH
+        run: ./scripts/validate.sh
+
+      - name: Build implementation guide
+        run: ./scripts/build.sh
+
+      - name: Upload build artefacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: my-radiology-ig-build
+          path: |
+            fhir-ig/output
+            fhir-ig/fsh-generated/resources
+          if-no-files-found: error
+          retention-days: 30

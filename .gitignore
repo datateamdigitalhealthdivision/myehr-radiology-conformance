@@ -1,0 +1,31 @@
+# Node and SUSHI
+node_modules/
+.fhir/
+
+# IG Publisher output
+fhir-ig/output/
+fhir-ig/temp/
+fhir-ig/input-cache/
+fhir-ig/template/
+fhir-ig/translations/
+fhir-ig/.publisher/
+fhir-ig/.txCache/
+fhir-ig/fsh-generated/data/
+fhir-ig/fsh-generated/includes/
+fhir-ig/fsh-generated/fsh-index.txt
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS and editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Local environment
+.env
+.env.*
+.npm-cache/
+tools/
