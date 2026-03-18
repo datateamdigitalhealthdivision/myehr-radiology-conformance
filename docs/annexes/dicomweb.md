@@ -40,4 +40,3 @@ Authorisation patterns for DICOMweb are `PROVISIONAL`. Implementers should assum
 - preserve `StudyInstanceUID`, series, and instance identifiers exactly
 - support content negotiation where rendered retrieval is used
 - return safe and clear errors for missing studies or denied access
-

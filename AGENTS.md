@@ -48,4 +48,3 @@ Future coding agents working in this repository must preserve the following arch
 - Keep explanatory comments brief and high-signal.
 - Prefer clear TODO markers over hidden assumptions.
 - When uncertain about a national operational detail, scaffold the best draft and document the decision gap.
-

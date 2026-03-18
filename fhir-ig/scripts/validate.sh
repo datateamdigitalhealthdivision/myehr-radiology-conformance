@@ -8,7 +8,11 @@ cd "${ROOT_DIR}"
 export HOME="${WORKSPACE_ROOT}"
 export USERPROFILE="${WORKSPACE_ROOT}"
 
-if ! command -v sushi >/dev/null 2>&1; then
+if [[ -x "./node_modules/.bin/sushi" ]]; then
+  SUSHI_CMD="./node_modules/.bin/sushi"
+elif command -v sushi >/dev/null 2>&1; then
+  SUSHI_CMD="$(command -v sushi)"
+else
   echo "fsh-sushi is required but was not found on PATH." >&2
   exit 1
 fi
@@ -16,7 +20,7 @@ fi
 ./scripts/seed-mycore.sh
 
 echo "Validating FSH syntax with SUSHI..."
-sushi .
+"${SUSHI_CMD}" .
 
 if [[ ! -d "fsh-generated/resources" ]]; then
   echo "Expected generated resources were not created." >&2

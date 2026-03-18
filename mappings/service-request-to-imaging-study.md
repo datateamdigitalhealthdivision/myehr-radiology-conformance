@@ -16,4 +16,3 @@ The order and the resulting DICOM study are related but not identical. The `Serv
 ## Operational caveat
 
 One request may yield more than one study in edge cases such as split acquisitions or repeat imaging. Implementers should not assume a rigid one-to-one relationship.
-

@@ -13,4 +13,3 @@ This mapping note complements the main identifier chapter.
 ## DICOM alignment
 
 Where DICOM identifiers are surfaced in FHIR, the identifier system URI should remain stable and the actual UID or accession value should remain unchanged by format decoration.
-

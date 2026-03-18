@@ -21,4 +21,3 @@ Use one repository for:
 - vendors can find the computable and narrative artefacts in one place
 - changes to profiles can be reviewed together with workflow and security implications
 - publication remains simpler, with GitHub Pages and release assets managed together
-

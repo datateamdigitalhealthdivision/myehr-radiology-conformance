@@ -98,4 +98,3 @@ Narrative reporting remains the primary pattern in this first draft. Structured 
 
 - national rules for addendum versus amendment semantics are `TO BE CONFIRMED`
 - the role of DICOM SR in the national baseline remains `TO BE CONFIRMED`
-

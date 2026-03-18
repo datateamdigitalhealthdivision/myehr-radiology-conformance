@@ -20,4 +20,3 @@ The authoritative worklist content remains DICOM Modality Worklist or an equival
 - accession identifier maps from `ServiceRequest.identifier` using the accession slice
 - patient and encounter context map from linked references
 - scheduling context can map from `Appointment` or locally managed RIS scheduling
-

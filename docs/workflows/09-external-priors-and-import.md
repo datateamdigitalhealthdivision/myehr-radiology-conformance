@@ -95,4 +95,3 @@ Imported studies should not be silently normalised in ways that erase source pro
 
 - national policy for virtual versus physical import is `TO BE CONFIRMED`
 - patient identity reconciliation governance is `TO BE CONFIRMED`
-

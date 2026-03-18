@@ -48,4 +48,3 @@ The future validation environment or test harness that checks payload conformanc
 ## Responsibility boundaries
 
 The RIS remains the operational workflow authority for order fulfilment and status. The archive remains the authority for stored image objects. The reporting system or RIS remains the authority for report state. FHIR exposes and synchronises these states but does not replace operational ownership.
-

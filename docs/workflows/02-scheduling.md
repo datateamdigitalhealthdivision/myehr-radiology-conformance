@@ -95,4 +95,3 @@ FHIR `Appointment` is recommended but not mandatory in every local deployment. I
 
 - national rule for when `Appointment` is mandatory remains `TO BE CONFIRMED`
 - patient-facing notification behaviour is outside this first draft
-

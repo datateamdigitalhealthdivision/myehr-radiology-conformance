@@ -17,4 +17,3 @@ Derive from MY Core v1.0.1 for generic resources such as Patient, Encounter, Pra
 - implementers have fewer profiles to learn
 - the radiology guide stays focused on domain-specific behaviour
 - future MY Core updates remain the main dependency management concern
-

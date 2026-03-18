@@ -21,4 +21,3 @@ Workflow-specific chapters are in [`/docs/workflows`](./workflows) and technical
 - `TO BE CONFIRMED` means a national decision is still required.
 - `EXAMPLE ONLY` means the content is illustrative and not a mandated production value.
 - `DRAFT POLICY OPTION` means more than one nationally acceptable route remains open.
-

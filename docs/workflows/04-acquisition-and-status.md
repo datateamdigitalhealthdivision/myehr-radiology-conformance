@@ -95,4 +95,3 @@ Map operational detail carefully. DICOM performed procedure granularity may not 
 
 - the exact national mapping between MPPS outcomes and `Task` values remains `TO BE CONFIRMED`
 - handling of partially completed acquisitions requires further national policy work
-

@@ -17,4 +17,3 @@ The detailed workflow chapters live in the repository documentation and cover:
 Reference source:
 
 - [Workflow chapter directory](https://github.com/datateamdigitalhealthdivision/myehr-radiology-conformance/tree/main/docs/workflows)
-

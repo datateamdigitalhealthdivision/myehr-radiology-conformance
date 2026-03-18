@@ -16,4 +16,3 @@ The national conformance model is actor-based.
 - honour the search and interaction behaviour declared in the applicable CapabilityStatement
 - preserve identifier linkage between order, procedure, study, and report
 - treat provisional endpoint and identifier content as configurable rather than fixed
-

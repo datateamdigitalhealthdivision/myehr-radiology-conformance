@@ -34,4 +34,3 @@ Formatting conveniences must not alter the underlying identifier value.
 - order and worklist preparation: [`../workflows/03-worklist-distribution.md`](../workflows/03-worklist-distribution.md)
 - acquisition status: [`../workflows/04-acquisition-and-status.md`](../workflows/04-acquisition-and-status.md)
 - storage and archive confirmation: [`../workflows/05-storage-and-commitment.md`](../workflows/05-storage-and-commitment.md)
-

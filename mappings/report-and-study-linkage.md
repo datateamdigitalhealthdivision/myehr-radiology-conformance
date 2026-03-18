@@ -13,4 +13,3 @@ This note defines the preferred linkage between radiology reports and imaging st
 ## DocumentReference use
 
 Use `DocumentReference` only when packaging a report document, supporting cross-enterprise sharing, or representing a document-centric exchange requirement. Do not use it as a routine substitute for `DiagnosticReport`.
-

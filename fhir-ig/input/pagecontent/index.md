@@ -19,4 +19,3 @@ The full narrative conformance chapters are maintained in the same repository un
 ## Provisional notice
 
 Identifier URIs, operational endpoints, and some deployment policies remain provisional and are marked clearly throughout this guide.
-

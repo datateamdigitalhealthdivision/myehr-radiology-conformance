@@ -56,4 +56,3 @@ Assertions should be written so that they can later be converted into executable
 ## Current maturity
 
 This first draft includes structured test folders, sample scenarios, and validation guidance. It does not yet include a national executable certification service.
-

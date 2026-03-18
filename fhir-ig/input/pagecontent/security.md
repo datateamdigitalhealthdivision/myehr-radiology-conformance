@@ -12,4 +12,3 @@ The FHIR layer assumes OAuth2 and SMART on FHIR with sandbox-first implementatio
 ## Reminder
 
 Imaging endpoint trust, archive access control, and audit expectations are part of the wider national conformance repository and not only this FHIR package.
-

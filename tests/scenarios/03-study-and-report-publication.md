@@ -19,4 +19,3 @@ Publish performed procedure, study metadata, and final report.
 - `ImagingStudy` references the originating order
 - `DiagnosticReport` references the imaging study
 - optional structured findings are linked through `DiagnosticReport.result`
-

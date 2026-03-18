@@ -30,4 +30,3 @@ The supplier shall provide evidence of conformance through:
 ## Example provisional wording
 
 Where national identifiers, endpoint roots, or authorisation metadata remain provisional at the time of procurement, the supplier shall implement a configurable design that can adopt the final national values without material redesign.
-

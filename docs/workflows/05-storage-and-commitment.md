@@ -95,4 +95,3 @@ The national conformance layer does not dictate one archive product model. It re
 
 - whether storage commitment is phase-1 mandatory remains `TO BE CONFIRMED`
 - the trigger point for publishing `ImagingStudy` metadata remains `TO BE CONFIRMED`
-

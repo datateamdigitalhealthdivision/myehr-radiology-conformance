@@ -17,4 +17,3 @@ Use `main` as the active working branch, GitHub Pages for the rendered guide, se
 - vendors can track a stable release line and a newer continuous build
 - publication remains lightweight and transparent
 - future formal governance can extend rather than replace this model
-

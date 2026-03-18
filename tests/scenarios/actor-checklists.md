@@ -27,4 +27,3 @@
 
 - can retrieve examples and declared capabilities
 - can distinguish valid and invalid payloads
-

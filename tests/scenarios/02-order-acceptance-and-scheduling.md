@@ -18,4 +18,3 @@ Update workflow state and create an `Appointment` where scheduling is exposed th
 - `Task.businessStatus` moves to `scheduled`
 - the appointment references the originating order
 - cancelled or rescheduled bookings remain traceable
-

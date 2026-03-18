@@ -24,4 +24,3 @@ Submit a `ServiceRequest` using the `MYRadiologyServiceRequest` profile.
 - reject a missing requested procedure
 - reject missing patient linkage
 - reject an unsupported identifier structure if local rules require it
-

@@ -92,4 +92,3 @@ This capability is likely phased. The first draft therefore documents it clearly
 
 - whether `XDS-I.b` is phase-1 mandatory is `TO BE CONFIRMED`
 - whether `XCA-I` is needed nationally remains `TO BE CONFIRMED`
-

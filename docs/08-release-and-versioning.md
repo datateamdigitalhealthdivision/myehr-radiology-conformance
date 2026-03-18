@@ -40,4 +40,3 @@ The IG package-list should expose:
 ## Versioning guidance for breaking changes
 
 While the repository remains pre-1.0, any materially breaking change should still be documented clearly in release notes and ADRs. Once a national baseline is stabilised, versioning policy can be tightened further.
-

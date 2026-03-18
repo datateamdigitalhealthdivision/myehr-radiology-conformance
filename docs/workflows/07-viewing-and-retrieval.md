@@ -92,4 +92,3 @@ The national pattern favours stable identifier-based retrieval rather than ad ho
 
 - the final national viewer launch pattern is `TO BE CONFIRMED`
 - whether rendered retrieval is mandatory in sandbox is `TO BE CONFIRMED`
-

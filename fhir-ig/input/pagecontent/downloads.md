@@ -11,4 +11,3 @@ Vendors should be able to obtain:
 ## Consumption notes
 
 Use the package to load local validators or server implementations, then use the examples and CapabilityStatements to align runtime behaviour.
-

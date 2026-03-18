@@ -17,4 +17,3 @@ Use clearly labelled provisional naming systems, markdown guidance, and example-
 - vendors can build configurable systems now
 - the repository stays honest about what remains unsettled
 - later finalisation should require configuration change rather than redesign
-

@@ -49,4 +49,3 @@ The following are intentionally out of scope or only lightly scaffolded:
 ## Publication intent
 
 This repository is intended to publish first to GitHub Pages and GitHub Releases, then later be linked from an official Ministry of Health web presence. Vendors should be able to consume either the rendered guide or the downloadable package.
-

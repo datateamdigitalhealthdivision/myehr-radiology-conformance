@@ -104,4 +104,3 @@ These are example endpoint roots only and are not final production decisions.
 - Final package and hosting path for MY Core v1.0.1 should be confirmed for production validator pipelines.
 - Final accession identifier issuing authority is `TO BE CONFIRMED`.
 - The national URI policy for provisional identifier systems is `TO BE CONFIRMED`.
-

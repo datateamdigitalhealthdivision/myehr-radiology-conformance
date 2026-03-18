@@ -45,4 +45,3 @@ This draft supports three practical conformance views:
 ## Document maintenance
 
 When computable artefacts change, the corresponding narrative chapters, examples, and tests must be updated in the same pull request. Drift between profiles and prose is considered a quality defect.
-

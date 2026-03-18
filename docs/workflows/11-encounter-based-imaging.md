@@ -99,4 +99,3 @@ This chapter exists to support real emergency behaviour while still keeping down
 
 - national policy for temporary identifiers in urgent imaging is `TO BE CONFIRMED`
 - minimum data set before image acquisition is `TO BE CONFIRMED`
-

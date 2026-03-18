@@ -16,4 +16,3 @@ This guide profiles the radiology-specific FHIR-facing layer for Malaysia while 
 ## Scope reminder
 
 This guide does not replace DICOM, DICOMweb, or IHE workflow. Those remain part of the national conformance stack and are documented in the repository narrative chapters.
-

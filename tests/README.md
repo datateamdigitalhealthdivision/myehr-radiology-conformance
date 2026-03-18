@@ -20,4 +20,3 @@ The assets in this directory are intended for:
 ## Growth path
 
 The long-term intent is to add executable validation logic, actor-specific checklists, and eventually a national validation harness aligned to the CapabilityStatements in the FHIR IG.
-

@@ -99,4 +99,3 @@ Keep the order payload practical. Do not require radiology-specific extensions u
 
 - exact accession assignment point is `TO BE CONFIRMED`
 - national business rule for mandatory encounter linkage is `TO BE CONFIRMED`
-

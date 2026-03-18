@@ -94,4 +94,3 @@ FHIR is not a substitute for Modality Worklist. It provides surrounding interope
 
 - minimum timing expectation for worklist refresh is `TO BE CONFIRMED`
 - national conventions for modality-side caching are `TO BE CONFIRMED`
-

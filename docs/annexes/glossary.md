@@ -39,4 +39,3 @@ Radiology information system.
 ## StudyInstanceUID
 
 The DICOM unique identifier for the imaging study.
-

@@ -27,4 +27,3 @@ This annex describes how document and imaging sharing patterns may be applied wh
 ## Implementation note
 
 This repository does not treat XDS-based exchange as a replacement for the local radiology workflow model. It is an additional sharing pattern where national policy requires it.
-

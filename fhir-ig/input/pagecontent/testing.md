@@ -12,4 +12,3 @@ This guide is accompanied by repository-level test assets under `tests/`.
 ## Repository source
 
 - [Test assets directory](https://github.com/datateamdigitalhealthdivision/myehr-radiology-conformance/tree/main/tests)
-
