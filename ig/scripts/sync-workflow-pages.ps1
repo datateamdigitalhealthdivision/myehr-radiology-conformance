@@ -33,5 +33,5 @@ foreach ($WorkflowPage in $WorkflowPages) {
   ) -join "`r`n"
 
   $Content = (Get-Content $SourcePath -Raw).TrimEnd()
-  Set-Content -Path $DestinationPath -Value ($Content + "`r`n`r`n" + $Footer + "`r`n") -Encoding UTF8
+  Set-Content -Path $DestinationPath -Value ($Content + "`r`n`r`n" + $Footer) -Encoding UTF8
 }

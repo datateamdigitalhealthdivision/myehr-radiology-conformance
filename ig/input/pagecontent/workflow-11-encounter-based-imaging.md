@@ -106,4 +106,3 @@ This chapter exists to support real emergency behaviour while still keeping down
 - [FHIR Artefacts](fhir-artefacts.html)
 - [Technical Annexes](annexes.html)
 - Maintained source markdown: [docs/04-workflows/11-encounter-based-imaging.md](https://github.com/datateamdigitalhealthdivision/myehr-radiology-conformance/blob/main/docs/04-workflows/11-encounter-based-imaging.md)
-

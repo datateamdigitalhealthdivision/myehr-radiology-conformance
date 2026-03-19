@@ -102,4 +102,3 @@ Imported studies should not be silently normalised in ways that erase source pro
 - [FHIR Artefacts](fhir-artefacts.html)
 - [Technical Annexes](annexes.html)
 - Maintained source markdown: [docs/04-workflows/09-external-priors.md](https://github.com/datateamdigitalhealthdivision/myehr-radiology-conformance/blob/main/docs/04-workflows/09-external-priors.md)
-

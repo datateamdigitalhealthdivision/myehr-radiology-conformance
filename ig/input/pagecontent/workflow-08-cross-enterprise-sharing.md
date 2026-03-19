@@ -99,4 +99,3 @@ This capability is likely phased. The first draft therefore documents it clearly
 - [FHIR Artefacts](fhir-artefacts.html)
 - [Technical Annexes](annexes.html)
 - Maintained source markdown: [docs/04-workflows/08-cross-enterprise-sharing.md](https://github.com/datateamdigitalhealthdivision/myehr-radiology-conformance/blob/main/docs/04-workflows/08-cross-enterprise-sharing.md)
-

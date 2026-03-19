@@ -102,4 +102,3 @@ The national conformance layer does not dictate one archive product model. It re
 - [FHIR Artefacts](fhir-artefacts.html)
 - [Technical Annexes](annexes.html)
 - Maintained source markdown: [docs/04-workflows/05-storage-and-commitment.md](https://github.com/datateamdigitalhealthdivision/myehr-radiology-conformance/blob/main/docs/04-workflows/05-storage-and-commitment.md)
-

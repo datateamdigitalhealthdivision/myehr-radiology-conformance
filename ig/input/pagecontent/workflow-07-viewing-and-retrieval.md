@@ -99,4 +99,3 @@ The national pattern favours stable identifier-based retrieval rather than ad ho
 - [FHIR Artefacts](fhir-artefacts.html)
 - [Technical Annexes](annexes.html)
 - Maintained source markdown: [docs/04-workflows/07-viewing-and-retrieval.md](https://github.com/datateamdigitalhealthdivision/myehr-radiology-conformance/blob/main/docs/04-workflows/07-viewing-and-retrieval.md)
-

@@ -30,6 +30,6 @@ for entry in "${WORKFLOW_PAGES[@]}"; do
     printf '%s\n' '- [Workflow Summary](workflow-summary.html)'
     printf '%s\n' '- [FHIR Artefacts](fhir-artefacts.html)'
     printf '%s\n' '- [Technical Annexes](annexes.html)'
-    printf '%s\n' "- Maintained source markdown: [${source_file}](${source_url})"
+    printf '%s' "- Maintained source markdown: [${source_file}](${source_url})"
   } > "${ROOT_DIR}/${destination_file}"
 done

@@ -101,4 +101,3 @@ FHIR is not a substitute for Modality Worklist. It provides surrounding interope
 - [FHIR Artefacts](fhir-artefacts.html)
 - [Technical Annexes](annexes.html)
 - Maintained source markdown: [docs/04-workflows/03-modality-worklist.md](https://github.com/datateamdigitalhealthdivision/myehr-radiology-conformance/blob/main/docs/04-workflows/03-modality-worklist.md)
-

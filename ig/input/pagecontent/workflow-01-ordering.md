@@ -106,4 +106,3 @@ Keep the order payload practical. Do not require radiology-specific extensions u
 - [FHIR Artefacts](fhir-artefacts.html)
 - [Technical Annexes](annexes.html)
 - Maintained source markdown: [docs/04-workflows/01-ordering.md](https://github.com/datateamdigitalhealthdivision/myehr-radiology-conformance/blob/main/docs/04-workflows/01-ordering.md)
-

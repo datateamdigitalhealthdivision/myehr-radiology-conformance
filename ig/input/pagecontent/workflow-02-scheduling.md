@@ -102,4 +102,3 @@ FHIR `Appointment` is recommended but not mandatory in every local deployment. I
 - [FHIR Artefacts](fhir-artefacts.html)
 - [Technical Annexes](annexes.html)
 - Maintained source markdown: [docs/04-workflows/02-scheduling.md](https://github.com/datateamdigitalhealthdivision/myehr-radiology-conformance/blob/main/docs/04-workflows/02-scheduling.md)
-

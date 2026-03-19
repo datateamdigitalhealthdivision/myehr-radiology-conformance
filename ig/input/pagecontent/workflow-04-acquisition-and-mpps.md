@@ -102,4 +102,3 @@ Map operational detail carefully. DICOM performed procedure granularity may not 
 - [FHIR Artefacts](fhir-artefacts.html)
 - [Technical Annexes](annexes.html)
 - Maintained source markdown: [docs/04-workflows/04-acquisition-and-mpps.md](https://github.com/datateamdigitalhealthdivision/myehr-radiology-conformance/blob/main/docs/04-workflows/04-acquisition-and-mpps.md)
-

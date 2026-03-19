@@ -105,4 +105,3 @@ Narrative reporting remains the primary pattern in this first draft. Structured 
 - [FHIR Artefacts](fhir-artefacts.html)
 - [Technical Annexes](annexes.html)
 - Maintained source markdown: [docs/04-workflows/06-reporting.md](https://github.com/datateamdigitalhealthdivision/myehr-radiology-conformance/blob/main/docs/04-workflows/06-reporting.md)
-
