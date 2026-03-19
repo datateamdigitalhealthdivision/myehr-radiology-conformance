@@ -489,6 +489,61 @@
           "generation": "markdown"
         },
         {
+          "nameUrl": "workflow-01-ordering.html",
+          "title": "Workflow 01 Ordering",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "workflow-02-scheduling.html",
+          "title": "Workflow 02 Scheduling",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "workflow-03-modality-worklist.html",
+          "title": "Workflow 03 Modality Worklist",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "workflow-04-acquisition-and-mpps.html",
+          "title": "Workflow 04 Acquisition And MPPS",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "workflow-05-storage-and-commitment.html",
+          "title": "Workflow 05 Storage And Commitment",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "workflow-06-reporting.html",
+          "title": "Workflow 06 Reporting",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "workflow-07-viewing-and-retrieval.html",
+          "title": "Workflow 07 Viewing And Retrieval",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "workflow-08-cross-enterprise-sharing.html",
+          "title": "Workflow 08 Cross-Enterprise Sharing",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "workflow-09-external-priors.html",
+          "title": "Workflow 09 External Priors",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "workflow-10-corrections-iocm.html",
+          "title": "Workflow 10 Corrections And IOCM",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "workflow-11-encounter-based-imaging.html",
+          "title": "Workflow 11 Encounter-Based Imaging",
+          "generation": "markdown"
+        },
+        {
           "nameUrl": "fhir-artefacts.html",
           "title": "FHIR Artefacts",
           "generation": "markdown"

@@ -18,6 +18,7 @@ else
 fi
 
 ./scripts/sync-fsh-inputs.sh
+./scripts/sync-workflow-pages.sh
 ./scripts/seed-mycore.sh
 
 echo "Validating FSH syntax with SUSHI..."

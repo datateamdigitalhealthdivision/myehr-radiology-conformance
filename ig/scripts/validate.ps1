@@ -18,6 +18,7 @@ $SushiCommand = if (Test-Path $LocalSushi) {
 }
 
 & (Join-Path $PSScriptRoot 'sync-fsh-inputs.ps1')
+& (Join-Path $PSScriptRoot 'sync-workflow-pages.ps1')
 & (Join-Path $PSScriptRoot 'seed-mycore.ps1')
 
 Write-Host 'Validating FSH syntax with SUSHI...'

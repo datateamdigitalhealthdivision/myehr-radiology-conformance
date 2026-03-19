@@ -34,6 +34,28 @@ pages:
     title: Conformance Model
   workflow-summary.md:
     title: Workflow Summary
+  workflow-01-ordering.md:
+    title: Workflow 01 Ordering
+  workflow-02-scheduling.md:
+    title: Workflow 02 Scheduling
+  workflow-03-modality-worklist.md:
+    title: Workflow 03 Modality Worklist
+  workflow-04-acquisition-and-mpps.md:
+    title: Workflow 04 Acquisition And MPPS
+  workflow-05-storage-and-commitment.md:
+    title: Workflow 05 Storage And Commitment
+  workflow-06-reporting.md:
+    title: Workflow 06 Reporting
+  workflow-07-viewing-and-retrieval.md:
+    title: Workflow 07 Viewing And Retrieval
+  workflow-08-cross-enterprise-sharing.md:
+    title: Workflow 08 Cross-Enterprise Sharing
+  workflow-09-external-priors.md:
+    title: Workflow 09 External Priors
+  workflow-10-corrections-iocm.md:
+    title: Workflow 10 Corrections And IOCM
+  workflow-11-encounter-based-imaging.md:
+    title: Workflow 11 Encounter-Based Imaging
   fhir-artefacts.md:
     title: FHIR Artefacts
   terminology.md:

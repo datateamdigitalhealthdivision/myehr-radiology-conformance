@@ -25,6 +25,7 @@ Future coding agents working in this repository must preserve the following arch
 - Use British spelling throughout.
 - Keep the repository partner-facing and implementer-friendly.
 - When profiles change, update the narrative documentation in `/docs`, `/annexes`, and the IG page content in `/ig/input/pagecontent`.
+- Treat `/docs/04-workflows` as the maintained workflow narrative source. The internal IG workflow chapter pages are synchronised from those files via `/ig/scripts/sync-workflow-pages.ps1` and `/ig/scripts/sync-workflow-pages.sh`.
 - Ensure workflow chapters cross-reference the relevant FHIR artefacts and annexes.
 - Explain provisional areas openly rather than presenting them as settled national policy.
 - Use the placeholder markers `PROVISIONAL`, `TO BE CONFIRMED`, `EXAMPLE ONLY`, and `DRAFT POLICY OPTION` consistently.
