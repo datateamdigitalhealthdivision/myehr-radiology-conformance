@@ -2,7 +2,7 @@
 
 ## Role of DICOM in the national stack
 
-DICOM remains the normative imaging transport and metadata standard for acquisition, storage, and archive interoperability. The FHIR implementation guide in this repository does not replace DICOM. It provides the outward-facing workflow, metadata, and conformance layer that vendors can consume more easily for national integration.
+DICOM remains the normative imaging transport and metadata standard for acquisition, storage, and archive interoperability. The FHIR implementation guide in this repository does not replace DICOM. It provides the outward-facing workflow, metadata, and conformance layer that implementation partners can consume more easily for national integration.
 
 ## Core conformance expectations
 
@@ -31,6 +31,6 @@ Formatting conveniences must not alter the underlying identifier value.
 
 ## Relationship to workflow chapters
 
-- order and worklist preparation: [`../workflows/03-worklist-distribution.md`](../workflows/03-worklist-distribution.md)
-- acquisition status: [`../workflows/04-acquisition-and-status.md`](../workflows/04-acquisition-and-status.md)
-- storage and archive confirmation: [`../workflows/05-storage-and-commitment.md`](../workflows/05-storage-and-commitment.md)
+- order and worklist preparation: [`../../docs/04-workflows/03-modality-worklist.md`](../../docs/04-workflows/03-modality-worklist.md)
+- acquisition status: [`../../docs/04-workflows/04-acquisition-and-mpps.md`](../../docs/04-workflows/04-acquisition-and-mpps.md)
+- storage and archive confirmation: [`../../docs/04-workflows/05-storage-and-commitment.md`](../../docs/04-workflows/05-storage-and-commitment.md)

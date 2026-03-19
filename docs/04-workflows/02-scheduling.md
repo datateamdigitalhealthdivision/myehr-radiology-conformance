@@ -89,7 +89,7 @@ Scheduling visibility should be limited to authorised users and systems. All boo
 
 ## Implementation notes
 
-FHIR `Appointment` is recommended but not mandatory in every local deployment. If scheduling is managed entirely inside the RIS, vendors should still be able to expose equivalent workflow state.
+FHIR `Appointment` is recommended but not mandatory in every local deployment. If scheduling is managed entirely inside the RIS, implementation partners should still be able to expose equivalent workflow state.
 
 ## Open issues or local decisions pending
 

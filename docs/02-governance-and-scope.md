@@ -6,7 +6,7 @@ This repository is designed for national stewardship, not for one-off project de
 
 - transparent change control
 - clear separation between settled requirements and provisional placeholders
-- traceable decisions for vendors, procurers, and policy leads
+- traceable decisions for implementation partners, procurers, and policy leads
 
 ## Governance model
 
@@ -14,7 +14,7 @@ The expected governance pattern is:
 
 - a national standards owner approves policy and conformance direction
 - a technical editorial group curates the IG, annexes, and test assets
-- vendors and implementation sites raise issues through repository-based change requests
+- implementation partners and implementation sites raise issues through repository-based change requests
 - major design changes are reflected in the maintained governance chapters and release notes
 
 ## Scope control
@@ -38,8 +38,8 @@ Where a national decision is not final:
 
 This draft supports three practical conformance views:
 
-- `Core mandatory`: requirements needed for any vendor claiming alignment to the national radiology FHIR layer
-- `Conditional mandatory`: requirements that apply when a vendor implements the relevant workflow function, such as scheduling or viewer retrieval
+- `Core mandatory`: requirements needed for any implementation partner claiming alignment to the national radiology FHIR layer
+- `Conditional mandatory`: requirements that apply when an implementation partner implements the relevant workflow function, such as scheduling or viewer retrieval
 - `Future or optional`: capabilities scaffolded for later maturity, including some cross-enterprise sharing patterns
 
 ## Identifier policy summary

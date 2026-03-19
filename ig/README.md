@@ -51,12 +51,13 @@ The bundled npm dependency is included to make local SUSHI use more reproducible
 The IG is pinned to a repo-local publication template snapshot under `local-template` so builds do not depend on the remote template registry resolving `current` consistently.
 The rendered website step uses Jekyll. The GitHub Actions workflows install Ruby and Jekyll automatically; local Windows builds should do the same before running `npm run build:ps`.
 If a workspace-local RubyInstaller+Devkit is present under `tools/` and gems are installed under `tools/ruby-home/gems`, `build.ps1` will auto-detect that toolchain.
-The repository also includes a vendored MY Core `1.0.0` snapshot sourced from the official publication endpoint so that builds do not depend on the external FHIR package registry serving that package correctly.
+The repository also includes a bundled MY Core `1.0.0` snapshot sourced from the official publication endpoint so that builds do not depend on the external FHIR package registry serving that package correctly.
 
 ## Source layout
 
 - `input/fsh/`: core FSH source files for aliases, profiles, extensions, invariants, and capability statements
-- `input/examples/`: example instance FSH source staged into the SUSHI input tree during build
+- `input/fsh/examples/`: example instance FSH source maintained with the rest of the FSH definitions
+- `input/examples/`: reserved for JSON or XML example resources if direct publisher-managed examples are later required
 - `input/vocab/`: value set and code system FSH source staged into the SUSHI input tree during build
 - `input/pagecontent/`: human-readable page content rendered into the IG website
 
@@ -73,7 +74,7 @@ The repository also includes a vendored MY Core `1.0.0` snapshot sourced from th
 
 ## Package consumption notes
 
-Vendors should be able to:
+Implementation partners should be able to:
 
 - load the package into local validation tooling
 - inspect the generated `StructureDefinition`, `ValueSet`, `CodeSystem`, and `CapabilityStatement` resources

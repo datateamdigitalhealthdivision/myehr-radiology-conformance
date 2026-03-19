@@ -2,7 +2,7 @@
 
 ## Purpose
 
-The national conformance model is actor-based so that vendors can understand their obligations according to system role rather than by reading every artefact in the repository.
+The national conformance model is actor-based so that implementation partners can understand their obligations according to system role rather than by reading every artefact in the repository.
 
 ## Core actors
 

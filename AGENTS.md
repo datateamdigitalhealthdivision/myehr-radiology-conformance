@@ -23,7 +23,7 @@ Future coding agents working in this repository must preserve the following arch
 ## Documentation rules
 
 - Use British spelling throughout.
-- Keep the repository vendor-facing and implementer-friendly.
+- Keep the repository partner-facing and implementer-friendly.
 - When profiles change, update the narrative documentation in `/docs`, `/annexes`, and the IG page content in `/ig/input/pagecontent`.
 - Ensure workflow chapters cross-reference the relevant FHIR artefacts and annexes.
 - Explain provisional areas openly rather than presenting them as settled national policy.
@@ -40,7 +40,7 @@ Future coding agents working in this repository must preserve the following arch
 
 - Keep GitHub Pages publication working from the rendered IG output.
 - Preserve the one-repo structure with top-level `/docs` and `/annexes`, while keeping `/ig` as the computable package source.
-- Retain release artefacts that vendors can download as packages.
+- Retain release artefacts that implementation partners can download as packages.
 - Do not remove package metadata, canonical URLs, or package-list behaviour without updating the release notes and governance content.
 
 ## Editorial intent

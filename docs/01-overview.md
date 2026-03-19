@@ -4,7 +4,7 @@
 
 This repository defines the first draft of a national radiology interoperability and conformance specification for Malaysia. It provides:
 
-- a vendor-consumable FHIR R4 implementation guide
+- a partner-consumable FHIR R4 implementation guide
 - workflow and conformance chapters covering the broader imaging ecosystem
 - test and example assets to support implementation and future national validation
 
@@ -34,7 +34,7 @@ The initial scope covers:
 The following are intentionally out of scope or only lightly scaffolded:
 
 - full production IAM design beyond SMART on FHIR and trust assumptions
-- detailed DICOM node configuration for each vendor product class
+- detailed DICOM node configuration for each partner product class
 - executable national certification tooling
 - local MOH terminology code systems not yet approved
 
@@ -48,4 +48,4 @@ The following are intentionally out of scope or only lightly scaffolded:
 
 ## Publication intent
 
-This repository is intended to publish first to GitHub Pages and GitHub Releases, then later be linked from an official Ministry of Health web presence. Vendors should be able to consume either the rendered guide or the downloadable package.
+This repository is intended to publish first to GitHub Pages and GitHub Releases, then later be linked from an official Ministry of Health web presence. Implementation partners should be able to consume either the rendered guide or the downloadable package.

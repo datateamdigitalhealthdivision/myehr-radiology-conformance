@@ -42,141 +42,41 @@
     }
   ],
   "definition": {
+    "grouping": [
+      {
+        "id": "profiles",
+        "name": "FHIR Profiles",
+        "description": "Core Malaysian radiology profiles that define the computable exchange layer for order, workflow, scheduling, procedure, study, report, observation, and document packaging."
+      },
+      {
+        "id": "terminology",
+        "name": "Terminology Artefacts",
+        "description": "Value sets and code systems that support workflow states, accession policy options, modality coding, procedure coding, report coding, and structured findings."
+      },
+      {
+        "id": "capability-statements",
+        "name": "Capability Statements",
+        "description": "Actor-specific conformance expectations for order placer, workflow manager, archive publisher, viewer consumer, and validation participants."
+      },
+      {
+        "id": "identifiers",
+        "name": "Naming Systems",
+        "description": "PROVISIONAL naming system resources that distinguish placeholder identifier URIs from value format, issuing authority, and future governance decisions."
+      },
+      {
+        "id": "examples",
+        "name": "Examples",
+        "description": "Worked examples that illustrate the expected JSON and XML payload shape for profiles and the end-to-end order-to-report workflow bundle."
+      }
+    ],
     "resource": [
-      {
-        "reference": {
-          "reference": "CodeSystem/my-radiology-accession-pattern-cs"
-        },
-        "name": "MY Radiology Accession Pattern CodeSystem",
-        "description": "Draft policy options for accession identifier patterns. These codes describe candidate strategies rather than final national production policy.",
-        "exampleBoolean": false
-      },
-      {
-        "reference": {
-          "reference": "ValueSet/my-radiology-accession-pattern-vs"
-        },
-        "name": "MY Radiology Accession Pattern ValueSet",
-        "description": "Candidate accession identifier patterns documented for sandbox and governance purposes.",
-        "exampleBoolean": false
-      },
-      {
-        "reference": {
-          "reference": "StructureDefinition/my-radiology-appointment"
-        },
-        "name": "MY Radiology Appointment",
-        "description": "Optional scheduling profile for booked radiology slots where FHIR Appointment is used to expose scheduling state.",
-        "exampleBoolean": false
-      },
-      {
-        "reference": {
-          "reference": "StructureDefinition/my-radiology-diagnostic-report"
-        },
-        "name": "MY Radiology DiagnosticReport",
-        "description": "Radiology report profile covering preliminary, final, and amended reporting, with linkage to imaging studies and optional structured findings.",
-        "exampleBoolean": false
-      },
-      {
-        "reference": {
-          "reference": "ValueSet/my-radiology-document-type-vs"
-        },
-        "name": "MY Radiology Document Type ValueSet",
-        "description": "Document types for packaged radiology report documents.",
-        "exampleBoolean": false
-      },
-      {
-        "reference": {
-          "reference": "StructureDefinition/my-radiology-document-reference"
-        },
-        "name": "MY Radiology DocumentReference",
-        "description": "Optional document-centric profile for packaged radiology report documents and cross-enterprise sharing scenarios.",
-        "exampleBoolean": false
-      },
-      {
-        "reference": {
-          "reference": "ValueSet/my-radiology-finding-code-vs"
-        },
-        "name": "MY Radiology Finding Code ValueSet",
-        "description": "Placeholder binding envelope for structured radiology findings or measurements using SNOMED CT or LOINC.",
-        "exampleBoolean": false
-      },
-      {
-        "reference": {
-          "reference": "CapabilityStatement/my-radiology-his-order-placer"
-        },
-        "name": "MY Radiology HIS Order Placer CapabilityStatement",
-        "description": "Client capability expectations for a HIS or CPOE system that places radiology orders and consumes workflow acknowledgements.",
-        "exampleBoolean": false
-      },
-      {
-        "reference": {
-          "reference": "StructureDefinition/my-radiology-imaging-study"
-        },
-        "name": "MY Radiology ImagingStudy",
-        "description": "FHIR-facing imaging study metadata aligned to the DICOM study, including linkage to the order, performed procedure, and study identifiers.",
-        "exampleBoolean": false
-      },
-      {
-        "reference": {
-          "reference": "ValueSet/my-radiology-modality-vs"
-        },
-        "name": "MY Radiology Modality ValueSet",
-        "description": "Example modality codes aligned to DICOM terminology.",
-        "exampleBoolean": false
-      },
-      {
-        "reference": {
-          "reference": "StructureDefinition/my-radiology-observation"
-        },
-        "name": "MY Radiology Observation",
-        "description": "Structured radiology finding or quantitative measurement profile to be used only when narrative reporting alone is insufficient.",
-        "exampleBoolean": false
-      },
-      {
-        "reference": {
-          "reference": "CapabilityStatement/my-radiology-pacs-metadata-publisher"
-        },
-        "name": "MY Radiology PACS Metadata Publisher CapabilityStatement",
-        "description": "Server capability expectations for a PACS or VNA exposing FHIR-facing imaging metadata for consumers.",
-        "exampleBoolean": false
-      },
-      {
-        "reference": {
-          "reference": "StructureDefinition/my-radiology-procedure"
-        },
-        "name": "MY Radiology Procedure",
-        "description": "Performed imaging procedure profile linking the originating order to the performed act, performer context, and downstream report or study.",
-        "exampleBoolean": false
-      },
-      {
-        "reference": {
-          "reference": "ValueSet/my-radiology-procedure-code-vs"
-        },
-        "name": "MY Radiology Procedure Code ValueSet",
-        "description": "Preferred imaging procedure catalogue binding using a provisional locally hosted RadLex mirror strategy.",
-        "exampleBoolean": false
-      },
-      {
-        "reference": {
-          "reference": "ValueSet/my-radiology-report-code-vs"
-        },
-        "name": "MY Radiology Report Code ValueSet",
-        "description": "Representative LOINC document and report codes suitable for radiology report exchange.",
-        "exampleBoolean": false
-      },
-      {
-        "reference": {
-          "reference": "CapabilityStatement/my-radiology-ris-workflow-manager"
-        },
-        "name": "MY Radiology RIS Workflow Manager CapabilityStatement",
-        "description": "Server capability expectations for a RIS acting as the operational workflow manager and order filler.",
-        "exampleBoolean": false
-      },
       {
         "reference": {
           "reference": "StructureDefinition/my-radiology-service-request"
         },
         "name": "MY Radiology ServiceRequest",
-        "description": "Radiology imaging order profile for Malaysian deployments. It captures requested procedure, priority, indication, requester context, patient linkage, and provisional accession handling.",
+        "description": "Radiology imaging order profile for Malaysian deployments.",
+        "groupingId": "profiles",
         "exampleBoolean": false
       },
       {
@@ -184,31 +84,107 @@
           "reference": "StructureDefinition/my-radiology-task"
         },
         "name": "MY Radiology Task",
-        "description": "Workflow tracking profile used to communicate radiology order receipt, acceptance, scheduling, in-progress, completion, rejection, cancellation, and amendment states.",
+        "description": "Workflow tracking profile for order receipt, acceptance, scheduling, progress, completion, rejection, cancellation, and amendment visibility.",
+        "groupingId": "profiles",
         "exampleBoolean": false
       },
       {
         "reference": {
-          "reference": "CapabilityStatement/my-radiology-validation-consumer"
+          "reference": "StructureDefinition/my-radiology-appointment"
         },
-        "name": "MY Radiology Validation Consumer CapabilityStatement",
-        "description": "Client capability expectations for a national validation or conformance consumer that reads and tests core radiology resources.",
+        "name": "MY Radiology Appointment",
+        "description": "Optional booking and scheduling profile where Appointment is exposed through FHIR.",
+        "groupingId": "profiles",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/my-radiology-procedure"
+        },
+        "name": "MY Radiology Procedure",
+        "description": "Performed imaging procedure profile linking the originating order to the completed act.",
+        "groupingId": "profiles",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/my-radiology-imaging-study"
+        },
+        "name": "MY Radiology ImagingStudy",
+        "description": "FHIR-facing imaging study metadata aligned to the underlying DICOM study.",
+        "groupingId": "profiles",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/my-radiology-diagnostic-report"
+        },
+        "name": "MY Radiology DiagnosticReport",
+        "description": "Radiology report profile for preliminary, final, amended, and addendum reporting scenarios.",
+        "groupingId": "profiles",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/my-radiology-observation"
+        },
+        "name": "MY Radiology Observation",
+        "description": "Structured radiology finding or measurement profile used when narrative reporting alone is insufficient.",
+        "groupingId": "profiles",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/my-radiology-document-reference"
+        },
+        "name": "MY Radiology DocumentReference",
+        "description": "Optional document-centric profile for packaged report exchange and cross-enterprise sharing scenarios.",
+        "groupingId": "profiles",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CapabilityStatement/my-radiology-his-order-placer"
+        },
+        "name": "HIS Order Placer Capability Statement",
+        "description": "Client capability expectations for a HIS or CPOE partner placing radiology orders and reading downstream workflow information.",
+        "groupingId": "capability-statements",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CapabilityStatement/my-radiology-ris-workflow-manager"
+        },
+        "name": "RIS Workflow Manager Capability Statement",
+        "description": "Server capability expectations for a RIS partner acting as the operational order filler and workflow manager.",
+        "groupingId": "capability-statements",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CapabilityStatement/my-radiology-pacs-metadata-publisher"
+        },
+        "name": "PACS Metadata Publisher Capability Statement",
+        "description": "Server capability expectations for a PACS or VNA partner exposing imaging metadata to FHIR consumers.",
+        "groupingId": "capability-statements",
         "exampleBoolean": false
       },
       {
         "reference": {
           "reference": "CapabilityStatement/my-radiology-viewer-consumer"
         },
-        "name": "MY Radiology Viewer Consumer CapabilityStatement",
-        "description": "Client capability expectations for a clinical viewer or EHR that consumes reports and imaging study metadata.",
+        "name": "Viewer Consumer Capability Statement",
+        "description": "Client capability expectations for an EHR or viewer partner consuming study metadata and report content.",
+        "groupingId": "capability-statements",
         "exampleBoolean": false
       },
       {
         "reference": {
-          "reference": "CodeSystem/my-radiology-workflow-state-cs"
+          "reference": "CapabilityStatement/my-radiology-validation-consumer"
         },
-        "name": "MY Radiology Workflow State CodeSystem",
-        "description": "Technical workflow state codes for radiology Task.businessStatus in sandbox and conformance testing scenarios.",
+        "name": "Validation Consumer Capability Statement",
+        "description": "Client capability expectations for national validation and conformance testing participants.",
+        "groupingId": "capability-statements",
         "exampleBoolean": false
       },
       {
@@ -216,7 +192,80 @@
           "reference": "ValueSet/my-radiology-workflow-state-vs"
         },
         "name": "MY Radiology Workflow State ValueSet",
-        "description": "Workflow state values for radiology task synchronisation.",
+        "description": "Preferred business status codes for radiology Task synchronisation.",
+        "groupingId": "terminology",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/my-radiology-accession-pattern-vs"
+        },
+        "name": "MY Radiology Accession Pattern ValueSet",
+        "description": "Candidate accession identifier patterns carried for governance and sandbox design.",
+        "groupingId": "terminology",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/my-radiology-procedure-code-vs"
+        },
+        "name": "MY Radiology Procedure Code ValueSet",
+        "description": "Preferred imaging procedure catalogue binding using a PROVISIONAL RadLex mirror strategy.",
+        "groupingId": "terminology",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/my-radiology-modality-vs"
+        },
+        "name": "MY Radiology Modality ValueSet",
+        "description": "Example DICOM-aligned modality codes for imaging study publication.",
+        "groupingId": "terminology",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/my-radiology-report-code-vs"
+        },
+        "name": "MY Radiology Report Code ValueSet",
+        "description": "Representative report codes for radiology diagnostic report exchange.",
+        "groupingId": "terminology",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/my-radiology-finding-code-vs"
+        },
+        "name": "MY Radiology Finding Code ValueSet",
+        "description": "Placeholder structured finding envelope using SNOMED CT and LOINC.",
+        "groupingId": "terminology",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/my-radiology-document-type-vs"
+        },
+        "name": "MY Radiology Document Type ValueSet",
+        "description": "Document typing codes for packaged radiology reports.",
+        "groupingId": "terminology",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/my-radiology-workflow-state-cs"
+        },
+        "name": "MY Radiology Workflow State CodeSystem",
+        "description": "Technical workflow status codes used in Task.businessStatus.",
+        "groupingId": "terminology",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/my-radiology-accession-pattern-cs"
+        },
+        "name": "MY Radiology Accession Pattern CodeSystem",
+        "description": "Draft policy-option codes describing candidate accession numbering strategies.",
+        "groupingId": "terminology",
         "exampleBoolean": false
       },
       {
@@ -224,168 +273,189 @@
           "reference": "CodeSystem/my-radlex-procedure-mirror"
         },
         "name": "MY RadLex Procedure Mirror Placeholder",
-        "description": "PROVISIONAL canonical placeholder for a locally hosted mirror of the RadLex imaging procedure catalogue.",
+        "description": "PROVISIONAL placeholder code system for a future locally hosted RadLex mirror.",
+        "groupingId": "terminology",
         "exampleBoolean": false
       },
       {
         "reference": {
-          "reference": "NamingSystem/MYAccessionIdentifierNamingSystem"
+          "reference": "NamingSystem/MYPatientIdentifierNamingSystem"
         },
-        "name": "MYAccessionIdentifierNamingSystem",
-        "description": "PROVISIONAL placeholder naming system for accession identifiers, using the recommended draft facility-date-sequence approach for sandbox use.",
+        "name": "Patient Identifier Naming System",
+        "description": "PROVISIONAL naming system for the future national patient identifier domain.",
+        "groupingId": "identifiers",
         "exampleBoolean": false
-      },
-      {
-        "reference": {
-          "reference": "Encounter/my-encounter-example"
-        },
-        "name": "MYEncounterExample",
-        "description": "Example ambulatory encounter linked to the radiology order and report workflow.",
-        "exampleBoolean": true
       },
       {
         "reference": {
           "reference": "NamingSystem/MYFacilityIdentifierNamingSystem"
         },
-        "name": "MYFacilityIdentifierNamingSystem",
-        "description": "PROVISIONAL placeholder naming system for facility identifiers.",
+        "name": "Facility Identifier Naming System",
+        "description": "PROVISIONAL naming system for facility identifiers.",
+        "groupingId": "identifiers",
         "exampleBoolean": false
       },
       {
         "reference": {
           "reference": "NamingSystem/MYHealthcareWorkerIdentifierNamingSystem"
         },
-        "name": "MYHealthcareWorkerIdentifierNamingSystem",
-        "description": "PROVISIONAL placeholder naming system for healthcare worker identifiers.",
+        "name": "Healthcare Worker Identifier Naming System",
+        "description": "PROVISIONAL naming system for healthcare worker identifiers.",
+        "groupingId": "identifiers",
         "exampleBoolean": false
       },
       {
         "reference": {
-          "reference": "Location/my-location-example"
+          "reference": "NamingSystem/MYAccessionIdentifierNamingSystem"
         },
-        "name": "MYLocationExample",
-        "description": "Example CT suite location managed by the imaging facility.",
-        "exampleBoolean": true
-      },
-      {
-        "reference": {
-          "reference": "Organization/my-organisation-example"
-        },
-        "name": "MYOrganisationExample",
-        "description": "Example imaging facility organisation used by the workflow examples.",
-        "exampleBoolean": true
-      },
-      {
-        "reference": {
-          "reference": "Patient/my-patient-example"
-        },
-        "name": "MYPatientExample",
-        "description": "Example patient record linked to the radiology order and reporting flow.",
-        "exampleBoolean": true
-      },
-      {
-        "reference": {
-          "reference": "NamingSystem/MYPatientIdentifierNamingSystem"
-        },
-        "name": "MYPatientIdentifierNamingSystem",
-        "description": "PROVISIONAL placeholder naming system for the national patient identifier domain.",
+        "name": "Accession Identifier Naming System",
+        "description": "PROVISIONAL naming system for accession identifiers using the recommended sandbox draft pattern.",
+        "groupingId": "identifiers",
         "exampleBoolean": false
-      },
-      {
-        "reference": {
-          "reference": "Practitioner/my-practitioner-example"
-        },
-        "name": "MYPractitionerExample",
-        "description": "Example radiologist practitioner used across the reporting workflow.",
-        "exampleBoolean": true
-      },
-      {
-        "reference": {
-          "reference": "PractitionerRole/my-practitioner-role-example"
-        },
-        "name": "MYPractitionerRoleExample",
-        "description": "Example consultant radiologist role at the imaging facility.",
-        "exampleBoolean": true
-      },
-      {
-        "reference": {
-          "reference": "Appointment/my-radiology-appointment-example"
-        },
-        "name": "MYRadiologyAppointmentExample",
-        "description": "CT head without contrast",
-        "exampleCanonical": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-appointment"
-      },
-      {
-        "reference": {
-          "reference": "DiagnosticReport/my-radiology-diagnostic-report-example"
-        },
-        "name": "MYRadiologyDiagnosticReportExample",
-        "description": "Example final radiology report linked to the imaging study and structured finding.",
-        "exampleCanonical": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-diagnostic-report"
-      },
-      {
-        "reference": {
-          "reference": "DocumentReference/my-radiology-document-reference-example"
-        },
-        "name": "MYRadiologyDocumentReferenceExample",
-        "description": "Packaged final radiology report document.",
-        "exampleCanonical": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-document-reference"
-      },
-      {
-        "reference": {
-          "reference": "ImagingStudy/my-radiology-imaging-study-example"
-        },
-        "name": "MYRadiologyImagingStudyExample",
-        "description": "CT head without contrast",
-        "exampleCanonical": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-imaging-study"
-      },
-      {
-        "reference": {
-          "reference": "Observation/my-radiology-observation-example"
-        },
-        "name": "MYRadiologyObservationExample",
-        "description": "Example structured finding observation linked to the radiology report.",
-        "exampleCanonical": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-observation"
       },
       {
         "reference": {
           "reference": "NamingSystem/MYRadiologyOrderIdentifierNamingSystem"
         },
-        "name": "MYRadiologyOrderIdentifierNamingSystem",
-        "description": "PROVISIONAL placeholder naming system for radiology order identifiers issued by sandbox order placer systems.",
+        "name": "Radiology Order Identifier Naming System",
+        "description": "PROVISIONAL naming system for radiology order identifiers issued by order placer systems.",
+        "groupingId": "identifiers",
         "exampleBoolean": false
-      },
-      {
-        "reference": {
-          "reference": "Bundle/my-radiology-order-workflow-bundle-example"
-        },
-        "name": "MYRadiologyOrderWorkflowBundleExample",
-        "description": "Example collection bundle showing the core order-to-report radiology workflow resources together.",
-        "exampleBoolean": true
-      },
-      {
-        "reference": {
-          "reference": "Procedure/my-radiology-procedure-example"
-        },
-        "name": "MYRadiologyProcedureExample",
-        "description": "Example performed imaging procedure derived from the originating radiology order.",
-        "exampleCanonical": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-procedure"
       },
       {
         "reference": {
           "reference": "ServiceRequest/my-radiology-service-request-example"
         },
-        "name": "MYRadiologyServiceRequestExample",
-        "description": "Example radiology order carrying both placer order and provisional accession identifiers.",
+        "name": "Radiology ServiceRequest Example",
+        "description": "Example imaging order showing placer order and accession identifiers, clinical indication, requested procedure, and requester context.",
+        "groupingId": "examples",
         "exampleCanonical": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-service-request"
       },
       {
         "reference": {
           "reference": "Task/my-radiology-task-example"
         },
-        "name": "MYRadiologyTaskExample",
-        "description": "Example workflow tracking task representing a scheduled radiology order.",
+        "name": "Radiology Task Example",
+        "description": "Example workflow tracking task representing an accepted and scheduled order.",
+        "groupingId": "examples",
         "exampleCanonical": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-task"
+      },
+      {
+        "reference": {
+          "reference": "Appointment/my-radiology-appointment-example"
+        },
+        "name": "Radiology Appointment Example",
+        "description": "Example booked appointment for a scheduled radiology slot.",
+        "groupingId": "examples",
+        "exampleCanonical": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-appointment"
+      },
+      {
+        "reference": {
+          "reference": "Procedure/my-radiology-procedure-example"
+        },
+        "name": "Radiology Procedure Example",
+        "description": "Example performed imaging procedure derived from the originating order.",
+        "groupingId": "examples",
+        "exampleCanonical": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-procedure"
+      },
+      {
+        "reference": {
+          "reference": "ImagingStudy/my-radiology-imaging-study-example"
+        },
+        "name": "Radiology ImagingStudy Example",
+        "description": "Example study metadata aligned to a DICOM study and linked to the order and performed procedure.",
+        "groupingId": "examples",
+        "exampleCanonical": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-imaging-study"
+      },
+      {
+        "reference": {
+          "reference": "DiagnosticReport/my-radiology-diagnostic-report-example"
+        },
+        "name": "Radiology DiagnosticReport Example",
+        "description": "Example final radiology report linked to the imaging study and structured finding.",
+        "groupingId": "examples",
+        "exampleCanonical": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-diagnostic-report"
+      },
+      {
+        "reference": {
+          "reference": "Observation/my-radiology-observation-example"
+        },
+        "name": "Radiology Observation Example",
+        "description": "Example structured finding used to supplement a narrative radiology report.",
+        "groupingId": "examples",
+        "exampleCanonical": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-observation"
+      },
+      {
+        "reference": {
+          "reference": "DocumentReference/my-radiology-document-reference-example"
+        },
+        "name": "Radiology DocumentReference Example",
+        "description": "Example packaged radiology report document for sharing scenarios.",
+        "groupingId": "examples",
+        "exampleCanonical": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-document-reference"
+      },
+      {
+        "reference": {
+          "reference": "Bundle/my-radiology-order-workflow-bundle-example"
+        },
+        "name": "Radiology Order Workflow Bundle Example",
+        "description": "Example collection bundle showing the main order-to-report workflow resources together.",
+        "groupingId": "examples",
+        "exampleBoolean": true
+      },
+      {
+        "reference": {
+          "reference": "Patient/my-patient-example"
+        },
+        "name": "Patient Example",
+        "description": "Shared patient context used by the radiology workflow examples.",
+        "groupingId": "examples",
+        "exampleBoolean": true
+      },
+      {
+        "reference": {
+          "reference": "Encounter/my-encounter-example"
+        },
+        "name": "Encounter Example",
+        "description": "Shared encounter context used by the workflow examples.",
+        "groupingId": "examples",
+        "exampleBoolean": true
+      },
+      {
+        "reference": {
+          "reference": "Organization/my-organisation-example"
+        },
+        "name": "Organisation Example",
+        "description": "Example imaging organisation used across the workflow.",
+        "groupingId": "examples",
+        "exampleBoolean": true
+      },
+      {
+        "reference": {
+          "reference": "Location/my-location-example"
+        },
+        "name": "Location Example",
+        "description": "Example imaging location used for scheduling and procedure context.",
+        "groupingId": "examples",
+        "exampleBoolean": true
+      },
+      {
+        "reference": {
+          "reference": "Practitioner/my-practitioner-example"
+        },
+        "name": "Practitioner Example",
+        "description": "Example radiologist practitioner used across reporting and procedure examples.",
+        "groupingId": "examples",
+        "exampleBoolean": true
+      },
+      {
+        "reference": {
+          "reference": "PractitionerRole/my-practitioner-role-example"
+        },
+        "name": "PractitionerRole Example",
+        "description": "Example radiologist role used as the requester in the workflow examples.",
+        "groupingId": "examples",
+        "exampleBoolean": true
       }
     ],
     "page": {
@@ -400,7 +470,12 @@
         },
         {
           "nameUrl": "overview.html",
-          "title": "Overview",
+          "title": "National Overview",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "national-chapters.html",
+          "title": "National Chapters",
           "generation": "markdown"
         },
         {
@@ -414,18 +489,28 @@
           "generation": "markdown"
         },
         {
+          "nameUrl": "fhir-artefacts.html",
+          "title": "FHIR Artefacts",
+          "generation": "markdown"
+        },
+        {
           "nameUrl": "terminology.html",
-          "title": "Terminology",
+          "title": "Terminology And Identifiers",
           "generation": "markdown"
         },
         {
           "nameUrl": "security.html",
-          "title": "Security",
+          "title": "Security And Audit",
           "generation": "markdown"
         },
         {
           "nameUrl": "testing.html",
-          "title": "Testing",
+          "title": "Conformance Testing",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "annexes.html",
+          "title": "Technical Annexes",
           "generation": "markdown"
         },
         {

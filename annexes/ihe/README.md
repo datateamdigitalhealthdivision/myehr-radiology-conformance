@@ -43,4 +43,4 @@ Current emphasis:
 
 ## Implementation note
 
-Vendors should not claim that support for the FHIR IG alone satisfies radiology operational conformance if the required DICOM and IHE workflow behaviours are absent.
+Implementation partners should not claim that support for the FHIR IG alone satisfies radiology operational conformance if the required DICOM and IHE workflow behaviours are absent.

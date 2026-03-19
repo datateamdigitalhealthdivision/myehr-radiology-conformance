@@ -23,7 +23,7 @@ This annex is `PROVISIONAL` and transition-oriented. It does not replace the FHI
 
 ## Conformance expectation
 
-Where a vendor continues to use HL7 v2 in a local deployment:
+Where an implementation partner continues to use HL7 v2 in a local deployment:
 
 - the underlying business semantics should still align with the national FHIR profiles
 - identifiers should map consistently to the same business concepts used in the FHIR layer

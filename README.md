@@ -4,7 +4,7 @@ This repository is the draft content for the national Malaysian radiology intero
 
 It is deliberately organised as one repository:
 
-- the FHIR R4 implementation guide in [`/ig`](./ig) is the computable core for vendor consumption
+- the FHIR R4 implementation guide in [`/ig`](./ig) is the computable core for partner consumption
 - the national conformance chapters in [`/docs`](./docs) describe governance, actor responsibilities, workflow expectations, security, testing, and procurement language
 - the narrative technical annexes in [`/annexes`](./annexes) capture DICOM, DICOMweb, IHE, XDS-I, and transition guidance in the same repository
 - the test assets and mapping notes in [`/tests`](./tests) and [`/mappings`](./mappings) support implementation, onboarding, and future conformance validation
@@ -30,7 +30,7 @@ Normative or intended-to-be normative material in this repository includes:
 
 Illustrative or scaffolding material includes:
 
-- example payloads and sample Bundles used to help vendors implement and test
+- example payloads and sample Bundles used to help partners implement and test
 - draft procurement wording in [`/docs/07-procurement-language.md`](./docs/07-procurement-language.md)
 - provisional placeholders where national identifiers, endpoints, or operational policies are not yet fixed
 
@@ -60,12 +60,12 @@ Build note:
 ## Intended publication model
 
 - GitHub Pages is the first publication channel.
-- GitHub Releases should retain packaged IG artefacts for vendors.
+- GitHub Releases should retain packaged IG artefacts for implementation partners.
 - The rendered guide is expected to be linked from the official Ministry of Health site later.
 
-## Vendor consumption model
+## Partner consumption model
 
-Vendors are expected to use this repository in four ways:
+Implementation partners are expected to use this repository in four ways:
 
 1. Read the narrative conformance chapters to understand national workflow, security, and interoperability expectations.
 2. Download the FHIR package from a release artefact and load it into a FHIR-capable validation or server toolchain.
@@ -95,13 +95,13 @@ npm run build:ps
 ```
 
 This repository also includes helper scripts in [`/ig/scripts`](./ig/scripts) and GitHub Actions workflows in [`.github/workflows`](./.github/workflows).
-To keep builds reproducible, the repository vendors a slim MY Core snapshot from the official publication endpoint and seeds the local FHIR package cache before running SUSHI.
+To keep builds reproducible, the repository bundles a slim MY Core snapshot from the official publication endpoint and seeds the local FHIR package cache before running SUSHI.
 The repository also carries a pinned local publication template snapshot in [`/ig/local-template`](./ig/local-template) so that site rendering does not depend on the template registry resolving `current` at build time.
 For a full local HTML render, Ruby plus Jekyll must also be installed. The GitHub Actions workflows provision Jekyll automatically for CI and GitHub Pages publication.
 
 ## Published site and package use
 
-Once GitHub Pages is enabled, vendors should be able to:
+Once GitHub Pages is enabled, implementation partners should be able to:
 
 - browse the rendered guide
 - inspect profile snapshots and examples
