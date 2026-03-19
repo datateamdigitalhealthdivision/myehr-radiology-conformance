@@ -3,16 +3,18 @@ node_modules/
 .fhir/
 
 # IG Publisher output
-fhir-ig/output/
-fhir-ig/temp/
-fhir-ig/input-cache/
-fhir-ig/template/
-fhir-ig/translations/
-fhir-ig/.publisher/
-fhir-ig/.txCache/
-fhir-ig/fsh-generated/data/
-fhir-ig/fsh-generated/includes/
-fhir-ig/fsh-generated/fsh-index.txt
+ig/output/
+ig/temp/
+ig/input-cache/
+ig/template/
+ig/translations/
+ig/.publisher/
+ig/.txCache/
+ig/fsh-generated/data/
+ig/fsh-generated/includes/
+ig/fsh-generated/fsh-index.txt
+ig/input/fsh/examples-generated/
+ig/input/fsh/vocab-generated/
 
 # Logs
 *.log
@@ -29,3 +31,5 @@ Thumbs.db
 .env.*
 .npm-cache/
 tools/
+tmp-gh-auth.log
+tmp-gh-refresh.log

@@ -28,10 +28,9 @@ jobs:
             README.md \
             AGENTS.md \
             docs/**/*.md \
-            fhir-ig/README.md \
-            fhir-ig/input/pagecontent/*.md \
+            annexes/**/*.md \
+            ig/README.md \
+            ig/input/pagecontent/*.md \
             tests/**/*.md \
             mappings/*.md \
-            decisions/*.md \
             --disable MD013
-

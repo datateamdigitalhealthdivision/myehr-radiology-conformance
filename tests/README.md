@@ -4,10 +4,10 @@ This directory contains the first draft of the national radiology conformance te
 
 ## Current structure
 
-- `scenarios/`: human-readable scenario descriptions
-- `sample-bundles/`: example transaction or message Bundles
-- `positive/`: examples expected to conform
-- `negative/`: examples expected to fail or require rejection
+- `fhir/`: machine-readable FHIR payloads and reference examples
+- `workflow-scenarios/`: human-readable scenario descriptions and actor checklists
+- `negative-tests/`: examples expected to fail validation or be rejected
+- `sample-payloads/`: representative Bundles and composite exchange payloads
 
 ## Initial usage
 

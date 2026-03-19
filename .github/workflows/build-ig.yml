@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: fhir-ig
+        working-directory: ig
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -52,7 +52,7 @@ jobs:
         with:
           name: my-radiology-ig-build
           path: |
-            fhir-ig/output
-            fhir-ig/fsh-generated/resources
+            ig/output
+            ig/fsh-generated/resources
           if-no-files-found: error
           retention-days: 30

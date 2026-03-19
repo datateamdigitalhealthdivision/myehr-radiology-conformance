@@ -1,12 +1,13 @@
 # MYEHR Radiology Conformance Repository
 
-This repository is the draft content for the national Malaysian radiology interoperability and conformance specification intended to be published under `github.com/datateamdigitalhealthdivision/myehr-radiology-conformance`.
+This repository is the draft content for the national Malaysian radiology interoperability and conformance specification published under `github.com/datateamdigitalhealthdivision/myehr-radiology-conformance`.
 
 It is deliberately organised as one repository:
 
-- the FHIR R4 implementation guide in [`/fhir-ig`](./fhir-ig) is the computable core for vendor consumption
-- the narrative conformance chapters in [`/docs`](./docs) describe the national workflow, DICOM, DICOMweb, IHE, security, and testing expectations
-- the examples, mappings, decisions, and test assets in [`/tests`](./tests), [`/mappings`](./mappings), and [`/decisions`](./decisions) provide the implementation context needed for procurement, onboarding, and future conformance testing
+- the FHIR R4 implementation guide in [`/ig`](./ig) is the computable core for vendor consumption
+- the national conformance chapters in [`/docs`](./docs) describe governance, actor responsibilities, workflow expectations, security, testing, and procurement language
+- the narrative technical annexes in [`/annexes`](./annexes) capture DICOM, DICOMweb, IHE, XDS-I, and transition guidance in the same repository
+- the test assets and mapping notes in [`/tests`](./tests) and [`/mappings`](./mappings) support implementation, onboarding, and future conformance validation
 
 ## Normative position
 
@@ -23,9 +24,9 @@ Reference patterns from other jurisdictions may inform structure, publication ap
 
 Normative or intended-to-be normative material in this repository includes:
 
-- the local radiology FHIR profiles, value sets, code systems, examples, and capability statements in [`/fhir-ig`](./fhir-ig)
-- the workflow, identifier, terminology, security, and conformance chapters in [`/docs`](./docs)
-- the architecture and governance decisions recorded in [`/decisions`](./decisions)
+- the local radiology FHIR profiles, value sets, code systems, examples, and capability statements in [`/ig`](./ig)
+- the workflow, governance, security, terminology, and conformance chapters in [`/docs`](./docs)
+- the DICOM, DICOMweb, IHE, and XDS-I narrative annexes in [`/annexes`](./annexes)
 
 Illustrative or scaffolding material includes:
 
@@ -78,7 +79,7 @@ The FHIR IG is built with FSH and SUSHI, then rendered with the FHIR IG Publishe
 Typical local steps:
 
 ```bash
-cd fhir-ig
+cd ig
 npm install
 npm run validate
 npm run build
@@ -87,15 +88,15 @@ npm run build
 Windows PowerShell alternative:
 
 ```powershell
-cd fhir-ig
+cd ig
 npm install
 npm run validate:ps
 npm run build:ps
 ```
 
-This repository also includes helper scripts in [`/fhir-ig/scripts`](./fhir-ig/scripts) and GitHub Actions workflows in [`.github/workflows`](./.github/workflows).
+This repository also includes helper scripts in [`/ig/scripts`](./ig/scripts) and GitHub Actions workflows in [`.github/workflows`](./.github/workflows).
 To keep builds reproducible, the repository vendors a slim MY Core snapshot from the official publication endpoint and seeds the local FHIR package cache before running SUSHI.
-The repository also carries a pinned local publication template snapshot in [`/fhir-ig/local-template`](./fhir-ig/local-template) so that site rendering does not depend on the template registry resolving `current` at build time.
+The repository also carries a pinned local publication template snapshot in [`/ig/local-template`](./ig/local-template) so that site rendering does not depend on the template registry resolving `current` at build time.
 For a full local HTML render, Ruby plus Jekyll must also be installed. The GitHub Actions workflows provision Jekyll automatically for CI and GitHub Pages publication.
 
 ## Published site and package use
@@ -124,10 +125,11 @@ The following areas are intentionally scaffolded and clearly marked as provision
 |- README.md
 |- AGENTS.md
 |- docs/
-|- fhir-ig/
+|- annexes/
+|- ig/
 |- tests/
 |- mappings/
-`- decisions/
+`- .github/
 ```
 
 ## Suggested next actions after this draft
