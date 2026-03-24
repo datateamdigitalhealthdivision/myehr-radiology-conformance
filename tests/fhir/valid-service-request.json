@@ -13,7 +13,7 @@
       "value": "RAD-ORD-20260317-0001"
     },
     {
-      "system": "https://facility.kkmhub.moh.gov.my/id/accession/provisional",
+      "system": "https://id.kkmhub.moh.gov.my/accession",
       "value": "HSAH-20260317-0001"
     }
   ],
@@ -34,6 +34,10 @@
   "requester": {
     "reference": "PractitionerRole/my-practitioner-role-example"
   },
+  "reasonCode": [
+    {
+      "text": "Acute onset severe headache"
+    }
+  ],
   "priority": "asap"
 }
-

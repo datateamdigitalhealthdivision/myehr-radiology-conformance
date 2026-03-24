@@ -5,12 +5,13 @@
   "name": "MYRadiologyAppointment",
   "title": "MY Radiology Appointment",
   "status": "draft",
+  "experimental": false,
   "description": "Optional scheduling profile for booked radiology slots where FHIR Appointment is used to expose scheduling state.",
   "fhirVersion": "4.0.1",
   "kind": "resource",
   "abstract": false,
   "type": "Appointment",
-  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Appointment",
+  "baseDefinition": "http://fhir.hie.moh.gov.my/StructureDefinition/Appointment-my-core",
   "derivation": "constraint",
   "differential": {
     "element": [
@@ -20,13 +21,19 @@
         "mustSupport": true
       },
       {
+        "id": "Appointment.serviceCategory",
+        "path": "Appointment.serviceCategory",
+        "mustSupport": true
+      },
+      {
         "id": "Appointment.serviceType",
         "path": "Appointment.serviceType",
-        "mustSupport": true,
-        "binding": {
-          "strength": "preferred",
-          "valueSet": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/ValueSet/my-radiology-procedure-code-vs"
-        }
+        "mustSupport": true
+      },
+      {
+        "id": "Appointment.specialty",
+        "path": "Appointment.specialty",
+        "mustSupport": true
       },
       {
         "id": "Appointment.description",

@@ -1,0 +1,17 @@
+{
+  "resourceType": "ValueSet",
+  "status": "draft",
+  "name": "MYRadiologyTaskStatusReasonVS",
+  "id": "my-radiology-task-status-reason-vs",
+  "title": "MY Radiology Task Status Reason ValueSet",
+  "description": "Starter operational reasons for rejection, suspension, rescheduling, or workflow exception handling.",
+  "url": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/ValueSet/my-radiology-task-status-reason-vs",
+  "experimental": false,
+  "compose": {
+    "include": [
+      {
+        "system": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/CodeSystem/my-radiology-task-status-reason-cs"
+      }
+    ]
+  }
+}

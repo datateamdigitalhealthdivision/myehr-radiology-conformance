@@ -7,5 +7,23 @@
       "value": "HSAH"
     }
   ],
-  "name": "Hospital Sultan Abdul Halim"
+  "name": "Hospital Sultan Abdul Halim",
+  "telecom": [
+    {
+      "system": "phone",
+      "value": "+60-4-7404000"
+    }
+  ],
+  "address": [
+    {
+      "line": [
+        "Bandar Amanjaya"
+      ],
+      "city": "Sungai Petani",
+      "district": "Kuala Muda",
+      "state": "Kedah",
+      "postalCode": "08000",
+      "country": "MY"
+    }
+  ]
 }

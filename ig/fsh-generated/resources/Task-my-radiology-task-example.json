@@ -7,10 +7,21 @@
     ]
   },
   "intent": "order",
+  "identifier": [
+    {
+      "system": "https://sandbox.myehr.kkmhub.moh.gov.my/id/radiology-task",
+      "value": "RAD-TASK-20260317-0001"
+    }
+  ],
   "status": "accepted",
   "code": {
     "text": "Radiology workflow management"
   },
+  "basedOn": [
+    {
+      "reference": "ServiceRequest/my-radiology-service-request-example"
+    }
+  ],
   "focus": {
     "reference": "ServiceRequest/my-radiology-service-request-example"
   },
@@ -26,15 +37,15 @@
     "reference": "Organization/my-organisation-example"
   },
   "businessStatus": {
-    "coding": [
-      {
-        "code": "scheduled",
-        "system": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/CodeSystem/my-radiology-workflow-state-cs",
-        "display": "Scheduled"
-      }
-    ]
+    "text": "Scheduled"
   },
   "statusReason": {
-    "text": "Order accepted and booked."
+    "coding": [
+      {
+        "code": "rescheduled",
+        "system": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/CodeSystem/my-radiology-task-status-reason-cs",
+        "display": "Rescheduled"
+      }
+    ]
   }
 }

@@ -1,0 +1,67 @@
+{
+  "resourceType": "ConceptMap",
+  "id": "my-radiology-procedure-code-conceptmap",
+  "url": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/ConceptMap/my-radiology-procedure-code-conceptmap",
+  "version": "0.1.0",
+  "name": "MYRadiologyProcedureCodeConceptMap",
+  "title": "MY Radiology Procedure Code Concept Map",
+  "status": "draft",
+  "experimental": false,
+  "date": "2026-03-24",
+  "publisher": "Data Team, Digital Health Division, Ministry of Health Malaysia",
+  "description": "Starter ConceptMap aligning the provisional locally hosted RadLex mirror codes used by this guide to commonly consumed LOINC radiology procedure or report codes.",
+  "sourceUri": "https://terminology.kkmhub.moh.gov.my/CodeSystem/radlex-imaging-procedures",
+  "targetUri": "http://loinc.org",
+  "group": [
+    {
+      "source": "https://terminology.kkmhub.moh.gov.my/CodeSystem/radlex-imaging-procedures",
+      "target": "http://loinc.org",
+      "element": [
+        {
+          "code": "RADLEX-CT-HEAD-WO",
+          "display": "CT head without contrast",
+          "target": [
+            {
+              "code": "24725-4",
+              "display": "CT Head",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "RADLEX-CT-CHEST-WO",
+          "display": "CT chest without contrast",
+          "target": [
+            {
+              "code": "24627-2",
+              "display": "CT Chest",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "RADLEX-XR-CHEST-2V",
+          "display": "Chest radiography 2 views",
+          "target": [
+            {
+              "code": "36643-5",
+              "display": "XR Chest 2 Views",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "RADLEX-MR-BRAIN-WO",
+          "display": "MR brain without contrast",
+          "target": [
+            {
+              "code": "58748-5",
+              "display": "Functional MR Brain",
+              "equivalence": "wider"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

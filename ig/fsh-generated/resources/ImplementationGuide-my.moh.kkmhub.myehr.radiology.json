@@ -1,6 +1,7 @@
 {
   "resourceType": "ImplementationGuide",
   "id": "my.moh.kkmhub.myehr.radiology",
+  "language": "en-MY",
   "url": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/ImplementationGuide/my.moh.kkmhub.myehr.radiology",
   "version": "0.1.0",
   "name": "MYRadiologyImplementationGuide",
@@ -46,7 +47,7 @@
       {
         "id": "profiles",
         "name": "FHIR Profiles",
-        "description": "Core Malaysian radiology profiles that define the computable exchange layer for order, workflow, scheduling, procedure, study, report, observation, and document packaging."
+        "description": "Core Malaysian radiology profiles that define the computable exchange layer for order, workflow, scheduling, procedure, study, report, observation, provenance, and document packaging."
       },
       {
         "id": "terminology",
@@ -66,7 +67,12 @@
       {
         "id": "examples",
         "name": "Examples",
-        "description": "Worked examples that illustrate the expected JSON and XML payload shape for profiles and the end-to-end order-to-report workflow bundle."
+        "description": "Worked examples that illustrate the expected JSON and XML payload shape for profiles, transaction patterns, errors, and the end-to-end order-to-report workflow bundle."
+      },
+      {
+        "id": "concept-maps",
+        "name": "Concept Maps",
+        "description": "Starter mapping artefacts that explain how the provisional procedure catalogue aligns to external coding systems used by implementation partners."
       }
     ],
     "resource": [
@@ -117,6 +123,15 @@
       },
       {
         "reference": {
+          "reference": "StructureDefinition/my-radiology-dicomweb-endpoint"
+        },
+        "name": "MY Radiology DICOMweb Endpoint",
+        "description": "DICOM WADO-RS endpoint profile used by ImagingStudy metadata publishers and retrieval consumers.",
+        "groupingId": "profiles",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
           "reference": "StructureDefinition/my-radiology-diagnostic-report"
         },
         "name": "MY Radiology DiagnosticReport",
@@ -139,6 +154,15 @@
         },
         "name": "MY Radiology DocumentReference",
         "description": "Optional document-centric profile for packaged report exchange and cross-enterprise sharing scenarios.",
+        "groupingId": "profiles",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/my-radiology-provenance"
+        },
+        "name": "MY Radiology Provenance",
+        "description": "Provenance profile for authorship, amendment, and publication traceability across radiology resources.",
         "groupingId": "profiles",
         "exampleBoolean": false
       },
@@ -192,7 +216,7 @@
           "reference": "ValueSet/my-radiology-workflow-state-vs"
         },
         "name": "MY Radiology Workflow State ValueSet",
-        "description": "Preferred business status codes for radiology Task synchronisation.",
+        "description": "Required business status codes for radiology Task synchronisation.",
         "groupingId": "terminology",
         "exampleBoolean": false
       },
@@ -207,10 +231,19 @@
       },
       {
         "reference": {
+          "reference": "ValueSet/my-radiology-clinical-indication-vs"
+        },
+        "name": "MY Radiology Clinical Indication ValueSet",
+        "description": "Preferred SNOMED CT and ICD-10 coding envelope for clinical indication on radiology orders.",
+        "groupingId": "terminology",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
           "reference": "ValueSet/my-radiology-procedure-code-vs"
         },
         "name": "MY Radiology Procedure Code ValueSet",
-        "description": "Preferred imaging procedure catalogue binding using a PROVISIONAL RadLex mirror strategy.",
+        "description": "Extensible imaging procedure catalogue binding using a PROVISIONAL RadLex mirror strategy.",
         "groupingId": "terminology",
         "exampleBoolean": false
       },
@@ -219,7 +252,7 @@
           "reference": "ValueSet/my-radiology-modality-vs"
         },
         "name": "MY Radiology Modality ValueSet",
-        "description": "Example DICOM-aligned modality codes for imaging study publication.",
+        "description": "Required DICOM-aligned modality codes for imaging study publication.",
         "groupingId": "terminology",
         "exampleBoolean": false
       },
@@ -228,7 +261,7 @@
           "reference": "ValueSet/my-radiology-report-code-vs"
         },
         "name": "MY Radiology Report Code ValueSet",
-        "description": "Representative report codes for radiology diagnostic report exchange.",
+        "description": "Starter LOINC radiology report codes for extensible diagnostic report exchange.",
         "groupingId": "terminology",
         "exampleBoolean": false
       },
@@ -252,6 +285,24 @@
       },
       {
         "reference": {
+          "reference": "ValueSet/my-radiology-task-status-reason-vs"
+        },
+        "name": "MY Radiology Task Status Reason ValueSet",
+        "description": "Starter operational reasons for rejection, suspension, rescheduling, or workflow exceptions.",
+        "groupingId": "terminology",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/my-radiology-presented-form-content-type-vs"
+        },
+        "name": "MY Radiology Presented Form Content Type ValueSet",
+        "description": "Allowed DiagnosticReport presented-form content types for rendered report exchange.",
+        "groupingId": "terminology",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
           "reference": "CodeSystem/my-radiology-workflow-state-cs"
         },
         "name": "MY Radiology Workflow State CodeSystem",
@@ -265,6 +316,15 @@
         },
         "name": "MY Radiology Accession Pattern CodeSystem",
         "description": "Draft policy-option codes describing candidate accession numbering strategies.",
+        "groupingId": "terminology",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/my-radiology-task-status-reason-cs"
+        },
+        "name": "MY Radiology Task Status Reason CodeSystem",
+        "description": "Starter operational reasons for rejection, suspension, rescheduling, or workflow exceptions.",
         "groupingId": "terminology",
         "exampleBoolean": false
       },
@@ -309,7 +369,7 @@
           "reference": "NamingSystem/MYAccessionIdentifierNamingSystem"
         },
         "name": "Accession Identifier Naming System",
-        "description": "PROVISIONAL naming system for accession identifiers using the recommended sandbox draft pattern.",
+        "description": "PROVISIONAL naming system for accession identifiers using the nationally reserved accession namespace root and the recommended sandbox draft value pattern.",
         "groupingId": "identifiers",
         "exampleBoolean": false
       },
@@ -320,6 +380,33 @@
         "name": "Radiology Order Identifier Naming System",
         "description": "PROVISIONAL naming system for radiology order identifiers issued by order placer systems.",
         "groupingId": "identifiers",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "NamingSystem/MYRadiologyTaskIdentifierNamingSystem"
+        },
+        "name": "Radiology Task Identifier Naming System",
+        "description": "PROVISIONAL naming system for radiology workflow task identifiers issued by workflow-managing systems.",
+        "groupingId": "identifiers",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "NamingSystem/MYRadiologyReportIdentifierNamingSystem"
+        },
+        "name": "Radiology Report Identifier Naming System",
+        "description": "PROVISIONAL naming system for radiology report identifiers issued by reporting systems.",
+        "groupingId": "identifiers",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ConceptMap/my-radiology-procedure-code-conceptmap"
+        },
+        "name": "MY Radiology Procedure Code Concept Map",
+        "description": "Starter mapping from the provisional locally hosted RadLex mirror to commonly used LOINC radiology report or procedure codes.",
+        "groupingId": "concept-maps",
         "exampleBoolean": false
       },
       {
@@ -360,6 +447,15 @@
       },
       {
         "reference": {
+          "reference": "Endpoint/my-radiology-dicomweb-endpoint-example"
+        },
+        "name": "Radiology DICOMweb Endpoint Example",
+        "description": "Example WADO-RS retrieval endpoint referenced by the imaging study metadata example.",
+        "groupingId": "examples",
+        "exampleCanonical": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-dicomweb-endpoint"
+      },
+      {
+        "reference": {
           "reference": "ImagingStudy/my-radiology-imaging-study-example"
         },
         "name": "Radiology ImagingStudy Example",
@@ -396,10 +492,37 @@
       },
       {
         "reference": {
+          "reference": "Provenance/my-radiology-provenance-example"
+        },
+        "name": "Radiology Provenance Example",
+        "description": "Example provenance record linking report publication responsibility to an identified Malaysian radiologist and organisation.",
+        "groupingId": "examples",
+        "exampleCanonical": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-provenance"
+      },
+      {
+        "reference": {
           "reference": "Bundle/my-radiology-order-workflow-bundle-example"
         },
         "name": "Radiology Order Workflow Bundle Example",
         "description": "Example collection bundle showing the main order-to-report workflow resources together.",
+        "groupingId": "examples",
+        "exampleBoolean": true
+      },
+      {
+        "reference": {
+          "reference": "Bundle/my-radiology-order-submission-transaction-example"
+        },
+        "name": "Radiology Order Submission Transaction Example",
+        "description": "Example transaction bundle showing a realistic order-submission pattern for sandbox testing and system onboarding.",
+        "groupingId": "examples",
+        "exampleBoolean": true
+      },
+      {
+        "reference": {
+          "reference": "OperationOutcome/my-radiology-invalid-service-request-operationoutcome-example"
+        },
+        "name": "Invalid ServiceRequest OperationOutcome Example",
+        "description": "Example rejection response showing how validation errors should be communicated to implementation partners.",
         "groupingId": "examples",
         "exampleBoolean": true
       },
@@ -546,6 +669,11 @@
         {
           "nameUrl": "fhir-artefacts.html",
           "title": "FHIR Artefacts",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "notifications.html",
+          "title": "Notifications And Polling",
           "generation": "markdown"
         },
         {

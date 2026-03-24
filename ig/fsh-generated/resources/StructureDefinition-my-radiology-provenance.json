@@ -1,0 +1,84 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "my-radiology-provenance",
+  "url": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-provenance",
+  "name": "MYRadiologyProvenance",
+  "title": "MY Radiology Provenance",
+  "status": "draft",
+  "experimental": false,
+  "description": "Provenance profile used to record authorship, amendment, and publication responsibility for radiology resources that require stronger audit traceability.",
+  "fhirVersion": "4.0.1",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Provenance",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Provenance",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Provenance.target",
+        "path": "Provenance.target",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-service-request",
+              "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-task",
+              "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-procedure",
+              "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-imaging-study",
+              "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-diagnostic-report",
+              "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-observation",
+              "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-document-reference"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Provenance.recorded",
+        "path": "Provenance.recorded",
+        "mustSupport": true
+      },
+      {
+        "id": "Provenance.reason",
+        "path": "Provenance.reason",
+        "mustSupport": true
+      },
+      {
+        "id": "Provenance.activity",
+        "path": "Provenance.activity",
+        "mustSupport": true
+      },
+      {
+        "id": "Provenance.agent",
+        "path": "Provenance.agent",
+        "mustSupport": true
+      },
+      {
+        "id": "Provenance.agent.type",
+        "path": "Provenance.agent.type",
+        "mustSupport": true
+      },
+      {
+        "id": "Provenance.agent.who",
+        "path": "Provenance.agent.who",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://fhir.hie.moh.gov.my/StructureDefinition/Organization-my-core",
+              "http://fhir.hie.moh.gov.my/StructureDefinition/Practitioner-my-core",
+              "http://fhir.hie.moh.gov.my/StructureDefinition/PractitionerRole-my-core"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Provenance.entity",
+        "path": "Provenance.entity",
+        "mustSupport": true
+      }
+    ]
+  }
+}

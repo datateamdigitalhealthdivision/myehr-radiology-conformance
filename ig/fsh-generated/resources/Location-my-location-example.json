@@ -5,5 +5,14 @@
   "name": "CT Suite 1",
   "managingOrganization": {
     "reference": "Organization/my-organisation-example"
+  },
+  "address": {
+    "line": [
+      "Radiology Department, Level 1"
+    ],
+    "city": "Sungai Petani",
+    "state": "Kedah",
+    "postalCode": "08000",
+    "country": "MY"
   }
 }

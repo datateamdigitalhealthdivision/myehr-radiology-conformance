@@ -49,6 +49,19 @@ Implementations should retain auditable evidence for:
 - image storage, storage commitment, and retrieval
 - report creation, finalisation, amendment, addendum publication, and viewing
 
+## Consent and emergency access
+
+Cross-enterprise image and report sharing introduces a separate policy question beyond transport security: when a receiving organisation is permitted to view information from another organisation.
+
+- Routine sharing should be governed by the treating relationship, authorised role, and applicable patient-consent rules in force for the deployment context.
+- `PROVISIONAL`: the detailed national consent and disclosure policy remains `TO BE CONFIRMED`. This guide therefore does not hard-code a final consent workflow into the computable artefacts.
+- Emergency or break-glass access may be necessary for time-critical care. Where such access is implemented, the accessing system shall record who accessed the information, when it occurred, the emergency justification, and which external study or report was viewed.
+- Break-glass access should be tightly role-controlled, auditable, and subject to retrospective review by the responsible organisation.
+
+## Notification security note
+
+If implementers use event-driven notification in later phases, the notification channel shall be protected to the same trust standard as the primary FHIR API. Notification endpoints should not disclose more data than necessary to signal that a downstream read should occur.
+
 ## Additional chapter
 
 The maintained repository chapter is available at [docs/05-security-and-audit.md](https://github.com/datateamdigitalhealthdivision/myehr-radiology-conformance/blob/main/docs/05-security-and-audit.md).

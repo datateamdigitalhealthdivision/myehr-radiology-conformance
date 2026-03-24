@@ -1,0 +1,74 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "my-radiology-dicomweb-endpoint",
+  "url": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-dicomweb-endpoint",
+  "name": "MYRadiologyDicomWebEndpoint",
+  "title": "MY Radiology DICOMweb Endpoint",
+  "status": "draft",
+  "experimental": false,
+  "description": "Endpoint profile for DICOM WADO-RS retrieval. It carries the retrieval base URL used by imaging viewers and integration consumers to access study content.",
+  "fhirVersion": "4.0.1",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Endpoint",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Endpoint",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Endpoint.status",
+        "path": "Endpoint.status",
+        "mustSupport": true
+      },
+      {
+        "id": "Endpoint.connectionType",
+        "path": "Endpoint.connectionType",
+        "patternCoding": {
+          "code": "dicom-wado-rs",
+          "system": "http://terminology.hl7.org/CodeSystem/endpoint-connection-type",
+          "display": "DICOM WADO-RS"
+        },
+        "mustSupport": true
+      },
+      {
+        "id": "Endpoint.name",
+        "path": "Endpoint.name",
+        "mustSupport": true
+      },
+      {
+        "id": "Endpoint.managingOrganization",
+        "path": "Endpoint.managingOrganization",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://fhir.hie.moh.gov.my/StructureDefinition/Organization-my-core"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Endpoint.payloadType",
+        "path": "Endpoint.payloadType",
+        "mustSupport": true
+      },
+      {
+        "id": "Endpoint.payloadMimeType",
+        "path": "Endpoint.payloadMimeType",
+        "mustSupport": true
+      },
+      {
+        "id": "Endpoint.address",
+        "path": "Endpoint.address",
+        "short": "Base WADO-RS URL, for example {dicomweb-base}/studies/{StudyInstanceUID}",
+        "mustSupport": true
+      },
+      {
+        "id": "Endpoint.header",
+        "path": "Endpoint.header",
+        "mustSupport": true
+      }
+    ]
+  }
+}

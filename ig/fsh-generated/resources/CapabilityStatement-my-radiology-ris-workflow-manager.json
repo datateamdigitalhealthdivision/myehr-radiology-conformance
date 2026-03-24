@@ -6,6 +6,7 @@
   "name": "MYRadiologyRISWorkflowManagerCapabilityStatement",
   "title": "MY Radiology RIS Workflow Manager CapabilityStatement",
   "status": "draft",
+  "experimental": false,
   "date": "2026-03-17",
   "publisher": "Data Team, Digital Health Division, Ministry of Health Malaysia",
   "kind": "requirements",
@@ -40,6 +41,22 @@
             {
               "name": "identifier",
               "type": "token"
+            },
+            {
+              "name": "patient",
+              "type": "reference"
+            },
+            {
+              "name": "status",
+              "type": "token"
+            },
+            {
+              "name": "authored",
+              "type": "date"
+            },
+            {
+              "name": "category",
+              "type": "token"
             }
           ]
         },
@@ -64,6 +81,18 @@
             {
               "name": "focus",
               "type": "reference"
+            },
+            {
+              "name": "patient",
+              "type": "reference"
+            },
+            {
+              "name": "status",
+              "type": "token"
+            },
+            {
+              "name": "authored-on",
+              "type": "date"
             }
           ]
         },
@@ -121,6 +150,10 @@
             {
               "name": "identifier",
               "type": "token"
+            },
+            {
+              "name": "patient",
+              "type": "reference"
             }
           ]
         },
@@ -142,6 +175,22 @@
             {
               "name": "based-on",
               "type": "reference"
+            },
+            {
+              "name": "patient",
+              "type": "reference"
+            },
+            {
+              "name": "status",
+              "type": "token"
+            },
+            {
+              "name": "issued",
+              "type": "date"
+            },
+            {
+              "name": "category",
+              "type": "token"
             }
           ]
         },
@@ -157,6 +206,15 @@
             },
             {
               "code": "search-type"
+            }
+          ]
+        },
+        {
+          "type": "Endpoint",
+          "profile": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-dicomweb-endpoint",
+          "interaction": [
+            {
+              "code": "read"
             }
           ]
         }

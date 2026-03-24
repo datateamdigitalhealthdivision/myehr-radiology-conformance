@@ -7,14 +7,14 @@
   "date": "2026-03-17",
   "publisher": "Data Team, Digital Health Division, Ministry of Health Malaysia",
   "responsible": "Ministry of Health Malaysia",
-  "description": "PROVISIONAL placeholder naming system for accession identifiers, using the recommended draft facility-date-sequence approach for sandbox use.",
-  "usage": "Use as a placeholder only until the final national accession policy and issuing authority are approved.",
+  "description": "PROVISIONAL placeholder naming system for accession identifiers within the nationally reserved accession namespace, using the recommended draft facility-date-sequence approach for sandbox use.",
+  "usage": "Use the nationally reserved accession namespace root and generate facility-traceable accession values until the final national accession authority is approved.",
   "uniqueId": [
     {
       "type": "uri",
-      "value": "https://facility.kkmhub.moh.gov.my/id/accession/provisional",
+      "value": "https://id.kkmhub.moh.gov.my/accession",
       "preferred": true,
-      "comment": "PROVISIONAL placeholder only."
+      "comment": "Reserved namespace root. The accession value itself should preserve facility-level traceability."
     }
   ]
 }

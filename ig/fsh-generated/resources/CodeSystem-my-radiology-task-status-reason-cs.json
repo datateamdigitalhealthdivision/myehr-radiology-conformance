@@ -1,0 +1,43 @@
+{
+  "resourceType": "CodeSystem",
+  "status": "draft",
+  "content": "complete",
+  "name": "MYRadiologyTaskStatusReasonCS",
+  "id": "my-radiology-task-status-reason-cs",
+  "title": "MY Radiology Task Status Reason CodeSystem",
+  "description": "Starter operational reasons for rejection, suspension, rescheduling, or workflow exception handling.",
+  "url": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/CodeSystem/my-radiology-task-status-reason-cs",
+  "concept": [
+    {
+      "code": "patient-not-available",
+      "display": "Patient Not Available"
+    },
+    {
+      "code": "contraindication",
+      "display": "Contraindication"
+    },
+    {
+      "code": "equipment-failure",
+      "display": "Equipment Failure"
+    },
+    {
+      "code": "patient-declined",
+      "display": "Patient Declined"
+    },
+    {
+      "code": "rescheduled",
+      "display": "Rescheduled"
+    },
+    {
+      "code": "incorrect-order",
+      "display": "Incorrect Order"
+    },
+    {
+      "code": "not-fasted",
+      "display": "Not Fasted"
+    }
+  ],
+  "experimental": false,
+  "caseSensitive": true,
+  "count": 7
+}

@@ -6,6 +6,7 @@
   "name": "MYRadiologyPACSMetadataPublisherCapabilityStatement",
   "title": "MY Radiology PACS Metadata Publisher CapabilityStatement",
   "status": "draft",
+  "experimental": false,
   "date": "2026-03-17",
   "publisher": "Data Team, Digital Health Division, Ministry of Health Malaysia",
   "kind": "requirements",
@@ -36,7 +37,7 @@
               "type": "token"
             },
             {
-              "name": "subject",
+              "name": "patient",
               "type": "reference"
             }
           ]
@@ -50,6 +51,15 @@
             },
             {
               "code": "search-type"
+            }
+          ]
+        },
+        {
+          "type": "Endpoint",
+          "profile": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-dicomweb-endpoint",
+          "interaction": [
+            {
+              "code": "read"
             }
           ]
         }

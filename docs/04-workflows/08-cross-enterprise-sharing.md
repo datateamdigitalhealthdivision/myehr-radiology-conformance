@@ -78,6 +78,10 @@ Cross-enterprise exchange should return clear discovery and retrieval outcomes. 
 
 Cross-enterprise sharing requires stronger trust governance than local retrieval. Authentication, authorisation, purpose-of-use, and audit trails are critical.
 
+Routine access should be limited to an authorised treating relationship or another approved operational basis. `PROVISIONAL`: the final national consent model for cross-facility imaging access remains `TO BE CONFIRMED`, so implementers should expose the policy hooks needed for local approval, disclosure logging, and later national alignment.
+
+Where emergency or break-glass access is supported, the consuming system shall record the requesting identity, the clinical justification, the accessed study or report, and the access timestamp for retrospective review.
+
 ## Test assertions
 
 - a shared report remains linked to the correct imaging study
@@ -92,3 +96,4 @@ This capability is likely phased. The first draft therefore documents it clearly
 
 - whether `XDS-I.b` is phase-1 mandatory is `TO BE CONFIRMED`
 - whether `XCA-I` is needed nationally remains `TO BE CONFIRMED`
+- detailed national consent and break-glass policy remains `TO BE CONFIRMED`

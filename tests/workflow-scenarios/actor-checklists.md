@@ -4,23 +4,26 @@
 
 - can create conformant `ServiceRequest`
 - can read or search `Task`
+- can search `ServiceRequest` by patient, status, and authored date
 - can consume appointment details if scheduling is exposed
 
 ## RIS Workflow Manager
 
 - can accept or reject orders
 - can expose booking and workflow state
-- can publish performed procedure, imaging study, and report outputs
+- can publish performed procedure, imaging study, DICOMweb endpoint, and report outputs
 
 ## PACS Or VNA Metadata Publisher
 
 - can expose `ImagingStudy` read and search behaviour
+- can expose `Endpoint` read behaviour for WADO-RS retrieval
 - preserves `StudyInstanceUID` and accession linkage
 
 ## EHR Or Viewer Consumer
 
 - can read and search `DiagnosticReport`
 - can follow report-to-study linkage
+- can resolve `Endpoint` resources referenced by `ImagingStudy`
 - can handle amended report behaviour safely
 
 ## Validation Consumer

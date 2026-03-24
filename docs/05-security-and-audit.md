@@ -54,6 +54,19 @@ The initial expectation is that implementations retain audit evidence for:
 
 Access should be limited by care relationship, organisational role, and operational need. Implementers should ensure that imaging endpoints do not bypass the same patient confidentiality principles enforced on the FHIR layer.
 
+## Consent and break-glass expectations
+
+Cross-facility imaging exchange requires more than API authentication. It also requires a clear policy basis for when one organisation may access another organisation's studies or reports.
+
+- Routine access should be limited to an authorised treating relationship or other approved operational basis.
+- `PROVISIONAL`: the detailed national consent policy for radiology image sharing remains `TO BE CONFIRMED`. This repository therefore documents the technical control points rather than asserting a final legal workflow.
+- Where emergency or break-glass access is supported, the consuming system shall require an explicit justification, record the responsible user or system identity, and generate auditable evidence for retrospective review.
+- Break-glass access should be exceptional, time-limited where possible, and governed by local Ministry-approved policy once finalised.
+
+## Notification and channel protection
+
+If implementation partners adopt event-driven notifications in later phases, those notifications should reveal the minimum data required to trigger a secure follow-up read from the FHIR or imaging endpoint. Notification delivery should be authenticated, authorised, and auditable.
+
 ## Production considerations still open
 
 - federated trust between organisations is `TO BE CONFIRMED`

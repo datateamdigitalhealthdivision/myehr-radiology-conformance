@@ -5,15 +5,36 @@
   "name": "MYRadiologyServiceRequest",
   "title": "MY Radiology ServiceRequest",
   "status": "draft",
+  "experimental": false,
   "description": "Radiology imaging order profile for Malaysian deployments. It captures requested procedure, priority, indication, requester context, patient linkage, and provisional accession handling.",
   "fhirVersion": "4.0.1",
   "kind": "resource",
   "abstract": false,
   "type": "ServiceRequest",
-  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/ServiceRequest",
+  "baseDefinition": "http://fhir.hie.moh.gov.my/StructureDefinition/ServiceRequest-my-core",
   "derivation": "constraint",
   "differential": {
     "element": [
+      {
+        "id": "ServiceRequest",
+        "path": "ServiceRequest",
+        "constraint": [
+          {
+            "key": "my-radiology-servicerequest-order-intent",
+            "human": "ServiceRequest.intent shall be order for this implementation guide.",
+            "source": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-service-request",
+            "severity": "error",
+            "expression": "intent = 'order'"
+          },
+          {
+            "key": "my-radiology-servicerequest-category-imaging",
+            "human": "A radiology ServiceRequest shall declare an imaging or radiology category code.",
+            "source": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-service-request",
+            "severity": "error",
+            "expression": "category.coding.where((system = 'http://terminology.hl7.org/CodeSystem/v2-0074' and code = 'RAD') or (system = 'http://snomed.info/sct' and code = '363679005')).exists()"
+          }
+        ]
+      },
       {
         "id": "ServiceRequest.identifier",
         "path": "ServiceRequest.identifier",
@@ -38,6 +59,19 @@
         "mustSupport": true
       },
       {
+        "id": "ServiceRequest.identifier:placerOrder.type",
+        "path": "ServiceRequest.identifier.type",
+        "patternCodeableConcept": {
+          "coding": [
+            {
+              "code": "PLAC",
+              "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+              "display": "Placer Identifier"
+            }
+          ]
+        }
+      },
+      {
         "id": "ServiceRequest.identifier:placerOrder.system",
         "path": "ServiceRequest.identifier.system",
         "min": 1,
@@ -53,20 +87,34 @@
         "id": "ServiceRequest.identifier:accession",
         "path": "ServiceRequest.identifier",
         "sliceName": "accession",
-        "short": "PROVISIONAL accession identifier",
+        "short": "Accession identifier within the nationally reserved accession namespace",
         "min": 0,
         "max": "1",
         "mustSupport": true
       },
       {
+        "id": "ServiceRequest.identifier:accession.type",
+        "path": "ServiceRequest.identifier.type",
+        "patternCodeableConcept": {
+          "coding": [
+            {
+              "code": "ACSN",
+              "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+              "display": "Accession ID"
+            }
+          ]
+        }
+      },
+      {
         "id": "ServiceRequest.identifier:accession.system",
         "path": "ServiceRequest.identifier.system",
         "min": 1,
-        "fixedUri": "https://facility.kkmhub.moh.gov.my/id/accession/provisional"
+        "fixedUri": "https://id.kkmhub.moh.gov.my/accession"
       },
       {
         "id": "ServiceRequest.identifier:accession.value",
         "path": "ServiceRequest.identifier.value",
+        "short": "Facility-traceable accession value, for example FACILITYCODE-YYYYMMDD-SEQUENCE",
         "min": 1,
         "mustSupport": true
       },
@@ -81,6 +129,12 @@
         "patternCode": "order"
       },
       {
+        "id": "ServiceRequest.category",
+        "path": "ServiceRequest.category",
+        "short": "Order category shall identify imaging or radiology for reliable workflow routing and filtering",
+        "mustSupport": true
+      },
+      {
         "id": "ServiceRequest.priority",
         "path": "ServiceRequest.priority",
         "mustSupport": true
@@ -91,18 +145,34 @@
         "min": 1,
         "mustSupport": true,
         "binding": {
-          "strength": "preferred",
+          "strength": "extensible",
           "valueSet": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/ValueSet/my-radiology-procedure-code-vs"
         }
       },
       {
         "id": "ServiceRequest.subject",
         "path": "ServiceRequest.subject",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://fhir.hie.moh.gov.my/StructureDefinition/Patient-my-core"
+            ]
+          }
+        ],
         "mustSupport": true
       },
       {
         "id": "ServiceRequest.encounter",
         "path": "ServiceRequest.encounter",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://fhir.hie.moh.gov.my/StructureDefinition/Encounter-my-core"
+            ]
+          }
+        ],
         "mustSupport": true
       },
       {
@@ -113,19 +183,31 @@
       {
         "id": "ServiceRequest.authoredOn",
         "path": "ServiceRequest.authoredOn",
-        "min": 1,
         "mustSupport": true
       },
       {
         "id": "ServiceRequest.requester",
         "path": "ServiceRequest.requester",
         "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://fhir.hie.moh.gov.my/StructureDefinition/PractitionerRole-my-core"
+            ]
+          }
+        ],
         "mustSupport": true
       },
       {
         "id": "ServiceRequest.reasonCode",
         "path": "ServiceRequest.reasonCode",
-        "mustSupport": true
+        "short": "Clinical indication, diagnosis, or appropriateness context for the requested examination",
+        "mustSupport": true,
+        "binding": {
+          "strength": "extensible",
+          "valueSet": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/ValueSet/my-radiology-clinical-indication-vs"
+        }
       },
       {
         "id": "ServiceRequest.supportingInfo",
@@ -135,6 +217,7 @@
       {
         "id": "ServiceRequest.bodySite",
         "path": "ServiceRequest.bodySite",
+        "short": "Use SNOMED CT body structures and include laterality where clinically relevant",
         "mustSupport": true
       },
       {

@@ -5,6 +5,7 @@ title: Malaysian National Radiology Interoperability And Conformance Guide
 description: Draft national FHIR R4 radiology implementation guide for Malaysia, aligned to the national MY Core baseline and published as the computable core of a wider one-repository radiology conformance specification.
 status: draft
 version: 0.1.0
+language: en-MY
 fhirVersion: 4.0.1
 copyrightYear: 2026+
 releaseLabel: ci-build
@@ -58,6 +59,8 @@ pages:
     title: Workflow 11 Encounter-Based Imaging
   fhir-artefacts.md:
     title: FHIR Artefacts
+  notifications.md:
+    title: Notifications And Polling
   terminology.md:
     title: Terminology And Identifiers
   security.md:
@@ -75,6 +78,7 @@ menu:
   Conformance Model: conformance-model.html
   Workflow Summary: workflow-summary.html
   FHIR Artefacts: fhir-artefacts.html
+  Notifications And Polling: notifications.html
   Terminology And Identifiers: terminology.html
   Security And Audit: security.html
   Conformance Testing: testing.html
@@ -84,7 +88,7 @@ menu:
 groups:
   profiles:
     name: FHIR Profiles
-    description: Core Malaysian radiology profiles that define the computable exchange layer for order, workflow, scheduling, procedure, study, report, observation, and document packaging.
+    description: Core Malaysian radiology profiles that define the computable exchange layer for order, workflow, scheduling, procedure, study, report, observation, provenance, and document packaging.
   capability-statements:
     name: Capability Statements
     description: Actor-specific conformance expectations for order placer, workflow manager, archive publisher, viewer consumer, and validation participants.
@@ -94,9 +98,12 @@ groups:
   identifiers:
     name: Naming Systems
     description: PROVISIONAL naming system resources that distinguish placeholder identifier URIs from value format, issuing authority, and future governance decisions.
+  concept-maps:
+    name: Concept Maps
+    description: Starter mapping artefacts that explain how the provisional procedure catalogue aligns to external coding systems used by implementation partners.
   examples:
     name: Examples
-    description: Worked examples that illustrate the expected JSON and XML payload shape for profiles and the end-to-end order-to-report workflow bundle.
+    description: Worked examples that illustrate the expected JSON and XML payload shape for profiles, transaction patterns, errors, and the end-to-end order-to-report workflow bundle.
 resources:
   StructureDefinition/my-radiology-service-request:
     name: MY Radiology ServiceRequest
@@ -118,6 +125,10 @@ resources:
     name: MY Radiology ImagingStudy
     description: FHIR-facing imaging study metadata aligned to the underlying DICOM study.
     groupingId: profiles
+  StructureDefinition/my-radiology-dicomweb-endpoint:
+    name: MY Radiology DICOMweb Endpoint
+    description: DICOM WADO-RS endpoint profile used by ImagingStudy metadata publishers and retrieval consumers.
+    groupingId: profiles
   StructureDefinition/my-radiology-diagnostic-report:
     name: MY Radiology DiagnosticReport
     description: Radiology report profile for preliminary, final, amended, and addendum reporting scenarios.
@@ -129,6 +140,10 @@ resources:
   StructureDefinition/my-radiology-document-reference:
     name: MY Radiology DocumentReference
     description: Optional document-centric profile for packaged report exchange and cross-enterprise sharing scenarios.
+    groupingId: profiles
+  StructureDefinition/my-radiology-provenance:
+    name: MY Radiology Provenance
+    description: Provenance profile for authorship, amendment, and publication traceability across radiology resources.
     groupingId: profiles
   CapabilityStatement/my-radiology-his-order-placer:
     name: HIS Order Placer Capability Statement
@@ -152,23 +167,27 @@ resources:
     groupingId: capability-statements
   ValueSet/my-radiology-workflow-state-vs:
     name: MY Radiology Workflow State ValueSet
-    description: Preferred business status codes for radiology Task synchronisation.
+    description: Required business status codes for radiology Task synchronisation.
     groupingId: terminology
   ValueSet/my-radiology-accession-pattern-vs:
     name: MY Radiology Accession Pattern ValueSet
     description: Candidate accession identifier patterns carried for governance and sandbox design.
     groupingId: terminology
+  ValueSet/my-radiology-clinical-indication-vs:
+    name: MY Radiology Clinical Indication ValueSet
+    description: Preferred SNOMED CT and ICD-10 coding envelope for clinical indication on radiology orders.
+    groupingId: terminology
   ValueSet/my-radiology-procedure-code-vs:
     name: MY Radiology Procedure Code ValueSet
-    description: Preferred imaging procedure catalogue binding using a PROVISIONAL RadLex mirror strategy.
+    description: Extensible imaging procedure catalogue binding using a PROVISIONAL RadLex mirror strategy.
     groupingId: terminology
   ValueSet/my-radiology-modality-vs:
     name: MY Radiology Modality ValueSet
-    description: Example DICOM-aligned modality codes for imaging study publication.
+    description: Required DICOM-aligned modality codes for imaging study publication.
     groupingId: terminology
   ValueSet/my-radiology-report-code-vs:
     name: MY Radiology Report Code ValueSet
-    description: Representative report codes for radiology diagnostic report exchange.
+    description: Starter LOINC radiology report codes for extensible diagnostic report exchange.
     groupingId: terminology
   ValueSet/my-radiology-finding-code-vs:
     name: MY Radiology Finding Code ValueSet
@@ -178,6 +197,14 @@ resources:
     name: MY Radiology Document Type ValueSet
     description: Document typing codes for packaged radiology reports.
     groupingId: terminology
+  ValueSet/my-radiology-task-status-reason-vs:
+    name: MY Radiology Task Status Reason ValueSet
+    description: Starter operational reasons for rejection, suspension, rescheduling, or workflow exceptions.
+    groupingId: terminology
+  ValueSet/my-radiology-presented-form-content-type-vs:
+    name: MY Radiology Presented Form Content Type ValueSet
+    description: Allowed DiagnosticReport presented-form content types for rendered report exchange.
+    groupingId: terminology
   CodeSystem/my-radiology-workflow-state-cs:
     name: MY Radiology Workflow State CodeSystem
     description: Technical workflow status codes used in Task.businessStatus.
@@ -185,6 +212,10 @@ resources:
   CodeSystem/my-radiology-accession-pattern-cs:
     name: MY Radiology Accession Pattern CodeSystem
     description: Draft policy-option codes describing candidate accession numbering strategies.
+    groupingId: terminology
+  CodeSystem/my-radiology-task-status-reason-cs:
+    name: MY Radiology Task Status Reason CodeSystem
+    description: Starter operational reasons for rejection, suspension, rescheduling, or workflow exceptions.
     groupingId: terminology
   CodeSystem/my-radlex-procedure-mirror:
     name: MY RadLex Procedure Mirror Placeholder
@@ -204,12 +235,24 @@ resources:
     groupingId: identifiers
   NamingSystem/MYAccessionIdentifierNamingSystem:
     name: Accession Identifier Naming System
-    description: PROVISIONAL naming system for accession identifiers using the recommended sandbox draft pattern.
+    description: PROVISIONAL naming system for accession identifiers using the nationally reserved accession namespace root and the recommended sandbox draft value pattern.
     groupingId: identifiers
   NamingSystem/MYRadiologyOrderIdentifierNamingSystem:
     name: Radiology Order Identifier Naming System
     description: PROVISIONAL naming system for radiology order identifiers issued by order placer systems.
     groupingId: identifiers
+  NamingSystem/MYRadiologyTaskIdentifierNamingSystem:
+    name: Radiology Task Identifier Naming System
+    description: PROVISIONAL naming system for radiology workflow task identifiers issued by workflow-managing systems.
+    groupingId: identifiers
+  NamingSystem/MYRadiologyReportIdentifierNamingSystem:
+    name: Radiology Report Identifier Naming System
+    description: PROVISIONAL naming system for radiology report identifiers issued by reporting systems.
+    groupingId: identifiers
+  ConceptMap/my-radiology-procedure-code-conceptmap:
+    name: MY Radiology Procedure Code Concept Map
+    description: Starter mapping from the provisional locally hosted RadLex mirror to commonly used LOINC radiology report or procedure codes.
+    groupingId: concept-maps
   ServiceRequest/my-radiology-service-request-example:
     name: Radiology ServiceRequest Example
     description: Example imaging order showing placer order and accession identifiers, clinical indication, requested procedure, and requester context.
@@ -230,6 +273,11 @@ resources:
     description: Example performed imaging procedure derived from the originating order.
     groupingId: examples
     exampleCanonical: https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-procedure
+  Endpoint/my-radiology-dicomweb-endpoint-example:
+    name: Radiology DICOMweb Endpoint Example
+    description: Example WADO-RS retrieval endpoint referenced by the imaging study metadata example.
+    groupingId: examples
+    exampleCanonical: https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-dicomweb-endpoint
   ImagingStudy/my-radiology-imaging-study-example:
     name: Radiology ImagingStudy Example
     description: Example study metadata aligned to a DICOM study and linked to the order and performed procedure.
@@ -250,9 +298,24 @@ resources:
     description: Example packaged radiology report document for sharing scenarios.
     groupingId: examples
     exampleCanonical: https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-document-reference
+  Provenance/my-radiology-provenance-example:
+    name: Radiology Provenance Example
+    description: Example provenance record linking report publication responsibility to an identified Malaysian radiologist and organisation.
+    groupingId: examples
+    exampleCanonical: https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-provenance
   Bundle/my-radiology-order-workflow-bundle-example:
     name: Radiology Order Workflow Bundle Example
     description: Example collection bundle showing the main order-to-report workflow resources together.
+    groupingId: examples
+    exampleBoolean: true
+  Bundle/my-radiology-order-submission-transaction-example:
+    name: Radiology Order Submission Transaction Example
+    description: Example transaction bundle showing a realistic order-submission pattern for sandbox testing and system onboarding.
+    groupingId: examples
+    exampleBoolean: true
+  OperationOutcome/my-radiology-invalid-service-request-operationoutcome-example:
+    name: Invalid ServiceRequest OperationOutcome Example
+    description: Example rejection response showing how validation errors should be communicated to implementation partners.
     groupingId: examples
     exampleBoolean: true
   Patient/my-patient-example:

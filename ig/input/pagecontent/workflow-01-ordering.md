@@ -55,7 +55,7 @@ Aligns to IHE Scheduled Workflow order placer and order filler responsibilities.
 ## Required data elements
 
 - business order identifier
-- provisional accession strategy element
+- accession identifier using the nationally reserved accession namespace when known
 - patient reference
 - encounter reference where relevant
 - requested procedure code
@@ -85,6 +85,8 @@ The receiving RIS should return a clear success or failure response and should e
 
 Order submission must be authenticated, authorised, and auditable. Clinical indication and patient identity data should be protected in transit and at rest.
 
+Known contrast allergies or contraindications should be communicated or retrievable before contrast-enhanced orders are accepted. Where available, `AllergyIntolerance` should be checked for contrast-related allergies before the RIS accepts a contrast study.
+
 ## Test assertions
 
 - a valid order is accepted and yields an acknowledgement
@@ -94,6 +96,8 @@ Order submission must be authenticated, authorised, and auditable. Clinical indi
 ## Implementation notes
 
 Keep the order payload practical. Do not require radiology-specific extensions unless base or MY Core elements are insufficient.
+
+The accession namespace root is `https://id.kkmhub.moh.gov.my/accession` in this draft. The accession value should remain facility-traceable, for example `FACILITYCODE-YYYYMMDD-SEQUENCE`.
 
 ## Open issues or local decisions pending
 

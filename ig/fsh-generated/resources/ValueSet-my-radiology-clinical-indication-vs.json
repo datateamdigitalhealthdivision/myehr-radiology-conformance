@@ -1,0 +1,20 @@
+{
+  "resourceType": "ValueSet",
+  "status": "draft",
+  "name": "MYRadiologyClinicalIndicationVS",
+  "id": "my-radiology-clinical-indication-vs",
+  "title": "MY Radiology Clinical Indication ValueSet",
+  "description": "Preferred coding envelope for clinical indication on radiology orders. This draft permits SNOMED CT and ICD-10 pending finer national curation.",
+  "url": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/ValueSet/my-radiology-clinical-indication-vs",
+  "experimental": false,
+  "compose": {
+    "include": [
+      {
+        "system": "http://snomed.info/sct"
+      },
+      {
+        "system": "http://hl7.org/fhir/sid/icd-10"
+      }
+    ]
+  }
+}

@@ -5,6 +5,7 @@
   "name": "MYRadiologyObservation",
   "title": "MY Radiology Observation",
   "status": "draft",
+  "experimental": false,
   "description": "Structured radiology finding or quantitative measurement profile to be used only when narrative reporting alone is insufficient.",
   "fhirVersion": "4.0.1",
   "kind": "resource",
@@ -65,7 +66,7 @@
         "path": "Observation.code",
         "mustSupport": true,
         "binding": {
-          "strength": "preferred",
+          "strength": "extensible",
           "valueSet": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/ValueSet/my-radiology-finding-code-vs"
         }
       },
@@ -73,11 +74,27 @@
         "id": "Observation.subject",
         "path": "Observation.subject",
         "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://fhir.hie.moh.gov.my/StructureDefinition/Patient-my-core"
+            ]
+          }
+        ],
         "mustSupport": true
       },
       {
         "id": "Observation.encounter",
         "path": "Observation.encounter",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://fhir.hie.moh.gov.my/StructureDefinition/Encounter-my-core"
+            ]
+          }
+        ],
         "mustSupport": true
       },
       {
@@ -88,6 +105,16 @@
       {
         "id": "Observation.performer",
         "path": "Observation.performer",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://fhir.hie.moh.gov.my/StructureDefinition/Organization-my-core",
+              "http://fhir.hie.moh.gov.my/StructureDefinition/Practitioner-my-core",
+              "http://fhir.hie.moh.gov.my/StructureDefinition/PractitionerRole-my-core"
+            ]
+          }
+        ],
         "mustSupport": true
       },
       {
@@ -103,6 +130,7 @@
       {
         "id": "Observation.derivedFrom",
         "path": "Observation.derivedFrom",
+        "short": "Reference the ImagingStudy that the structured finding or measurement was derived from",
         "type": [
           {
             "code": "Reference",

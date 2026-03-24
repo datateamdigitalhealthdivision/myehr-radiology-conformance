@@ -19,6 +19,13 @@
   ],
   "status": "final",
   "code": {
+    "coding": [
+      {
+        "code": "118247008",
+        "system": "http://snomed.info/sct",
+        "display": "Radiologic finding"
+      }
+    ],
     "text": "Intracranial haemorrhage finding"
   },
   "subject": {
@@ -41,5 +48,10 @@
   "valueString": "Absent",
   "bodySite": {
     "text": "Head"
-  }
+  },
+  "derivedFrom": [
+    {
+      "reference": "ImagingStudy/my-radiology-imaging-study-example"
+    }
+  ]
 }

@@ -33,3 +33,5 @@ centrally minted UUID with a human-readable alias
 - `ServiceRequest.identifier` should carry the business order identifier
 - the accession slice should be populated when the accession is known
 - downstream `ImagingStudy` and `DiagnosticReport` artefacts should preserve the accession value consistently where operationally relevant
+- the accession namespace root is currently `https://id.kkmhub.moh.gov.my/accession`
+- the accession value should remain facility-traceable even before the final issuing authority is approved

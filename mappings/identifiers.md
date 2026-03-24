@@ -6,10 +6,10 @@ This note complements the governance chapter by showing how identifier concepts 
 
 ## Resource-specific expectations
 
-- `ServiceRequest.identifier`: business order identifiers and the provisional accession identifier slice
+- `ServiceRequest.identifier`: business order identifiers and the accession identifier slice within the nationally reserved accession namespace
 - `Appointment.identifier`: booking identifier where scheduling is used
 - `Procedure.identifier`: performed procedure identifier if issued locally
-- `ImagingStudy.identifier`: DICOM `StudyInstanceUID` and optional local study business identifiers
+- `ImagingStudy.identifier`: DICOM `StudyInstanceUID`, accession identifier, and optional local study business identifiers
 - `DiagnosticReport.identifier`: report business identifier where separate from the order
 
 ## DICOM alignment

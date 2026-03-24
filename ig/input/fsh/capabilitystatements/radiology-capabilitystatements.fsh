@@ -7,6 +7,7 @@ Usage: #definition
 * name = "MYRadiologyHISOrderPlacerCapabilityStatement"
 * title = "MY Radiology HIS Order Placer CapabilityStatement"
 * status = #draft
+* experimental = false
 * date = "2026-03-17"
 * publisher = "Data Team, Digital Health Division, Ministry of Health Malaysia"
 * kind = #requirements
@@ -23,6 +24,18 @@ Usage: #definition
 * rest[0].resource[0].searchParam[0].name = "identifier"
 * rest[0].resource[0].searchParam[0].type = #token
 * rest[0].resource[0].searchParam[0].documentation = "Search by order identifier or accession identifier."
+* rest[0].resource[0].searchParam[1].name = "patient"
+* rest[0].resource[0].searchParam[1].type = #reference
+* rest[0].resource[0].searchParam[1].documentation = "Search radiology orders for a specific patient."
+* rest[0].resource[0].searchParam[2].name = "status"
+* rest[0].resource[0].searchParam[2].type = #token
+* rest[0].resource[0].searchParam[2].documentation = "Search radiology orders by ServiceRequest status."
+* rest[0].resource[0].searchParam[3].name = "authored"
+* rest[0].resource[0].searchParam[3].type = #date
+* rest[0].resource[0].searchParam[3].documentation = "Search radiology orders by authored date."
+* rest[0].resource[0].searchParam[4].name = "category"
+* rest[0].resource[0].searchParam[4].type = #token
+* rest[0].resource[0].searchParam[4].documentation = "Search radiology orders by imaging or radiology category."
 * rest[0].resource[1].type = #Task
 * rest[0].resource[1].profile = "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-task"
 * rest[0].resource[1].interaction[0].code = #read
@@ -30,6 +43,15 @@ Usage: #definition
 * rest[0].resource[1].searchParam[0].name = "focus"
 * rest[0].resource[1].searchParam[0].type = #reference
 * rest[0].resource[1].searchParam[0].documentation = "Search by the linked ServiceRequest."
+* rest[0].resource[1].searchParam[1].name = "patient"
+* rest[0].resource[1].searchParam[1].type = #reference
+* rest[0].resource[1].searchParam[1].documentation = "Search workflow tasks by patient."
+* rest[0].resource[1].searchParam[2].name = "status"
+* rest[0].resource[1].searchParam[2].type = #token
+* rest[0].resource[1].searchParam[2].documentation = "Search workflow tasks by Task status."
+* rest[0].resource[1].searchParam[3].name = "authored-on"
+* rest[0].resource[1].searchParam[3].type = #date
+* rest[0].resource[1].searchParam[3].documentation = "Search workflow tasks by authored date."
 * rest[0].resource[2].type = #Appointment
 * rest[0].resource[2].profile = "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-appointment"
 * rest[0].resource[2].interaction[0].code = #read
@@ -47,6 +69,7 @@ Usage: #definition
 * name = "MYRadiologyRISWorkflowManagerCapabilityStatement"
 * title = "MY Radiology RIS Workflow Manager CapabilityStatement"
 * status = #draft
+* experimental = false
 * date = "2026-03-17"
 * publisher = "Data Team, Digital Health Division, Ministry of Health Malaysia"
 * kind = #requirements
@@ -63,6 +86,14 @@ Usage: #definition
 * rest[0].resource[0].interaction[3].code = #search-type
 * rest[0].resource[0].searchParam[0].name = "identifier"
 * rest[0].resource[0].searchParam[0].type = #token
+* rest[0].resource[0].searchParam[1].name = "patient"
+* rest[0].resource[0].searchParam[1].type = #reference
+* rest[0].resource[0].searchParam[2].name = "status"
+* rest[0].resource[0].searchParam[2].type = #token
+* rest[0].resource[0].searchParam[3].name = "authored"
+* rest[0].resource[0].searchParam[3].type = #date
+* rest[0].resource[0].searchParam[4].name = "category"
+* rest[0].resource[0].searchParam[4].type = #token
 * rest[0].resource[1].type = #Task
 * rest[0].resource[1].profile = "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-task"
 * rest[0].resource[1].interaction[0].code = #create
@@ -71,6 +102,12 @@ Usage: #definition
 * rest[0].resource[1].interaction[3].code = #search-type
 * rest[0].resource[1].searchParam[0].name = "focus"
 * rest[0].resource[1].searchParam[0].type = #reference
+* rest[0].resource[1].searchParam[1].name = "patient"
+* rest[0].resource[1].searchParam[1].type = #reference
+* rest[0].resource[1].searchParam[2].name = "status"
+* rest[0].resource[1].searchParam[2].type = #token
+* rest[0].resource[1].searchParam[3].name = "authored-on"
+* rest[0].resource[1].searchParam[3].type = #date
 * rest[0].resource[2].type = #Appointment
 * rest[0].resource[2].profile = "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-appointment"
 * rest[0].resource[2].interaction[0].code = #create
@@ -90,6 +127,8 @@ Usage: #definition
 * rest[0].resource[4].interaction[2].code = #search-type
 * rest[0].resource[4].searchParam[0].name = "identifier"
 * rest[0].resource[4].searchParam[0].type = #token
+* rest[0].resource[4].searchParam[1].name = "patient"
+* rest[0].resource[4].searchParam[1].type = #reference
 * rest[0].resource[5].type = #DiagnosticReport
 * rest[0].resource[5].profile = "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-diagnostic-report"
 * rest[0].resource[5].interaction[0].code = #create
@@ -97,11 +136,22 @@ Usage: #definition
 * rest[0].resource[5].interaction[2].code = #search-type
 * rest[0].resource[5].searchParam[0].name = "based-on"
 * rest[0].resource[5].searchParam[0].type = #reference
+* rest[0].resource[5].searchParam[1].name = "patient"
+* rest[0].resource[5].searchParam[1].type = #reference
+* rest[0].resource[5].searchParam[2].name = "status"
+* rest[0].resource[5].searchParam[2].type = #token
+* rest[0].resource[5].searchParam[3].name = "issued"
+* rest[0].resource[5].searchParam[3].type = #date
+* rest[0].resource[5].searchParam[4].name = "category"
+* rest[0].resource[5].searchParam[4].type = #token
 * rest[0].resource[6].type = #Observation
 * rest[0].resource[6].profile = "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-observation"
 * rest[0].resource[6].interaction[0].code = #create
 * rest[0].resource[6].interaction[1].code = #read
 * rest[0].resource[6].interaction[2].code = #search-type
+* rest[0].resource[7].type = #Endpoint
+* rest[0].resource[7].profile = "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-dicomweb-endpoint"
+* rest[0].resource[7].interaction[0].code = #read
 
 Instance: MYRadiologyPACSMetadataPublisherCapabilityStatement
 InstanceOf: CapabilityStatement
@@ -112,6 +162,7 @@ Usage: #definition
 * name = "MYRadiologyPACSMetadataPublisherCapabilityStatement"
 * title = "MY Radiology PACS Metadata Publisher CapabilityStatement"
 * status = #draft
+* experimental = false
 * date = "2026-03-17"
 * publisher = "Data Team, Digital Health Division, Ministry of Health Malaysia"
 * kind = #requirements
@@ -126,12 +177,15 @@ Usage: #definition
 * rest[0].resource[0].interaction[1].code = #search-type
 * rest[0].resource[0].searchParam[0].name = "identifier"
 * rest[0].resource[0].searchParam[0].type = #token
-* rest[0].resource[0].searchParam[1].name = "subject"
+* rest[0].resource[0].searchParam[1].name = "patient"
 * rest[0].resource[0].searchParam[1].type = #reference
 * rest[0].resource[1].type = #DocumentReference
 * rest[0].resource[1].profile = "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-document-reference"
 * rest[0].resource[1].interaction[0].code = #read
 * rest[0].resource[1].interaction[1].code = #search-type
+* rest[0].resource[2].type = #Endpoint
+* rest[0].resource[2].profile = "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-dicomweb-endpoint"
+* rest[0].resource[2].interaction[0].code = #read
 
 Instance: MYRadiologyViewerConsumerCapabilityStatement
 InstanceOf: CapabilityStatement
@@ -142,6 +196,7 @@ Usage: #definition
 * name = "MYRadiologyViewerConsumerCapabilityStatement"
 * title = "MY Radiology Viewer Consumer CapabilityStatement"
 * status = #draft
+* experimental = false
 * date = "2026-03-17"
 * publisher = "Data Team, Digital Health Division, Ministry of Health Malaysia"
 * kind = #requirements
@@ -154,18 +209,29 @@ Usage: #definition
 * rest[0].resource[0].profile = "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-diagnostic-report"
 * rest[0].resource[0].interaction[0].code = #read
 * rest[0].resource[0].interaction[1].code = #search-type
-* rest[0].resource[0].searchParam[0].name = "subject"
+* rest[0].resource[0].searchParam[0].name = "patient"
 * rest[0].resource[0].searchParam[0].type = #reference
+* rest[0].resource[0].searchParam[1].name = "status"
+* rest[0].resource[0].searchParam[1].type = #token
+* rest[0].resource[0].searchParam[2].name = "issued"
+* rest[0].resource[0].searchParam[2].type = #date
+* rest[0].resource[0].searchParam[3].name = "category"
+* rest[0].resource[0].searchParam[3].type = #token
 * rest[0].resource[1].type = #ImagingStudy
 * rest[0].resource[1].profile = "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-imaging-study"
 * rest[0].resource[1].interaction[0].code = #read
 * rest[0].resource[1].interaction[1].code = #search-type
 * rest[0].resource[1].searchParam[0].name = "identifier"
 * rest[0].resource[1].searchParam[0].type = #token
+* rest[0].resource[1].searchParam[1].name = "patient"
+* rest[0].resource[1].searchParam[1].type = #reference
 * rest[0].resource[2].type = #DocumentReference
 * rest[0].resource[2].profile = "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-document-reference"
 * rest[0].resource[2].interaction[0].code = #read
 * rest[0].resource[2].interaction[1].code = #search-type
+* rest[0].resource[3].type = #Endpoint
+* rest[0].resource[3].profile = "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-dicomweb-endpoint"
+* rest[0].resource[3].interaction[0].code = #read
 
 Instance: MYRadiologyValidationConsumerCapabilityStatement
 InstanceOf: CapabilityStatement
@@ -176,6 +242,7 @@ Usage: #definition
 * name = "MYRadiologyValidationConsumerCapabilityStatement"
 * title = "MY Radiology Validation Consumer CapabilityStatement"
 * status = #draft
+* experimental = false
 * date = "2026-03-17"
 * publisher = "Data Team, Digital Health Division, Ministry of Health Malaysia"
 * kind = #requirements
@@ -188,10 +255,14 @@ Usage: #definition
 * rest[0].resource[0].profile = "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-service-request"
 * rest[0].resource[0].interaction[0].code = #read
 * rest[0].resource[0].interaction[1].code = #search-type
+* rest[0].resource[0].searchParam[0].name = "patient"
+* rest[0].resource[0].searchParam[0].type = #reference
 * rest[0].resource[1].type = #Task
 * rest[0].resource[1].profile = "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-task"
 * rest[0].resource[1].interaction[0].code = #read
 * rest[0].resource[1].interaction[1].code = #search-type
+* rest[0].resource[1].searchParam[0].name = "patient"
+* rest[0].resource[1].searchParam[0].type = #reference
 * rest[0].resource[2].type = #Procedure
 * rest[0].resource[2].profile = "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-procedure"
 * rest[0].resource[2].interaction[0].code = #read
@@ -200,7 +271,22 @@ Usage: #definition
 * rest[0].resource[3].profile = "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-imaging-study"
 * rest[0].resource[3].interaction[0].code = #read
 * rest[0].resource[3].interaction[1].code = #search-type
+* rest[0].resource[3].searchParam[0].name = "patient"
+* rest[0].resource[3].searchParam[0].type = #reference
+* rest[0].resource[3].searchParam[1].name = "identifier"
+* rest[0].resource[3].searchParam[1].type = #token
 * rest[0].resource[4].type = #DiagnosticReport
 * rest[0].resource[4].profile = "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-diagnostic-report"
 * rest[0].resource[4].interaction[0].code = #read
 * rest[0].resource[4].interaction[1].code = #search-type
+* rest[0].resource[4].searchParam[0].name = "patient"
+* rest[0].resource[4].searchParam[0].type = #reference
+* rest[0].resource[4].searchParam[1].name = "status"
+* rest[0].resource[4].searchParam[1].type = #token
+* rest[0].resource[4].searchParam[2].name = "issued"
+* rest[0].resource[4].searchParam[2].type = #date
+* rest[0].resource[4].searchParam[3].name = "category"
+* rest[0].resource[4].searchParam[3].type = #token
+* rest[0].resource[5].type = #Endpoint
+* rest[0].resource[5].profile = "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-dicomweb-endpoint"
+* rest[0].resource[5].interaction[0].code = #read

@@ -12,6 +12,21 @@
       "code": "RADLEX-CT-HEAD-WO",
       "display": "CT head without contrast",
       "definition": "EXAMPLE ONLY placeholder code carried in this repository so the sample radiology workflow instances can validate before the full RadLex mirror is hosted locally."
+    },
+    {
+      "code": "RADLEX-CT-CHEST-WO",
+      "display": "CT chest without contrast",
+      "definition": "EXAMPLE ONLY placeholder code included to support starter ConceptMap publication."
+    },
+    {
+      "code": "RADLEX-XR-CHEST-2V",
+      "display": "Chest radiography 2 views",
+      "definition": "EXAMPLE ONLY placeholder code included to support starter ConceptMap publication."
+    },
+    {
+      "code": "RADLEX-MR-BRAIN-WO",
+      "display": "MR brain without contrast",
+      "definition": "EXAMPLE ONLY placeholder code included to support starter ConceptMap publication."
     }
   ],
   "experimental": false,

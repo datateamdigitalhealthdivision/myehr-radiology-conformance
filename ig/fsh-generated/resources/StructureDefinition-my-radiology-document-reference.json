@@ -5,6 +5,7 @@
   "name": "MYRadiologyDocumentReference",
   "title": "MY Radiology DocumentReference",
   "status": "draft",
+  "experimental": false,
   "description": "Optional document-centric profile for packaged radiology report documents and cross-enterprise sharing scenarios.",
   "fhirVersion": "4.0.1",
   "kind": "resource",
@@ -30,7 +31,7 @@
         "min": 1,
         "mustSupport": true,
         "binding": {
-          "strength": "preferred",
+          "strength": "extensible",
           "valueSet": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/ValueSet/my-radiology-document-type-vs"
         }
       },
@@ -38,6 +39,14 @@
         "id": "DocumentReference.subject",
         "path": "DocumentReference.subject",
         "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://fhir.hie.moh.gov.my/StructureDefinition/Patient-my-core"
+            ]
+          }
+        ],
         "mustSupport": true
       },
       {
@@ -49,6 +58,16 @@
       {
         "id": "DocumentReference.author",
         "path": "DocumentReference.author",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://fhir.hie.moh.gov.my/StructureDefinition/Organization-my-core",
+              "http://fhir.hie.moh.gov.my/StructureDefinition/Practitioner-my-core",
+              "http://fhir.hie.moh.gov.my/StructureDefinition/PractitionerRole-my-core"
+            ]
+          }
+        ],
         "mustSupport": true
       },
       {
@@ -80,6 +99,14 @@
       {
         "id": "DocumentReference.context.encounter",
         "path": "DocumentReference.context.encounter",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://fhir.hie.moh.gov.my/StructureDefinition/Encounter-my-core"
+            ]
+          }
+        ],
         "mustSupport": true
       }
     ]

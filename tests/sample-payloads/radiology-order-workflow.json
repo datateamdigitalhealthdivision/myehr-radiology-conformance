@@ -17,6 +17,10 @@
           {
             "system": "https://sandbox.myehr.kkmhub.moh.gov.my/id/radiology-order",
             "value": "RAD-ORD-20260317-0001"
+          },
+          {
+            "system": "https://id.kkmhub.moh.gov.my/accession",
+            "value": "HSAH-20260317-0001"
           }
         ],
         "code": {
@@ -28,6 +32,16 @@
         "authoredOn": "2026-03-17T09:15:00+08:00",
         "requester": {
           "reference": "PractitionerRole/my-practitioner-role-example"
+        },
+        "reasonCode": [
+          {
+            "text": "Acute onset severe headache"
+          }
+        ],
+        "bodySite": [
+          {
+            "text": "Head"
+          }
         }
       }
     },
@@ -52,7 +66,16 @@
           "reference": "ServiceRequest/my-radiology-service-request-example"
         },
         "authoredOn": "2026-03-17T09:16:00+08:00",
-        "lastModified": "2026-03-17T09:20:00+08:00"
+        "lastModified": "2026-03-17T09:20:00+08:00",
+        "businessStatus": {
+          "coding": [
+            {
+              "system": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/CodeSystem/my-radiology-workflow-state-cs",
+              "code": "scheduled",
+              "display": "Scheduled"
+            }
+          ]
+        }
       }
     },
     {
@@ -79,4 +102,3 @@
     }
   ]
 }
-

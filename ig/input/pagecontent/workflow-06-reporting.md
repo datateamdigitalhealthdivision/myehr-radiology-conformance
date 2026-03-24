@@ -59,11 +59,14 @@ Fits the reporting and result communication expectations surrounding Scheduled W
 
 - report identifier
 - report status
+- report category including `RAD`
 - issued date and time
+- effective date and time for the imaging event
 - conclusion or narrative findings
 - coded conclusion where available
 - author, verifier, and performer details
 - links to one or more imaging studies
+- rendered report attachment metadata where `presentedForm` is used
 
 ## Status transitions
 
@@ -87,12 +90,15 @@ Authoring and verification actions must be attributable. Access to report conten
 ## Test assertions
 
 - final reports link to the relevant `ImagingStudy`
+- final reports include `conclusion`, `effective[x]`, and `issued`
 - amended reports preserve traceability to the earlier state
 - structured observations, when present, are reachable from `DiagnosticReport.result`
 
 ## Implementation notes
 
 Narrative reporting remains the primary pattern in this first draft. Structured observations should be used where they add clear value, especially for quantitative imaging.
+
+Where `DiagnosticReport.presentedForm` is used, `application/pdf` shall be supported and `text/html` should be supported where available. Report consumers should be able to rely on `DiagnosticReport.category` containing the HL7 `RAD` code.
 
 ## Open issues or local decisions pending
 

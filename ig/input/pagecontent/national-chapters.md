@@ -12,6 +12,7 @@ The formal narrative chapters of the Malaysian radiology conformance repository 
 | Security And Audit | States OAuth2 and SMART on FHIR expectations, trust assumptions, and audit expectations. | [docs/05-security-and-audit.md](https://github.com/datateamdigitalhealthdivision/myehr-radiology-conformance/blob/main/docs/05-security-and-audit.md) |
 | Conformance Testing | Defines the initial national test model, assertions, and actor-focused checks. | [docs/06-conformance-testing.md](https://github.com/datateamdigitalhealthdivision/myehr-radiology-conformance/blob/main/docs/06-conformance-testing.md) |
 | Procurement Language | Provides `EXAMPLE ONLY` wording for implementation and procurement documentation. | [docs/07-procurement-language.md](https://github.com/datateamdigitalhealthdivision/myehr-radiology-conformance/blob/main/docs/07-procurement-language.md) |
+| Notification Patterns | Describes the current polling-based phase 1 approach and the future eventing direction. | [docs/08-notification-patterns.md](https://github.com/datateamdigitalhealthdivision/myehr-radiology-conformance/blob/main/docs/08-notification-patterns.md) |
 
 ## Relationship to the rendered guide
 

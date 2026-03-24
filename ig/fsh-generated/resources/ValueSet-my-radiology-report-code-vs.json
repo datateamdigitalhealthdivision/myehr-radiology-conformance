@@ -4,7 +4,7 @@
   "name": "MYRadiologyReportCodeVS",
   "id": "my-radiology-report-code-vs",
   "title": "MY Radiology Report Code ValueSet",
-  "description": "Representative LOINC document and report codes suitable for radiology report exchange.",
+  "description": "Starter LOINC radiology report codes suitable for common report exchange scenarios. This draft starter set will be expanded through national curation.",
   "url": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/ValueSet/my-radiology-report-code-vs",
   "experimental": false,
   "compose": {
@@ -15,6 +15,46 @@
           {
             "code": "18748-4",
             "display": "Diagnostic imaging study"
+          },
+          {
+            "code": "18726-0",
+            "display": "Radiology studies (set)"
+          },
+          {
+            "code": "24627-2",
+            "display": "CT Chest"
+          },
+          {
+            "code": "24725-4",
+            "display": "CT Head"
+          },
+          {
+            "code": "24726-2",
+            "display": "CT Head WO and W contrast IV"
+          },
+          {
+            "code": "24727-0",
+            "display": "CT Head W contrast IV"
+          },
+          {
+            "code": "36952-0",
+            "display": "CT Abdomen and Pelvis WO contrast"
+          },
+          {
+            "code": "72254-6",
+            "display": "CT Chest and Abdomen and Pelvis W contrast IV"
+          },
+          {
+            "code": "36643-5",
+            "display": "XR Chest 2 Views"
+          },
+          {
+            "code": "36554-4",
+            "display": "XR Chest Single View"
+          },
+          {
+            "code": "58748-5",
+            "display": "Functional MR Brain"
           }
         ]
       }

@@ -12,6 +12,9 @@
       "reference": "ServiceRequest/my-radiology-service-request-example"
     }
   ],
+  "category": {
+    "text": "Diagnostic imaging procedure"
+  },
   "code": {
     "coding": [
       {

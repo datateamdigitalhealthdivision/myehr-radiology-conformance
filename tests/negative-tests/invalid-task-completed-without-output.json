@@ -1,0 +1,29 @@
+{
+  "resourceType": "Task",
+  "meta": {
+    "profile": [
+      "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-task"
+    ]
+  },
+  "status": "completed",
+  "intent": "order",
+  "code": {
+    "text": "Radiology workflow management"
+  },
+  "focus": {
+    "reference": "ServiceRequest/my-radiology-service-request-example"
+  },
+  "for": {
+    "reference": "Patient/my-patient-example"
+  },
+  "authoredOn": "2026-03-17T09:16:00+08:00",
+  "lastModified": "2026-03-17T12:20:00+08:00",
+  "businessStatus": {
+    "coding": [
+      {
+        "system": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/CodeSystem/my-radiology-workflow-state-cs",
+        "code": "completed"
+      }
+    ]
+  }
+}

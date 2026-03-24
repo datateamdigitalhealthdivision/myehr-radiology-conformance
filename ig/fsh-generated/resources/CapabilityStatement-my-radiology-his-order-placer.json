@@ -6,6 +6,7 @@
   "name": "MYRadiologyHISOrderPlacerCapabilityStatement",
   "title": "MY Radiology HIS Order Placer CapabilityStatement",
   "status": "draft",
+  "experimental": false,
   "date": "2026-03-17",
   "publisher": "Data Team, Digital Health Division, Ministry of Health Malaysia",
   "kind": "requirements",
@@ -38,6 +39,26 @@
               "name": "identifier",
               "type": "token",
               "documentation": "Search by order identifier or accession identifier."
+            },
+            {
+              "name": "patient",
+              "type": "reference",
+              "documentation": "Search radiology orders for a specific patient."
+            },
+            {
+              "name": "status",
+              "type": "token",
+              "documentation": "Search radiology orders by ServiceRequest status."
+            },
+            {
+              "name": "authored",
+              "type": "date",
+              "documentation": "Search radiology orders by authored date."
+            },
+            {
+              "name": "category",
+              "type": "token",
+              "documentation": "Search radiology orders by imaging or radiology category."
             }
           ]
         },
@@ -57,6 +78,21 @@
               "name": "focus",
               "type": "reference",
               "documentation": "Search by the linked ServiceRequest."
+            },
+            {
+              "name": "patient",
+              "type": "reference",
+              "documentation": "Search workflow tasks by patient."
+            },
+            {
+              "name": "status",
+              "type": "token",
+              "documentation": "Search workflow tasks by Task status."
+            },
+            {
+              "name": "authored-on",
+              "type": "date",
+              "documentation": "Search workflow tasks by authored date."
             }
           ]
         },

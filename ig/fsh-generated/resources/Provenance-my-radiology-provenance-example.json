@@ -1,0 +1,44 @@
+{
+  "resourceType": "Provenance",
+  "id": "my-radiology-provenance-example",
+  "meta": {
+    "profile": [
+      "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-provenance"
+    ]
+  },
+  "target": [
+    {
+      "reference": "DiagnosticReport/my-radiology-diagnostic-report-example"
+    },
+    {
+      "reference": "ImagingStudy/my-radiology-imaging-study-example"
+    }
+  ],
+  "recorded": "2026-03-17T12:16:00+08:00",
+  "activity": {
+    "text": "Report publication"
+  },
+  "reason": [
+    {
+      "text": "Final report released to requesting system"
+    }
+  ],
+  "agent": [
+    {
+      "type": {
+        "text": "Author"
+      },
+      "who": {
+        "reference": "Practitioner/my-practitioner-example"
+      }
+    },
+    {
+      "type": {
+        "text": "Custodian organisation"
+      },
+      "who": {
+        "reference": "Organization/my-organisation-example"
+      }
+    }
+  ]
+}

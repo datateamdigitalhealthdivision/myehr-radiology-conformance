@@ -1,0 +1,17 @@
+{
+  "resourceType": "OperationOutcome",
+  "id": "my-radiology-invalid-service-request-operationoutcome-example",
+  "issue": [
+    {
+      "severity": "error",
+      "code": "invalid",
+      "details": {
+        "text": "ServiceRequest.category shall include an imaging or radiology category code recognised by the national guide."
+      },
+      "diagnostics": "The submitted ServiceRequest did not include HL7 v2 RAD or SNOMED CT imaging category coding.",
+      "expression": [
+        "ServiceRequest.category"
+      ]
+    }
+  ]
+}

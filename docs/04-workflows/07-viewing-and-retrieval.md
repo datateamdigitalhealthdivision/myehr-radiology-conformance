@@ -33,13 +33,14 @@ The reporting system is the source of truth for report content. The archive is t
 ## Sequence summary
 
 1. Consumer searches or reads `DiagnosticReport` and `ImagingStudy`.
-2. Consumer resolves study identifiers and linked imaging endpoints.
+2. Consumer resolves study identifiers, series metadata, and linked `Endpoint` resources.
 3. Consumer retrieves images or launches a viewer using the agreed endpoint pattern.
 
 ## FHIR artefacts involved
 
 - `DiagnosticReport`
 - `ImagingStudy`
+- `Endpoint`
 - optional `DocumentReference`
 
 ## DICOM or DICOMweb transactions involved
@@ -57,6 +58,7 @@ Supports local viewing and future cross-enterprise display patterns.
 - report identifier
 - study identifier and `StudyInstanceUID`
 - modality and series summary
+- WADO-RS retrieval endpoint with `connectionType = dicom-wado-rs`
 - retrieval endpoint or viewer launch context where exposed
 
 ## Status transitions
@@ -81,12 +83,15 @@ Viewer and retrieval access must enforce patient confidentiality, support audit 
 ## Test assertions
 
 - a consumer can read a report and follow its imaging study linkage
+- a consumer can resolve `ImagingStudy.endpoint` to a WADO-RS `Endpoint`
 - a valid study identifier can be used to retrieve study metadata
 - retrieval failures return clear and safe error behaviour
 
 ## Implementation notes
 
 The national pattern favours stable identifier-based retrieval rather than ad hoc URL conventions embedded in local applications.
+
+When `ImagingStudy.status = available`, the study metadata should expose at least one `Endpoint` carrying the WADO-RS base address and the published series summary needed by viewers.
 
 ## Open issues or local decisions pending
 

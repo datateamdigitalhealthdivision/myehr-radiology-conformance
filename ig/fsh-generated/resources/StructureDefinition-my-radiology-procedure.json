@@ -5,12 +5,13 @@
   "name": "MYRadiologyProcedure",
   "title": "MY Radiology Procedure",
   "status": "draft",
+  "experimental": false,
   "description": "Performed imaging procedure profile linking the originating order to the performed act, performer context, and downstream report or study.",
   "fhirVersion": "4.0.1",
   "kind": "resource",
   "abstract": false,
   "type": "Procedure",
-  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Procedure",
+  "baseDefinition": "http://fhir.hie.moh.gov.my/StructureDefinition/Procedure-my-core",
   "derivation": "constraint",
   "differential": {
     "element": [
@@ -34,34 +35,62 @@
         "mustSupport": true
       },
       {
+        "id": "Procedure.category",
+        "path": "Procedure.category",
+        "mustSupport": true
+      },
+      {
         "id": "Procedure.code",
         "path": "Procedure.code",
-        "min": 1,
         "mustSupport": true,
         "binding": {
-          "strength": "preferred",
+          "strength": "extensible",
           "valueSet": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/ValueSet/my-radiology-procedure-code-vs"
         }
       },
       {
         "id": "Procedure.subject",
         "path": "Procedure.subject",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://fhir.hie.moh.gov.my/StructureDefinition/Patient-my-core"
+            ]
+          }
+        ],
         "mustSupport": true
       },
       {
         "id": "Procedure.encounter",
         "path": "Procedure.encounter",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://fhir.hie.moh.gov.my/StructureDefinition/Encounter-my-core"
+            ]
+          }
+        ],
         "mustSupport": true
       },
       {
         "id": "Procedure.performed[x]",
         "path": "Procedure.performed[x]",
-        "min": 1,
         "mustSupport": true
       },
       {
         "id": "Procedure.recorder",
         "path": "Procedure.recorder",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://fhir.hie.moh.gov.my/StructureDefinition/Practitioner-my-core",
+              "http://fhir.hie.moh.gov.my/StructureDefinition/PractitionerRole-my-core"
+            ]
+          }
+        ],
         "mustSupport": true
       },
       {
@@ -72,11 +101,29 @@
       {
         "id": "Procedure.performer.actor",
         "path": "Procedure.performer.actor",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://fhir.hie.moh.gov.my/StructureDefinition/Practitioner-my-core",
+              "http://fhir.hie.moh.gov.my/StructureDefinition/PractitionerRole-my-core",
+              "http://fhir.hie.moh.gov.my/StructureDefinition/Organization-my-core"
+            ]
+          }
+        ],
         "mustSupport": true
       },
       {
         "id": "Procedure.location",
         "path": "Procedure.location",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://fhir.hie.moh.gov.my/StructureDefinition/Location-my-core"
+            ]
+          }
+        ],
         "mustSupport": true
       },
       {

@@ -12,7 +12,7 @@
       "value": "urn:oid:1.2.840.113619.2.55.3.604688321.783.1456849848.467"
     },
     {
-      "system": "https://facility.kkmhub.moh.gov.my/id/accession/provisional",
+      "system": "https://id.kkmhub.moh.gov.my/accession",
       "value": "HSAH-20260317-0001"
     }
   ],
@@ -36,6 +36,11 @@
       "text": "CT head without contrast"
     }
   ],
+  "endpoint": [
+    {
+      "reference": "Endpoint/my-radiology-dicomweb-endpoint-example"
+    }
+  ],
   "modality": [
     {
       "code": "CT",
@@ -57,7 +62,17 @@
         "display": "Computed Tomography"
       },
       "description": "Axial head",
-      "numberOfInstances": 120
+      "numberOfInstances": 120,
+      "instance": [
+        {
+          "uid": "1.2.840.113619.2.55.3.604688321.783.1456849848.469",
+          "sopClass": {
+            "system": "http://dicom.nema.org/resources/ontology/DCM",
+            "code": "112031",
+            "display": "Computed Tomography Image Storage"
+          }
+        }
+      ]
     }
   ]
 }

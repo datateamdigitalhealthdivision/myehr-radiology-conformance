@@ -16,5 +16,22 @@
     }
   ],
   "gender": "female",
-  "birthDate": "1980-04-12"
+  "birthDate": "1980-04-12",
+  "telecom": [
+    {
+      "system": "phone",
+      "value": "+60-12-5551234"
+    }
+  ],
+  "address": [
+    {
+      "line": [
+        "No. 18, Jalan Putra Indah 3"
+      ],
+      "city": "Sungai Petani",
+      "state": "Kedah",
+      "postalCode": "08000",
+      "country": "MY"
+    }
+  ]
 }

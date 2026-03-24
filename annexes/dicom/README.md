@@ -29,6 +29,15 @@ Formatting conveniences must not alter the underlying identifier value.
 - transfer syntax policy is out of scope for this first draft
 - image lifecycle and retention remain subject to local and national policy outside this repository
 
+## Device and endpoint representation note
+
+Where DICOM device or endpoint context is surfaced into FHIR:
+
+- DICOM AE title should map to `Device.identifier` or another stable local identifier rather than being discarded
+- device model and serial number should populate `Device.type` and manufacturer details where the deployment exposes them
+- WADO-RS retrieval addresses should be published through `Endpoint` resources referenced by `ImagingStudy.endpoint`
+- series-level acquisition provenance can later be refined through `ImagingStudy.series.performer` and related device modelling
+
 ## Relationship to workflow chapters
 
 - order and worklist preparation: [`../../docs/04-workflows/03-modality-worklist.md`](../../docs/04-workflows/03-modality-worklist.md)
