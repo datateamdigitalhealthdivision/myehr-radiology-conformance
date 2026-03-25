@@ -1,0 +1,51 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "printed-date-my-core",
+  "url": "http://fhir.hie.moh.gov.my/StructureDefinition/printed-date-my-core",
+  "name": "MYCorePrintedDateExtension",
+  "title": "MY Core Printed Date Extension Placeholder",
+  "status": "draft",
+  "experimental": false,
+  "description": "Local compatibility placeholder for the MY Core printed-date extension referenced by the published MY Core package but not distributed in the package snapshot available to this guide.",
+  "fhirVersion": "4.0.1",
+  "kind": "complex-type",
+  "abstract": false,
+  "context": [
+    {
+      "type": "element",
+      "expression": "Element"
+    }
+  ],
+  "type": "Extension",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Extension",
+        "path": "Extension",
+        "short": "MY Core Printed Date Extension Placeholder",
+        "definition": "Local compatibility placeholder for the MY Core printed-date extension referenced by the published MY Core package but not distributed in the package snapshot available to this guide."
+      },
+      {
+        "id": "Extension.extension",
+        "path": "Extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.url",
+        "path": "Extension.url",
+        "fixedUri": "http://fhir.hie.moh.gov.my/StructureDefinition/printed-date-my-core"
+      },
+      {
+        "id": "Extension.value[x]",
+        "path": "Extension.value[x]",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      }
+    ]
+  }
+}

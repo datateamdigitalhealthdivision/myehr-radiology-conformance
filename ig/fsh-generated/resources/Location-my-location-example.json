@@ -1,6 +1,12 @@
 {
   "resourceType": "Location",
   "id": "my-location-example",
+  "identifier": [
+    {
+      "system": "https://facility.kkmhub.moh.gov.my/id/facility",
+      "value": "HSAH-RAD-CT1"
+    }
+  ],
   "status": "active",
   "name": "CT Suite 1",
   "managingOrganization": {

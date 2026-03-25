@@ -1,0 +1,30 @@
+{
+  "resourceType": "CodeSystem",
+  "status": "draft",
+  "content": "complete",
+  "name": "MYRadiologyXDSContentTypeCS",
+  "id": "my-radiology-xds-content-type-cs",
+  "title": "MY Radiology XDS Content Type CodeSystem",
+  "description": "Draft local SubmissionSet content-type values used for MHD and XDS-aligned radiology exchange.",
+  "url": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/CodeSystem/my-radiology-xds-content-type-cs",
+  "concept": [
+    {
+      "code": "radiology-report-submission",
+      "display": "Radiology Report Submission",
+      "definition": "Submission of one or more radiology reports."
+    },
+    {
+      "code": "imaging-order-submission",
+      "display": "Imaging Order Submission",
+      "definition": "Submission of imaging order documents."
+    },
+    {
+      "code": "clinical-update-submission",
+      "display": "Clinical Update Submission",
+      "definition": "Submission of updated clinical documentation."
+    }
+  ],
+  "experimental": false,
+  "caseSensitive": true,
+  "count": 3
+}

@@ -1,0 +1,51 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "ihe-sourceid-extension",
+  "url": "https://profiles.ihe.net/ITI/MHD/StructureDefinition/ihe-sourceId",
+  "name": "IHEMHDSourceIdExtension",
+  "title": "IHE MHD SourceId Extension",
+  "status": "draft",
+  "experimental": false,
+  "description": "Local placeholder definition for the IHE MHD sourceId extension, retained using the published IHE canonical URL so that validation can proceed in environments where the upstream package is not resolvable.",
+  "fhirVersion": "4.0.1",
+  "kind": "complex-type",
+  "abstract": false,
+  "context": [
+    {
+      "type": "element",
+      "expression": "Element"
+    }
+  ],
+  "type": "Extension",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Extension",
+        "path": "Extension",
+        "short": "IHE MHD SourceId Extension",
+        "definition": "Local placeholder definition for the IHE MHD sourceId extension, retained using the published IHE canonical URL so that validation can proceed in environments where the upstream package is not resolvable."
+      },
+      {
+        "id": "Extension.extension",
+        "path": "Extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.url",
+        "path": "Extension.url",
+        "fixedUri": "https://profiles.ihe.net/ITI/MHD/StructureDefinition/ihe-sourceId"
+      },
+      {
+        "id": "Extension.value[x]",
+        "path": "Extension.value[x]",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      }
+    ]
+  }
+}

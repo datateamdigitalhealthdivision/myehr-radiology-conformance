@@ -1,0 +1,17 @@
+{
+  "resourceType": "OperationOutcome",
+  "id": "my-radiology-radioconnect-accession-mismatch-oo-example",
+  "issue": [
+    {
+      "severity": "error",
+      "code": "invariant",
+      "details": {
+        "text": "Accession match rule failed: ImagingStudy.identifier[ACSN] does not match ServiceRequest.identifier[ACSN]."
+      },
+      "expression": [
+        "ImagingStudy.identifier"
+      ]
+    }
+  ]
+}
+

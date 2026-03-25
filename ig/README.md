@@ -14,9 +14,11 @@ This directory contains the computable core of the Malaysian radiology interoper
 ## What this IG contains
 
 - radiology-specific FHIR profiles for order, workflow, imaging study, reporting, and structured finding exchange
-- capability statements for the main actor roles
+- radiology document-sharing artefacts for `DocumentReference`, SubmissionSet `List`, and `AuditEvent`
+- capability statements for the main actor roles, including MHD actors
 - terminology placeholders, bindings, and naming system scaffolds
 - example instances aligned to the profiles
+- an optional `OperationDefinition` for preserved direct-RIS synchronisation patterns
 
 Generic resources such as Patient, Encounter, Practitioner, Organisation, and Location should continue to use MY Core or base R4 patterns where possible.
 
@@ -71,6 +73,8 @@ The repository also includes a bundled MY Core `1.0.0` snapshot sourced from the
 - `MYRadiologyDiagnosticReport`
 - `MYRadiologyObservation`
 - `MYRadiologyDocumentReference`
+- `MYRadiologyMHDSubmissionSet`
+- `MYRadiologyMHDAuditEvent`
 
 ## Package consumption notes
 

@@ -1,0 +1,49 @@
+{
+  "resourceType": "List",
+  "id": "my-radiology-mhd-submission-set-example",
+  "meta": {
+    "profile": [
+      "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-mhd-submission-set"
+    ]
+  },
+  "status": "current",
+  "mode": "working",
+  "extension": [
+    {
+      "url": "https://profiles.ihe.net/ITI/MHD/StructureDefinition/ihe-sourceId",
+      "valueIdentifier": {
+        "system": "urn:ietf:rfc:3986",
+        "value": "urn:oid:2.16.458.1.1.1.1.1"
+      }
+    }
+  ],
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.458.1.1.1.1.99999.1"
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "code": "radiology-report-submission",
+        "system": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/CodeSystem/my-radiology-xds-content-type-cs",
+        "display": "Radiology Report Submission"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/my-patient-example"
+  },
+  "date": "2026-03-25T10:30:00+08:00",
+  "source": {
+    "reference": "PractitionerRole/my-practitioner-role-example"
+  },
+  "entry": [
+    {
+      "item": {
+        "reference": "DocumentReference/my-radiology-mhd-document-reference-example"
+      }
+    }
+  ]
+}

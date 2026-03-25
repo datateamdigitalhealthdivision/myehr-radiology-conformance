@@ -7,7 +7,7 @@
   "title": "MY Radiology RIS Workflow Manager CapabilityStatement",
   "status": "draft",
   "experimental": false,
-  "date": "2026-03-17",
+  "date": "2026-03-25",
   "publisher": "Data Team, Digital Health Division, Ministry of Health Malaysia",
   "kind": "requirements",
   "fhirVersion": "4.0.1",
@@ -15,11 +15,37 @@
     "json",
     "xml"
   ],
-  "description": "Server capability expectations for a RIS acting as the operational workflow manager and order filler.",
+  "description": "Server capability expectations for a RIS acting as the operational workflow manager, reporting authority, document source, and optional direct-RIS retrieval endpoint.",
   "rest": [
     {
       "mode": "server",
       "resource": [
+        {
+          "type": "Patient",
+          "profile": "http://fhir.hie.moh.gov.my/StructureDefinition/Patient-my-core",
+          "interaction": [
+            {
+              "code": "read"
+            },
+            {
+              "code": "search-type"
+            }
+          ],
+          "searchParam": [
+            {
+              "name": "identifier",
+              "type": "token"
+            },
+            {
+              "name": "name",
+              "type": "string"
+            },
+            {
+              "name": "birthdate",
+              "type": "date"
+            }
+          ]
+        },
         {
           "type": "ServiceRequest",
           "profile": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-service-request",
@@ -181,6 +207,10 @@
               "type": "reference"
             },
             {
+              "name": "identifier",
+              "type": "token"
+            },
+            {
               "name": "status",
               "type": "token"
             },
@@ -210,6 +240,102 @@
           ]
         },
         {
+          "type": "DocumentReference",
+          "profile": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-document-reference",
+          "interaction": [
+            {
+              "code": "read"
+            },
+            {
+              "code": "search-type"
+            }
+          ],
+          "searchParam": [
+            {
+              "name": "patient",
+              "type": "reference"
+            },
+            {
+              "name": "status",
+              "type": "token"
+            },
+            {
+              "name": "type",
+              "type": "token"
+            },
+            {
+              "name": "category",
+              "type": "token"
+            },
+            {
+              "name": "date",
+              "type": "date"
+            },
+            {
+              "name": "facility",
+              "type": "token"
+            },
+            {
+              "name": "setting",
+              "type": "token"
+            },
+            {
+              "name": "event",
+              "type": "token"
+            },
+            {
+              "name": "identifier",
+              "type": "token"
+            }
+          ]
+        },
+        {
+          "type": "List",
+          "profile": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-mhd-submission-set",
+          "interaction": [
+            {
+              "code": "read"
+            },
+            {
+              "code": "search-type"
+            }
+          ],
+          "searchParam": [
+            {
+              "name": "patient",
+              "type": "reference"
+            },
+            {
+              "name": "code",
+              "type": "token"
+            },
+            {
+              "name": "date",
+              "type": "date"
+            },
+            {
+              "name": "source",
+              "type": "reference"
+            },
+            {
+              "name": "status",
+              "type": "token"
+            },
+            {
+              "name": "identifier",
+              "type": "token"
+            }
+          ]
+        },
+        {
+          "type": "Binary",
+          "interaction": [
+            {
+              "code": "read"
+            }
+          ]
+        },
+        {
           "type": "Endpoint",
           "profile": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-dicomweb-endpoint",
           "interaction": [
@@ -217,6 +343,35 @@
               "code": "read"
             }
           ]
+        },
+        {
+          "type": "Location",
+          "profile": "http://fhir.hie.moh.gov.my/StructureDefinition/Location-my-core",
+          "interaction": [
+            {
+              "code": "read"
+            },
+            {
+              "code": "search-type"
+            }
+          ],
+          "searchParam": [
+            {
+              "name": "identifier",
+              "type": "token"
+            },
+            {
+              "name": "name",
+              "type": "string"
+            }
+          ]
+        }
+      ],
+      "operation": [
+        {
+          "name": "impacs-ris-sync",
+          "definition": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/OperationDefinition/impacs-ris-sync",
+          "documentation": "OPTIONAL RadioConnect direct-RIS retrieval operation retained as a supported partner pattern. Standard resource read and search interactions remain the national baseline."
         }
       ]
     }

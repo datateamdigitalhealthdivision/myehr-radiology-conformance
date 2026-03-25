@@ -6,7 +6,7 @@
   "title": "MY Radiology DiagnosticReport",
   "status": "draft",
   "experimental": false,
-  "description": "Radiology report profile covering preliminary, final, and amended reporting, with linkage to imaging studies and optional structured findings.",
+  "description": "Radiology report profile covering preliminary, final, and amended reporting, with linkage to imaging studies, optional structured findings, and a human-readable rendered report.",
   "fhirVersion": "4.0.1",
   "kind": "resource",
   "abstract": false,
@@ -32,6 +32,13 @@
             "source": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-diagnostic-report",
             "severity": "error",
             "expression": "status = 'final' implies conclusion.exists() and effective.exists() and issued.exists()"
+          },
+          {
+            "key": "my-radiology-report-final-requires-pdf-presentedform",
+            "human": "A final radiology report shall expose at least one PDF rendered form.",
+            "source": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-diagnostic-report",
+            "severity": "error",
+            "expression": "status = 'final' implies presentedForm.where(contentType = 'application/pdf').exists()"
           }
         ]
       },
@@ -220,7 +227,8 @@
       {
         "id": "DiagnosticReport.presentedForm",
         "path": "DiagnosticReport.presentedForm",
-        "short": "Rendered report attachment. PDF shall be supported; HTML should be supported where available.",
+        "short": "Rendered report attachment. PDF SHALL be supported for final-report exchange. Inline Base64 data or a resolvable URL may be used according to deployment policy.",
+        "min": 1,
         "mustSupport": true
       },
       {

@@ -1,0 +1,26 @@
+{
+  "resourceType": "NamingSystem",
+  "id": "MYDocumentUniqueIdNamingSystem",
+  "name": "MYDocumentUniqueIdNamingSystem",
+  "status": "draft",
+  "kind": "identifier",
+  "date": "2026-03-25",
+  "publisher": "Data Team, Digital Health Division, Ministry of Health Malaysia",
+  "responsible": "Ministry of Health Malaysia",
+  "description": "PROVISIONAL naming system for XDS or MHD document unique identifiers using an OID arc that remains TO BE CONFIRMED pending national governance approval.",
+  "usage": "Use for sandbox and design alignment only. The production OID arc must be allocated by the national OID governance body before operational deployment.",
+  "uniqueId": [
+    {
+      "type": "oid",
+      "value": "2.16.458.1.1.1.1",
+      "preferred": true,
+      "comment": "PROVISIONAL placeholder only. The OID arc 2.16.458.1.1.1.1 remains subject to national allocation."
+    },
+    {
+      "type": "uri",
+      "value": "https://myehr.kkmhub.moh.gov.my/fhir/document-id",
+      "preferred": false,
+      "comment": "FHIR URI equivalent for document unique identifiers in FHIR-only contexts."
+    }
+  ]
+}

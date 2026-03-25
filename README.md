@@ -6,7 +6,7 @@ It is deliberately organised as one repository:
 
 - the FHIR R4 implementation guide in [`/ig`](./ig) is the computable core for partner consumption
 - the national conformance chapters in [`/docs`](./docs) describe governance, actor responsibilities, workflow expectations, security, testing, and procurement language
-- the narrative technical annexes in [`/annexes`](./annexes) capture DICOM, DICOMweb, IHE, XDS-I, and transition guidance in the same repository
+- the narrative technical annexes in [`/annexes`](./annexes) capture DICOM, DICOMweb, IHE, MHD, XDS-I, preserved direct-RIS retrieval patterns, and transition guidance in the same repository
 - the test assets and mapping notes in [`/tests`](./tests) and [`/mappings`](./mappings) support implementation, onboarding, and future conformance validation
 
 ## Normative position
@@ -17,6 +17,7 @@ The normative stack for this repository is:
 - MY Core v1.0.1 for common Malaysian profiles unless a radiology-specific constraint is needed
 - DICOM and DICOMweb for acquisition, storage, and retrieval
 - IHE Radiology profiles for workflow choreography
+- IHE MHD for FHIR-native document sharing where cross-enterprise report exchange is required
 
 Reference patterns from other jurisdictions may inform structure, publication approach, or governance style, but they are not the normative basis for Malaysia.
 
@@ -24,9 +25,9 @@ Reference patterns from other jurisdictions may inform structure, publication ap
 
 Normative or intended-to-be normative material in this repository includes:
 
-- the local radiology FHIR profiles, value sets, code systems, examples, and capability statements in [`/ig`](./ig)
+- the local radiology FHIR profiles, value sets, code systems, examples, capability statements, and optional operation definitions in [`/ig`](./ig)
 - the workflow, governance, security, terminology, and conformance chapters in [`/docs`](./docs)
-- the DICOM, DICOMweb, IHE, and XDS-I narrative annexes in [`/annexes`](./annexes)
+- the DICOM, DICOMweb, IHE, MHD, and XDS-I narrative annexes in [`/annexes`](./annexes)
 
 Illustrative or scaffolding material includes:
 
@@ -43,6 +44,8 @@ This repository follows a one-repo architecture on purpose.
 - FHIR is the computable interface layer for orders, workflow state, imaging metadata, reports, and conformance testing.
 - DICOM and DICOMweb remain the normative imaging transport and retrieval layers.
 - IHE profiles remain the workflow choreography pattern for radiology operations.
+- IHE MHD is the preferred FHIR-native document-sharing pattern where cross-enterprise report exchange is required.
+- Optional direct-RIS synchronisation patterns may be retained for partner deployments, but do not replace the national baseline of standard FHIR read and search interactions.
 - The FHIR IG does not replace DICOM or IHE; it complements them.
 
 ## Canonical and package details
@@ -70,7 +73,7 @@ Implementation partners are expected to use this repository in four ways:
 1. Read the narrative conformance chapters to understand national workflow, security, and interoperability expectations.
 2. Download the FHIR package from a release artefact and load it into a FHIR-capable validation or server toolchain.
 3. Inspect the examples and capability statements to understand actor-specific expectations.
-4. Use the tests and sample Bundles as a starting point for local integration testing and later national conformance testing.
+4. Use the tests and sample Bundles as a starting point for local integration testing, direct-RIS synchronisation testing where applicable, and later national conformance testing.
 
 ## Local build
 
@@ -116,6 +119,7 @@ The following areas are intentionally scaffolded and clearly marked as provision
 - accession identifier policy and final minting authority
 - final SMART on FHIR authorisation endpoints and scopes
 - production DICOMweb hostnames and validation service endpoints
+- production MHD gateway, repository, and audit endpoints
 - any future local MOH code systems
 
 ## Repository layout

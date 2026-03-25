@@ -1,0 +1,51 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "attachment-boolean-my-core",
+  "url": "http://fhir.hie.moh.gov.my/StructureDefinition/attachment-boolean-my-core",
+  "name": "MYCoreAttachmentBooleanExtension",
+  "title": "MY Core Attachment Boolean Extension Placeholder",
+  "status": "draft",
+  "experimental": false,
+  "description": "Local compatibility placeholder for the MY Core attachment-boolean extension referenced by the published MY Core package but not distributed in the package snapshot available to this guide.",
+  "fhirVersion": "4.0.1",
+  "kind": "complex-type",
+  "abstract": false,
+  "context": [
+    {
+      "type": "element",
+      "expression": "Element"
+    }
+  ],
+  "type": "Extension",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Extension",
+        "path": "Extension",
+        "short": "MY Core Attachment Boolean Extension Placeholder",
+        "definition": "Local compatibility placeholder for the MY Core attachment-boolean extension referenced by the published MY Core package but not distributed in the package snapshot available to this guide."
+      },
+      {
+        "id": "Extension.extension",
+        "path": "Extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.url",
+        "path": "Extension.url",
+        "fixedUri": "http://fhir.hie.moh.gov.my/StructureDefinition/attachment-boolean-my-core"
+      },
+      {
+        "id": "Extension.value[x]",
+        "path": "Extension.value[x]",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      }
+    ]
+  }
+}

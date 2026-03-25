@@ -5,6 +5,10 @@
     {
       "system": "https://myhrn.kkmhub.moh.gov.my/id/patient",
       "value": "MYHRN-0000001234"
+    },
+    {
+      "system": "https://sandbox.myehr.kkmhub.moh.gov.my/id/ris-patient",
+      "value": "RIS-12345"
     }
   ],
   "name": [

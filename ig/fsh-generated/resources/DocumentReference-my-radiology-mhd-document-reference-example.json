@@ -1,0 +1,122 @@
+{
+  "resourceType": "DocumentReference",
+  "id": "my-radiology-mhd-document-reference-example",
+  "meta": {
+    "profile": [
+      "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-document-reference"
+    ]
+  },
+  "masterIdentifier": {
+    "system": "urn:ietf:rfc:3986",
+    "value": "urn:oid:2.16.458.1.1.1.1.12345.1"
+  },
+  "identifier": [
+    {
+      "system": "https://sandbox.myehr.kkmhub.moh.gov.my/id/radiology-report",
+      "value": "RAD-RPT-20260317-0002"
+    }
+  ],
+  "status": "current",
+  "docStatus": "final",
+  "type": {
+    "coding": [
+      {
+        "code": "18748-4",
+        "system": "http://loinc.org",
+        "display": "Diagnostic imaging study"
+      }
+    ]
+  },
+  "category": [
+    {
+      "coding": [
+        {
+          "code": "imaging-report",
+          "system": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/CodeSystem/my-radiology-xds-class-code-cs",
+          "display": "Imaging Report"
+        }
+      ]
+    }
+  ],
+  "subject": {
+    "reference": "Patient/my-patient-example"
+  },
+  "date": "2026-03-25T10:30:00+08:00",
+  "author": [
+    {
+      "reference": "Practitioner/my-practitioner-example"
+    }
+  ],
+  "securityLabel": [
+    {
+      "coding": [
+        {
+          "code": "N",
+          "system": "http://terminology.hl7.org/CodeSystem/v3-Confidentiality",
+          "display": "Normal"
+        }
+      ]
+    }
+  ],
+  "description": "Final CT report packaged for document sharing.",
+  "content": [
+    {
+      "attachment": {
+        "contentType": "application/pdf",
+        "url": "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/Binary/my-radiology-mhd-report-binary-example"
+      },
+      "format": {
+        "code": "urn:ihe:rad:PDF",
+        "system": "http://ihe.net/fhir/ihe.formatcode.fhir/CodeSystem/formatcode",
+        "display": "Radiology Report - PDF"
+      }
+    }
+  ],
+  "context": {
+    "encounter": [
+      {
+        "reference": "Encounter/my-encounter-example"
+      }
+    ],
+    "facilityType": {
+      "coding": [
+        {
+          "code": "hospital",
+          "system": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/CodeSystem/my-radiology-xds-facility-type-cs",
+          "display": "Hospital"
+        }
+      ]
+    },
+    "practiceSetting": {
+      "coding": [
+        {
+          "code": "radiology",
+          "system": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/CodeSystem/my-radiology-xds-practice-setting-cs",
+          "display": "Radiology"
+        }
+      ]
+    },
+    "sourcePatientInfo": {
+      "reference": "Patient/my-patient-example"
+    },
+    "related": [
+      {
+        "reference": "ServiceRequest/my-radiology-service-request-example"
+      },
+      {
+        "reference": "ImagingStudy/my-radiology-imaging-study-example"
+      }
+    ],
+    "event": [
+      {
+        "coding": [
+          {
+            "code": "CT",
+            "system": "http://dicom.nema.org/resources/ontology/DCM",
+            "display": "Computed Tomography"
+          }
+        ]
+      }
+    ]
+  }
+}

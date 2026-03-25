@@ -1,46 +1,42 @@
-# IHE Radiology Annex
+# IHE Annex
 
 ## Purpose
 
-This annex explains how IHE Radiology workflow patterns relate to the national Malaysian radiology specification.
+This annex explains how IHE profiles and patterns relate to the national radiology conformance repository.
 
 ## Scheduled Workflow
 
-IHE Scheduled Workflow remains the primary choreography model for:
+IHE Scheduled Workflow remains the main narrative choreography reference for:
 
 - order placement
-- order acceptance
 - scheduling
-- worklist distribution
-- acquisition status
-- reporting readiness
+- modality worklist
+- performed procedure progress
+- reporting hand-off
 
-## Actor mapping in plain language
+The FHIR artefacts in this repository expose the computable exchange layer around those steps. They do not replace the underlying DICOM or IHE choreography.
 
-- HIS or CPOE maps to order placer responsibilities
-- RIS maps to order filler and workflow management responsibilities
-- modality maps to acquisition and performed step responsibilities
-- PACS or VNA maps to archive and retrieval responsibilities
+## Mobile Access To Health Documents (MHD)
 
-## Relationship to FHIR
+This repository now adopts IHE MHD as the preferred FHIR-native document-sharing mechanism where radiology reports or packaged documents need to move across organisational boundaries.
 
-FHIR provides:
+- `DocumentReference` carries document metadata
+- `List` carries the SubmissionSet
+- `Binary` carries the payload where required
+- `AuditEvent` carries the audit trail for submission, query, and retrieval
 
-- computable order exchange
-- workflow state visibility
-- report and study metadata publication
-- capability declaration and conformance packaging
+MHD may operate standalone or as a bridge to backend XDS.b infrastructure.
 
-IHE continues to describe the operational choreography that the FHIR API alone does not replace.
+## Optional direct-RIS retrieval pattern
 
-## Mandatory now versus future optional
+The preserved RadioConnect direct-RIS retrieval pattern is documented as a partner pattern rather than as a new IHE profile.
 
-Current emphasis:
+- it may use standard search and read interactions
+- it may also use the optional `$impacs-ris-sync` operation where both parties support it
+- it should not be mistaken for the national baseline for all implementations
 
-- Scheduled Workflow concepts are treated as baseline guidance now
-- cross-enterprise options are documented but likely phased
-- IOCM-aligned correction handling is important but may mature over time
+## Relationship to the FHIR layer
 
-## Implementation note
-
-Implementation partners should not claim that support for the FHIR IG alone satisfies radiology operational conformance if the required DICOM and IHE workflow behaviours are absent.
+- `ServiceRequest`, `Task`, `Procedure`, `ImagingStudy`, and `DiagnosticReport` remain the primary workflow-facing resources
+- `DocumentReference` and `List` become important when document sharing is in scope
+- CapabilityStatements identify which actors are expected to support which interactions

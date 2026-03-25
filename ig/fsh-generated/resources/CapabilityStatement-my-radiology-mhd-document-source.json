@@ -1,0 +1,58 @@
+{
+  "resourceType": "CapabilityStatement",
+  "id": "my-radiology-mhd-document-source",
+  "url": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/CapabilityStatement/my-radiology-mhd-document-source",
+  "version": "0.1.0",
+  "name": "MYRadiologyMHDDocumentSourceCapabilityStatement",
+  "title": "MY Radiology MHD Document Source CapabilityStatement",
+  "status": "draft",
+  "experimental": false,
+  "date": "2026-03-25",
+  "publisher": "Data Team, Digital Health Division, Ministry of Health Malaysia",
+  "kind": "requirements",
+  "fhirVersion": "4.0.1",
+  "format": [
+    "json",
+    "xml"
+  ],
+  "description": "Client capability expectations for a system that submits radiology documents to an MHD Document Recipient. Typical examples are a RIS acting as report source or a PACS or VNA submitting packaged study documents.",
+  "rest": [
+    {
+      "mode": "client",
+      "interaction": [
+        {
+          "code": "transaction",
+          "documentation": "The Document Source assembles an ITI-65 transaction Bundle containing one SubmissionSet List, one or more DocumentReferences, and optional Binary resources carrying the document content."
+        }
+      ],
+      "resource": [
+        {
+          "type": "DocumentReference",
+          "profile": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-document-reference",
+          "interaction": [
+            {
+              "code": "create"
+            }
+          ]
+        },
+        {
+          "type": "List",
+          "profile": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-mhd-submission-set",
+          "interaction": [
+            {
+              "code": "create"
+            }
+          ]
+        },
+        {
+          "type": "Binary",
+          "interaction": [
+            {
+              "code": "create"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

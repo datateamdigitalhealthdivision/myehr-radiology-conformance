@@ -1,0 +1,17 @@
+{
+  "resourceType": "ValueSet",
+  "status": "draft",
+  "name": "MYRadiologyXDSContentTypeVS",
+  "id": "my-radiology-xds-content-type-vs",
+  "title": "MY Radiology XDS Content Type ValueSet",
+  "description": "Required SubmissionSet content-type values for radiology document sharing.",
+  "url": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/ValueSet/my-radiology-xds-content-type-vs",
+  "experimental": false,
+  "compose": {
+    "include": [
+      {
+        "system": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/CodeSystem/my-radiology-xds-content-type-cs"
+      }
+    ]
+  }
+}

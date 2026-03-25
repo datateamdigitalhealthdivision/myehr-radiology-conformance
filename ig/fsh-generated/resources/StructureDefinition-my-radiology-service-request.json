@@ -6,7 +6,7 @@
   "title": "MY Radiology ServiceRequest",
   "status": "draft",
   "experimental": false,
-  "description": "Radiology imaging order profile for Malaysian deployments. It captures requested procedure, priority, indication, requester context, patient linkage, and provisional accession handling.",
+  "description": "Radiology imaging order profile for Malaysian deployments. It captures requested procedure, priority, indication, requester context, patient linkage, location, and provisional accession handling.",
   "fhirVersion": "4.0.1",
   "kind": "resource",
   "abstract": false,
@@ -142,6 +142,7 @@
       {
         "id": "ServiceRequest.code",
         "path": "ServiceRequest.code",
+        "short": "Use the national imaging procedure catalogue. Starter LOINC support is retained for direct-RIS retrieval implementations.",
         "min": 1,
         "mustSupport": true,
         "binding": {
@@ -200,6 +201,20 @@
         "mustSupport": true
       },
       {
+        "id": "ServiceRequest.locationReference",
+        "path": "ServiceRequest.locationReference",
+        "short": "Requested radiology location, department, or performance site where known",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://fhir.hie.moh.gov.my/StructureDefinition/Location-my-core"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
         "id": "ServiceRequest.reasonCode",
         "path": "ServiceRequest.reasonCode",
         "short": "Clinical indication, diagnosis, or appropriateness context for the requested examination",
@@ -218,6 +233,18 @@
         "id": "ServiceRequest.bodySite",
         "path": "ServiceRequest.bodySite",
         "short": "Use SNOMED CT body structures and include laterality where clinically relevant",
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.bodySite:side",
+        "path": "ServiceRequest.bodySite",
+        "sliceName": "side",
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.bodySite:site",
+        "path": "ServiceRequest.bodySite",
+        "sliceName": "site",
         "mustSupport": true
       },
       {

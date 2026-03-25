@@ -1,0 +1,47 @@
+{
+  "resourceType": "CodeSystem",
+  "status": "draft",
+  "content": "complete",
+  "name": "MYRadiologyXDSPracticeSettingCS",
+  "id": "my-radiology-xds-practice-setting-cs",
+  "title": "MY Radiology XDS Practice Setting CodeSystem",
+  "description": "Draft local practice-setting values used for radiology document sharing.",
+  "url": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/CodeSystem/my-radiology-xds-practice-setting-cs",
+  "concept": [
+    {
+      "code": "radiology",
+      "display": "Radiology"
+    },
+    {
+      "code": "interventional-radiology",
+      "display": "Interventional Radiology"
+    },
+    {
+      "code": "nuclear-medicine",
+      "display": "Nuclear Medicine"
+    },
+    {
+      "code": "radiation-oncology",
+      "display": "Radiation Oncology"
+    },
+    {
+      "code": "neuroradiology",
+      "display": "Neuroradiology"
+    },
+    {
+      "code": "paediatric-radiology",
+      "display": "Paediatric Radiology"
+    },
+    {
+      "code": "breast-imaging",
+      "display": "Breast Imaging"
+    },
+    {
+      "code": "emergency-radiology",
+      "display": "Emergency Radiology"
+    }
+  ],
+  "experimental": false,
+  "caseSensitive": true,
+  "count": 8
+}

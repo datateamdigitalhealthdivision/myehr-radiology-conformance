@@ -1,0 +1,102 @@
+{
+  "resourceType": "Bundle",
+  "id": "my-radiology-radioconnect-sync-bundle-example",
+  "type": "searchset",
+  "total": 1,
+  "entry": [
+    {
+      "fullUrl": "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/Patient/my-patient-example",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "my-patient-example",
+        "identifier": [
+          {
+            "system": "https://myhrn.kkmhub.moh.gov.my/id/patient",
+            "value": "MYHRN-0000001234"
+          },
+          {
+            "system": "https://sandbox.myehr.kkmhub.moh.gov.my/id/ris-patient",
+            "value": "RIS-12345"
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1980-04-12"
+      }
+    },
+    {
+      "fullUrl": "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/ServiceRequest/my-radiology-service-request-example",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "id": "my-radiology-service-request-example",
+        "status": "active",
+        "intent": "order",
+        "identifier": [
+          {
+            "system": "https://sandbox.myehr.kkmhub.moh.gov.my/id/radiology-order",
+            "value": "RAD-ORD-20260317-0001"
+          },
+          {
+            "system": "https://id.kkmhub.moh.gov.my/accession",
+            "value": "HSAH-20260317-0001"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "24725-4",
+              "display": "CT Head"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/my-patient-example"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/ImagingStudy/my-radiology-imaging-study-example",
+      "resource": {
+        "resourceType": "ImagingStudy",
+        "id": "my-radiology-imaging-study-example",
+        "identifier": [
+          {
+            "system": "urn:dicom:uid",
+            "value": "urn:oid:1.2.840.113619.2.55.3.604688321.783.1456849848.467"
+          },
+          {
+            "system": "https://id.kkmhub.moh.gov.my/accession",
+            "value": "HSAH-20260317-0001"
+          }
+        ],
+        "status": "available",
+        "subject": {
+          "reference": "Patient/my-patient-example"
+        },
+        "basedOn": [
+          {
+            "reference": "ServiceRequest/my-radiology-service-request-example"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/DiagnosticReport/my-radiology-diagnostic-report-example",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "id": "my-radiology-diagnostic-report-example",
+        "status": "final",
+        "issued": "2026-03-17T12:15:00+08:00",
+        "subject": {
+          "reference": "Patient/my-patient-example"
+        },
+        "presentedForm": [
+          {
+            "contentType": "application/pdf",
+            "data": "JVBERi0xLjQK"
+          }
+        ]
+      }
+    }
+  ]
+}

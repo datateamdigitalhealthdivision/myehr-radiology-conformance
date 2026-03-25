@@ -4,13 +4,34 @@
   "name": "MYRadiologyProcedureCodeVS",
   "id": "my-radiology-procedure-code-vs",
   "title": "MY Radiology Procedure Code ValueSet",
-  "description": "Preferred imaging procedure catalogue binding using a provisional locally hosted RadLex mirror strategy.",
+  "description": "Preferred imaging procedure catalogue binding using a provisional locally hosted RadLex mirror strategy, with starter LOINC support retained for direct-RIS retrieval and synchronisation patterns.",
   "url": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/ValueSet/my-radiology-procedure-code-vs",
   "experimental": false,
   "compose": {
     "include": [
       {
         "system": "https://terminology.kkmhub.moh.gov.my/CodeSystem/radlex-imaging-procedures"
+      },
+      {
+        "system": "http://loinc.org",
+        "concept": [
+          {
+            "code": "24725-4",
+            "display": "CT Head"
+          },
+          {
+            "code": "24627-2",
+            "display": "CT Chest"
+          },
+          {
+            "code": "36643-5",
+            "display": "XR Chest 2 Views"
+          },
+          {
+            "code": "58748-5",
+            "display": "Functional MR Brain"
+          }
+        ]
       }
     ]
   }

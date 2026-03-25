@@ -132,6 +132,18 @@
         "mustSupport": true
       },
       {
+        "id": "Procedure.bodySite:side",
+        "path": "Procedure.bodySite",
+        "sliceName": "side",
+        "mustSupport": true
+      },
+      {
+        "id": "Procedure.bodySite:site",
+        "path": "Procedure.bodySite",
+        "sliceName": "site",
+        "mustSupport": true
+      },
+      {
         "id": "Procedure.report",
         "path": "Procedure.report",
         "type": [

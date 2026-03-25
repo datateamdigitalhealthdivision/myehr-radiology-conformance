@@ -17,10 +17,14 @@ Description: "Candidate accession identifier patterns documented for sandbox and
 ValueSet: MYRadiologyProcedureCodeVS
 Id: my-radiology-procedure-code-vs
 Title: "MY Radiology Procedure Code ValueSet"
-Description: "Preferred imaging procedure catalogue binding using a provisional locally hosted RadLex mirror strategy."
+Description: "Preferred imaging procedure catalogue binding using a provisional locally hosted RadLex mirror strategy, with starter LOINC support retained for direct-RIS retrieval and synchronisation patterns."
 * ^status = #draft
 * ^experimental = false
 * include codes from system $MYRADLEXPROC
+* $LNC#24725-4 "CT Head"
+* $LNC#24627-2 "CT Chest"
+* $LNC#36643-5 "XR Chest 2 Views"
+* $LNC#58748-5 "Functional MR Brain"
 
 ValueSet: MYRadiologyClinicalIndicationVS
 Id: my-radiology-clinical-indication-vs

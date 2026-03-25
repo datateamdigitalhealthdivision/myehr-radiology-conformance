@@ -1,0 +1,197 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "my-radiology-mhd-submission-set",
+  "url": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-mhd-submission-set",
+  "name": "MYRadiologyMHDSubmissionSet",
+  "title": "MY Radiology MHD Submission Set",
+  "status": "draft",
+  "experimental": false,
+  "description": "SubmissionSet profile used when radiology documents are submitted through IHE MHD. It represents the XDS SubmissionSet as a FHIR List resource and carries source identity, content type, patient linkage, and the document membership list.",
+  "fhirVersion": "4.0.1",
+  "kind": "resource",
+  "abstract": false,
+  "type": "List",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/List",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "List",
+        "path": "List",
+        "constraint": [
+          {
+            "key": "my-radiology-mhd-submissionset-identifier-oid",
+            "human": "An MHD SubmissionSet shall contain at least one identifier using system urn:ietf:rfc:3986 and a urn:oid value.",
+            "source": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-mhd-submission-set",
+            "severity": "error",
+            "expression": "identifier.where(system = 'urn:ietf:rfc:3986' and value.matches('^urn:oid:[0-2](\\\\.\\\\d+)+$')).exists()"
+          }
+        ]
+      },
+      {
+        "id": "List.extension",
+        "path": "List.extension",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "url"
+            }
+          ],
+          "ordered": false,
+          "rules": "open"
+        },
+        "min": 1
+      },
+      {
+        "id": "List.extension:sourceId",
+        "path": "List.extension",
+        "sliceName": "sourceId",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "https://profiles.ihe.net/ITI/MHD/StructureDefinition/ihe-sourceId"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "List.extension:sourceId.value[x]",
+        "path": "List.extension.value[x]",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "List.extension:sourceId.value[x].system",
+        "path": "List.extension.value[x].system",
+        "patternUri": "urn:ietf:rfc:3986"
+      },
+      {
+        "id": "List.extension:sourceId.value[x].value",
+        "path": "List.extension.value[x].value",
+        "min": 1,
+        "constraint": [
+          {
+            "key": "my-radiology-urn-oid",
+            "human": "Identifiers that carry nationally governed OID values shall use the urn:oid prefix.",
+            "source": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-mhd-submission-set",
+            "severity": "error",
+            "expression": "$this.matches('^urn:oid:[0-2](\\\\.\\\\d+)+$')"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "List.extension:designationType",
+        "path": "List.extension",
+        "sliceName": "designationType",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "https://profiles.ihe.net/ITI/MHD/StructureDefinition/ihe-designationType"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "List.identifier",
+        "path": "List.identifier",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "List.identifier.system",
+        "path": "List.identifier.system",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "List.identifier.value",
+        "path": "List.identifier.value",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "List.status",
+        "path": "List.status",
+        "patternCode": "current"
+      },
+      {
+        "id": "List.mode",
+        "path": "List.mode",
+        "patternCode": "working"
+      },
+      {
+        "id": "List.code",
+        "path": "List.code",
+        "min": 1,
+        "mustSupport": true,
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/ValueSet/my-radiology-xds-content-type-vs"
+        }
+      },
+      {
+        "id": "List.subject",
+        "path": "List.subject",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://fhir.hie.moh.gov.my/StructureDefinition/Patient-my-core"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "List.date",
+        "path": "List.date",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "List.source",
+        "path": "List.source",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://fhir.hie.moh.gov.my/StructureDefinition/Practitioner-my-core",
+              "http://fhir.hie.moh.gov.my/StructureDefinition/PractitionerRole-my-core"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "List.entry",
+        "path": "List.entry",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "List.entry.item",
+        "path": "List.entry.item",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-document-reference"
+            ]
+          }
+        ],
+        "mustSupport": true
+      }
+    ]
+  }
+}

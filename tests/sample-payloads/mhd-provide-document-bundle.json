@@ -1,0 +1,139 @@
+{
+  "resourceType": "Bundle",
+  "id": "my-radiology-mhd-provide-document-bundle-example",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:submission-set",
+      "resource": {
+        "resourceType": "List",
+        "id": "my-radiology-mhd-submission-set-example",
+        "meta": {
+          "profile": [
+            "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-mhd-submission-set"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "urn:ietf:rfc:3986",
+            "value": "urn:oid:2.16.458.1.1.1.1.99999.1"
+          }
+        ],
+        "extension": [
+          {
+            "url": "https://profiles.ihe.net/ITI/MHD/StructureDefinition/ihe-sourceId",
+            "valueIdentifier": {
+              "system": "urn:ietf:rfc:3986",
+              "value": "urn:oid:2.16.458.1.1.1.1.1"
+            }
+          }
+        ],
+        "status": "current",
+        "mode": "working",
+        "code": {
+          "coding": [
+            {
+              "system": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/CodeSystem/my-radiology-xds-content-type-cs",
+              "code": "radiology-report-submission"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/my-patient-example"
+        },
+        "date": "2026-03-25T10:30:00+08:00",
+        "entry": [
+          {
+            "item": {
+              "reference": "DocumentReference/my-radiology-mhd-document-reference-example"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "List"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:document-reference",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "my-radiology-mhd-document-reference-example",
+        "meta": {
+          "profile": [
+            "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-document-reference"
+          ]
+        },
+        "masterIdentifier": {
+          "system": "urn:ietf:rfc:3986",
+          "value": "urn:oid:2.16.458.1.1.1.1.12345.1"
+        },
+        "status": "current",
+        "docStatus": "final",
+        "type": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "18748-4",
+              "display": "Diagnostic imaging study"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/CodeSystem/my-radiology-xds-class-code-cs",
+                "code": "imaging-report"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/my-patient-example"
+        },
+        "date": "2026-03-25T10:30:00+08:00",
+        "securityLabel": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-Confidentiality",
+                "code": "N"
+              }
+            ]
+          }
+        ],
+        "content": [
+          {
+            "attachment": {
+              "contentType": "application/pdf",
+              "url": "Binary/my-radiology-mhd-report-binary-example"
+            },
+            "format": {
+              "system": "http://ihe.net/fhir/ihe.formatcode.fhir/CodeSystem/formatcode",
+              "code": "urn:ihe:rad:PDF"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "DocumentReference"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:report-binary",
+      "resource": {
+        "resourceType": "Binary",
+        "id": "my-radiology-mhd-report-binary-example",
+        "contentType": "application/pdf",
+        "data": "JVBERi0xLjQK"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Binary"
+      }
+    }
+  ]
+}

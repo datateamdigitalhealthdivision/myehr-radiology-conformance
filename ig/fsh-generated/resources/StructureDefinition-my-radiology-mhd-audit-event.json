@@ -1,0 +1,96 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "my-radiology-mhd-audit-event",
+  "url": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-mhd-audit-event",
+  "name": "MYRadiologyMHDAuditEvent",
+  "title": "MY Radiology MHD AuditEvent",
+  "status": "draft",
+  "experimental": false,
+  "description": "AuditEvent profile used for MHD submission, query, and retrieval auditing in the national radiology guide. It provides the FHIR-based audit record expected for ITI-65, ITI-66, ITI-67, and ITI-68 flows.",
+  "fhirVersion": "4.0.1",
+  "kind": "resource",
+  "abstract": false,
+  "type": "AuditEvent",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/AuditEvent",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "AuditEvent.type",
+        "path": "AuditEvent.type",
+        "mustSupport": true
+      },
+      {
+        "id": "AuditEvent.subtype",
+        "path": "AuditEvent.subtype",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "AuditEvent.action",
+        "path": "AuditEvent.action",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "AuditEvent.recorded",
+        "path": "AuditEvent.recorded",
+        "mustSupport": true
+      },
+      {
+        "id": "AuditEvent.outcome",
+        "path": "AuditEvent.outcome",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "AuditEvent.agent",
+        "path": "AuditEvent.agent",
+        "min": 2,
+        "mustSupport": true
+      },
+      {
+        "id": "AuditEvent.agent.type",
+        "path": "AuditEvent.agent.type",
+        "mustSupport": true
+      },
+      {
+        "id": "AuditEvent.agent.who",
+        "path": "AuditEvent.agent.who",
+        "mustSupport": true
+      },
+      {
+        "id": "AuditEvent.agent.requestor",
+        "path": "AuditEvent.agent.requestor",
+        "mustSupport": true
+      },
+      {
+        "id": "AuditEvent.agent.network",
+        "path": "AuditEvent.agent.network",
+        "mustSupport": true
+      },
+      {
+        "id": "AuditEvent.entity",
+        "path": "AuditEvent.entity",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "AuditEvent.entity.what",
+        "path": "AuditEvent.entity.what",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://fhir.hie.moh.gov.my/StructureDefinition/Patient-my-core",
+              "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-mhd-submission-set",
+              "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-document-reference"
+            ]
+          }
+        ],
+        "mustSupport": true
+      }
+    ]
+  }
+}

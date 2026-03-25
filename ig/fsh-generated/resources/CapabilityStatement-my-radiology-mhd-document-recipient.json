@@ -1,0 +1,144 @@
+{
+  "resourceType": "CapabilityStatement",
+  "id": "my-radiology-mhd-document-recipient",
+  "url": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/CapabilityStatement/my-radiology-mhd-document-recipient",
+  "version": "0.1.0",
+  "name": "MYRadiologyMHDDocumentRecipientCapabilityStatement",
+  "title": "MY Radiology MHD Document Recipient CapabilityStatement",
+  "status": "draft",
+  "experimental": false,
+  "date": "2026-03-25",
+  "publisher": "Data Team, Digital Health Division, Ministry of Health Malaysia",
+  "kind": "requirements",
+  "fhirVersion": "4.0.1",
+  "format": [
+    "json",
+    "xml"
+  ],
+  "description": "Server capability expectations for the MHD-to-XDS gateway or FHIR document registry that receives radiology document submissions and responds to document-discovery queries.",
+  "rest": [
+    {
+      "mode": "server",
+      "interaction": [
+        {
+          "code": "transaction",
+          "documentation": "The Document Recipient SHALL accept ITI-65 transaction Bundles containing a SubmissionSet List, one or more DocumentReferences, and optional Binary resources, validate the metadata, and return a transaction-response."
+        }
+      ],
+      "resource": [
+        {
+          "type": "DocumentReference",
+          "profile": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-document-reference",
+          "interaction": [
+            {
+              "code": "read"
+            },
+            {
+              "code": "search-type"
+            }
+          ],
+          "searchParam": [
+            {
+              "name": "patient",
+              "type": "reference"
+            },
+            {
+              "name": "status",
+              "type": "token"
+            },
+            {
+              "name": "type",
+              "type": "token"
+            },
+            {
+              "name": "category",
+              "type": "token"
+            },
+            {
+              "name": "date",
+              "type": "date"
+            },
+            {
+              "name": "period",
+              "type": "date"
+            },
+            {
+              "name": "facility",
+              "type": "token"
+            },
+            {
+              "name": "setting",
+              "type": "token"
+            },
+            {
+              "name": "event",
+              "type": "token"
+            },
+            {
+              "name": "security-label",
+              "type": "token"
+            },
+            {
+              "name": "identifier",
+              "type": "token"
+            },
+            {
+              "name": "_id",
+              "type": "token"
+            }
+          ]
+        },
+        {
+          "type": "List",
+          "profile": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-mhd-submission-set",
+          "interaction": [
+            {
+              "code": "read"
+            },
+            {
+              "code": "search-type"
+            }
+          ],
+          "searchParam": [
+            {
+              "name": "patient",
+              "type": "reference"
+            },
+            {
+              "name": "code",
+              "type": "token"
+            },
+            {
+              "name": "date",
+              "type": "date"
+            },
+            {
+              "name": "source",
+              "type": "reference"
+            },
+            {
+              "name": "status",
+              "type": "token"
+            },
+            {
+              "name": "identifier",
+              "type": "token"
+            },
+            {
+              "name": "_id",
+              "type": "token"
+            }
+          ]
+        },
+        {
+          "type": "Binary",
+          "interaction": [
+            {
+              "code": "read"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

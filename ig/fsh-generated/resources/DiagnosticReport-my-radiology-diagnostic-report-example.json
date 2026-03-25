@@ -76,7 +76,7 @@
   "presentedForm": [
     {
       "contentType": "application/pdf",
-      "url": "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/Binary/example-report-pdf"
+      "data": "JVBERi0xLjQK"
     }
   ]
 }

@@ -7,7 +7,7 @@
   "title": "MY Radiology HIS Order Placer CapabilityStatement",
   "status": "draft",
   "experimental": false,
-  "date": "2026-03-17",
+  "date": "2026-03-25",
   "publisher": "Data Team, Digital Health Division, Ministry of Health Malaysia",
   "kind": "requirements",
   "fhirVersion": "4.0.1",
@@ -15,7 +15,7 @@
     "json",
     "xml"
   ],
-  "description": "Client capability expectations for a HIS or CPOE system that places radiology orders and consumes workflow acknowledgements.",
+  "description": "Client capability expectations for a HIS or CPOE system that places radiology orders, consumes workflow acknowledgements, and may discover final report packages through document sharing.",
   "rest": [
     {
       "mode": "client",
@@ -112,6 +112,74 @@
               "name": "based-on",
               "type": "reference",
               "documentation": "Search booked appointments by the originating order."
+            }
+          ]
+        },
+        {
+          "type": "DocumentReference",
+          "profile": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-document-reference",
+          "interaction": [
+            {
+              "code": "read"
+            },
+            {
+              "code": "search-type"
+            }
+          ],
+          "searchParam": [
+            {
+              "name": "patient",
+              "type": "reference"
+            },
+            {
+              "name": "status",
+              "type": "token"
+            },
+            {
+              "name": "category",
+              "type": "token"
+            },
+            {
+              "name": "date",
+              "type": "date"
+            },
+            {
+              "name": "identifier",
+              "type": "token"
+            }
+          ]
+        },
+        {
+          "type": "List",
+          "profile": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-mhd-submission-set",
+          "interaction": [
+            {
+              "code": "read"
+            },
+            {
+              "code": "search-type"
+            }
+          ],
+          "searchParam": [
+            {
+              "name": "patient",
+              "type": "reference"
+            },
+            {
+              "name": "code",
+              "type": "token"
+            },
+            {
+              "name": "date",
+              "type": "date"
+            },
+            {
+              "name": "status",
+              "type": "token"
+            },
+            {
+              "name": "identifier",
+              "type": "token"
             }
           ]
         }

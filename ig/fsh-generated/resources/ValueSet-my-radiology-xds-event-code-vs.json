@@ -1,0 +1,35 @@
+{
+  "resourceType": "ValueSet",
+  "status": "draft",
+  "name": "MYRadiologyXDSEventCodeVS",
+  "id": "my-radiology-xds-event-code-vs",
+  "title": "MY Radiology XDS Event Code ValueSet",
+  "description": "Extensible eventCode values for radiology document sharing, reusing the modality vocabulary so consumers can filter by modality or imaging event type.",
+  "url": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/ValueSet/my-radiology-xds-event-code-vs",
+  "experimental": false,
+  "compose": {
+    "include": [
+      {
+        "system": "http://dicom.nema.org/resources/ontology/DCM",
+        "concept": [
+          {
+            "code": "CT",
+            "display": "Computed Tomography"
+          },
+          {
+            "code": "MR",
+            "display": "Magnetic Resonance"
+          },
+          {
+            "code": "US",
+            "display": "Ultrasound"
+          },
+          {
+            "code": "DX",
+            "display": "Digital Radiography"
+          }
+        ]
+      }
+    ]
+  }
+}

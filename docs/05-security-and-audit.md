@@ -16,6 +16,7 @@ The following are `PROVISIONAL` examples only:
 - SMART configuration URL: `https://sandbox-auth.myehr.kkmhub.moh.gov.my/.well-known/smart-configuration`
 - Token endpoint root: `https://sandbox-auth.myehr.kkmhub.moh.gov.my`
 - Audience: `https://sandbox.myehr.kkmhub.moh.gov.my/fhir/r4`
+- Audit repository: `https://audit.myehr.kkmhub.moh.gov.my/fhir/r4`
 
 ## Draft scope model
 
@@ -28,6 +29,12 @@ The first draft assumes SMART-style scopes such as:
 - `system/ImagingStudy.read`
 - `system/DiagnosticReport.read`
 - `system/Observation.read`
+- `system/DocumentReference.read`
+- `system/DocumentReference.write`
+- `system/List.read`
+- `system/List.write`
+- `system/Binary.read`
+- `system/Binary.write`
 
 These should be refined once the national authorisation policy is finalised.
 
@@ -40,6 +47,25 @@ DICOM and DICOMweb endpoints may not use SMART directly in every deployment. The
 - how organisation-to-organisation trust is established for cross-enterprise sharing
 - how audit trails correlate FHIR actions with imaging transactions
 
+## Document sharing security
+
+For MHD and XDS-aligned document sharing:
+
+- all ITI-65, ITI-66, ITI-67, and ITI-68 transactions SHALL use TLS 1.2 or higher
+- MHD recipients SHOULD require mutual TLS for server-to-server integrations
+- Document Sources SHALL generate a FHIR `AuditEvent` for each ITI-65 submission
+- Document Recipients SHALL generate a FHIR `AuditEvent` for each ITI-65 receipt, query response, and document retrieval
+- certificate policy, trust-chain management, and retention periods remain `TO BE CONFIRMED`
+
+## Direct-RIS retrieval security
+
+Where the optional `$impacs-ris-sync` pattern is implemented:
+
+- the request SHALL use OAuth2 bearer tokens
+- the request SHALL ask for `application/fhir+json`
+- `Prefer: respond-async` may be used for large retrieval windows
+- the direct retrieval interaction SHALL be audited in the same way as equivalent resource searches
+
 ## Audit expectations
 
 The initial expectation is that implementations retain audit evidence for:
@@ -49,6 +75,7 @@ The initial expectation is that implementations retain audit evidence for:
 - appointment booking and rescheduling
 - image storage and retrieval events
 - report creation, finalisation, amendment, and viewing
+- document submission, query, retrieval, and replacement
 
 ## Confidentiality and access control
 

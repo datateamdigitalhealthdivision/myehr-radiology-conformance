@@ -73,6 +73,11 @@
       "text": "Head"
     }
   ],
+  "locationReference": [
+    {
+      "reference": "Location/my-location-example"
+    }
+  ],
   "occurrenceDateTime": "2026-03-17T11:00:00+08:00",
   "note": [
     {

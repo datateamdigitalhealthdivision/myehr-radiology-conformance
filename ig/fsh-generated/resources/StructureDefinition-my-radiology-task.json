@@ -6,7 +6,7 @@
   "title": "MY Radiology Task",
   "status": "draft",
   "experimental": false,
-  "description": "Workflow tracking profile used to communicate radiology order receipt, acceptance, scheduling, in-progress, completion, rejection, cancellation, and amendment states.",
+  "description": "Workflow tracking profile used to communicate radiology order receipt, acceptance, scheduling, in-progress, completion, rejection, cancellation, amendment, and report publication states.",
   "fhirVersion": "4.0.1",
   "kind": "resource",
   "abstract": false,

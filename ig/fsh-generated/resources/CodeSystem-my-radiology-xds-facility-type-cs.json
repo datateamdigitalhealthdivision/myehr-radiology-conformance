@@ -1,0 +1,55 @@
+{
+  "resourceType": "CodeSystem",
+  "status": "draft",
+  "content": "complete",
+  "name": "MYRadiologyXDSFacilityTypeCS",
+  "id": "my-radiology-xds-facility-type-cs",
+  "title": "MY Radiology XDS Facility Type CodeSystem",
+  "description": "Draft local healthcare-facility-type values aligned to Malaysian deployment categories for document sharing.",
+  "url": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/CodeSystem/my-radiology-xds-facility-type-cs",
+  "concept": [
+    {
+      "code": "hospital",
+      "display": "Hospital",
+      "definition": "MOH or university hospital."
+    },
+    {
+      "code": "district-hospital",
+      "display": "District Hospital",
+      "definition": "District-level hospital."
+    },
+    {
+      "code": "health-clinic",
+      "display": "Health Clinic",
+      "definition": "Primary care health clinic (Klinik Kesihatan)."
+    },
+    {
+      "code": "specialist-centre",
+      "display": "Specialist Centre",
+      "definition": "Specialist medical centre or institute."
+    },
+    {
+      "code": "private-hospital",
+      "display": "Private Hospital",
+      "definition": "Licensed private hospital."
+    },
+    {
+      "code": "private-clinic",
+      "display": "Private Imaging Clinic",
+      "definition": "Private diagnostic imaging centre."
+    },
+    {
+      "code": "military-hospital",
+      "display": "Military Hospital",
+      "definition": "Armed forces medical facility."
+    },
+    {
+      "code": "university-hospital",
+      "display": "University Hospital",
+      "definition": "University teaching hospital."
+    }
+  ],
+  "experimental": false,
+  "caseSensitive": true,
+  "count": 8
+}

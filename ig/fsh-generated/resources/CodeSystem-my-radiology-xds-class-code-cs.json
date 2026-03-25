@@ -1,0 +1,35 @@
+{
+  "resourceType": "CodeSystem",
+  "status": "draft",
+  "content": "complete",
+  "name": "MYRadiologyXDSClassCodeCS",
+  "id": "my-radiology-xds-class-code-cs",
+  "title": "MY Radiology XDS Class Code CodeSystem",
+  "description": "Draft local classCode values used for radiology document sharing in MHD and XDS-aligned contexts.",
+  "url": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/CodeSystem/my-radiology-xds-class-code-cs",
+  "concept": [
+    {
+      "code": "imaging-report",
+      "display": "Imaging Report",
+      "definition": "Radiology or other imaging diagnostic report."
+    },
+    {
+      "code": "imaging-order",
+      "display": "Imaging Order",
+      "definition": "Request or order for an imaging procedure."
+    },
+    {
+      "code": "clinical-note",
+      "display": "Clinical Note",
+      "definition": "Clinical narrative note associated with imaging."
+    },
+    {
+      "code": "admin-document",
+      "display": "Administrative Document",
+      "definition": "Administrative or operational imaging document."
+    }
+  ],
+  "experimental": false,
+  "caseSensitive": true,
+  "count": 4
+}

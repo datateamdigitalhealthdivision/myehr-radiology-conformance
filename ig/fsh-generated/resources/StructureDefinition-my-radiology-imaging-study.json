@@ -6,7 +6,7 @@
   "title": "MY Radiology ImagingStudy",
   "status": "draft",
   "experimental": false,
-  "description": "FHIR-facing imaging study metadata aligned to the DICOM study, including linkage to the order, performed procedure, and study identifiers.",
+  "description": "FHIR-facing imaging study metadata aligned to the DICOM study, including linkage to the order, performed procedure, retrieval endpoint, and study identifiers.",
   "fhirVersion": "4.0.1",
   "kind": "resource",
   "abstract": false,
@@ -225,6 +225,7 @@
       {
         "id": "ImagingStudy.procedureCode",
         "path": "ImagingStudy.procedureCode",
+        "short": "Procedure code publication may carry the national RadLex-based catalogue and supported LOINC codings used in direct-RIS retrieval patterns.",
         "mustSupport": true,
         "binding": {
           "strength": "extensible",
@@ -278,6 +279,11 @@
         "id": "ImagingStudy.series.numberOfInstances",
         "path": "ImagingStudy.series.numberOfInstances",
         "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "ImagingStudy.series.bodySite",
+        "path": "ImagingStudy.series.bodySite",
         "mustSupport": true
       },
       {

@@ -6,13 +6,14 @@ Define the draft national approach for sharing radiology reports and imaging ref
 
 ## Actors
 
-- source organisation repository or archive
+- source organisation repository, RIS, archive, or MHD Document Source
 - consuming organisation
-- cross-enterprise registry or gateway where implemented
+- MHD Document Recipient or gateway where implemented
+- cross-enterprise registry or repository infrastructure where implemented
 
 ## Trigger
 
-A report or study needs to be accessed outside the originating organisation for patient care, referral, or transfer.
+A report or study needs to be accessed outside the originating organisation for patient care, referral, transfer, or longitudinal record access.
 
 ## Preconditions
 
@@ -23,24 +24,28 @@ A report or study needs to be accessed outside the originating organisation for 
 ## Postconditions
 
 - external consumers can discover or receive report and study references
+- document packages can be queried and retrieved through MHD where deployed
 - image retrieval can occur through the agreed cross-enterprise pattern
 - provenance and access are traceable
 
 ## Source of truth
 
-The originating organisation remains the source of truth for its report and imaging content.
+The originating organisation remains the source of truth for its report and imaging content. The document-sharing gateway or registry is an access layer rather than the clinical authority.
 
 ## Sequence summary
 
 1. Source system publishes or exposes report and study references.
-2. Consumer discovers the relevant content through registry, repository, or agreed API mechanisms.
-3. Consumer retrieves the report and, where permitted, the associated images.
+2. Source system may package the report document as `DocumentReference` and `List` for MHD or XDS-aligned sharing.
+3. Consumer discovers the relevant content through registry, repository, or agreed API mechanisms.
+4. Consumer retrieves the report and, where permitted, the associated images.
 
 ## FHIR artefacts involved
 
 - `DiagnosticReport`
 - `ImagingStudy`
 - `DocumentReference`
+- `List`
+- `AuditEvent`
 - MY Core `Patient`
 
 ## DICOM or DICOMweb transactions involved
@@ -49,7 +54,7 @@ The originating organisation remains the source of truth for its report and imag
 
 ## IHE profile context
 
-Primary narrative alignment is to `XDS-I.b`, with `XCA-I` reserved as a future option where national cross-community exchange is needed.
+Primary narrative alignment is to `MHD` for FHIR-native document sharing and `XDS-I.b` for cross-enterprise imaging content, with `XCA-I` reserved as a future option where national cross-community exchange is needed.
 
 ## Required data elements
 
@@ -57,6 +62,7 @@ Primary narrative alignment is to `XDS-I.b`, with `XCA-I` reserved as a future o
 - patient identity correlation data
 - report identifier
 - study identifier and `StudyInstanceUID`
+- document `uniqueId`, `sourceId`, and submission metadata where MHD is used
 - provenance and availability metadata
 
 ## Status transitions
@@ -73,6 +79,7 @@ Cross-enterprise exchange should return clear discovery and retrieval outcomes. 
 - source archive reachable but study retrieval denied
 - amended reports supersede content already shared externally
 - consumer lacks support for the chosen sharing pattern
+- document package accepted but backend XDS registration fails
 
 ## Security and audit considerations
 
@@ -86,15 +93,19 @@ Where emergency or break-glass access is supported, the consuming system shall r
 
 - a shared report remains linked to the correct imaging study
 - provenance and source organisation remain visible
+- required MHD metadata is populated when document sharing is used
 - access denial is distinguishable from technical failure
 
 ## Implementation notes
 
 This capability is likely phased. The first draft therefore documents it clearly but does not treat it as universal day-one functionality.
 
+MHD is the preferred FHIR-native document-sharing mechanism. Implementers should not expose backend XDS SOAP endpoints to ordinary FHIR participants where an MHD gateway is available.
+
 ## Open issues or local decisions pending
 
-- whether `XDS-I.b` is phase-1 mandatory is `TO BE CONFIRMED`
+- whether `MHD` is phase-1 mandatory for cross-enterprise report sharing is `TO BE CONFIRMED`
+- whether `XDS-I.b` is phase-1 mandatory for image manifest exchange is `TO BE CONFIRMED`
 - whether `XCA-I` is needed nationally remains `TO BE CONFIRMED`
 - detailed national consent and break-glass policy remains `TO BE CONFIRMED`
 

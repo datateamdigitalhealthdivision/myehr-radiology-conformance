@@ -1,0 +1,381 @@
+{
+  "resourceType": "Bundle",
+  "id": "my-radiology-radioconnect-sync-bundle-example",
+  "type": "searchset",
+  "total": 1,
+  "entry": [
+    {
+      "fullUrl": "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/Patient/my-patient-example",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "my-patient-example",
+        "identifier": [
+          {
+            "system": "https://myhrn.kkmhub.moh.gov.my/id/patient",
+            "value": "MYHRN-0000001234"
+          },
+          {
+            "system": "https://sandbox.myehr.kkmhub.moh.gov.my/id/ris-patient",
+            "value": "RIS-12345"
+          }
+        ],
+        "name": [
+          {
+            "family": "Ahmad",
+            "given": [
+              "Aisyah"
+            ]
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1980-04-12",
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "+60-12-5551234"
+          }
+        ],
+        "address": [
+          {
+            "line": [
+              "No. 18, Jalan Putra Indah 3"
+            ],
+            "city": "Sungai Petani",
+            "state": "Kedah",
+            "postalCode": "08000",
+            "country": "MY"
+          }
+        ]
+      },
+      "search": {
+        "mode": "include"
+      }
+    },
+    {
+      "fullUrl": "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/Practitioner/my-practitioner-example",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "my-practitioner-example",
+        "identifier": [
+          {
+            "system": "https://myhcw.kkmhub.moh.gov.my/id/healthcare-worker",
+            "value": "MYHCW-00004567"
+          },
+          {
+            "system": "https://sandbox.myehr.kkmhub.moh.gov.my/id/ris-doctor",
+            "value": "RIS-DR-456"
+          }
+        ],
+        "name": [
+          {
+            "prefix": [
+              "Dr"
+            ],
+            "family": "Rahman",
+            "given": [
+              "Nurul"
+            ]
+          }
+        ]
+      },
+      "search": {
+        "mode": "include"
+      }
+    },
+    {
+      "fullUrl": "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/Location/my-location-example",
+      "resource": {
+        "resourceType": "Location",
+        "id": "my-location-example",
+        "identifier": [
+          {
+            "system": "https://facility.kkmhub.moh.gov.my/id/facility",
+            "value": "HSAH-RAD-CT1"
+          }
+        ],
+        "status": "active",
+        "name": "CT Suite 1",
+        "managingOrganization": {
+          "reference": "Organization/my-organisation-example"
+        },
+        "address": {
+          "line": [
+            "Radiology Department, Level 1"
+          ],
+          "city": "Sungai Petani",
+          "state": "Kedah",
+          "postalCode": "08000",
+          "country": "MY"
+        }
+      },
+      "search": {
+        "mode": "include"
+      }
+    },
+    {
+      "fullUrl": "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/ServiceRequest/my-radiology-service-request-example",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "id": "my-radiology-service-request-example",
+        "meta": {
+          "profile": [
+            "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-service-request"
+          ]
+        },
+        "intent": "order",
+        "identifier": [
+          {
+            "system": "https://sandbox.myehr.kkmhub.moh.gov.my/id/radiology-order",
+            "value": "RAD-ORD-20260317-0001"
+          },
+          {
+            "system": "https://id.kkmhub.moh.gov.my/accession",
+            "value": "HSAH-20260317-0001"
+          }
+        ],
+        "status": "active",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "RAD",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "display": "Radiology"
+              },
+              {
+                "code": "363679005",
+                "system": "http://snomed.info/sct",
+                "display": "Imaging"
+              }
+            ],
+            "text": "Radiology imaging order"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "https://terminology.kkmhub.moh.gov.my/CodeSystem/radlex-imaging-procedures",
+              "code": "RADLEX-CT-HEAD-WO",
+              "display": "CT head without contrast"
+            }
+          ],
+          "text": "CT head without contrast"
+        },
+        "subject": {
+          "reference": "Patient/my-patient-example"
+        },
+        "encounter": {
+          "reference": "Encounter/my-encounter-example"
+        },
+        "authoredOn": "2026-03-17T09:15:00+08:00",
+        "requester": {
+          "reference": "PractitionerRole/my-practitioner-role-example"
+        },
+        "priority": "asap",
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "code": "R51",
+                "system": "http://hl7.org/fhir/sid/icd-10",
+                "display": "Headache"
+              }
+            ],
+            "text": "Acute onset severe headache"
+          }
+        ],
+        "bodySite": [
+          {
+            "text": "Head"
+          }
+        ],
+        "locationReference": [
+          {
+            "reference": "Location/my-location-example"
+          }
+        ],
+        "occurrenceDateTime": "2026-03-17T11:00:00+08:00",
+        "note": [
+          {
+            "text": "Urgent CT requested to exclude acute intracranial event."
+          }
+        ]
+      },
+      "search": {
+        "mode": "include"
+      }
+    },
+    {
+      "fullUrl": "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/ImagingStudy/my-radiology-imaging-study-example",
+      "resource": {
+        "resourceType": "ImagingStudy",
+        "id": "my-radiology-imaging-study-example",
+        "meta": {
+          "profile": [
+            "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-imaging-study"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "urn:dicom:uid",
+            "value": "urn:oid:1.2.840.113619.2.55.3.604688321.783.1456849848.467"
+          },
+          {
+            "system": "https://id.kkmhub.moh.gov.my/accession",
+            "value": "HSAH-20260317-0001"
+          }
+        ],
+        "status": "available",
+        "subject": {
+          "reference": "Patient/my-patient-example"
+        },
+        "encounter": {
+          "reference": "Encounter/my-encounter-example"
+        },
+        "basedOn": [
+          {
+            "reference": "ServiceRequest/my-radiology-service-request-example"
+          }
+        ],
+        "procedureReference": {
+          "reference": "Procedure/my-radiology-procedure-example"
+        },
+        "procedureCode": [
+          {
+            "text": "CT head without contrast"
+          }
+        ],
+        "endpoint": [
+          {
+            "reference": "Endpoint/my-radiology-dicomweb-endpoint-example"
+          }
+        ],
+        "modality": [
+          {
+            "code": "CT",
+            "system": "http://dicom.nema.org/resources/ontology/DCM",
+            "display": "Computed Tomography"
+          }
+        ],
+        "numberOfSeries": 1,
+        "numberOfInstances": 120,
+        "started": "2026-03-17T11:18:00+08:00",
+        "description": "CT head without contrast",
+        "series": [
+          {
+            "uid": "1.2.840.113619.2.55.3.604688321.783.1456849848.468",
+            "number": 1,
+            "modality": {
+              "code": "CT",
+              "system": "http://dicom.nema.org/resources/ontology/DCM",
+              "display": "Computed Tomography"
+            },
+            "description": "Axial head",
+            "numberOfInstances": 120,
+            "instance": [
+              {
+                "uid": "1.2.840.113619.2.55.3.604688321.783.1456849848.469",
+                "sopClass": {
+                  "system": "http://dicom.nema.org/resources/ontology/DCM",
+                  "code": "112031",
+                  "display": "Computed Tomography Image Storage"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "search": {
+        "mode": "include"
+      }
+    },
+    {
+      "fullUrl": "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/DiagnosticReport/my-radiology-diagnostic-report-example",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "id": "my-radiology-diagnostic-report-example",
+        "meta": {
+          "profile": [
+            "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-diagnostic-report"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "https://sandbox.myehr.kkmhub.moh.gov.my/id/radiology-report",
+            "value": "RAD-RPT-20260317-0001"
+          }
+        ],
+        "status": "final",
+        "basedOn": [
+          {
+            "reference": "ServiceRequest/my-radiology-service-request-example"
+          }
+        ],
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "RAD",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "display": "Radiology"
+              }
+            ],
+            "text": "Radiology"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "code": "18748-4",
+              "system": "http://loinc.org",
+              "display": "Diagnostic imaging study"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/my-patient-example"
+        },
+        "encounter": {
+          "reference": "Encounter/my-encounter-example"
+        },
+        "effectiveDateTime": "2026-03-17T12:05:00+08:00",
+        "issued": "2026-03-17T12:15:00+08:00",
+        "performer": [
+          {
+            "reference": "Organization/my-organisation-example"
+          }
+        ],
+        "resultsInterpreter": [
+          {
+            "reference": "Practitioner/my-practitioner-example"
+          }
+        ],
+        "imagingStudy": [
+          {
+            "reference": "ImagingStudy/my-radiology-imaging-study-example"
+          }
+        ],
+        "result": [
+          {
+            "reference": "Observation/my-radiology-observation-example"
+          }
+        ],
+        "conclusion": "No acute intracranial haemorrhage.",
+        "conclusionCode": [
+          {
+            "text": "No acute intracranial haemorrhage"
+          }
+        ],
+        "presentedForm": [
+          {
+            "contentType": "application/pdf",
+            "data": "JVBERi0xLjQK"
+          }
+        ]
+      },
+      "search": {
+        "mode": "match"
+      }
+    }
+  ]
+}

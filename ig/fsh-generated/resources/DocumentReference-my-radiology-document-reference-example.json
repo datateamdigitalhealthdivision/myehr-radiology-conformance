@@ -6,6 +6,16 @@
       "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-document-reference"
     ]
   },
+  "masterIdentifier": {
+    "system": "urn:ietf:rfc:3986",
+    "value": "urn:oid:2.16.458.1.1.1.1.12345.10"
+  },
+  "identifier": [
+    {
+      "system": "https://sandbox.myehr.kkmhub.moh.gov.my/id/radiology-report",
+      "value": "RAD-RPT-20260317-0001"
+    }
+  ],
   "status": "current",
   "docStatus": "final",
   "type": {
@@ -17,6 +27,17 @@
       }
     ]
   },
+  "category": [
+    {
+      "coding": [
+        {
+          "code": "imaging-report",
+          "system": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/CodeSystem/my-radiology-xds-class-code-cs",
+          "display": "Imaging Report"
+        }
+      ]
+    }
+  ],
   "subject": {
     "reference": "Patient/my-patient-example"
   },
@@ -26,12 +47,28 @@
       "reference": "Practitioner/my-practitioner-example"
     }
   ],
+  "securityLabel": [
+    {
+      "coding": [
+        {
+          "code": "N",
+          "system": "http://terminology.hl7.org/CodeSystem/v3-Confidentiality",
+          "display": "Normal"
+        }
+      ]
+    }
+  ],
   "description": "Packaged final radiology report document.",
   "content": [
     {
       "attachment": {
         "contentType": "application/pdf",
-        "url": "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/Binary/example-report-pdf"
+        "url": "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/Binary/my-radiology-mhd-report-binary-example"
+      },
+      "format": {
+        "code": "urn:ihe:rad:PDF",
+        "system": "http://ihe.net/fhir/ihe.formatcode.fhir/CodeSystem/formatcode",
+        "display": "Radiology Report - PDF"
       }
     }
   ],
@@ -39,6 +76,46 @@
     "encounter": [
       {
         "reference": "Encounter/my-encounter-example"
+      }
+    ],
+    "facilityType": {
+      "coding": [
+        {
+          "code": "hospital",
+          "system": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/CodeSystem/my-radiology-xds-facility-type-cs",
+          "display": "Hospital"
+        }
+      ]
+    },
+    "practiceSetting": {
+      "coding": [
+        {
+          "code": "radiology",
+          "system": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/CodeSystem/my-radiology-xds-practice-setting-cs",
+          "display": "Radiology"
+        }
+      ]
+    },
+    "sourcePatientInfo": {
+      "reference": "Patient/my-patient-example"
+    },
+    "related": [
+      {
+        "reference": "ServiceRequest/my-radiology-service-request-example"
+      },
+      {
+        "reference": "ImagingStudy/my-radiology-imaging-study-example"
+      }
+    ],
+    "event": [
+      {
+        "coding": [
+          {
+            "code": "CT",
+            "system": "http://dicom.nema.org/resources/ontology/DCM",
+            "display": "Computed Tomography"
+          }
+        ]
       }
     ]
   }

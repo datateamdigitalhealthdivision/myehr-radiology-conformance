@@ -5,6 +5,10 @@
     {
       "system": "https://myhcw.kkmhub.moh.gov.my/id/healthcare-worker",
       "value": "MYHCW-00004567"
+    },
+    {
+      "system": "https://sandbox.myehr.kkmhub.moh.gov.my/id/ris-doctor",
+      "value": "RIS-DR-456"
     }
   ],
   "name": [

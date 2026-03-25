@@ -7,7 +7,7 @@
   "title": "MY Radiology Validation Consumer CapabilityStatement",
   "status": "draft",
   "experimental": false,
-  "date": "2026-03-17",
+  "date": "2026-03-25",
   "publisher": "Data Team, Digital Health Division, Ministry of Health Malaysia",
   "kind": "requirements",
   "fhirVersion": "4.0.1",
@@ -15,7 +15,7 @@
     "json",
     "xml"
   ],
-  "description": "Client capability expectations for a national validation or conformance consumer that reads and tests core radiology resources.",
+  "description": "Client capability expectations for a national validation or conformance consumer that reads and tests core radiology, document sharing, and direct retrieval resources.",
   "rest": [
     {
       "mode": "client",
@@ -107,6 +107,10 @@
               "type": "reference"
             },
             {
+              "name": "identifier",
+              "type": "token"
+            },
+            {
               "name": "status",
               "type": "token"
             },
@@ -116,6 +120,50 @@
             },
             {
               "name": "category",
+              "type": "token"
+            }
+          ]
+        },
+        {
+          "type": "DocumentReference",
+          "profile": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-document-reference",
+          "interaction": [
+            {
+              "code": "read"
+            },
+            {
+              "code": "search-type"
+            }
+          ],
+          "searchParam": [
+            {
+              "name": "patient",
+              "type": "reference"
+            },
+            {
+              "name": "identifier",
+              "type": "token"
+            }
+          ]
+        },
+        {
+          "type": "List",
+          "profile": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-mhd-submission-set",
+          "interaction": [
+            {
+              "code": "read"
+            },
+            {
+              "code": "search-type"
+            }
+          ],
+          "searchParam": [
+            {
+              "name": "patient",
+              "type": "reference"
+            },
+            {
+              "name": "identifier",
               "type": "token"
             }
           ]

@@ -80,6 +80,11 @@
             "text": "Head"
           }
         ],
+        "locationReference": [
+          {
+            "reference": "Location/my-location-example"
+          }
+        ],
         "occurrenceDateTime": "2026-03-17T11:00:00+08:00",
         "note": [
           {
@@ -129,7 +134,13 @@
           "reference": "Organization/my-organisation-example"
         },
         "businessStatus": {
-          "text": "Scheduled"
+          "coding": [
+            {
+              "code": "scheduled",
+              "system": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/CodeSystem/my-radiology-workflow-state-cs",
+              "display": "Scheduled"
+            }
+          ]
         },
         "statusReason": {
           "coding": [
@@ -455,7 +466,7 @@
         "presentedForm": [
           {
             "contentType": "application/pdf",
-            "url": "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/Binary/example-report-pdf"
+            "data": "JVBERi0xLjQK"
           }
         ]
       }

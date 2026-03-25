@@ -6,7 +6,7 @@
   "title": "MY Radiology DocumentReference",
   "status": "draft",
   "experimental": false,
-  "description": "Optional document-centric profile for packaged radiology report documents and cross-enterprise sharing scenarios.",
+  "description": "Document-centric profile for radiology report packaging and IHE MHD or XDS-aligned sharing scenarios. When used in an MHD document sharing context, masterIdentifier SHALL be an OID-format identifier representing the XDS DocumentEntry.uniqueId. The identifier.system SHALL be urn:ietf:rfc:3986 and the value SHALL begin with urn:oid:.",
   "fhirVersion": "4.0.1",
   "kind": "resource",
   "abstract": false,
@@ -15,6 +15,51 @@
   "derivation": "constraint",
   "differential": {
     "element": [
+      {
+        "id": "DocumentReference",
+        "path": "DocumentReference",
+        "constraint": [
+          {
+            "key": "my-radiology-documentreference-masteridentifier-oid",
+            "human": "DocumentReference.masterIdentifier shall carry an OID-based XDS document unique identifier using urn:ietf:rfc:3986 and a urn:oid value.",
+            "source": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-document-reference",
+            "severity": "error",
+            "expression": "masterIdentifier.system = 'urn:ietf:rfc:3986' and masterIdentifier.value.matches('^urn:oid:[0-2](\\\\.\\\\d+)+$')"
+          }
+        ]
+      },
+      {
+        "id": "DocumentReference.masterIdentifier",
+        "path": "DocumentReference.masterIdentifier",
+        "short": "XDS DocumentEntry.uniqueId carried as a urn:oid value",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "DocumentReference.masterIdentifier.system",
+        "path": "DocumentReference.masterIdentifier.system",
+        "patternUri": "urn:ietf:rfc:3986"
+      },
+      {
+        "id": "DocumentReference.masterIdentifier.value",
+        "path": "DocumentReference.masterIdentifier.value",
+        "min": 1,
+        "constraint": [
+          {
+            "key": "my-radiology-urn-oid",
+            "human": "Identifiers that carry nationally governed OID values shall use the urn:oid prefix.",
+            "source": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-document-reference",
+            "severity": "error",
+            "expression": "$this.matches('^urn:oid:[0-2](\\\\.\\\\d+)+$')"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "DocumentReference.identifier",
+        "path": "DocumentReference.identifier",
+        "mustSupport": true
+      },
       {
         "id": "DocumentReference.status",
         "path": "DocumentReference.status",
@@ -33,6 +78,16 @@
         "binding": {
           "strength": "extensible",
           "valueSet": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/ValueSet/my-radiology-document-type-vs"
+        }
+      },
+      {
+        "id": "DocumentReference.category",
+        "path": "DocumentReference.category",
+        "min": 1,
+        "mustSupport": true,
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/ValueSet/my-radiology-xds-class-code-vs"
         }
       },
       {
@@ -81,6 +136,16 @@
         "mustSupport": true
       },
       {
+        "id": "DocumentReference.securityLabel",
+        "path": "DocumentReference.securityLabel",
+        "min": 1,
+        "mustSupport": true,
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/ValueSet/my-radiology-xds-confidentiality-vs"
+        }
+      },
+      {
         "id": "DocumentReference.content",
         "path": "DocumentReference.content",
         "mustSupport": true
@@ -92,8 +157,29 @@
         "mustSupport": true
       },
       {
+        "id": "DocumentReference.content.attachment.data",
+        "path": "DocumentReference.content.attachment.data",
+        "mustSupport": true
+      },
+      {
         "id": "DocumentReference.content.attachment.url",
         "path": "DocumentReference.content.attachment.url",
+        "mustSupport": true
+      },
+      {
+        "id": "DocumentReference.content.format",
+        "path": "DocumentReference.content.format",
+        "min": 1,
+        "mustSupport": true,
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/ValueSet/my-radiology-xds-format-code-vs"
+        }
+      },
+      {
+        "id": "DocumentReference.context",
+        "path": "DocumentReference.context",
+        "min": 1,
         "mustSupport": true
       },
       {
@@ -104,6 +190,63 @@
             "code": "Reference",
             "targetProfile": [
               "http://fhir.hie.moh.gov.my/StructureDefinition/Encounter-my-core"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "DocumentReference.context.event",
+        "path": "DocumentReference.context.event",
+        "mustSupport": true,
+        "binding": {
+          "strength": "extensible",
+          "valueSet": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/ValueSet/my-radiology-xds-event-code-vs"
+        }
+      },
+      {
+        "id": "DocumentReference.context.facilityType",
+        "path": "DocumentReference.context.facilityType",
+        "min": 1,
+        "mustSupport": true,
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/ValueSet/my-radiology-xds-facility-type-vs"
+        }
+      },
+      {
+        "id": "DocumentReference.context.practiceSetting",
+        "path": "DocumentReference.context.practiceSetting",
+        "min": 1,
+        "mustSupport": true,
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/ValueSet/my-radiology-xds-practice-setting-vs"
+        }
+      },
+      {
+        "id": "DocumentReference.context.sourcePatientInfo",
+        "path": "DocumentReference.context.sourcePatientInfo",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://fhir.hie.moh.gov.my/StructureDefinition/Patient-my-core"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "DocumentReference.context.related",
+        "path": "DocumentReference.context.related",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-service-request",
+              "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-imaging-study",
+              "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-diagnostic-report"
             ]
           }
         ],

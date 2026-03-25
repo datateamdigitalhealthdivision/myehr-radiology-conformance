@@ -1,0 +1,58 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "relates-to-my-core",
+  "url": "http://fhir.hie.moh.gov.my/StructureDefinition/relates-to-my-core",
+  "name": "MYCoreRelatesToExtension",
+  "title": "MY Core Relates-To Extension Placeholder",
+  "status": "draft",
+  "experimental": false,
+  "description": "Local compatibility placeholder for the MY Core relates-to extension referenced by the published MY Core package but not distributed in the package snapshot available to this guide.",
+  "fhirVersion": "4.0.1",
+  "kind": "complex-type",
+  "abstract": false,
+  "context": [
+    {
+      "type": "element",
+      "expression": "Element"
+    }
+  ],
+  "type": "Extension",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Extension",
+        "path": "Extension",
+        "short": "MY Core Relates-To Extension Placeholder",
+        "definition": "Local compatibility placeholder for the MY Core relates-to extension referenced by the published MY Core package but not distributed in the package snapshot available to this guide."
+      },
+      {
+        "id": "Extension.extension",
+        "path": "Extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.url",
+        "path": "Extension.url",
+        "fixedUri": "http://fhir.hie.moh.gov.my/StructureDefinition/relates-to-my-core"
+      },
+      {
+        "id": "Extension.value[x]",
+        "path": "Extension.value[x]",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.org/fhir/StructureDefinition/ServiceRequest",
+              "http://hl7.org/fhir/StructureDefinition/DiagnosticReport",
+              "http://hl7.org/fhir/StructureDefinition/DocumentReference",
+              "http://hl7.org/fhir/StructureDefinition/ImagingStudy",
+              "http://hl7.org/fhir/StructureDefinition/Procedure"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

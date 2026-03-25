@@ -1,0 +1,39 @@
+{
+  "resourceType": "ValueSet",
+  "status": "draft",
+  "name": "MYRadiologyXDSFormatCodeVS",
+  "id": "my-radiology-xds-format-code-vs",
+  "title": "MY Radiology XDS Format Code ValueSet",
+  "description": "Required IHE formatCode values for packaged radiology documents.",
+  "url": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/ValueSet/my-radiology-xds-format-code-vs",
+  "experimental": false,
+  "compose": {
+    "include": [
+      {
+        "system": "http://ihe.net/fhir/ihe.formatcode.fhir/CodeSystem/formatcode",
+        "concept": [
+          {
+            "code": "urn:ihe:rad:TEXT",
+            "display": "Radiology Report - Text"
+          },
+          {
+            "code": "urn:ihe:rad:PDF",
+            "display": "Radiology Report - PDF"
+          },
+          {
+            "code": "urn:ihe:iti:xds:2017:mimeTypeSufficient",
+            "display": "Format indicated by MIME type"
+          },
+          {
+            "code": "urn:ihe:iti:xds-sd:pdf:2008",
+            "display": "Scanned Document - PDF"
+          },
+          {
+            "code": "urn:ihe:rad:CDA:ImagingReportStructuredHeadings:2013",
+            "display": "Radiology CDA Imaging Report"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "resourceType": "AuditEvent",
+  "id": "my-radiology-mhd-audit-event-example",
+  "meta": {
+    "profile": [
+      "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-mhd-audit-event"
+    ]
+  },
+  "type": {
+    "code": "110106",
+    "system": "http://dicom.nema.org/resources/ontology/DCM",
+    "display": "Export"
+  },
+  "subtype": [
+    {
+      "code": "ITI-65",
+      "system": "urn:ihe:event-type-code",
+      "display": "Provide Document Bundle"
+    }
+  ],
+  "action": "C",
+  "recorded": "2026-03-25T10:30:05+08:00",
+  "outcome": "0",
+  "agent": [
+    {
+      "requestor": true,
+      "who": {
+        "display": "Hospital Sultan Abdul Halim RIS"
+      },
+      "network": {
+        "address": "ris.hospital.moh.gov.my"
+      }
+    },
+    {
+      "requestor": false,
+      "who": {
+        "display": "National MHD Gateway"
+      },
+      "network": {
+        "address": "gateway.myehr.kkmhub.moh.gov.my"
+      }
+    }
+  ],
+  "source": {
+    "observer": {
+      "display": "National MHD Gateway"
+    }
+  },
+  "entity": [
+    {
+      "what": {
+        "reference": "Patient/my-patient-example"
+      }
+    },
+    {
+      "what": {
+        "reference": "List/my-radiology-mhd-submission-set-example"
+      }
+    },
+    {
+      "what": {
+        "reference": "DocumentReference/my-radiology-mhd-document-reference-example"
+      }
+    }
+  ]
+}

@@ -7,7 +7,7 @@
   "title": "MY Radiology Viewer Consumer CapabilityStatement",
   "status": "draft",
   "experimental": false,
-  "date": "2026-03-17",
+  "date": "2026-03-25",
   "publisher": "Data Team, Digital Health Division, Ministry of Health Malaysia",
   "kind": "requirements",
   "fhirVersion": "4.0.1",
@@ -15,7 +15,7 @@
     "json",
     "xml"
   ],
-  "description": "Client capability expectations for a clinical viewer or EHR that consumes reports and imaging study metadata.",
+  "description": "Client capability expectations for a clinical viewer, EHR, or direct retrieval consumer that reads reports, study metadata, packaged documents, and submission sets.",
   "rest": [
     {
       "mode": "client",
@@ -35,6 +35,10 @@
             {
               "name": "patient",
               "type": "reference"
+            },
+            {
+              "name": "identifier",
+              "type": "token"
             },
             {
               "name": "status",
@@ -81,6 +85,54 @@
             },
             {
               "code": "search-type"
+            }
+          ],
+          "searchParam": [
+            {
+              "name": "patient",
+              "type": "reference"
+            },
+            {
+              "name": "identifier",
+              "type": "token"
+            },
+            {
+              "name": "status",
+              "type": "token"
+            },
+            {
+              "name": "category",
+              "type": "token"
+            }
+          ]
+        },
+        {
+          "type": "List",
+          "profile": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-mhd-submission-set",
+          "interaction": [
+            {
+              "code": "read"
+            },
+            {
+              "code": "search-type"
+            }
+          ],
+          "searchParam": [
+            {
+              "name": "patient",
+              "type": "reference"
+            },
+            {
+              "name": "code",
+              "type": "token"
+            },
+            {
+              "name": "date",
+              "type": "date"
+            },
+            {
+              "name": "status",
+              "type": "token"
             }
           ]
         },

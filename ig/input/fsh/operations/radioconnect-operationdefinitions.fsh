@@ -1,0 +1,56 @@
+Instance: MYRadiologyImpacsRISSyncOperation
+InstanceOf: OperationDefinition
+Usage: #definition
+* id = "impacs-ris-sync"
+* url = "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/OperationDefinition/impacs-ris-sync"
+* version = "0.1.0"
+* name = "MYRadiologyImpacsRISSyncOperation"
+* title = "IMPACS RIS Sync Operation"
+* status = #draft
+* experimental = false
+* kind = #operation
+* date = "2026-03-25"
+* publisher = "Data Team, Digital Health Division, Ministry of Health Malaysia"
+* description = "OPTIONAL RadioConnect direct-RIS retrieval operation retained as a supported partner pattern. It allows a consumer to request a parameter-driven searchset Bundle covering patient, order, study, report, practitioner, and location data for a specified time window. Standard resource read and search interactions remain the national baseline."
+* code = #impacs-ris-sync
+* system = true
+* type = false
+* instance = false
+* affectsState = false
+* parameter[0].name = #from
+* parameter[0].use = #in
+* parameter[0].min = 1
+* parameter[0].max = "1"
+* parameter[0].documentation = "Required start of the polling window."
+* parameter[0].type = #instant
+* parameter[1].name = #to
+* parameter[1].use = #in
+* parameter[1].min = 1
+* parameter[1].max = "1"
+* parameter[1].documentation = "Required end of the polling window."
+* parameter[1].type = #instant
+* parameter[2].name = #_count
+* parameter[2].use = #in
+* parameter[2].min = 0
+* parameter[2].max = "1"
+* parameter[2].documentation = "Optional maximum number of records to return."
+* parameter[2].type = #integer
+* parameter[3].name = #_page
+* parameter[3].use = #in
+* parameter[3].min = 0
+* parameter[3].max = "1"
+* parameter[3].documentation = "Optional paging parameter when results exceed the requested count."
+* parameter[3].type = #integer
+* parameter[4].name = #patientId
+* parameter[4].use = #in
+* parameter[4].min = 0
+* parameter[4].max = "1"
+* parameter[4].documentation = "Optional patient identifier to restrict the sync response to one patient."
+* parameter[4].type = #string
+* parameter[5].name = #return
+* parameter[5].use = #out
+* parameter[5].min = 1
+* parameter[5].max = "1"
+* parameter[5].documentation = "A searchset Bundle containing the matched Patient, Practitioner, ServiceRequest, ImagingStudy, DiagnosticReport, and Location resources."
+* parameter[5].type = #Bundle
+

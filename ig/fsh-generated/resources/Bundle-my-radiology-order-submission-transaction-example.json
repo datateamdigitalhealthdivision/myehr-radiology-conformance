@@ -48,6 +48,10 @@
           {
             "system": "https://myhcw.kkmhub.moh.gov.my/id/healthcare-worker",
             "value": "MYHCW-00004567"
+          },
+          {
+            "system": "https://sandbox.myehr.kkmhub.moh.gov.my/id/ris-doctor",
+            "value": "RIS-DR-456"
           }
         ],
         "name": [
@@ -98,6 +102,10 @@
           {
             "system": "https://myhrn.kkmhub.moh.gov.my/id/patient",
             "value": "MYHRN-0000001234"
+          },
+          {
+            "system": "https://sandbox.myehr.kkmhub.moh.gov.my/id/ris-patient",
+            "value": "RIS-12345"
           }
         ],
         "name": [
@@ -230,6 +238,11 @@
         "bodySite": [
           {
             "text": "Head"
+          }
+        ],
+        "locationReference": [
+          {
+            "reference": "Location/my-location-example"
           }
         ],
         "occurrenceDateTime": "2026-03-17T11:00:00+08:00",

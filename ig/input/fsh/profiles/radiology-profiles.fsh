@@ -2,7 +2,7 @@ Profile: MYRadiologyServiceRequest
 Parent: $MYCoreServiceRequest
 Id: my-radiology-service-request
 Title: "MY Radiology ServiceRequest"
-Description: "Radiology imaging order profile for Malaysian deployments. It captures requested procedure, priority, indication, requester context, patient linkage, and provisional accession handling."
+Description: "Radiology imaging order profile for Malaysian deployments. It captures requested procedure, priority, indication, requester context, patient linkage, location, and provisional accession handling."
 * ^status = #draft
 * ^experimental = false
 * obeys my-radiology-servicerequest-order-intent
@@ -26,6 +26,7 @@ Description: "Radiology imaging order profile for Malaysian deployments. It capt
 * category ^short = "Order category shall identify imaging or radiology for reliable workflow routing and filtering"
 * code 1..1 MS
 * code from MYRadiologyProcedureCodeVS (extensible)
+* code ^short = "Use the national imaging procedure catalogue. Starter LOINC support is retained for direct-RIS retrieval implementations."
 * subject 1..1 MS
 * subject only Reference($MYCorePatient)
 * encounter 0..1 MS
@@ -38,7 +39,12 @@ Description: "Radiology imaging order profile for Malaysian deployments. It capt
 * reasonCode from MYRadiologyClinicalIndicationVS (extensible)
 * reasonCode ^short = "Clinical indication, diagnosis, or appropriateness context for the requested examination"
 * bodySite 0..* MS
+* bodySite[side] MS
+* bodySite[site] MS
 * bodySite ^short = "Use SNOMED CT body structures and include laterality where clinically relevant"
+* locationReference 0..* MS
+* locationReference only Reference($MYCoreLocation)
+* locationReference ^short = "Requested radiology location, department, or performance site where known"
 * supportingInfo 0..* MS
 * occurrence[x] 0..1 MS
 * note 0..* MS
@@ -47,7 +53,7 @@ Profile: MYRadiologyTask
 Parent: $MYCoreTask
 Id: my-radiology-task
 Title: "MY Radiology Task"
-Description: "Workflow tracking profile used to communicate radiology order receipt, acceptance, scheduling, in-progress, completion, rejection, cancellation, and amendment states."
+Description: "Workflow tracking profile used to communicate radiology order receipt, acceptance, scheduling, in-progress, completion, rejection, cancellation, amendment, and report publication states."
 * ^status = #draft
 * ^experimental = false
 * obeys my-radiology-task-completed-requires-output
@@ -134,6 +140,8 @@ Description: "Performed imaging procedure profile linking the originating order 
 * location 0..1 MS
 * location only Reference($MYCoreLocation)
 * bodySite 0..* MS
+* bodySite[side] MS
+* bodySite[site] MS
 * report 0..* MS
 * report only Reference(MYRadiologyDiagnosticReport)
 * note 0..* MS
@@ -142,7 +150,7 @@ Profile: MYRadiologyImagingStudy
 Parent: $MYCoreImagingStudy
 Id: my-radiology-imaging-study
 Title: "MY Radiology ImagingStudy"
-Description: "FHIR-facing imaging study metadata aligned to the DICOM study, including linkage to the order, performed procedure, and study identifiers."
+Description: "FHIR-facing imaging study metadata aligned to the DICOM study, including linkage to the order, performed procedure, retrieval endpoint, and study identifiers."
 * ^status = #draft
 * ^experimental = false
 * obeys my-radiology-imagingstudy-available-requires-series
@@ -171,6 +179,7 @@ Description: "FHIR-facing imaging study metadata aligned to the DICOM study, inc
 * procedureReference only Reference(MYRadiologyProcedure)
 * procedureCode 0..* MS
 * procedureCode from MYRadiologyProcedureCodeVS (extensible)
+* procedureCode ^short = "Procedure code publication may carry the national RadLex-based catalogue and supported LOINC codings used in direct-RIS retrieval patterns."
 * endpoint 0..* MS
 * endpoint only Reference(MYRadiologyDicomWebEndpoint)
 * endpoint ^short = "DICOMweb retrieval endpoint(s) for WADO-RS access"
@@ -186,6 +195,7 @@ Description: "FHIR-facing imaging study metadata aligned to the DICOM study, inc
 * series.number 0..1 MS
 * series.modality 1..1 MS
 * series.modality from MYRadiologyModalityVS (required)
+* series.bodySite 0..1 MS
 * series.description 0..1 MS
 * series.numberOfInstances 1..1 MS
 * series.instance 0..* MS
@@ -216,11 +226,12 @@ Profile: MYRadiologyDiagnosticReport
 Parent: $MYCoreDiagnosticReport
 Id: my-radiology-diagnostic-report
 Title: "MY Radiology DiagnosticReport"
-Description: "Radiology report profile covering preliminary, final, and amended reporting, with linkage to imaging studies and optional structured findings."
+Description: "Radiology report profile covering preliminary, final, and amended reporting, with linkage to imaging studies, optional structured findings, and a human-readable rendered report."
 * ^status = #draft
 * ^experimental = false
 * obeys my-radiology-report-category-rad
 * obeys my-radiology-report-final-requires-conclusion-and-times
+* obeys my-radiology-report-final-requires-pdf-presentedform
 * identifier ^slicing.discriminator[0].type = #value
 * identifier ^slicing.discriminator[0].path = "system"
 * identifier ^slicing.rules = #open
@@ -252,12 +263,12 @@ Description: "Radiology report profile covering preliminary, final, and amended 
 * result only Reference(MYRadiologyObservation)
 * conclusion 1..1 MS
 * conclusionCode 0..* MS
-* presentedForm 0..* MS
+* presentedForm 1..* MS
 * presentedForm.contentType 1..1 MS
 * presentedForm.contentType from MYRadiologyPresentedFormContentTypeVS (required)
 * presentedForm.data 0..1 MS
 * presentedForm.url 0..1 MS
-* presentedForm ^short = "Rendered report attachment. PDF shall be supported; HTML should be supported where available."
+* presentedForm ^short = "Rendered report attachment. PDF SHALL be supported for final-report exchange. Inline Base64 data or a resolvable URL may be used according to deployment policy."
 
 Profile: MYRadiologyObservation
 Parent: Observation
@@ -293,24 +304,49 @@ Profile: MYRadiologyDocumentReference
 Parent: DocumentReference
 Id: my-radiology-document-reference
 Title: "MY Radiology DocumentReference"
-Description: "Optional document-centric profile for packaged radiology report documents and cross-enterprise sharing scenarios."
+Description: "Document-centric profile for radiology report packaging and IHE MHD or XDS-aligned sharing scenarios. When used in an MHD document sharing context, masterIdentifier SHALL be an OID-format identifier representing the XDS DocumentEntry.uniqueId. The identifier.system SHALL be urn:ietf:rfc:3986 and the value SHALL begin with urn:oid:."
 * ^status = #draft
 * ^experimental = false
+* obeys my-radiology-documentreference-masteridentifier-oid
+* masterIdentifier 1..1 MS
+* masterIdentifier.system = "urn:ietf:rfc:3986"
+* masterIdentifier.value 1..1 MS
+* masterIdentifier.value obeys my-radiology-urn-oid
+* masterIdentifier ^short = "XDS DocumentEntry.uniqueId carried as a urn:oid value"
+* identifier 0..* MS
 * status 1..1 MS
 * docStatus 0..1 MS
 * type 1..1 MS
 * type from MYRadiologyDocumentTypeVS (extensible)
+* category 1..* MS
+* category from MYRadiologyXDSClassCodeVS (required)
 * subject 1..1 MS
 * subject only Reference($MYCorePatient)
 * date 1..1 MS
 * author 0..* MS
 * author only Reference($MYCoreOrganization or $MYCorePractitioner or $MYCorePractitionerRole)
+* securityLabel 1..* MS
+* securityLabel from MYRadiologyXDSConfidentialityVS (required)
 * description 0..1 MS
 * content 1..* MS
 * content.attachment.contentType 1..1 MS
+* content.attachment.data 0..1 MS
 * content.attachment.url 0..1 MS
+* content.format 1..1 MS
+* content.format from MYRadiologyXDSFormatCodeVS (required)
+* context 1..1 MS
 * context.encounter 0..* MS
 * context.encounter only Reference($MYCoreEncounter)
+* context.facilityType 1..1 MS
+* context.facilityType from MYRadiologyXDSFacilityTypeVS (required)
+* context.practiceSetting 1..1 MS
+* context.practiceSetting from MYRadiologyXDSPracticeSettingVS (required)
+* context.sourcePatientInfo 0..1 MS
+* context.sourcePatientInfo only Reference($MYCorePatient)
+* context.related 0..* MS
+* context.related only Reference(MYRadiologyServiceRequest or MYRadiologyImagingStudy or MYRadiologyDiagnosticReport)
+* context.event 0..* MS
+* context.event from MYRadiologyXDSEventCodeVS (extensible)
 * relatesTo 0..* MS
 
 Profile: MYRadiologyProvenance
@@ -321,7 +357,7 @@ Description: "Provenance profile used to record authorship, amendment, and publi
 * ^status = #draft
 * ^experimental = false
 * target 1..* MS
-* target only Reference(MYRadiologyServiceRequest or MYRadiologyTask or MYRadiologyProcedure or MYRadiologyImagingStudy or MYRadiologyDiagnosticReport or MYRadiologyObservation or MYRadiologyDocumentReference)
+* target only Reference(MYRadiologyServiceRequest or MYRadiologyTask or MYRadiologyProcedure or MYRadiologyImagingStudy or MYRadiologyDiagnosticReport or MYRadiologyObservation or MYRadiologyDocumentReference or MYRadiologyMHDSubmissionSet)
 * recorded 1..1 MS
 * activity 0..1 MS
 * reason 0..* MS
@@ -330,3 +366,5 @@ Description: "Provenance profile used to record authorship, amendment, and publi
 * agent.who 1..1 MS
 * agent.who only Reference($MYCoreOrganization or $MYCorePractitioner or $MYCorePractitionerRole)
 * entity 0..* MS
+
+

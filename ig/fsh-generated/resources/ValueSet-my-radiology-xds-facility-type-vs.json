@@ -1,0 +1,17 @@
+{
+  "resourceType": "ValueSet",
+  "status": "draft",
+  "name": "MYRadiologyXDSFacilityTypeVS",
+  "id": "my-radiology-xds-facility-type-vs",
+  "title": "MY Radiology XDS Facility Type ValueSet",
+  "description": "Required facility-type values for radiology document sharing metadata.",
+  "url": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/ValueSet/my-radiology-xds-facility-type-vs",
+  "experimental": false,
+  "compose": {
+    "include": [
+      {
+        "system": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/CodeSystem/my-radiology-xds-facility-type-cs"
+      }
+    ]
+  }
+}

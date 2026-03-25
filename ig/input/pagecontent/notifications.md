@@ -16,10 +16,32 @@ At minimum, an implementation partner should be able to poll the following:
 
 - `ServiceRequest` by patient, identifier, status, authored date, and category
 - `Task` by patient, focus, status, and authored-on
-- `DiagnosticReport` by patient, status, issued date, and category
+- `DiagnosticReport` by patient, identifier, status, issued date, and category
 - `ImagingStudy` by patient and identifier
+- `DocumentReference` and `List` where document sharing is in scope
 
 Polling remains acceptable in this draft because the CapabilityStatements publish these searches explicitly and the workflow chapters define the state transitions that consumers should expect to discover.
+
+## Optional direct-RIS synchronisation pattern
+
+The preserved RadioConnect pattern remains supported as an optional partner-specific retrieval mechanism. It does not replace the national baseline of standard read and search interactions.
+
+Example request pattern:
+
+```http
+GET [base]/$impacs-ris-sync?from=2026-03-22T00:00:00Z&to=2026-03-22T02:00:00Z&_count=50&_page=1&patientId=RIS-12345
+Authorization: Bearer [token]
+Accept: application/fhir+json
+Prefer: respond-async
+```
+
+Implementation expectations for the optional operation are:
+
+- `from` and `to` are required parameters defining the polling window
+- `_count` and `_page` support bulk retrieval without excessive response size
+- `patientId` narrows the response to one patient where needed
+- the RIS may query PACS or archive services for additional metadata before assembling the response bundle
+- the response is a `searchset` `Bundle` containing the matched `Patient`, `Practitioner`, `Location`, `ServiceRequest`, `ImagingStudy`, and `DiagnosticReport` resources
 
 ## Future event-driven pattern
 
@@ -34,3 +56,10 @@ If event-driven notification is implemented before that policy is settled:
 ## Testing note
 
 Conformance testing should treat polling as the minimum baseline and event-driven notification as an optional additional capability until the national notification policy is finalised.
+
+The optional `$impacs-ris-sync` operation, where implemented, should be tested for:
+
+- correct time-window filtering
+- patient-specific filtering
+- response paging behaviour
+- accession reconciliation and PDF report availability in the returned bundle

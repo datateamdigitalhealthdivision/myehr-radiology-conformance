@@ -18,6 +18,7 @@ The FHIR-facing layer assumes OAuth2 and SMART on FHIR with a realistic sandbox-
 - token endpoint root: `https://sandbox-auth.myehr.kkmhub.moh.gov.my`
 - FHIR sandbox audience: `https://sandbox.myehr.kkmhub.moh.gov.my/fhir/r4`
 - terminology root: `https://terminology.kkmhub.moh.gov.my`
+- audit repository: `https://audit.myehr.kkmhub.moh.gov.my/fhir/r4`
 
 ## Scope expectations
 
@@ -30,6 +31,12 @@ The initial draft assumes SMART-style scopes such as:
 - `system/ImagingStudy.read`
 - `system/DiagnosticReport.read`
 - `system/Observation.read`
+- `system/DocumentReference.read`
+- `system/DocumentReference.write`
+- `system/List.read`
+- `system/List.write`
+- `system/Binary.read`
+- `system/Binary.write`
 
 ## Trust boundaries
 
@@ -40,6 +47,26 @@ Partners should not assume that the FHIR layer alone is sufficient to secure the
 - organisation-to-organisation trust for cross-enterprise sharing
 - correlation of FHIR actions with DICOM, DICOMweb, and audit events
 
+## Document sharing security
+
+For MHD and XDS-aligned document sharing:
+
+- all ITI-65, ITI-66, ITI-67, and ITI-68 transactions SHALL use TLS 1.2 or higher
+- MHD Document Recipients SHOULD require mutual TLS for server-to-server integrations
+- certificate policy and trust-chain issuance remain `TO BE CONFIRMED` under the national PKI model
+- Document Sources SHALL generate a FHIR `AuditEvent` for each ITI-65 submission
+- Document Recipients SHALL generate a FHIR `AuditEvent` for each ITI-65 receipt, each ITI-67 query response, and each ITI-68 retrieval
+- audit retention remains `TO BE CONFIRMED`, but the implementation design should support no less than 7 years
+
+## Direct-RIS retrieval security note
+
+Where the optional `$impacs-ris-sync` pattern is implemented:
+
+- the request SHALL use OAuth2 bearer tokens
+- the client SHALL request `application/fhir+json`
+- `Prefer: respond-async` may be used for large retrieval windows
+- the operation SHALL remain auditable in the same way as equivalent search or read interactions
+
 ## Audit expectations
 
 Implementations should retain auditable evidence for:
@@ -48,6 +75,7 @@ Implementations should retain auditable evidence for:
 - appointment booking, rescheduling, and completion
 - image storage, storage commitment, and retrieval
 - report creation, finalisation, amendment, addendum publication, and viewing
+- document submission, query, retrieval, replacement, and rejection
 
 ## Consent and emergency access
 

@@ -132,6 +132,8 @@ InstanceOf: Location
 Usage: #example
 Description: "Example CT suite location managed by the imaging facility."
 * id = "my-location-example"
+* identifier[0].system = $MYFACILITYID
+* identifier[0].value = "HSAH-RAD-CT1"
 * status = #active
 * name = "CT Suite 1"
 * managingOrganization = Reference(MYOrganisationExample)
@@ -148,6 +150,8 @@ Description: "Example radiologist practitioner used across the reporting workflo
 * id = "my-practitioner-example"
 * identifier[0].system = $MYHCWID
 * identifier[0].value = "MYHCW-00004567"
+* identifier[1].system = "https://sandbox.myehr.kkmhub.moh.gov.my/id/ris-doctor"
+* identifier[1].value = "RIS-DR-456"
 * name[0].prefix[0] = "Dr"
 * name[0].family = "Rahman"
 * name[0].given[0] = "Nurul"
@@ -168,6 +172,8 @@ Description: "Example patient record linked to the radiology order and reporting
 * id = "my-patient-example"
 * identifier[0].system = $MYPATIENTID
 * identifier[0].value = "MYHRN-0000001234"
+* identifier[1].system = "https://sandbox.myehr.kkmhub.moh.gov.my/id/ris-patient"
+* identifier[1].value = "RIS-12345"
 * name[0].family = "Ahmad"
 * name[0].given[0] = "Aisyah"
 * gender = #female
@@ -217,6 +223,7 @@ Description: "Example radiology order carrying both placer order and provisional
 * reasonCode[0].coding[0] = $ICD10#R51 "Headache"
 * reasonCode[0].text = "Acute onset severe headache"
 * bodySite[0].text = "Head"
+* locationReference[0] = Reference(MYLocationExample)
 * occurrenceDateTime = "2026-03-17T11:00:00+08:00"
 * note[0].text = "Urgent CT requested to exclude acute intracranial event."
 
@@ -237,7 +244,7 @@ Description: "Example workflow tracking task representing a scheduled radiology 
 * authoredOn = "2026-03-17T09:16:00+08:00"
 * lastModified = "2026-03-17T09:20:00+08:00"
 * owner = Reference(MYOrganisationExample)
-* businessStatus.text = "Scheduled"
+* businessStatus = MYRadiologyWorkflowStateCS#scheduled "Scheduled"
 * statusReason = MYRadiologyTaskStatusReasonCS#rescheduled "Rescheduled"
 
 Instance: MYRadiologyDicomWebEndpointExample
@@ -368,22 +375,35 @@ Description: "Example final radiology report linked to the imaging study and str
 * conclusion = "No acute intracranial haemorrhage."
 * conclusionCode[0].text = "No acute intracranial haemorrhage"
 * presentedForm[0].contentType = #application/pdf
-* presentedForm[0].url = "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/Binary/example-report-pdf"
+* presentedForm[0].data = "JVBERi0xLjQK"
 
 Instance: MYRadiologyDocumentReferenceExample
 InstanceOf: MYRadiologyDocumentReference
 Usage: #example
 * id = "my-radiology-document-reference-example"
+* masterIdentifier.system = "urn:ietf:rfc:3986"
+* masterIdentifier.value = "urn:oid:2.16.458.1.1.1.1.12345.10"
+* identifier[0].system = $MYRADREPORT
+* identifier[0].value = "RAD-RPT-20260317-0001"
 * status = #current
 * docStatus = #final
 * type = $LNC#18748-4 "Diagnostic imaging study"
+* category[0].coding[0] = MYRadiologyXDSClassCodeCS#imaging-report "Imaging Report"
 * subject = Reference(MYPatientExample)
 * date = "2026-03-17T12:15:00+08:00"
 * author[0] = Reference(MYPractitionerExample)
+* securityLabel[0] = $V3Conf#N "Normal"
 * description = "Packaged final radiology report document."
 * content[0].attachment.contentType = #application/pdf
-* content[0].attachment.url = "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/Binary/example-report-pdf"
+* content[0].attachment.url = "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/Binary/my-radiology-mhd-report-binary-example"
+* content[0].format = $IHEFormatCode#urn:ihe:rad:PDF "Radiology Report - PDF"
 * context.encounter[0] = Reference(MYEncounterExample)
+* context.facilityType = MYRadiologyXDSFacilityTypeCS#hospital "Hospital"
+* context.practiceSetting = MYRadiologyXDSPracticeSettingCS#radiology "Radiology"
+* context.sourcePatientInfo = Reference(MYPatientExample)
+* context.related[0] = Reference(MYRadiologyServiceRequestExample)
+* context.related[1] = Reference(MYRadiologyImagingStudyExample)
+* context.event[0] = $DICOMONT#CT "Computed Tomography"
 
 Instance: MYRadiologyOrderWorkflowBundleExample
 InstanceOf: Bundle

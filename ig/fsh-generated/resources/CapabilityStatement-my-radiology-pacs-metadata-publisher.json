@@ -7,7 +7,7 @@
   "title": "MY Radiology PACS Metadata Publisher CapabilityStatement",
   "status": "draft",
   "experimental": false,
-  "date": "2026-03-17",
+  "date": "2026-03-25",
   "publisher": "Data Team, Digital Health Division, Ministry of Health Malaysia",
   "kind": "requirements",
   "fhirVersion": "4.0.1",
@@ -51,6 +51,16 @@
             },
             {
               "code": "search-type"
+            }
+          ],
+          "searchParam": [
+            {
+              "name": "patient",
+              "type": "reference"
+            },
+            {
+              "name": "identifier",
+              "type": "token"
             }
           ]
         },

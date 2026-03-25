@@ -19,11 +19,8 @@ contact:
       - system: url
         value: https://github.com/datateamdigitalhealthdivision
 dependencies:
-  # The core R4 package is implied by fhirVersion and should not be repeated here,
-  # otherwise the publisher emits a duplicate package dependency during packaging.
-  # Official MY Core publication endpoint provided for this repository currently advertises
-  # hl7.fhir.uv.mycore#1.0.0 as of 2026-03-18. The national policy target remains MY Core v1.0.1.
   hl7.fhir.uv.mycore: 1.0.0
+  ihe.formatcode.fhir: 1.2.0
 pages:
   index.md:
     title: Home
@@ -59,6 +56,8 @@ pages:
     title: Workflow 11 Encounter-Based Imaging
   fhir-artefacts.md:
     title: FHIR Artefacts
+  document-sharing.md:
+    title: Document Sharing
   notifications.md:
     title: Notifications And Polling
   terminology.md:
@@ -78,6 +77,7 @@ menu:
   Conformance Model: conformance-model.html
   Workflow Summary: workflow-summary.html
   FHIR Artefacts: fhir-artefacts.html
+  Document Sharing: document-sharing.html
   Notifications And Polling: notifications.html
   Terminology And Identifiers: terminology.html
   Security And Audit: security.html
@@ -88,22 +88,25 @@ menu:
 groups:
   profiles:
     name: FHIR Profiles
-    description: Core Malaysian radiology profiles that define the computable exchange layer for order, workflow, scheduling, procedure, study, report, observation, provenance, and document packaging.
+    description: Core Malaysian radiology profiles that define the computable exchange layer for order, workflow, scheduling, procedure, study, report, document sharing, provenance, and audit.
   capability-statements:
     name: Capability Statements
-    description: Actor-specific conformance expectations for order placer, workflow manager, archive publisher, viewer consumer, and validation participants.
+    description: Actor-specific conformance expectations for order placers, workflow managers, archives, viewers, document-sharing actors, and validation participants.
   terminology:
     name: Terminology Artefacts
-    description: Value sets and code systems that support workflow states, accession policy options, modality coding, procedure coding, report coding, and structured findings.
+    description: Value sets and code systems that support workflow states, accession policy options, modality coding, procedure coding, report coding, structured findings, and document-sharing metadata.
   identifiers:
     name: Naming Systems
     description: PROVISIONAL naming system resources that distinguish placeholder identifier URIs from value format, issuing authority, and future governance decisions.
   concept-maps:
     name: Concept Maps
     description: Starter mapping artefacts that explain how the provisional procedure catalogue aligns to external coding systems used by implementation partners.
+  operations:
+    name: Operations
+    description: Optional operations retained for explicit partner patterns where standard search and read remains the national baseline.
   examples:
     name: Examples
-    description: Worked examples that illustrate the expected JSON and XML payload shape for profiles, transaction patterns, errors, and the end-to-end order-to-report workflow bundle.
+    description: Worked examples that illustrate the expected JSON and XML payload shape for profiles, transaction patterns, errors, document submission, and direct retrieval workflows.
 resources:
   StructureDefinition/my-radiology-service-request:
     name: MY Radiology ServiceRequest
@@ -111,7 +114,7 @@ resources:
     groupingId: profiles
   StructureDefinition/my-radiology-task:
     name: MY Radiology Task
-    description: Workflow tracking profile for order receipt, acceptance, scheduling, progress, completion, rejection, cancellation, and amendment visibility.
+    description: Workflow tracking profile for order receipt, acceptance, scheduling, progress, completion, rejection, cancellation, amendment, and report publication visibility.
     groupingId: profiles
   StructureDefinition/my-radiology-appointment:
     name: MY Radiology Appointment
@@ -127,7 +130,7 @@ resources:
     groupingId: profiles
   StructureDefinition/my-radiology-dicomweb-endpoint:
     name: MY Radiology DICOMweb Endpoint
-    description: DICOM WADO-RS endpoint profile used by ImagingStudy metadata publishers and retrieval consumers.
+    description: DICOM WADO-RS endpoint profile used by imaging study metadata publishers and retrieval consumers.
     groupingId: profiles
   StructureDefinition/my-radiology-diagnostic-report:
     name: MY Radiology DiagnosticReport
@@ -139,7 +142,15 @@ resources:
     groupingId: profiles
   StructureDefinition/my-radiology-document-reference:
     name: MY Radiology DocumentReference
-    description: Optional document-centric profile for packaged report exchange and cross-enterprise sharing scenarios.
+    description: Document-sharing profile for packaged report exchange and IHE MHD or XDS-aligned scenarios.
+    groupingId: profiles
+  StructureDefinition/my-radiology-mhd-submission-set:
+    name: MY Radiology MHD Submission Set
+    description: SubmissionSet profile used when radiology documents are submitted through IHE MHD.
+    groupingId: profiles
+  StructureDefinition/my-radiology-mhd-audit-event:
+    name: MY Radiology MHD AuditEvent
+    description: AuditEvent profile for MHD submission, query, and retrieval events.
     groupingId: profiles
   StructureDefinition/my-radiology-provenance:
     name: MY Radiology Provenance
@@ -147,11 +158,11 @@ resources:
     groupingId: profiles
   CapabilityStatement/my-radiology-his-order-placer:
     name: HIS Order Placer Capability Statement
-    description: Client capability expectations for a HIS or CPOE partner placing radiology orders and reading downstream workflow information.
+    description: Client capability expectations for a HIS or CPOE partner placing radiology orders and reading downstream workflow and shared-document information.
     groupingId: capability-statements
   CapabilityStatement/my-radiology-ris-workflow-manager:
     name: RIS Workflow Manager Capability Statement
-    description: Server capability expectations for a RIS partner acting as the operational order filler and workflow manager.
+    description: Server capability expectations for a RIS partner acting as the operational order filler, reporting authority, and optional direct retrieval endpoint.
     groupingId: capability-statements
   CapabilityStatement/my-radiology-pacs-metadata-publisher:
     name: PACS Metadata Publisher Capability Statement
@@ -159,11 +170,19 @@ resources:
     groupingId: capability-statements
   CapabilityStatement/my-radiology-viewer-consumer:
     name: Viewer Consumer Capability Statement
-    description: Client capability expectations for an EHR or viewer partner consuming study metadata and report content.
+    description: Client capability expectations for an EHR, viewer, or direct retrieval partner consuming study metadata and report content.
     groupingId: capability-statements
   CapabilityStatement/my-radiology-validation-consumer:
     name: Validation Consumer Capability Statement
     description: Client capability expectations for national validation and conformance testing participants.
+    groupingId: capability-statements
+  CapabilityStatement/my-radiology-mhd-document-source:
+    name: MHD Document Source Capability Statement
+    description: Client capability expectations for systems that submit radiology documents through IHE MHD.
+    groupingId: capability-statements
+  CapabilityStatement/my-radiology-mhd-document-recipient:
+    name: MHD Document Recipient Capability Statement
+    description: Server capability expectations for the FHIR document gateway or registry that receives and serves MHD content.
     groupingId: capability-statements
   ValueSet/my-radiology-workflow-state-vs:
     name: MY Radiology Workflow State ValueSet
@@ -179,7 +198,7 @@ resources:
     groupingId: terminology
   ValueSet/my-radiology-procedure-code-vs:
     name: MY Radiology Procedure Code ValueSet
-    description: Extensible imaging procedure catalogue binding using a PROVISIONAL RadLex mirror strategy.
+    description: Extensible imaging procedure catalogue binding using a PROVISIONAL RadLex mirror strategy with starter LOINC support for direct retrieval patterns.
     groupingId: terminology
   ValueSet/my-radiology-modality-vs:
     name: MY Radiology Modality ValueSet
@@ -205,6 +224,34 @@ resources:
     name: MY Radiology Presented Form Content Type ValueSet
     description: Allowed DiagnosticReport presented-form content types for rendered report exchange.
     groupingId: terminology
+  ValueSet/my-radiology-xds-class-code-vs:
+    name: MY Radiology XDS Class Code ValueSet
+    description: Required document classification codes for MHD and XDS-aligned document sharing.
+    groupingId: terminology
+  ValueSet/my-radiology-xds-format-code-vs:
+    name: MY Radiology XDS Format Code ValueSet
+    description: Required IHE format codes for packaged radiology documents.
+    groupingId: terminology
+  ValueSet/my-radiology-xds-facility-type-vs:
+    name: MY Radiology XDS Facility Type ValueSet
+    description: Required facility classification codes for document sharing metadata.
+    groupingId: terminology
+  ValueSet/my-radiology-xds-practice-setting-vs:
+    name: MY Radiology XDS Practice Setting ValueSet
+    description: Required clinical practice-setting codes for document sharing metadata.
+    groupingId: terminology
+  ValueSet/my-radiology-xds-confidentiality-vs:
+    name: MY Radiology XDS Confidentiality ValueSet
+    description: Required confidentiality codes for document sharing metadata.
+    groupingId: terminology
+  ValueSet/my-radiology-xds-content-type-vs:
+    name: MY Radiology XDS Content Type ValueSet
+    description: Required SubmissionSet content-type codes for MHD or XDS-aligned exchange.
+    groupingId: terminology
+  ValueSet/my-radiology-xds-event-code-vs:
+    name: MY Radiology XDS Event Code ValueSet
+    description: Extensible event codes for document sharing, based on imaging modality.
+    groupingId: terminology
   CodeSystem/my-radiology-workflow-state-cs:
     name: MY Radiology Workflow State CodeSystem
     description: Technical workflow status codes used in Task.businessStatus.
@@ -220,6 +267,22 @@ resources:
   CodeSystem/my-radlex-procedure-mirror:
     name: MY RadLex Procedure Mirror Placeholder
     description: PROVISIONAL placeholder code system for a future locally hosted RadLex mirror.
+    groupingId: terminology
+  CodeSystem/my-radiology-xds-class-code-cs:
+    name: MY Radiology XDS Class Code CodeSystem
+    description: Local classCode values for radiology document sharing.
+    groupingId: terminology
+  CodeSystem/my-radiology-xds-facility-type-cs:
+    name: MY Radiology XDS Facility Type CodeSystem
+    description: Local healthcare-facility-type values for radiology document sharing.
+    groupingId: terminology
+  CodeSystem/my-radiology-xds-practice-setting-cs:
+    name: MY Radiology XDS Practice Setting CodeSystem
+    description: Local practice-setting values for radiology document sharing.
+    groupingId: terminology
+  CodeSystem/my-radiology-xds-content-type-cs:
+    name: MY Radiology XDS Content Type CodeSystem
+    description: Local SubmissionSet content-type values for radiology document sharing.
     groupingId: terminology
   NamingSystem/MYPatientIdentifierNamingSystem:
     name: Patient Identifier Naming System
@@ -249,13 +312,21 @@ resources:
     name: Radiology Report Identifier Naming System
     description: PROVISIONAL naming system for radiology report identifiers issued by reporting systems.
     groupingId: identifiers
+  NamingSystem/MYDocumentUniqueIdNamingSystem:
+    name: Document Unique ID Naming System
+    description: PROVISIONAL naming system for XDS or MHD document unique identifiers.
+    groupingId: identifiers
   ConceptMap/my-radiology-procedure-code-conceptmap:
     name: MY Radiology Procedure Code Concept Map
     description: Starter mapping from the provisional locally hosted RadLex mirror to commonly used LOINC radiology report or procedure codes.
     groupingId: concept-maps
+  OperationDefinition/impacs-ris-sync:
+    name: IMPACS RIS Sync Operation
+    description: OPTIONAL RadioConnect direct-RIS retrieval operation retained as a supported partner pattern.
+    groupingId: operations
   ServiceRequest/my-radiology-service-request-example:
     name: Radiology ServiceRequest Example
-    description: Example imaging order showing placer order and accession identifiers, clinical indication, requested procedure, and requester context.
+    description: Example imaging order showing placer order and accession identifiers, clinical indication, requested procedure, requester context, and location.
     groupingId: examples
     exampleCanonical: https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-service-request
   Task/my-radiology-task-example:
@@ -298,6 +369,21 @@ resources:
     description: Example packaged radiology report document for sharing scenarios.
     groupingId: examples
     exampleCanonical: https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-document-reference
+  DocumentReference/my-radiology-mhd-document-reference-example:
+    name: MHD DocumentReference Example
+    description: Example radiology report document populated with MHD and XDS-aligned metadata.
+    groupingId: examples
+    exampleCanonical: https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-document-reference
+  List/my-radiology-mhd-submission-set-example:
+    name: MHD Submission Set Example
+    description: Example SubmissionSet List used in an ITI-65 Provide Document Bundle.
+    groupingId: examples
+    exampleCanonical: https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-mhd-submission-set
+  AuditEvent/my-radiology-mhd-audit-event-example:
+    name: MHD AuditEvent Example
+    description: Example audit record for a successful ITI-65 Provide Document Bundle transaction.
+    groupingId: examples
+    exampleCanonical: https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-mhd-audit-event
   Provenance/my-radiology-provenance-example:
     name: Radiology Provenance Example
     description: Example provenance record linking report publication responsibility to an identified Malaysian radiologist and organisation.
@@ -313,9 +399,29 @@ resources:
     description: Example transaction bundle showing a realistic order-submission pattern for sandbox testing and system onboarding.
     groupingId: examples
     exampleBoolean: true
+  Binary/my-radiology-mhd-report-binary-example:
+    name: MHD Report Binary Example
+    description: Example Binary resource representing packaged report content in a Provide Document Bundle.
+    groupingId: examples
+    exampleBoolean: true
+  Bundle/my-radiology-mhd-provide-document-bundle-example:
+    name: MHD Provide Document Bundle Example
+    description: Example ITI-65 transaction bundle containing a SubmissionSet, DocumentReference, and Binary payload.
+    groupingId: examples
+    exampleBoolean: true
+  Bundle/my-radiology-radioconnect-sync-bundle-example:
+    name: RadioConnect Sync Bundle Example
+    description: Example direct-RIS searchset bundle returned by the optional impacs-ris-sync operation.
+    groupingId: examples
+    exampleBoolean: true
   OperationOutcome/my-radiology-invalid-service-request-operationoutcome-example:
     name: Invalid ServiceRequest OperationOutcome Example
     description: Example rejection response showing how validation errors should be communicated to implementation partners.
+    groupingId: examples
+    exampleBoolean: true
+  OperationOutcome/my-radiology-radioconnect-accession-mismatch-oo-example:
+    name: RadioConnect Missing Accession OperationOutcome Example
+    description: Example invariant failure response for a direct-RIS payload where study and order accession linkage is missing or inconsistent.
     groupingId: examples
     exampleBoolean: true
   Patient/my-patient-example:
@@ -335,12 +441,12 @@ resources:
     exampleBoolean: true
   Location/my-location-example:
     name: Location Example
-    description: Example imaging location used for scheduling and procedure context.
+    description: Example imaging location used for scheduling and direct retrieval context.
     groupingId: examples
     exampleBoolean: true
   Practitioner/my-practitioner-example:
     name: Practitioner Example
-    description: Example radiologist practitioner used across reporting and procedure examples.
+    description: Example radiologist practitioner used across reporting and workflow examples.
     groupingId: examples
     exampleBoolean: true
   PractitionerRole/my-practitioner-role-example:
@@ -358,3 +464,4 @@ parameters:
   show-inherited-invariants: false
   usage-stats-opt-out: true
   excludettl: true
+
