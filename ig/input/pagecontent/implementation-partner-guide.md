@@ -91,7 +91,7 @@ RadioConnect is a federated radiology interoperability architecture linking hete
 | Local node | [RIS Workflow Manager](CapabilityStatement-my-radiology-ris-workflow-manager.html), [PACS Metadata Publisher](CapabilityStatement-my-radiology-pacs-metadata-publisher.html) |
 | Central node | [Viewer Consumer](CapabilityStatement-my-radiology-viewer-consumer.html), [MHD Document Recipient](CapabilityStatement-my-radiology-mhd-document-recipient.html) where document sharing is in scope |
 
-### Core artefacts to implement
+### RadioConnect artefacts to implement
 
 | Artefact | Why it matters | Key links |
 | --- | --- | --- |
@@ -112,7 +112,7 @@ The preserved RadioConnect operation remains optional. Standard resource read an
 | Architecture and polling guidance | [Notifications And Polling](notifications.html) |
 | Informative operational targets | [Implementation Considerations](implementation-considerations.html) |
 
-### Related workflow and guidance pages
+### RadioConnect workflow and guidance pages
 
 - [Workflow 01 Ordering](workflow-01-ordering.html)
 - [Workflow 04 Acquisition And MPPS](workflow-04-acquisition-and-mpps.html)
@@ -128,7 +128,7 @@ The preserved RadioConnect operation remains optional. Standard resource read an
 
 ## Use case 2: EMR to PACS or RIS
 
-### Core actor mapping
+### EMR to PACS or RIS actor mapping
 
 | Partner system role | Capability statement |
 | --- | --- |
@@ -136,7 +136,7 @@ The preserved RadioConnect operation remains optional. Standard resource read an
 | EMR or viewer consuming results | [Viewer Consumer](CapabilityStatement-my-radiology-viewer-consumer.html) |
 | PACS or archive exposing metadata | [PACS Metadata Publisher](CapabilityStatement-my-radiology-pacs-metadata-publisher.html) |
 
-### What implementation partners need to build
+### EMR to PACS or RIS implementation artefacts
 
 | Function | Artefacts |
 | --- | --- |
@@ -146,7 +146,7 @@ The preserved RadioConnect operation remains optional. Standard resource read an
 | Study discovery and image launch | [MYRadiologyImagingStudy](StructureDefinition-my-radiology-imaging-study.html), [MYRadiologyDicomWebEndpoint](StructureDefinition-my-radiology-dicomweb-endpoint.html) |
 | Error handling | [Invalid ServiceRequest OperationOutcome](OperationOutcome-my-radiology-invalid-service-request-operationoutcome-example.html) |
 
-### Related workflow chapters
+### EMR to PACS or RIS workflow chapters
 
 - [Workflow 01 Ordering](workflow-01-ordering.html)
 - [Workflow 02 Scheduling](workflow-02-scheduling.html)
@@ -157,7 +157,7 @@ The preserved RadioConnect operation remains optional. Standard resource read an
 
 ## Use case 3: EMR to MyEHR
 
-### Core actor mapping
+### EMR to MyEHR actor mapping
 
 | Partner system role | Capability statement |
 | --- | --- |
@@ -165,7 +165,7 @@ The preserved RadioConnect operation remains optional. Standard resource read an
 | MyEHR receiving and indexing documents | [MHD Document Recipient](CapabilityStatement-my-radiology-mhd-document-recipient.html) |
 | Clinician consuming shared results | [Viewer Consumer](CapabilityStatement-my-radiology-viewer-consumer.html) |
 
-### Core artefacts to implement
+### EMR to MyEHR artefacts to implement
 
 | Function | Artefacts |
 | --- | --- |
@@ -179,7 +179,7 @@ The preserved RadioConnect operation remains optional. Standard resource read an
 
 Documents submitted into the MyEHR sharing environment should reference the patient using the national patient identity pattern published by this guide, and should be ready to carry MyHRN as soon as the national MPI is operational. Submissions should be rejected where patient identity cannot be resolved.
 
-### Related workflow and guidance pages
+### EMR to MyEHR workflow and guidance pages
 
 - [Workflow 06 Reporting](workflow-06-reporting.html)
 - [Workflow 08 Cross-Enterprise Sharing](workflow-08-cross-enterprise-sharing.html)
