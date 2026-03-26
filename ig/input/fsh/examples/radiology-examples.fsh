@@ -157,7 +157,7 @@ Description: "Example radiologist practitioner used across the reporting workflo
 * identifier[nationalId].type = $V20203#NIIP "National unique individual identifier"
 * identifier[nationalId].value = "820914-08-5234"
 * identifier[localStaffId].type = $V20203#EMPL "Employee number"
-* identifier[localStaffId].system = "https://hospital-sah.moh.gov.my/id/staff"
+* identifier[localStaffId].system = $MYLOCALSTAFFID
 * identifier[localStaffId].value = "RAD-DR-456"
 * identifier[myHcwId].system = $MYHCWID
 * identifier[myHcwId].type.text = "MyHCW"
@@ -187,7 +187,7 @@ Description: "Example patient record linked to the radiology order and reporting
 * identifier[nationalId].type = $V20203#NIIP "National unique individual identifier"
 * identifier[nationalId].value = "800412-08-5123"
 * identifier[localPatientId].type = $V20203#MR "Medical record number"
-* identifier[localPatientId].system = "https://hospital-sah.moh.gov.my/id/patient"
+* identifier[localPatientId].system = $MYLOCALPATIENTID
 * identifier[localPatientId].value = "RIS-12345"
 * identifier[myHrn].system = $MYPATIENTID
 * identifier[myHrn].type.text = "MyHRN"

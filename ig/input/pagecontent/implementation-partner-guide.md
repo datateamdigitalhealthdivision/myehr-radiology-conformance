@@ -24,7 +24,7 @@ Every [MYRadiologyPatient](StructureDefinition-my-radiology-patient.html) instan
 | Identifier | System URI | Current status | National expectation |
 | --- | --- | --- | --- |
 | National ID (MyKad, MyKAS, or passport) | `http://fhir.hie.moh.gov.my/sid/my-kad` | `PROVISIONAL` URI, available now | SHALL be implemented immediately for patient identity resolution. |
-| Local Patient ID | Site-specific system URI | Available now | SHALL be implemented immediately for local registration and reconciliation. |
+| Local Patient ID | `http://fhir.hie.moh.gov.my/sid/local-patient-id` | `PROVISIONAL` URI, available now | SHALL be implemented immediately as the nationally reserved placeholder namespace for local registration and reconciliation. |
 | MyHRN | `http://fhir.hie.moh.gov.my/sid/my-hrn` | `PROVISIONAL`, pending activation | SHALL be scaffolded now so that future activation does not require schema or code changes. |
 
 Key references:
@@ -40,7 +40,7 @@ Every [MYRadiologyPractitioner](StructureDefinition-my-radiology-practitioner.ht
 | Identifier | System URI | Current status | National expectation |
 | --- | --- | --- | --- |
 | National ID (MyKad) | `http://fhir.hie.moh.gov.my/sid/my-kad` | `PROVISIONAL` URI, available now | SHALL be implemented immediately for practitioner identity resolution. |
-| Local Staff ID | Site-specific system URI | Available now | SHALL be implemented immediately for local workforce reconciliation. |
+| Local Staff ID | `http://fhir.hie.moh.gov.my/sid/local-staff-id` | `PROVISIONAL` URI, available now | SHALL be implemented immediately as the nationally reserved placeholder namespace for local workforce reconciliation. |
 | MyHCW | `http://fhir.hie.moh.gov.my/sid/my-hcw` | `PROVISIONAL`, pending activation | SHALL be scaffolded now so that future activation does not require schema or code changes. |
 
 Key references:

@@ -12,6 +12,6 @@ This chapter points implementation partners to the rendered [Implementation Part
 
 ## Core expectations
 
-- implement the national patient, practitioner, and facility identifier scaffolding consistently across all use cases
+- implement the national patient, practitioner, and facility identifier scaffolding consistently across all use cases, including the nationally reserved placeholder namespaces for local patient and local staff identifiers
 - apply the actor CapabilityStatements before building interface behaviour
 - use the examples, workflow chapters, terminology guidance, and testing assets together rather than in isolation

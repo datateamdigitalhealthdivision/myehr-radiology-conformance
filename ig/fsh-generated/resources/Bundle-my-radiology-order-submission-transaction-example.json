@@ -79,7 +79,7 @@
                 }
               ]
             },
-            "system": "https://hospital-sah.moh.gov.my/id/staff",
+            "system": "http://fhir.hie.moh.gov.my/sid/local-staff-id",
             "value": "RAD-DR-456"
           },
           {
@@ -175,7 +175,7 @@
                 }
               ]
             },
-            "system": "https://hospital-sah.moh.gov.my/id/patient",
+            "system": "http://fhir.hie.moh.gov.my/sid/local-patient-id",
             "value": "RIS-12345"
           },
           {

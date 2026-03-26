@@ -2,13 +2,11 @@ Profile: MYRadiologyPatient
 Parent: $MYCorePatient
 Id: my-radiology-patient
 Title: "MY Radiology Patient"
-Description: "Radiology-layer patient profile derived from MY Core. It fixes the minimum identifier scaffolding required across the national radiology use cases, including national civil identity, a site-local patient registration identifier, and the PROVISIONAL MyHRN slice that implementation partners should support now for future activation without code change."
+Description: "Radiology-layer patient profile derived from MY Core. It fixes the minimum identifier scaffolding required across the national radiology use cases, including national civil identity, a nationally reserved placeholder namespace for local patient registration, and the PROVISIONAL MyHRN slice that implementation partners should support now for future activation without code change."
 * ^status = #draft
 * ^experimental = false
 * identifier ^slicing.discriminator[0].type = #value
 * identifier ^slicing.discriminator[0].path = "system"
-* identifier ^slicing.discriminator[1].type = #pattern
-* identifier ^slicing.discriminator[1].path = "type"
 * identifier ^slicing.rules = #open
 * identifier contains nationalId 1..1 MS and localPatientId 1..1 MS and myHrn 0..1 MS
 * identifier[nationalId].system = $MYKAD (exactly)
@@ -16,9 +14,9 @@ Description: "Radiology-layer patient profile derived from MY Core. It fixes the
 * identifier[nationalId].value 1..1 MS
 * identifier[nationalId] ^short = "National identity card number (MyKad, MyKAS, or passport)"
 * identifier[localPatientId].type = $V20203#MR "Medical record number"
-* identifier[localPatientId].system 1..1 MS
+* identifier[localPatientId].system = $MYLOCALPATIENTID (exactly)
 * identifier[localPatientId].value 1..1 MS
-* identifier[localPatientId] ^short = "Local facility MRN or patient registration number"
+* identifier[localPatientId] ^short = "Site-local patient registration number carried in the nationally reserved local patient identifier namespace"
 * identifier[myHrn].system = $MYPATIENTID (exactly)
 * identifier[myHrn].type.text = "MyHRN"
 * identifier[myHrn].value 1..1 MS
@@ -31,13 +29,11 @@ Profile: MYRadiologyPractitioner
 Parent: $MYCorePractitioner
 Id: my-radiology-practitioner
 Title: "MY Radiology Practitioner"
-Description: "Radiology-layer practitioner profile derived from MY Core. It fixes the minimum identifier scaffolding required across the national radiology use cases, including national civil identity, a site-local staff registration identifier, and the PROVISIONAL MyHCW slice that implementation partners should support now for future activation without code change."
+Description: "Radiology-layer practitioner profile derived from MY Core. It fixes the minimum identifier scaffolding required across the national radiology use cases, including national civil identity, a nationally reserved placeholder namespace for local staff registration, and the PROVISIONAL MyHCW slice that implementation partners should support now for future activation without code change."
 * ^status = #draft
 * ^experimental = false
-* identifier ^slicing.discriminator[0].type = #value
+* identifier ^slicing.discriminator[0].type = #pattern
 * identifier ^slicing.discriminator[0].path = "system"
-* identifier ^slicing.discriminator[1].type = #pattern
-* identifier ^slicing.discriminator[1].path = "type"
 * identifier ^slicing.rules = #open
 * identifier contains nationalId 1..1 MS and localStaffId 1..1 MS and myHcwId 0..1 MS
 * identifier[nationalId].system = $MYKAD (exactly)
@@ -45,9 +41,9 @@ Description: "Radiology-layer practitioner profile derived from MY Core. It fixe
 * identifier[nationalId].value 1..1 MS
 * identifier[nationalId] ^short = "National identity card number of the healthcare worker"
 * identifier[localStaffId].type = $V20203#EMPL "Employee number"
-* identifier[localStaffId].system 1..1 MS
+* identifier[localStaffId].system = $MYLOCALSTAFFID (exactly)
 * identifier[localStaffId].value 1..1 MS
-* identifier[localStaffId] ^short = "Local facility staff registration number"
+* identifier[localStaffId] ^short = "Site-local staff registration number carried in the nationally reserved local staff identifier namespace"
 * identifier[myHcwId].system = $MYHCWID (exactly)
 * identifier[myHcwId].type.text = "MyHCW"
 * identifier[myHcwId].value 1..1 MS
