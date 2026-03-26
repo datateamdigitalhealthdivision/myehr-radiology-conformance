@@ -76,5 +76,3 @@ The complete published index is available at [Artefact Index](artifacts.html).
 ## Payload-reading note
 
 Implementation partners should use the generated profile pages to inspect the actual JSON and XML shape. The profile differential shows cardinality, Must Support, and binding changes. The example pages show concrete fields such as identifiers, status, category, retrieval endpoint references, terminology-coded elements, attachment metadata, document-sharing metadata, and optional direct retrieval bundle composition.
-
-

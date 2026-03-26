@@ -75,5 +75,3 @@ This first draft does not mandate a single national real-time notification mecha
 ## Additional chapter
 
 The maintained narrative chapter is available at [docs/06-conformance-testing.md](https://github.com/datateamdigitalhealthdivision/myehr-radiology-conformance/blob/main/docs/06-conformance-testing.md).
-
-
