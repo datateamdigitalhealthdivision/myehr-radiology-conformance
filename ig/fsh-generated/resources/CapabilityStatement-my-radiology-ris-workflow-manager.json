@@ -22,7 +22,7 @@
       "resource": [
         {
           "type": "Patient",
-          "profile": "http://fhir.hie.moh.gov.my/StructureDefinition/Patient-my-core",
+          "profile": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-patient",
           "interaction": [
             {
               "code": "read"
@@ -346,7 +346,7 @@
         },
         {
           "type": "Location",
-          "profile": "http://fhir.hie.moh.gov.my/StructureDefinition/Location-my-core",
+          "profile": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-location",
           "interaction": [
             {
               "code": "read"

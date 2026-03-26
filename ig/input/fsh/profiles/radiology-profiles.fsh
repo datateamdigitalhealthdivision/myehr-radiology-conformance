@@ -1,3 +1,82 @@
+Profile: MYRadiologyPatient
+Parent: $MYCorePatient
+Id: my-radiology-patient
+Title: "MY Radiology Patient"
+Description: "Radiology-layer patient profile derived from MY Core. It fixes the minimum identifier scaffolding required across the national radiology use cases, including national civil identity, a site-local patient registration identifier, and the PROVISIONAL MyHRN slice that implementation partners should support now for future activation without code change."
+* ^status = #draft
+* ^experimental = false
+* identifier ^slicing.discriminator[0].type = #value
+* identifier ^slicing.discriminator[0].path = "system"
+* identifier ^slicing.discriminator[1].type = #pattern
+* identifier ^slicing.discriminator[1].path = "type"
+* identifier ^slicing.rules = #open
+* identifier contains nationalId 1..1 MS and localPatientId 1..1 MS and myHrn 0..1 MS
+* identifier[nationalId].system = $MYKAD (exactly)
+* identifier[nationalId].type = $V20203#NIIP "National unique individual identifier"
+* identifier[nationalId].value 1..1 MS
+* identifier[nationalId] ^short = "National identity card number (MyKad, MyKAS, or passport)"
+* identifier[localPatientId].type = $V20203#MR "Medical record number"
+* identifier[localPatientId].system 1..1 MS
+* identifier[localPatientId].value 1..1 MS
+* identifier[localPatientId] ^short = "Local facility MRN or patient registration number"
+* identifier[myHrn].system = $MYPATIENTID (exactly)
+* identifier[myHrn].type.text = "MyHRN"
+* identifier[myHrn].value 1..1 MS
+* identifier[myHrn] ^short = "National Master Patient Index identifier (MyHRN). Pending national MPI activation."
+* name 1..* MS
+* gender 1..1 MS
+* birthDate 1..1 MS
+
+Profile: MYRadiologyPractitioner
+Parent: $MYCorePractitioner
+Id: my-radiology-practitioner
+Title: "MY Radiology Practitioner"
+Description: "Radiology-layer practitioner profile derived from MY Core. It fixes the minimum identifier scaffolding required across the national radiology use cases, including national civil identity, a site-local staff registration identifier, and the PROVISIONAL MyHCW slice that implementation partners should support now for future activation without code change."
+* ^status = #draft
+* ^experimental = false
+* identifier ^slicing.discriminator[0].type = #value
+* identifier ^slicing.discriminator[0].path = "system"
+* identifier ^slicing.discriminator[1].type = #pattern
+* identifier ^slicing.discriminator[1].path = "type"
+* identifier ^slicing.rules = #open
+* identifier contains nationalId 1..1 MS and localStaffId 1..1 MS and myHcwId 0..1 MS
+* identifier[nationalId].system = $MYKAD (exactly)
+* identifier[nationalId].type = $V20203#NIIP "National unique individual identifier"
+* identifier[nationalId].value 1..1 MS
+* identifier[nationalId] ^short = "National identity card number of the healthcare worker"
+* identifier[localStaffId].type = $V20203#EMPL "Employee number"
+* identifier[localStaffId].system 1..1 MS
+* identifier[localStaffId].value 1..1 MS
+* identifier[localStaffId] ^short = "Local facility staff registration number"
+* identifier[myHcwId].system = $MYHCWID (exactly)
+* identifier[myHcwId].type.text = "MyHCW"
+* identifier[myHcwId].value 1..1 MS
+* identifier[myHcwId] ^short = "National Healthcare Worker Identifier (MyHCW). Pending national activation."
+* name 1..* MS
+
+Profile: MYRadiologyLocation
+Parent: $MYCoreLocation
+Id: my-radiology-location
+Title: "MY Radiology Location"
+Description: "Radiology-layer location profile derived from MY Core. It carries the PROVISIONAL national facility identifier while allowing site-local departmental or room identifiers to remain deployment-specific."
+* ^status = #draft
+* ^experimental = false
+* identifier ^slicing.discriminator[0].type = #value
+* identifier ^slicing.discriminator[0].path = "system"
+* identifier ^slicing.discriminator[1].type = #pattern
+* identifier ^slicing.discriminator[1].path = "type"
+* identifier ^slicing.rules = #open
+* identifier contains facilityId 1..1 MS and localLocationId 0..1 MS
+* identifier[facilityId].system = $MYFACILITYID (exactly)
+* identifier[facilityId].value 1..1 MS
+* identifier[facilityId] ^short = "National facility identifier"
+* identifier[localLocationId].type.text = "Local location identifier"
+* identifier[localLocationId].system 1..1 MS
+* identifier[localLocationId].value 1..1 MS
+* identifier[localLocationId] ^short = "Site-local radiology location, room, or department identifier"
+* name 1..1 MS
+* type 0..* MS
+
 Profile: MYRadiologyServiceRequest
 Parent: $MYCoreServiceRequest
 Id: my-radiology-service-request
@@ -28,12 +107,12 @@ Description: "Radiology imaging order profile for Malaysian deployments. It capt
 * code from MYRadiologyProcedureCodeVS (extensible)
 * code ^short = "Use the national imaging procedure catalogue. Starter LOINC support is retained for direct-RIS retrieval implementations."
 * subject 1..1 MS
-* subject only Reference($MYCorePatient)
+* subject only Reference(MYRadiologyPatient)
 * encounter 0..1 MS
 * encounter only Reference($MYCoreEncounter)
 * authoredOn 1..1 MS
 * requester 1..1 MS
-* requester only Reference($MYCorePractitionerRole)
+* requester only Reference(MYRadiologyPractitioner or $MYCorePractitionerRole)
 * priority MS
 * reasonCode 0..* MS
 * reasonCode from MYRadiologyClinicalIndicationVS (extensible)
@@ -43,7 +122,7 @@ Description: "Radiology imaging order profile for Malaysian deployments. It capt
 * bodySite[site] MS
 * bodySite ^short = "Use SNOMED CT body structures and include laterality where clinically relevant"
 * locationReference 0..* MS
-* locationReference only Reference($MYCoreLocation)
+* locationReference only Reference(MYRadiologyLocation)
 * locationReference ^short = "Requested radiology location, department, or performance site where known"
 * supportingInfo 0..* MS
 * occurrence[x] 0..1 MS
@@ -71,7 +150,7 @@ Description: "Workflow tracking profile used to communicate radiology order rece
 * focus 1..1 MS
 * focus only Reference(MYRadiologyServiceRequest)
 * for 1..1 MS
-* for only Reference($MYCorePatient)
+* for only Reference(MYRadiologyPatient)
 * encounter 0..1 MS
 * encounter only Reference($MYCoreEncounter)
 * authoredOn 1..1 MS
@@ -110,6 +189,7 @@ Description: "Optional scheduling profile for booked radiology slots where FHIR 
 * end 1..1 MS
 * participant 1..* MS
 * participant.actor 1..1 MS
+* participant.actor only Reference(MYRadiologyPatient or MYRadiologyPractitioner or $MYCorePractitionerRole or MYRadiologyLocation)
 * specialty 1..* MS
 * supportingInformation 1..* MS
 * comment 0..1 MS
@@ -127,18 +207,18 @@ Description: "Performed imaging procedure profile linking the originating order 
 * code 1..1 MS
 * code from MYRadiologyProcedureCodeVS (extensible)
 * subject 1..1 MS
-* subject only Reference($MYCorePatient)
+* subject only Reference(MYRadiologyPatient)
 * encounter 1..1 MS
 * encounter only Reference($MYCoreEncounter)
 * category 1..1 MS
 * performed[x] 1..1 MS
 * recorder 0..1 MS
-* recorder only Reference($MYCorePractitioner or $MYCorePractitionerRole)
+* recorder only Reference(MYRadiologyPractitioner or $MYCorePractitionerRole)
 * performer 0..* MS
 * performer.actor 1..1 MS
-* performer.actor only Reference($MYCorePractitioner or $MYCorePractitionerRole or $MYCoreOrganization)
+* performer.actor only Reference(MYRadiologyPractitioner or $MYCorePractitionerRole or $MYCoreOrganization)
 * location 0..1 MS
-* location only Reference($MYCoreLocation)
+* location only Reference(MYRadiologyLocation)
 * bodySite 0..* MS
 * bodySite[side] MS
 * bodySite[site] MS
@@ -170,7 +250,7 @@ Description: "FHIR-facing imaging study metadata aligned to the DICOM study, inc
 * identifier[accession].value 1..1 MS
 * status 1..1 MS
 * subject 1..1 MS
-* subject only Reference($MYCorePatient)
+* subject only Reference(MYRadiologyPatient)
 * encounter 0..1 MS
 * encounter only Reference($MYCoreEncounter)
 * basedOn 0..* MS
@@ -248,15 +328,15 @@ Description: "Radiology report profile covering preliminary, final, and amended 
 * code 1..1 MS
 * code from MYRadiologyReportCodeVS (extensible)
 * subject 1..1 MS
-* subject only Reference($MYCorePatient)
+* subject only Reference(MYRadiologyPatient)
 * encounter 1..1 MS
 * encounter only Reference($MYCoreEncounter)
 * effective[x] 0..1 MS
 * issued 1..1 MS
 * performer 1..* MS
-* performer only Reference($MYCoreOrganization or $MYCorePractitioner or $MYCorePractitionerRole)
+* performer only Reference($MYCoreOrganization or MYRadiologyPractitioner or $MYCorePractitionerRole)
 * resultsInterpreter 1..* MS
-* resultsInterpreter only Reference($MYCorePractitioner or $MYCorePractitionerRole)
+* resultsInterpreter only Reference(MYRadiologyPractitioner or $MYCorePractitionerRole)
 * imagingStudy 1..* MS
 * imagingStudy only Reference(MYRadiologyImagingStudy)
 * result 0..* MS
@@ -283,7 +363,7 @@ Description: "Structured radiology finding or quantitative measurement profile t
 * code 1..1 MS
 * code from MYRadiologyFindingCodeVS (extensible)
 * subject 1..1 MS
-* subject only Reference($MYCorePatient)
+* subject only Reference(MYRadiologyPatient)
 * encounter 0..1 MS
 * encounter only Reference($MYCoreEncounter)
 * basedOn 0..* MS
@@ -292,7 +372,7 @@ Description: "Structured radiology finding or quantitative measurement profile t
 * partOf only Reference(MYRadiologyProcedure)
 * effective[x] 0..1 MS
 * performer 0..* MS
-* performer only Reference($MYCoreOrganization or $MYCorePractitioner or $MYCorePractitionerRole)
+* performer only Reference($MYCoreOrganization or MYRadiologyPractitioner or $MYCorePractitionerRole)
 * value[x] 0..1 MS
 * bodySite 0..1 MS
 * derivedFrom 0..* MS
@@ -321,10 +401,10 @@ Description: "Document-centric profile for radiology report packaging and IHE MH
 * category 1..* MS
 * category from MYRadiologyXDSClassCodeVS (required)
 * subject 1..1 MS
-* subject only Reference($MYCorePatient)
+* subject only Reference(MYRadiologyPatient)
 * date 1..1 MS
 * author 0..* MS
-* author only Reference($MYCoreOrganization or $MYCorePractitioner or $MYCorePractitionerRole)
+* author only Reference($MYCoreOrganization or MYRadiologyPractitioner or $MYCorePractitionerRole)
 * securityLabel 1..* MS
 * securityLabel from MYRadiologyXDSConfidentialityVS (required)
 * description 0..1 MS
@@ -342,7 +422,7 @@ Description: "Document-centric profile for radiology report packaging and IHE MH
 * context.practiceSetting 1..1 MS
 * context.practiceSetting from MYRadiologyXDSPracticeSettingVS (required)
 * context.sourcePatientInfo 0..1 MS
-* context.sourcePatientInfo only Reference($MYCorePatient)
+* context.sourcePatientInfo only Reference(MYRadiologyPatient)
 * context.related 0..* MS
 * context.related only Reference(MYRadiologyServiceRequest or MYRadiologyImagingStudy or MYRadiologyDiagnosticReport)
 * context.event 0..* MS
@@ -364,7 +444,5 @@ Description: "Provenance profile used to record authorship, amendment, and publi
 * agent 1..* MS
 * agent.type 0..1 MS
 * agent.who 1..1 MS
-* agent.who only Reference($MYCoreOrganization or $MYCorePractitioner or $MYCorePractitionerRole)
+* agent.who only Reference($MYCoreOrganization or MYRadiologyPractitioner or $MYCorePractitionerRole)
 * entity 0..* MS
-
-

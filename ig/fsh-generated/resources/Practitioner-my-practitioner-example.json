@@ -3,17 +3,42 @@
   "id": "my-practitioner-example",
   "meta": {
     "profile": [
-      "http://fhir.hie.moh.gov.my/StructureDefinition/Practitioner-my-core"
+      "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-practitioner"
     ]
   },
   "identifier": [
     {
-      "system": "https://myhcw.kkmhub.moh.gov.my/id/healthcare-worker",
-      "value": "MYHCW-00004567"
+      "type": {
+        "coding": [
+          {
+            "code": "NIIP",
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "display": "National unique individual identifier"
+          }
+        ]
+      },
+      "system": "http://fhir.hie.moh.gov.my/sid/my-kad",
+      "value": "820914-08-5234"
     },
     {
-      "system": "https://sandbox.myehr.kkmhub.moh.gov.my/id/ris-doctor",
-      "value": "RIS-DR-456"
+      "type": {
+        "coding": [
+          {
+            "code": "EMPL",
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "display": "Employee number"
+          }
+        ]
+      },
+      "system": "https://hospital-sah.moh.gov.my/id/staff",
+      "value": "RAD-DR-456"
+    },
+    {
+      "system": "http://fhir.hie.moh.gov.my/sid/my-hcw",
+      "type": {
+        "text": "MyHCW"
+      },
+      "value": "MYHCW-PENDING-00004567"
     }
   ],
   "name": [

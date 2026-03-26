@@ -7,12 +7,12 @@
   "date": "2026-03-17",
   "publisher": "Data Team, Digital Health Division, Ministry of Health Malaysia",
   "responsible": "Ministry of Health Malaysia",
-  "description": "PROVISIONAL placeholder naming system for the national patient identifier domain.",
-  "usage": "Use as a placeholder only until the final national patient identifier URI and formatting rules are approved.",
+  "description": "PROVISIONAL placeholder naming system for the MyHRN national patient identifier domain, pending national MPI activation.",
+  "usage": "Use to scaffold support for MyHRN now so that national MPI activation can be adopted without schema change.",
   "uniqueId": [
     {
       "type": "uri",
-      "value": "https://myhrn.kkmhub.moh.gov.my/id/patient",
+      "value": "http://fhir.hie.moh.gov.my/sid/my-hrn",
       "preferred": true,
       "comment": "PROVISIONAL placeholder only."
     }

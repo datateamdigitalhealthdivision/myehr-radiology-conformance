@@ -188,9 +188,9 @@
           "reference": "Location/my-location-example"
         },
         "name": "Location Example",
-        "description": "Example imaging location used for scheduling and direct retrieval context.",
+        "description": "Example imaging location used for scheduling and direct retrieval context, carrying the national facility identifier.",
         "groupingId": "examples",
-        "exampleBoolean": true
+        "exampleCanonical": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-location"
       },
       {
         "reference": {
@@ -419,6 +419,15 @@
       },
       {
         "reference": {
+          "reference": "StructureDefinition/my-radiology-location"
+        },
+        "name": "MY Radiology Location",
+        "description": "Radiology-layer location profile with the provisional national facility identifier and site-local departmental context.",
+        "groupingId": "profiles",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
           "reference": "StructureDefinition/my-radiology-mhd-audit-event"
         },
         "name": "MY Radiology MHD AuditEvent",
@@ -450,6 +459,24 @@
         },
         "name": "MY Radiology Observation",
         "description": "Structured radiology finding or measurement profile used when narrative reporting alone is insufficient.",
+        "groupingId": "profiles",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/my-radiology-patient"
+        },
+        "name": "MY Radiology Patient",
+        "description": "Radiology-layer patient profile with national civil identity, local patient registration, and PROVISIONAL MyHRN scaffolding.",
+        "groupingId": "profiles",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/my-radiology-practitioner"
+        },
+        "name": "MY Radiology Practitioner",
+        "description": "Radiology-layer practitioner profile with national civil identity, local staff registration, and PROVISIONAL MyHCW scaffolding.",
         "groupingId": "profiles",
         "exampleBoolean": false
       },
@@ -692,9 +719,9 @@
           "reference": "Patient/my-patient-example"
         },
         "name": "Patient Example",
-        "description": "Shared patient context used by the radiology workflow examples.",
+        "description": "Shared patient context used by the radiology workflow examples, including national civil identity, local registration, and placeholder MyHRN scaffolding.",
         "groupingId": "examples",
-        "exampleBoolean": true
+        "exampleCanonical": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-patient"
       },
       {
         "reference": {
@@ -710,9 +737,9 @@
           "reference": "Practitioner/my-practitioner-example"
         },
         "name": "Practitioner Example",
-        "description": "Example radiologist practitioner used across reporting and workflow examples.",
+        "description": "Example radiologist practitioner used across reporting and workflow examples, including placeholder MyHCW scaffolding.",
         "groupingId": "examples",
-        "exampleBoolean": true
+        "exampleCanonical": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-practitioner"
       },
       {
         "reference": {
@@ -995,6 +1022,11 @@
           "generation": "markdown"
         },
         {
+          "nameUrl": "implementation-partner-guide.html",
+          "title": "Implementation Partner Guide",
+          "generation": "markdown"
+        },
+        {
           "nameUrl": "document-sharing.html",
           "title": "Document Sharing",
           "generation": "markdown"
@@ -1002,6 +1034,11 @@
         {
           "nameUrl": "notifications.html",
           "title": "Notifications And Polling",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "implementation-considerations.html",
+          "title": "Implementation Considerations",
           "generation": "markdown"
         },
         {

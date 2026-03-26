@@ -107,7 +107,7 @@ Usage: #definition
 * description = "Server capability expectations for a RIS acting as the operational workflow manager, reporting authority, document source, and optional direct-RIS retrieval endpoint."
 * rest[0].mode = #server
 * rest[0].resource[0].type = #Patient
-* rest[0].resource[0].profile = $MYCorePatient
+* rest[0].resource[0].profile = "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-patient"
 * rest[0].resource[0].interaction[0].code = #read
 * rest[0].resource[0].interaction[1].code = #search-type
 * rest[0].resource[0].searchParam[0].name = "identifier"
@@ -233,7 +233,7 @@ Usage: #definition
 * rest[0].resource[11].profile = "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-dicomweb-endpoint"
 * rest[0].resource[11].interaction[0].code = #read
 * rest[0].resource[12].type = #Location
-* rest[0].resource[12].profile = $MYCoreLocation
+* rest[0].resource[12].profile = "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-location"
 * rest[0].resource[12].interaction[0].code = #read
 * rest[0].resource[12].interaction[1].code = #search-type
 * rest[0].resource[12].searchParam[0].name = "identifier"

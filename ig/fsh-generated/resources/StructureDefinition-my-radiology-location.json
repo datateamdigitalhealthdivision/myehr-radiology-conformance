@@ -1,0 +1,95 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "my-radiology-location",
+  "url": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-location",
+  "name": "MYRadiologyLocation",
+  "title": "MY Radiology Location",
+  "status": "draft",
+  "experimental": false,
+  "description": "Radiology-layer location profile derived from MY Core. It carries the PROVISIONAL national facility identifier while allowing site-local departmental or room identifiers to remain deployment-specific.",
+  "fhirVersion": "4.0.1",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Location",
+  "baseDefinition": "http://fhir.hie.moh.gov.my/StructureDefinition/Location-my-core",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Location.identifier",
+        "path": "Location.identifier",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "system"
+            },
+            {
+              "type": "pattern",
+              "path": "type"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1
+      },
+      {
+        "id": "Location.identifier:facilityId",
+        "path": "Location.identifier",
+        "sliceName": "facilityId",
+        "short": "National facility identifier",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Location.identifier:facilityId.system",
+        "path": "Location.identifier.system",
+        "min": 1,
+        "fixedUri": "http://fhir.hie.moh.gov.my/sid/my-facility"
+      },
+      {
+        "id": "Location.identifier:facilityId.value",
+        "path": "Location.identifier.value",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Location.identifier:localLocationId",
+        "path": "Location.identifier",
+        "sliceName": "localLocationId",
+        "short": "Site-local radiology location, room, or department identifier",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Location.identifier:localLocationId.type.text",
+        "path": "Location.identifier.type.text",
+        "patternString": "Local location identifier"
+      },
+      {
+        "id": "Location.identifier:localLocationId.system",
+        "path": "Location.identifier.system",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Location.identifier:localLocationId.value",
+        "path": "Location.identifier.value",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Location.name",
+        "path": "Location.name",
+        "mustSupport": true
+      },
+      {
+        "id": "Location.type",
+        "path": "Location.type",
+        "mustSupport": true
+      }
+    ]
+  }
+}

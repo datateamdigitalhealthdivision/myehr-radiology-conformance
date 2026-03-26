@@ -70,6 +70,8 @@ The future validation environment or test harness that checks payload conformanc
 | MHD Document Source | `DocumentReference`, `List`, `Binary` | SHALL submit the required metadata and payload members when document sharing is claimed. |
 | MHD Document Recipient | `DocumentReference`, `List`, `Binary`, `AuditEvent` | SHALL support document submission, query, retrieval, and audit publication where document sharing is in scope. |
 | Viewer Consumer | `DiagnosticReport`, `ImagingStudy`, `DocumentReference`, `List`, `Endpoint` | SHALL support patient-based retrieval and SHALL follow study-to-endpoint linkage. |
+| RadioConnect Local Node | `ServiceRequest`, `Task`, `Procedure`, `ImagingStudy`, `DiagnosticReport`, `Observation`, `Endpoint` | SHALL mediate site PACS or RIS data into the national FHIR-facing pattern when the RadioConnect architecture is in scope. |
+| RadioConnect Central Node | `ImagingStudy`, `DiagnosticReport`, `DocumentReference`, `List`, `Binary`, `AuditEvent` | SHALL coordinate cross-site discovery and controlled access when the RadioConnect federation pattern is in scope. |
 | Validation Consumer | Core artefacts | SHALL validate invariants, terminology bindings, search behaviour, and document-sharing metadata. |
 
 ## Must Support interpretation

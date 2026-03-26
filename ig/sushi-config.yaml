@@ -56,10 +56,14 @@ pages:
     title: Workflow 11 Encounter-Based Imaging
   fhir-artefacts.md:
     title: FHIR Artefacts
+  implementation-partner-guide.md:
+    title: Implementation Partner Guide
   document-sharing.md:
     title: Document Sharing
   notifications.md:
     title: Notifications And Polling
+  implementation-considerations.md:
+    title: Implementation Considerations
   terminology.md:
     title: Terminology And Identifiers
   security.md:
@@ -77,8 +81,10 @@ menu:
   Conformance Model: conformance-model.html
   Workflow Summary: workflow-summary.html
   FHIR Artefacts: fhir-artefacts.html
+  Implementation Partner Guide: implementation-partner-guide.html
   Document Sharing: document-sharing.html
   Notifications And Polling: notifications.html
+  Implementation Considerations: implementation-considerations.html
   Terminology And Identifiers: terminology.html
   Security And Audit: security.html
   Conformance Testing: testing.html
@@ -108,6 +114,18 @@ groups:
     name: Examples
     description: Worked examples that illustrate the expected JSON and XML payload shape for profiles, transaction patterns, errors, document submission, and direct retrieval workflows.
 resources:
+  StructureDefinition/my-radiology-patient:
+    name: MY Radiology Patient
+    description: Radiology-layer patient profile with national civil identity, local patient registration, and PROVISIONAL MyHRN scaffolding.
+    groupingId: profiles
+  StructureDefinition/my-radiology-practitioner:
+    name: MY Radiology Practitioner
+    description: Radiology-layer practitioner profile with national civil identity, local staff registration, and PROVISIONAL MyHCW scaffolding.
+    groupingId: profiles
+  StructureDefinition/my-radiology-location:
+    name: MY Radiology Location
+    description: Radiology-layer location profile with the provisional national facility identifier and site-local departmental context.
+    groupingId: profiles
   StructureDefinition/my-radiology-service-request:
     name: MY Radiology ServiceRequest
     description: Radiology imaging order profile for Malaysian deployments.
@@ -426,9 +444,9 @@ resources:
     exampleBoolean: true
   Patient/my-patient-example:
     name: Patient Example
-    description: Shared patient context used by the radiology workflow examples.
+    description: Shared patient context used by the radiology workflow examples, including national civil identity, local registration, and placeholder MyHRN scaffolding.
     groupingId: examples
-    exampleBoolean: true
+    exampleCanonical: https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-patient
   Encounter/my-encounter-example:
     name: Encounter Example
     description: Shared encounter context used by the workflow examples.
@@ -441,14 +459,14 @@ resources:
     exampleBoolean: true
   Location/my-location-example:
     name: Location Example
-    description: Example imaging location used for scheduling and direct retrieval context.
+    description: Example imaging location used for scheduling and direct retrieval context, carrying the national facility identifier.
     groupingId: examples
-    exampleBoolean: true
+    exampleCanonical: https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-location
   Practitioner/my-practitioner-example:
     name: Practitioner Example
-    description: Example radiologist practitioner used across reporting and workflow examples.
+    description: Example radiologist practitioner used across reporting and workflow examples, including placeholder MyHCW scaffolding.
     groupingId: examples
-    exampleBoolean: true
+    exampleCanonical: https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-practitioner
   PractitionerRole/my-practitioner-role-example:
     name: PractitionerRole Example
     description: Example radiologist role used as the requester in the workflow examples.
@@ -467,4 +485,3 @@ parameters:
   show-inherited-invariants: false
   usage-stats-opt-out: true
   excludettl: true
-

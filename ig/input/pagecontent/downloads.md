@@ -10,7 +10,7 @@ Implementation partners should be able to obtain:
 
 ## Recommended consumption sequence
 
-1. Read the rendered guide, especially [FHIR Artefacts](fhir-artefacts.html), [Workflow Summary](workflow-summary.html), and [Security And Audit](security.html).
+1. Read the rendered guide, especially [FHIR Artefacts](fhir-artefacts.html), [Implementation Partner Guide](implementation-partner-guide.html), [Workflow Summary](workflow-summary.html), and [Security And Audit](security.html).
 2. Download or inspect the package artefacts and load them into validation or server tooling.
 3. Review the examples and workflow bundle to understand the expected payload shape.
 4. Apply the relevant CapabilityStatement to the partner system role being implemented.

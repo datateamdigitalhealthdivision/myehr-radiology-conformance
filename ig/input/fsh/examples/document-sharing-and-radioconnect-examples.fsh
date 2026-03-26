@@ -32,6 +32,8 @@ Description: "Example radiology report document populated with MHD and XDS-align
 * type = $LNC#18748-4 "Diagnostic imaging study"
 * category[0].coding[0] = MYRadiologyXDSClassCodeCS#imaging-report "Imaging Report"
 * subject = Reference(MYPatientExample)
+* subject.identifier.system = $MYKAD
+* subject.identifier.value = "800412-08-5123"
 * date = "2026-03-25T10:30:00+08:00"
 * author[0] = Reference(MYPractitionerExample)
 * securityLabel[0] = $V3Conf#N "Normal"
@@ -60,6 +62,8 @@ Description: "Example SubmissionSet List used in an ITI-65 Provide Document Bund
 * mode = #working
 * code = MYRadiologyXDSContentTypeCS#radiology-report-submission "Radiology Report Submission"
 * subject = Reference(MYPatientExample)
+* subject.identifier.system = $MYKAD
+* subject.identifier.value = "800412-08-5123"
 * date = "2026-03-25T10:30:00+08:00"
 * source = Reference(MYPractitionerRoleExample)
 * entry[0].item = Reference(MYRadiologyMHDDocumentReferenceExample)
@@ -168,4 +172,3 @@ Description: "Example invariant failure response for a direct-RIS payload where 
 * issue[0].details.text = "Accession match rule failed: ImagingStudy.identifier[ACSN] does not match ServiceRequest.identifier[ACSN]."
 * issue[0].diagnostics = "The receiving consumer could not reconcile the study to the originating order because the accession identifier was missing or inconsistent."
 * issue[0].expression[0] = "ImagingStudy.identifier"
-

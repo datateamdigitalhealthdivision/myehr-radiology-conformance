@@ -1,0 +1,134 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "my-radiology-practitioner",
+  "url": "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-practitioner",
+  "name": "MYRadiologyPractitioner",
+  "title": "MY Radiology Practitioner",
+  "status": "draft",
+  "experimental": false,
+  "description": "Radiology-layer practitioner profile derived from MY Core. It fixes the minimum identifier scaffolding required across the national radiology use cases, including national civil identity, a site-local staff registration identifier, and the PROVISIONAL MyHCW slice that implementation partners should support now for future activation without code change.",
+  "fhirVersion": "4.0.1",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Practitioner",
+  "baseDefinition": "http://fhir.hie.moh.gov.my/StructureDefinition/Practitioner-my-core",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Practitioner.identifier",
+        "path": "Practitioner.identifier",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "system"
+            },
+            {
+              "type": "pattern",
+              "path": "type"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 2
+      },
+      {
+        "id": "Practitioner.identifier:nationalId",
+        "path": "Practitioner.identifier",
+        "sliceName": "nationalId",
+        "short": "National identity card number of the healthcare worker",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Practitioner.identifier:nationalId.type",
+        "path": "Practitioner.identifier.type",
+        "min": 1,
+        "patternCodeableConcept": {
+          "coding": [
+            {
+              "code": "NIIP",
+              "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+              "display": "National unique individual identifier"
+            }
+          ]
+        }
+      },
+      {
+        "id": "Practitioner.identifier:nationalId.system",
+        "path": "Practitioner.identifier.system",
+        "min": 1,
+        "fixedUri": "http://fhir.hie.moh.gov.my/sid/my-kad"
+      },
+      {
+        "id": "Practitioner.identifier:nationalId.value",
+        "path": "Practitioner.identifier.value",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Practitioner.identifier:localStaffId",
+        "path": "Practitioner.identifier",
+        "sliceName": "localStaffId",
+        "short": "Local facility staff registration number",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Practitioner.identifier:localStaffId.type",
+        "path": "Practitioner.identifier.type",
+        "min": 1,
+        "patternCodeableConcept": {
+          "coding": [
+            {
+              "code": "EMPL",
+              "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+              "display": "Employee number"
+            }
+          ]
+        }
+      },
+      {
+        "id": "Practitioner.identifier:localStaffId.system",
+        "path": "Practitioner.identifier.system",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Practitioner.identifier:localStaffId.value",
+        "path": "Practitioner.identifier.value",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Practitioner.identifier:myHcwId",
+        "path": "Practitioner.identifier",
+        "sliceName": "myHcwId",
+        "short": "National Healthcare Worker Identifier (MyHCW). Pending national activation.",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Practitioner.identifier:myHcwId.type.text",
+        "path": "Practitioner.identifier.type.text",
+        "patternString": "MyHCW"
+      },
+      {
+        "id": "Practitioner.identifier:myHcwId.system",
+        "path": "Practitioner.identifier.system",
+        "min": 1,
+        "fixedUri": "http://fhir.hie.moh.gov.my/sid/my-hcw"
+      },
+      {
+        "id": "Practitioner.identifier:myHcwId.value",
+        "path": "Practitioner.identifier.value",
+        "min": 1,
+        "mustSupport": true
+      }
+    ]
+  }
+}

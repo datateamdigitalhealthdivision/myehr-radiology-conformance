@@ -3,17 +3,29 @@
   "id": "my-location-example",
   "meta": {
     "profile": [
-      "http://fhir.hie.moh.gov.my/StructureDefinition/Location-my-core"
+      "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-location"
     ]
   },
   "identifier": [
     {
-      "system": "https://facility.kkmhub.moh.gov.my/id/facility",
+      "system": "http://fhir.hie.moh.gov.my/sid/my-facility",
+      "value": "HSAH"
+    },
+    {
+      "type": {
+        "text": "Local location identifier"
+      },
+      "system": "https://hospital-sah.moh.gov.my/id/location",
       "value": "HSAH-RAD-CT1"
     }
   ],
   "status": "active",
   "name": "CT Suite 1",
+  "type": [
+    {
+      "text": "Computed tomography suite"
+    }
+  ],
   "managingOrganization": {
     "reference": "Organization/my-organisation-example"
   },

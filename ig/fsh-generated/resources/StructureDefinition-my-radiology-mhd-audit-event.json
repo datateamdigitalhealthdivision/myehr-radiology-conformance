@@ -83,7 +83,7 @@
           {
             "code": "Reference",
             "targetProfile": [
-              "http://fhir.hie.moh.gov.my/StructureDefinition/Patient-my-core",
+              "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-patient",
               "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-mhd-submission-set",
               "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-document-reference"
             ]

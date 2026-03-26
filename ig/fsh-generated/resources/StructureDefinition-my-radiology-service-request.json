@@ -157,7 +157,7 @@
           {
             "code": "Reference",
             "targetProfile": [
-              "http://fhir.hie.moh.gov.my/StructureDefinition/Patient-my-core"
+              "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-patient"
             ]
           }
         ],
@@ -194,6 +194,7 @@
           {
             "code": "Reference",
             "targetProfile": [
+              "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-practitioner",
               "http://fhir.hie.moh.gov.my/StructureDefinition/PractitionerRole-my-core"
             ]
           }
@@ -208,7 +209,7 @@
           {
             "code": "Reference",
             "targetProfile": [
-              "http://fhir.hie.moh.gov.my/StructureDefinition/Location-my-core"
+              "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-location"
             ]
           }
         ],

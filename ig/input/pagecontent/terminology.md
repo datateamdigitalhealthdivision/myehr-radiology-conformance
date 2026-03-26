@@ -27,6 +27,10 @@ The first draft adopts existing international terminology systems wherever pract
 | Diagnosis and problem coding | ICD-10, ICD-11, SNOMED CT | Policy guidance only in this draft |
 | Procedure and intervention coding beyond orderables | ICD-10-PCS, ICD-9-CM, ICHI | Policy guidance only in this draft |
 
+## Interim procedure-coding guidance
+
+While the RadLex local mirror strategy remains the national target, implementation partners implementing the optional RadioConnect direct-retrieval pattern or working against existing LOINC-coded RIS systems may use LOINC radiology procedure codes as an interim alternative. The published [Procedure Code ValueSet](ValueSet-my-radiology-procedure-code-vs.html) already includes starter LOINC support. Implementation partners should design their systems to accept both RadLex and LOINC coding and should map between them using the published [Procedure Code Concept Map](ConceptMap-my-radiology-procedure-code-conceptmap.html).
+
 ## Hosting assumptions
 
 - primary on-premise terminology root: `https://terminology.kkmhub.moh.gov.my`

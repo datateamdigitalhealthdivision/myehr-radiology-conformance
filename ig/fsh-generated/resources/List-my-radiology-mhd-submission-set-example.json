@@ -33,7 +33,11 @@
     ]
   },
   "subject": {
-    "reference": "Patient/my-patient-example"
+    "reference": "Patient/my-patient-example",
+    "identifier": {
+      "system": "http://fhir.hie.moh.gov.my/sid/my-kad",
+      "value": "800412-08-5123"
+    }
   },
   "date": "2026-03-25T10:30:00+08:00",
   "source": {

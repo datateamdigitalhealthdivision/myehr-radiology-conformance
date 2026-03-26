@@ -26,6 +26,16 @@ Polling remains acceptable in this draft because the CapabilityStatements publis
 
 The preserved RadioConnect pattern remains supported as an optional partner-specific retrieval mechanism. It does not replace the national baseline of standard read and search interactions.
 
+### RadioConnect Architecture Context
+
+RadioConnect is a federated radiology interoperability architecture that links heterogeneous hospital PACS or RIS environments to a national exchange layer without forcing immediate full system replacement. Each participating site deploys a local RadioConnect instance within the hospital network, positioned logically between the site PACS or RIS and the national integration fabric. This local node performs DICOM and metadata mediation, enforces site-level connectivity, and exposes only the minimum required interfaces upstream. It typically includes a DICOM gateway or service layer that can receive or query studies from PACS, broker C-FIND, C-MOVE, C-GET, or equivalent retrieval workflows, normalise key study metadata, and support report or patient-context reconciliation against RIS or HIS records where native conformance is weak.
+
+A central RadioConnect instance acts as the national coordination and exchange node. It does not need to become the primary diagnostic archive; rather, it manages cross-site discovery, routing, referral exchange, and controlled access to imaging and report metadata across institutions. The central layer maintains the interoperability logic, identity and transaction orchestration, security controls, and the rules for how local nodes publish or respond to requests.
+
+The DICOM gateway at the local node is critical because it translates legacy PACS behaviours into a consistent, governable national exchange pattern.
+
+When RadioConnect nodes implement the optional `$impacs-ris-sync` operation, the local node is the server and the central node, or any other authorised consumer, is the client.
+
 Example request pattern:
 
 ```http

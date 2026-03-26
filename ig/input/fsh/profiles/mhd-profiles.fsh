@@ -21,10 +21,10 @@ Description: "SubmissionSet profile used when radiology documents are submitted 
 * code 1..1 MS
 * code from MYRadiologyXDSContentTypeVS (required)
 * subject 1..1 MS
-* subject only Reference($MYCorePatient)
+* subject only Reference(MYRadiologyPatient)
 * date 1..1 MS
 * source 0..1 MS
-* source only Reference($MYCorePractitioner or $MYCorePractitionerRole)
+* source only Reference(MYRadiologyPractitioner or $MYCorePractitionerRole)
 * entry 1..* MS
 * entry.item 1..1 MS
 * entry.item only Reference(MYRadiologyDocumentReference)
@@ -48,5 +48,4 @@ Description: "AuditEvent profile used for MHD submission, query, and retrieval a
 * agent.network 0..1 MS
 * entity 1..* MS
 * entity.what 1..1 MS
-* entity.what only Reference($MYCorePatient or MYRadiologyMHDSubmissionSet or MYRadiologyDocumentReference)
-
+* entity.what only Reference(MYRadiologyPatient or MYRadiologyMHDSubmissionSet or MYRadiologyDocumentReference)

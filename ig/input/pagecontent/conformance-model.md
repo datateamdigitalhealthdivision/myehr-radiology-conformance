@@ -13,6 +13,8 @@ The national conformance model is actor-based so that implementation partners ca
 | MHD Document Source | Conditionally submits radiology documents into a national or regional document-sharing fabric. | `Bundle`, `DocumentReference`, `List`, `Binary` |
 | MHD Document Recipient | Conditionally receives and serves document submissions and document queries. | `Bundle`, `DocumentReference`, `List`, `Binary`, `AuditEvent` |
 | Direct-RIS Retrieval Consumer | Conditionally performs scheduled retrieval against a RIS using standard searches or the preserved RadioConnect-style optional operation. | `Patient`, `ServiceRequest`, `ImagingStudy`, `DiagnosticReport`, `Location`, optional `$impacs-ris-sync` |
+| RadioConnect Local Node | Mediates between site PACS or RIS environments and the national exchange. Acts as a combined RIS Workflow Manager and PACS Metadata Publisher at the FHIR layer and includes a DICOM gateway for legacy PACS mediation. | `ServiceRequest`, `Task`, `ImagingStudy`, `DiagnosticReport`, `Endpoint`, `Procedure`, `Observation` |
+| RadioConnect Central Node | National coordination and federation point managing cross-site discovery, routing, and controlled access. It may also act as an MHD Document Recipient. | `ImagingStudy`, `DiagnosticReport`, `DocumentReference`, `List`, `Binary`, `AuditEvent` |
 | National Validation Consumer | Reads artefacts, instances, and behaviour claims for conformance verification. | CapabilityStatements, profiles, examples, test assets, negative payloads |
 
 ## Actor obligation matrix

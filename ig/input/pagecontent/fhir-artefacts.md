@@ -19,6 +19,9 @@ The complete published index is available at [Artefact Index](artifacts.html).
 
 | Profile | Purpose | Key Must Support focus | Example |
 | --- | --- | --- | --- |
+| [MYRadiologyPatient](StructureDefinition-my-radiology-patient.html) | Radiology-layer patient profile. | National civil identity, local patient registration, placeholder MyHRN scaffolding, name, gender, and birth date. | [Example](Patient-my-patient-example.html) |
+| [MYRadiologyPractitioner](StructureDefinition-my-radiology-practitioner.html) | Radiology-layer practitioner profile. | National civil identity, local staff registration, placeholder MyHCW scaffolding, and practitioner name. | [Example](Practitioner-my-practitioner-example.html) |
+| [MYRadiologyLocation](StructureDefinition-my-radiology-location.html) | Radiology-layer location profile. | National facility identifier, site-local departmental identifier, location name, and type. | [Example](Location-my-location-example.html) |
 | [MYRadiologyServiceRequest](StructureDefinition-my-radiology-service-request.html) | Imaging order profile. | Placer order identifier, provisional accession identifier, requested procedure, patient, encounter, requester, clinical indication, body site, location, supporting information. | [Example](ServiceRequest-my-radiology-service-request-example.html) |
 | [MYRadiologyTask](StructureDefinition-my-radiology-task.html) | Workflow state synchronisation profile. | Task status, focus, patient, authored and modified timestamps, owner, business status, status reason, output. | [Example](Task-my-radiology-task-example.html) |
 | [MYRadiologyAppointment](StructureDefinition-my-radiology-appointment.html) | Optional scheduling profile. | Based-on order linkage, scheduled times, participants, supporting information, booking comments. | [Example](Appointment-my-radiology-appointment-example.html) |
@@ -71,7 +74,7 @@ The complete published index is available at [Artefact Index](artifacts.html).
 | [RadioConnect Sync Bundle](Bundle-my-radiology-radioconnect-sync-bundle-example.html) | Shows the preserved optional direct-RIS retrieval response shape as a self-resolving `searchset` bundle with matched business resources and supporting references. |
 | [Invalid ServiceRequest OperationOutcome](OperationOutcome-my-radiology-invalid-service-request-operationoutcome-example.html) | Shows the expected rejection shape when a partner submits an invalid order payload. |
 | [Direct-RIS Accession Mismatch OperationOutcome](OperationOutcome-my-radiology-radioconnect-accession-mismatch-oo-example.html) | Shows the expected rejection or reconciliation failure response when accession linkage fails. |
-| [Patient](Patient-my-patient-example.html), [Encounter](Encounter-my-encounter-example.html), [Organisation](Organization-my-organisation-example.html), [Location](Location-my-location-example.html), [Practitioner](Practitioner-my-practitioner-example.html), [PractitionerRole](PractitionerRole-my-practitioner-role-example.html) | Provide the shared supporting context for the radiology examples. |
+| [Patient](Patient-my-patient-example.html), [Encounter](Encounter-my-encounter-example.html), [Organisation](Organization-my-organisation-example.html), [Location](Location-my-location-example.html), [Practitioner](Practitioner-my-practitioner-example.html), [PractitionerRole](PractitionerRole-my-practitioner-role-example.html) | Provide the shared supporting context for the radiology examples, including the national identifier scaffolding required across all use cases. |
 
 ## Payload-reading note
 

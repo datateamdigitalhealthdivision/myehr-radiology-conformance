@@ -14,6 +14,8 @@ The formal narrative chapters of the Malaysian radiology conformance repository 
 | Procurement Language | Provides `EXAMPLE ONLY` wording for implementation and procurement documentation. | [docs/07-procurement-language.md](https://github.com/datateamdigitalhealthdivision/myehr-radiology-conformance/blob/main/docs/07-procurement-language.md) |
 | Notification Patterns | Describes the current polling-based phase 1 approach, optional direct-RIS synchronisation, and future eventing direction. | [docs/08-notification-patterns.md](https://github.com/datateamdigitalhealthdivision/myehr-radiology-conformance/blob/main/docs/08-notification-patterns.md) |
 | Document Sharing And Direct Retrieval | Brings together MHD, XDS-aligned metadata, document identity, and preserved RadioConnect retrieval guidance. | [docs/09-document-sharing-and-direct-retrieval.md](https://github.com/datateamdigitalhealthdivision/myehr-radiology-conformance/blob/main/docs/09-document-sharing-and-direct-retrieval.md) |
+| Implementation Partner Guide | Organises the published artefacts by use case so implementation partners can identify what they must build for RadioConnect, EMR to PACS, and EMR to MyEHR. | [docs/10-implementation-partner-guide.md](https://github.com/datateamdigitalhealthdivision/myehr-radiology-conformance/blob/main/docs/10-implementation-partner-guide.md) |
+| Implementation Considerations | Records informative performance, pagination, polling, and error-handling guidance for operational deployment planning. | [docs/11-implementation-considerations.md](https://github.com/datateamdigitalhealthdivision/myehr-radiology-conformance/blob/main/docs/11-implementation-considerations.md) |
 
 ## Relationship to the rendered guide
 

@@ -17,17 +17,42 @@
         "id": "my-patient-example",
         "meta": {
           "profile": [
-            "http://fhir.hie.moh.gov.my/StructureDefinition/Patient-my-core"
+            "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-patient"
           ]
         },
         "identifier": [
           {
-            "system": "https://myhrn.kkmhub.moh.gov.my/id/patient",
-            "value": "MYHRN-0000001234"
+            "type": {
+              "coding": [
+                {
+                  "code": "NIIP",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "display": "National unique individual identifier"
+                }
+              ]
+            },
+            "system": "http://fhir.hie.moh.gov.my/sid/my-kad",
+            "value": "800412-08-5123"
           },
           {
-            "system": "https://sandbox.myehr.kkmhub.moh.gov.my/id/ris-patient",
+            "type": {
+              "coding": [
+                {
+                  "code": "MR",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "display": "Medical record number"
+                }
+              ]
+            },
+            "system": "https://hospital-sah.moh.gov.my/id/patient",
             "value": "RIS-12345"
+          },
+          {
+            "system": "http://fhir.hie.moh.gov.my/sid/my-hrn",
+            "type": {
+              "text": "MyHRN"
+            },
+            "value": "MYHRN-PENDING-0000001234"
           }
         ],
         "name": [
@@ -72,17 +97,42 @@
         "id": "my-practitioner-example",
         "meta": {
           "profile": [
-            "http://fhir.hie.moh.gov.my/StructureDefinition/Practitioner-my-core"
+            "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-practitioner"
           ]
         },
         "identifier": [
           {
-            "system": "https://myhcw.kkmhub.moh.gov.my/id/healthcare-worker",
-            "value": "MYHCW-00004567"
+            "type": {
+              "coding": [
+                {
+                  "code": "NIIP",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "display": "National unique individual identifier"
+                }
+              ]
+            },
+            "system": "http://fhir.hie.moh.gov.my/sid/my-kad",
+            "value": "820914-08-5234"
           },
           {
-            "system": "https://sandbox.myehr.kkmhub.moh.gov.my/id/ris-doctor",
-            "value": "RIS-DR-456"
+            "type": {
+              "coding": [
+                {
+                  "code": "EMPL",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "display": "Employee number"
+                }
+              ]
+            },
+            "system": "https://hospital-sah.moh.gov.my/id/staff",
+            "value": "RAD-DR-456"
+          },
+          {
+            "system": "http://fhir.hie.moh.gov.my/sid/my-hcw",
+            "type": {
+              "text": "MyHCW"
+            },
+            "value": "MYHCW-PENDING-00004567"
           }
         ],
         "name": [
@@ -182,17 +232,29 @@
         "id": "my-location-example",
         "meta": {
           "profile": [
-            "http://fhir.hie.moh.gov.my/StructureDefinition/Location-my-core"
+            "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-location"
           ]
         },
         "identifier": [
           {
-            "system": "https://facility.kkmhub.moh.gov.my/id/facility",
+            "system": "http://fhir.hie.moh.gov.my/sid/my-facility",
+            "value": "HSAH"
+          },
+          {
+            "type": {
+              "text": "Local location identifier"
+            },
+            "system": "https://hospital-sah.moh.gov.my/id/location",
             "value": "HSAH-RAD-CT1"
           }
         ],
         "status": "active",
         "name": "CT Suite 1",
+        "type": [
+          {
+            "text": "Computed tomography suite"
+          }
+        ],
         "managingOrganization": {
           "reference": "Organization/my-organisation-example"
         },

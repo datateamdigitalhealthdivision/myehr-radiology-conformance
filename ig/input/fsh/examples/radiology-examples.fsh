@@ -7,8 +7,8 @@ Usage: #definition
 * date = "2026-03-17"
 * publisher = "Data Team, Digital Health Division, Ministry of Health Malaysia"
 * responsible = "Ministry of Health Malaysia"
-* description = "PROVISIONAL placeholder naming system for the national patient identifier domain."
-* usage = "Use as a placeholder only until the final national patient identifier URI and formatting rules are approved."
+* description = "PROVISIONAL placeholder naming system for the MyHRN national patient identifier domain, pending national MPI activation."
+* usage = "Use to scaffold support for MyHRN now so that national MPI activation can be adopted without schema change."
 * uniqueId[0].type = #uri
 * uniqueId[0].value = $MYPATIENTID
 * uniqueId[0].preferred = true
@@ -23,7 +23,7 @@ Usage: #definition
 * date = "2026-03-17"
 * publisher = "Data Team, Digital Health Division, Ministry of Health Malaysia"
 * responsible = "Ministry of Health Malaysia"
-* description = "PROVISIONAL placeholder naming system for facility identifiers."
+* description = "PROVISIONAL placeholder naming system for the national facility identifier domain used across organisation and location reconciliation."
 * usage = "Use as a placeholder only until the final national facility identifier URI and governance rules are approved."
 * uniqueId[0].type = #uri
 * uniqueId[0].value = $MYFACILITYID
@@ -39,8 +39,8 @@ Usage: #definition
 * date = "2026-03-17"
 * publisher = "Data Team, Digital Health Division, Ministry of Health Malaysia"
 * responsible = "Ministry of Health Malaysia"
-* description = "PROVISIONAL placeholder naming system for healthcare worker identifiers."
-* usage = "Use as a placeholder only until the final national healthcare worker identifier URI and governance rules are approved."
+* description = "PROVISIONAL placeholder naming system for the MyHCW national healthcare worker identifier domain, pending national activation."
+* usage = "Use to scaffold support for MyHCW now so that national activation can be adopted without schema change."
 * uniqueId[0].type = #uri
 * uniqueId[0].value = $MYHCWID
 * uniqueId[0].preferred = true
@@ -113,7 +113,7 @@ Usage: #definition
 Instance: MYOrganisationExample
 InstanceOf: $MYCoreOrganization
 Usage: #example
-Description: "Example imaging facility organisation used by the workflow examples."
+Description: "Example imaging facility organisation used by the workflow examples and aligned to the site facility code used across the accompanying examples."
 * id = "my-organisation-example"
 * identifier[0].system = "http://fhir.hie.moh.gov.my/sid/organization-id"
 * identifier[0].value = "HSAH"
@@ -129,14 +129,18 @@ Description: "Example imaging facility organisation used by the workflow example
 * address[0].country = "MY"
 
 Instance: MYLocationExample
-InstanceOf: $MYCoreLocation
+InstanceOf: MYRadiologyLocation
 Usage: #example
-Description: "Example CT suite location managed by the imaging facility."
+Description: "Example CT suite location managed by the imaging facility, carrying the provisional national facility identifier and a site-local departmental identifier."
 * id = "my-location-example"
-* identifier[0].system = $MYFACILITYID
-* identifier[0].value = "HSAH-RAD-CT1"
+* identifier[facilityId].system = $MYFACILITYID
+* identifier[facilityId].value = "HSAH"
+* identifier[localLocationId].type.text = "Local location identifier"
+* identifier[localLocationId].system = "https://hospital-sah.moh.gov.my/id/location"
+* identifier[localLocationId].value = "HSAH-RAD-CT1"
 * status = #active
 * name = "CT Suite 1"
+* type[0].text = "Computed tomography suite"
 * managingOrganization = Reference(MYOrganisationExample)
 * address.line[0] = "Radiology Department, Level 1"
 * address.city = "Sungai Petani"
@@ -145,14 +149,19 @@ Description: "Example CT suite location managed by the imaging facility."
 * address.country = "MY"
 
 Instance: MYPractitionerExample
-InstanceOf: $MYCorePractitioner
+InstanceOf: MYRadiologyPractitioner
 Usage: #example
-Description: "Example radiologist practitioner used across the reporting workflow."
+Description: "Example radiologist practitioner used across the reporting workflow, including a placeholder MyHCW slice pending national activation."
 * id = "my-practitioner-example"
-* identifier[0].system = $MYHCWID
-* identifier[0].value = "MYHCW-00004567"
-* identifier[1].system = "https://sandbox.myehr.kkmhub.moh.gov.my/id/ris-doctor"
-* identifier[1].value = "RIS-DR-456"
+* identifier[nationalId].system = $MYKAD
+* identifier[nationalId].type = $V20203#NIIP "National unique individual identifier"
+* identifier[nationalId].value = "820914-08-5234"
+* identifier[localStaffId].type = $V20203#EMPL "Employee number"
+* identifier[localStaffId].system = "https://hospital-sah.moh.gov.my/id/staff"
+* identifier[localStaffId].value = "RAD-DR-456"
+* identifier[myHcwId].system = $MYHCWID
+* identifier[myHcwId].type.text = "MyHCW"
+* identifier[myHcwId].value = "MYHCW-PENDING-00004567"
 * name[0].prefix[0] = "Dr"
 * name[0].family = "Rahman"
 * name[0].given[0] = "Nurul"
@@ -170,14 +179,19 @@ Description: "Example consultant radiologist role at the imaging facility."
 * specialty[0].text = "Diagnostic Radiology"
 
 Instance: MYPatientExample
-InstanceOf: $MYCorePatient
+InstanceOf: MYRadiologyPatient
 Usage: #example
-Description: "Example patient record linked to the radiology order and reporting flow."
+Description: "Example patient record linked to the radiology order and reporting flow, including a placeholder MyHRN slice pending national MPI activation."
 * id = "my-patient-example"
-* identifier[0].system = $MYPATIENTID
-* identifier[0].value = "MYHRN-0000001234"
-* identifier[1].system = "https://sandbox.myehr.kkmhub.moh.gov.my/id/ris-patient"
-* identifier[1].value = "RIS-12345"
+* identifier[nationalId].system = $MYKAD
+* identifier[nationalId].type = $V20203#NIIP "National unique individual identifier"
+* identifier[nationalId].value = "800412-08-5123"
+* identifier[localPatientId].type = $V20203#MR "Medical record number"
+* identifier[localPatientId].system = "https://hospital-sah.moh.gov.my/id/patient"
+* identifier[localPatientId].value = "RIS-12345"
+* identifier[myHrn].system = $MYPATIENTID
+* identifier[myHrn].type.text = "MyHRN"
+* identifier[myHrn].value = "MYHRN-PENDING-0000001234"
 * name[0].family = "Ahmad"
 * name[0].given[0] = "Aisyah"
 * gender = #female
@@ -400,6 +414,8 @@ Usage: #example
 * type = $LNC#18748-4 "Diagnostic imaging study"
 * category[0].coding[0] = MYRadiologyXDSClassCodeCS#imaging-report "Imaging Report"
 * subject = Reference(MYPatientExample)
+* subject.identifier.system = $MYKAD
+* subject.identifier.value = "800412-08-5123"
 * date = "2026-03-17T12:15:00+08:00"
 * author[0] = Reference(MYPractitionerExample)
 * securityLabel[0] = $V3Conf#N "Normal"
@@ -418,23 +434,37 @@ Usage: #example
 Instance: MYRadiologyOrderWorkflowBundleExample
 InstanceOf: Bundle
 Usage: #example
-Description: "Example collection bundle showing the core order-to-report radiology workflow resources together."
+Description: "Example collection bundle showing the core order-to-report radiology workflow resources together with the supporting patient, practitioner, organisation, and location context required for internal references to resolve."
 * id = "my-radiology-order-workflow-bundle-example"
 * type = #collection
-* entry[0].fullUrl = "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/ServiceRequest/my-radiology-service-request-example"
-* entry[0].resource = MYRadiologyServiceRequestExample
-* entry[1].fullUrl = "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/Task/my-radiology-task-example"
-* entry[1].resource = MYRadiologyTaskExample
-* entry[2].fullUrl = "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/Appointment/my-radiology-appointment-example"
-* entry[2].resource = MYRadiologyAppointmentExample
-* entry[3].fullUrl = "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/Procedure/my-radiology-procedure-example"
-* entry[3].resource = MYRadiologyProcedureExample
-* entry[4].fullUrl = "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/Endpoint/my-radiology-dicomweb-endpoint-example"
-* entry[4].resource = MYRadiologyDicomWebEndpointExample
-* entry[5].fullUrl = "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/ImagingStudy/my-radiology-imaging-study-example"
-* entry[5].resource = MYRadiologyImagingStudyExample
-* entry[6].fullUrl = "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/DiagnosticReport/my-radiology-diagnostic-report-example"
-* entry[6].resource = MYRadiologyDiagnosticReportExample
+* entry[0].fullUrl = "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/Patient/my-patient-example"
+* entry[0].resource = MYPatientExample
+* entry[1].fullUrl = "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/Encounter/my-encounter-example"
+* entry[1].resource = MYEncounterExample
+* entry[2].fullUrl = "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/Organization/my-organisation-example"
+* entry[2].resource = MYOrganisationExample
+* entry[3].fullUrl = "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/Location/my-location-example"
+* entry[3].resource = MYLocationExample
+* entry[4].fullUrl = "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/Practitioner/my-practitioner-example"
+* entry[4].resource = MYPractitionerExample
+* entry[5].fullUrl = "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/PractitionerRole/my-practitioner-role-example"
+* entry[5].resource = MYPractitionerRoleExample
+* entry[6].fullUrl = "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/ServiceRequest/my-radiology-service-request-example"
+* entry[6].resource = MYRadiologyServiceRequestExample
+* entry[7].fullUrl = "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/Task/my-radiology-task-example"
+* entry[7].resource = MYRadiologyTaskExample
+* entry[8].fullUrl = "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/Appointment/my-radiology-appointment-example"
+* entry[8].resource = MYRadiologyAppointmentExample
+* entry[9].fullUrl = "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/Procedure/my-radiology-procedure-example"
+* entry[9].resource = MYRadiologyProcedureExample
+* entry[10].fullUrl = "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/Endpoint/my-radiology-dicomweb-endpoint-example"
+* entry[10].resource = MYRadiologyDicomWebEndpointExample
+* entry[11].fullUrl = "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/ImagingStudy/my-radiology-imaging-study-example"
+* entry[11].resource = MYRadiologyImagingStudyExample
+* entry[12].fullUrl = "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/Observation/my-radiology-observation-example"
+* entry[12].resource = MYRadiologyObservationExample
+* entry[13].fullUrl = "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/DiagnosticReport/my-radiology-diagnostic-report-example"
+* entry[13].resource = MYRadiologyDiagnosticReportExample
 
 Instance: MYRadiologyProvenanceExample
 InstanceOf: MYRadiologyProvenance
@@ -454,7 +484,7 @@ Description: "Example provenance resource recording the publication responsibili
 Instance: MYRadiologyOrderSubmissionTransactionExample
 InstanceOf: Bundle
 Usage: #example
-Description: "Example transaction bundle showing a realistic sandbox order-submission pattern for onboarding and interface testing."
+Description: "Example transaction bundle showing a realistic sandbox order-submission pattern for onboarding and interface testing, including the supporting patient, practitioner, organisation, and location resources required by the order."
 * id = "my-radiology-order-submission-transaction-example"
 * type = #transaction
 * entry[0].fullUrl = "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/Organization/my-organisation-example"
@@ -477,10 +507,14 @@ Description: "Example transaction bundle showing a realistic sandbox order-submi
 * entry[4].resource = MYEncounterExample
 * entry[4].request.method = #PUT
 * entry[4].request.url = "Encounter/my-encounter-example"
-* entry[5].fullUrl = "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/ServiceRequest/my-radiology-service-request-example"
-* entry[5].resource = MYRadiologyServiceRequestExample
+* entry[5].fullUrl = "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/Location/my-location-example"
+* entry[5].resource = MYLocationExample
 * entry[5].request.method = #PUT
-* entry[5].request.url = "ServiceRequest/my-radiology-service-request-example"
+* entry[5].request.url = "Location/my-location-example"
+* entry[6].fullUrl = "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/ServiceRequest/my-radiology-service-request-example"
+* entry[6].resource = MYRadiologyServiceRequestExample
+* entry[6].request.method = #PUT
+* entry[6].request.url = "ServiceRequest/my-radiology-service-request-example"
 
 Instance: MYRadiologyInvalidServiceRequestOperationOutcomeExample
 InstanceOf: OperationOutcome

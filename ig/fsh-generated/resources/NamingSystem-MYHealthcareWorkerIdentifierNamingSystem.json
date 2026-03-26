@@ -7,12 +7,12 @@
   "date": "2026-03-17",
   "publisher": "Data Team, Digital Health Division, Ministry of Health Malaysia",
   "responsible": "Ministry of Health Malaysia",
-  "description": "PROVISIONAL placeholder naming system for healthcare worker identifiers.",
-  "usage": "Use as a placeholder only until the final national healthcare worker identifier URI and governance rules are approved.",
+  "description": "PROVISIONAL placeholder naming system for the MyHCW national healthcare worker identifier domain, pending national activation.",
+  "usage": "Use to scaffold support for MyHCW now so that national activation can be adopted without schema change.",
   "uniqueId": [
     {
       "type": "uri",
-      "value": "https://myhcw.kkmhub.moh.gov.my/id/healthcare-worker",
+      "value": "http://fhir.hie.moh.gov.my/sid/my-hcw",
       "preferred": true,
       "comment": "PROVISIONAL placeholder only."
     }
