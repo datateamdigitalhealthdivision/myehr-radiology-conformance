@@ -71,3 +71,21 @@ Description: "Draft local SubmissionSet content-type values used for MHD and XDS
 * #imaging-order-submission ^definition = "Submission of imaging order documents."
 * #clinical-update-submission "Clinical Update Submission"
 * #clinical-update-submission ^definition = "Submission of updated clinical documentation."
+
+CodeSystem: IHEMHDEventTypeCodeSystem
+Id: ihe-mhd-event-type-code-cs
+Title: "IHE MHD Event Type CodeSystem"
+Description: "Local placeholder code system carrying the published IHE MHD event type codes so that ITI-65, ITI-66, ITI-67, and ITI-68 audit examples can validate in this repository until an authoritative package is available for direct dependency use."
+* ^status = #draft
+* ^experimental = false
+* ^url = $IHEMHDEventType
+* ^caseSensitive = true
+* ^content = #complete
+* #ITI-65 "Provide Document Bundle"
+* #ITI-65 ^definition = "IHE MHD ITI-65 Provide Document Bundle transaction."
+* #ITI-66 "Find Document Lists"
+* #ITI-66 ^definition = "IHE MHD ITI-66 Find Document Lists transaction."
+* #ITI-67 "Find Document References"
+* #ITI-67 ^definition = "IHE MHD ITI-67 Find Document References transaction."
+* #ITI-68 "Retrieve Document"
+* #ITI-68 ^definition = "IHE MHD ITI-68 Retrieve Document transaction."

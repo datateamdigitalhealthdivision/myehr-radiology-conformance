@@ -1,6 +1,11 @@
 {
   "resourceType": "Patient",
   "id": "my-patient-example",
+  "meta": {
+    "profile": [
+      "http://fhir.hie.moh.gov.my/StructureDefinition/Patient-my-core"
+    ]
+  },
   "identifier": [
     {
       "system": "https://myhrn.kkmhub.moh.gov.my/id/patient",
@@ -37,5 +42,8 @@
       "postalCode": "08000",
       "country": "MY"
     }
-  ]
+  ],
+  "managingOrganization": {
+    "reference": "Organization/my-organisation-example"
+  }
 }

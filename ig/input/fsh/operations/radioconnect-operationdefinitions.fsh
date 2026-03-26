@@ -11,7 +11,7 @@ Usage: #definition
 * kind = #operation
 * date = "2026-03-25"
 * publisher = "Data Team, Digital Health Division, Ministry of Health Malaysia"
-* description = "OPTIONAL RadioConnect direct-RIS retrieval operation retained as a supported partner pattern. It allows a consumer to request a parameter-driven searchset Bundle covering patient, order, study, report, practitioner, and location data for a specified time window. Standard resource read and search interactions remain the national baseline."
+* description = "OPTIONAL RadioConnect direct-RIS retrieval operation retained as a supported partner pattern. It allows a consumer to request a parameter-driven searchset Bundle for a specified time window. The returned bundle shall include the matched business resources and any referenced supporting resources needed for internal bundle references to resolve cleanly. Standard resource read and search interactions remain the national baseline."
 * code = #impacs-ris-sync
 * system = true
 * type = false
@@ -51,6 +51,6 @@ Usage: #definition
 * parameter[5].use = #out
 * parameter[5].min = 1
 * parameter[5].max = "1"
-* parameter[5].documentation = "A searchset Bundle containing the matched Patient, Practitioner, ServiceRequest, ImagingStudy, DiagnosticReport, and Location resources."
+* parameter[5].documentation = "A self-resolving searchset Bundle containing the matched ServiceRequest, ImagingStudy, and DiagnosticReport resources together with referenced Patient, Encounter, Practitioner, PractitionerRole, Organisation, Location, Procedure, Observation, and Endpoint resources where needed."
 * parameter[5].type = #Bundle
 

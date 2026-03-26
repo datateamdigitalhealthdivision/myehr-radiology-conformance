@@ -2,13 +2,24 @@
   "resourceType": "Bundle",
   "id": "my-radiology-radioconnect-sync-bundle-example",
   "type": "searchset",
-  "total": 1,
+  "total": 3,
+  "link": [
+    {
+      "relation": "self",
+      "url": "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/$impacs-ris-sync?from=2026-03-22T00:00:00Z&to=2026-03-22T02:00:00Z&_count=50&_page=1&patientId=RIS-12345"
+    }
+  ],
   "entry": [
     {
       "fullUrl": "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/Patient/my-patient-example",
       "resource": {
         "resourceType": "Patient",
         "id": "my-patient-example",
+        "meta": {
+          "profile": [
+            "http://fhir.hie.moh.gov.my/StructureDefinition/Patient-my-core"
+          ]
+        },
         "identifier": [
           {
             "system": "https://myhrn.kkmhub.moh.gov.my/id/patient",
@@ -45,7 +56,10 @@
             "postalCode": "08000",
             "country": "MY"
           }
-        ]
+        ],
+        "managingOrganization": {
+          "reference": "Organization/my-organisation-example"
+        }
       },
       "search": {
         "mode": "include"
@@ -56,6 +70,11 @@
       "resource": {
         "resourceType": "Practitioner",
         "id": "my-practitioner-example",
+        "meta": {
+          "profile": [
+            "http://fhir.hie.moh.gov.my/StructureDefinition/Practitioner-my-core"
+          ]
+        },
         "identifier": [
           {
             "system": "https://myhcw.kkmhub.moh.gov.my/id/healthcare-worker",
@@ -76,6 +95,80 @@
               "Nurul"
             ]
           }
+        ],
+        "gender": "female",
+        "birthDate": "1982-09-14"
+      },
+      "search": {
+        "mode": "include"
+      }
+    },
+    {
+      "fullUrl": "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/PractitionerRole/my-practitioner-role-example",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "id": "my-practitioner-role-example",
+        "meta": {
+          "profile": [
+            "http://fhir.hie.moh.gov.my/StructureDefinition/PractitionerRole-my-core"
+          ]
+        },
+        "practitioner": {
+          "reference": "Practitioner/my-practitioner-example"
+        },
+        "organization": {
+          "reference": "Organization/my-organisation-example"
+        },
+        "code": [
+          {
+            "text": "Consultant Radiologist"
+          }
+        ],
+        "specialty": [
+          {
+            "text": "Diagnostic Radiology"
+          }
+        ]
+      },
+      "search": {
+        "mode": "include"
+      }
+    },
+    {
+      "fullUrl": "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/Organization/my-organisation-example",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "my-organisation-example",
+        "meta": {
+          "profile": [
+            "http://fhir.hie.moh.gov.my/StructureDefinition/Organization-my-core"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "http://fhir.hie.moh.gov.my/sid/organization-id",
+            "value": "HSAH"
+          }
+        ],
+        "active": true,
+        "name": "Hospital Sultan Abdul Halim",
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "+60-4-7404000"
+          }
+        ],
+        "address": [
+          {
+            "line": [
+              "Bandar Amanjaya"
+            ],
+            "city": "Sungai Petani",
+            "district": "Kuala Muda",
+            "state": "Kedah",
+            "postalCode": "08000",
+            "country": "MY"
+          }
         ]
       },
       "search": {
@@ -87,6 +180,11 @@
       "resource": {
         "resourceType": "Location",
         "id": "my-location-example",
+        "meta": {
+          "profile": [
+            "http://fhir.hie.moh.gov.my/StructureDefinition/Location-my-core"
+          ]
+        },
         "identifier": [
           {
             "system": "https://facility.kkmhub.moh.gov.my/id/facility",
@@ -107,6 +205,83 @@
           "postalCode": "08000",
           "country": "MY"
         }
+      },
+      "search": {
+        "mode": "include"
+      }
+    },
+    {
+      "fullUrl": "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/Encounter/my-encounter-example",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "my-encounter-example",
+        "meta": {
+          "profile": [
+            "http://fhir.hie.moh.gov.my/StructureDefinition/Encounter-my-core"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "http://fhir.hie.moh.gov.my/sid/encounter-id",
+            "value": "ENC-20260317-0001"
+          }
+        ],
+        "status": "in-progress",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "AMB"
+        },
+        "type": [
+          {
+            "text": "Radiology outpatient encounter"
+          }
+        ],
+        "serviceType": {
+          "text": "Diagnostic radiology service"
+        },
+        "period": {
+          "start": "2026-03-17T09:00:00+08:00"
+        },
+        "subject": {
+          "reference": "Patient/my-patient-example"
+        },
+        "serviceProvider": {
+          "reference": "Organization/my-organisation-example"
+        }
+      },
+      "search": {
+        "mode": "include"
+      }
+    },
+    {
+      "fullUrl": "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/Endpoint/my-radiology-dicomweb-endpoint-example",
+      "resource": {
+        "resourceType": "Endpoint",
+        "id": "my-radiology-dicomweb-endpoint-example",
+        "meta": {
+          "profile": [
+            "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-dicomweb-endpoint"
+          ]
+        },
+        "connectionType": {
+          "code": "dicom-wado-rs",
+          "system": "http://terminology.hl7.org/CodeSystem/endpoint-connection-type",
+          "display": "DICOM WADO-RS"
+        },
+        "status": "active",
+        "name": "Hospital Sultan Abdul Halim WADO-RS",
+        "managingOrganization": {
+          "reference": "Organization/my-organisation-example"
+        },
+        "address": "https://sandbox.myehr.kkmhub.moh.gov.my/dicomweb/studies",
+        "payloadType": [
+          {
+            "text": "Radiology imaging retrieval"
+          }
+        ],
+        "payloadMimeType": [
+          "application/dicom+json"
+        ]
       },
       "search": {
         "mode": "include"
@@ -202,6 +377,70 @@
         ]
       },
       "search": {
+        "mode": "match"
+      }
+    },
+    {
+      "fullUrl": "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/Procedure/my-radiology-procedure-example",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "my-radiology-procedure-example",
+        "meta": {
+          "profile": [
+            "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-procedure"
+          ]
+        },
+        "status": "completed",
+        "basedOn": [
+          {
+            "reference": "ServiceRequest/my-radiology-service-request-example"
+          }
+        ],
+        "category": {
+          "text": "Diagnostic imaging procedure"
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "https://terminology.kkmhub.moh.gov.my/CodeSystem/radlex-imaging-procedures",
+              "code": "RADLEX-CT-HEAD-WO",
+              "display": "CT head without contrast"
+            }
+          ],
+          "text": "CT head without contrast"
+        },
+        "subject": {
+          "reference": "Patient/my-patient-example"
+        },
+        "encounter": {
+          "reference": "Encounter/my-encounter-example"
+        },
+        "performedDateTime": "2026-03-17T11:18:00+08:00",
+        "recorder": {
+          "reference": "Practitioner/my-practitioner-example"
+        },
+        "performer": [
+          {
+            "actor": {
+              "reference": "Practitioner/my-practitioner-example"
+            }
+          }
+        ],
+        "location": {
+          "reference": "Location/my-location-example"
+        },
+        "bodySite": [
+          {
+            "text": "Head"
+          }
+        ],
+        "note": [
+          {
+            "text": "Study completed without contrast."
+          }
+        ]
+      },
+      "search": {
         "mode": "include"
       }
     },
@@ -276,12 +515,75 @@
               {
                 "uid": "1.2.840.113619.2.55.3.604688321.783.1456849848.469",
                 "sopClass": {
-                  "system": "http://dicom.nema.org/resources/ontology/DCM",
-                  "code": "112031",
-                  "display": "Computed Tomography Image Storage"
+                  "code": "1.2.840.10008.5.1.4.1.1.2",
+                  "system": "urn:dicom:uid",
+                  "display": "CT Image Storage"
                 }
               }
             ]
+          }
+        ]
+      },
+      "search": {
+        "mode": "match"
+      }
+    },
+    {
+      "fullUrl": "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/Observation/my-radiology-observation-example",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "my-radiology-observation-example",
+        "meta": {
+          "profile": [
+            "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-observation"
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "imaging",
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "display": "Imaging"
+              }
+            ]
+          }
+        ],
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "code": "118247008",
+              "system": "http://snomed.info/sct",
+              "display": "Radiologic finding"
+            }
+          ],
+          "text": "Intracranial haemorrhage finding"
+        },
+        "subject": {
+          "reference": "Patient/my-patient-example"
+        },
+        "encounter": {
+          "reference": "Encounter/my-encounter-example"
+        },
+        "basedOn": [
+          {
+            "reference": "ServiceRequest/my-radiology-service-request-example"
+          }
+        ],
+        "effectiveDateTime": "2026-03-17T12:05:00+08:00",
+        "performer": [
+          {
+            "reference": "Practitioner/my-practitioner-example"
+          }
+        ],
+        "valueString": "Absent",
+        "bodySite": {
+          "text": "Head"
+        },
+        "derivedFrom": [
+          {
+            "reference": "ImagingStudy/my-radiology-imaging-study-example"
           }
         ]
       },

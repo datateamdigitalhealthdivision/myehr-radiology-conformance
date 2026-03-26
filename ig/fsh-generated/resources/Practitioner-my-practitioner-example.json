@@ -1,6 +1,11 @@
 {
   "resourceType": "Practitioner",
   "id": "my-practitioner-example",
+  "meta": {
+    "profile": [
+      "http://fhir.hie.moh.gov.my/StructureDefinition/Practitioner-my-core"
+    ]
+  },
   "identifier": [
     {
       "system": "https://myhcw.kkmhub.moh.gov.my/id/healthcare-worker",
@@ -21,5 +26,7 @@
         "Nurul"
       ]
     }
-  ]
+  ],
+  "gender": "female",
+  "birthDate": "1982-09-14"
 }

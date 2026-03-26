@@ -15,14 +15,23 @@ Prefer: respond-async
 
 ## Expected payload shape
 
-The response should be a `searchset` `Bundle` containing the matched:
+The response should be a self-resolving `searchset` `Bundle` with a `self` link and the matched business resources:
 
-- `Patient`
-- `Practitioner`
-- `Location`
 - `ServiceRequest`
 - `ImagingStudy`
 - `DiagnosticReport`
+
+The bundle should also include the referenced supporting resources needed to resolve internal references cleanly, typically:
+
+- `Patient`
+- `Encounter`
+- `Practitioner`
+- `PractitionerRole`
+- `Organisation`
+- `Location`
+- `Procedure`
+- `Observation`
+- `Endpoint`
 
 ## Preserved technical rules
 

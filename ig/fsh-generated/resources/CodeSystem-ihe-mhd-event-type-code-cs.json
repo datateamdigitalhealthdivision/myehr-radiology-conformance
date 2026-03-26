@@ -1,0 +1,35 @@
+{
+  "resourceType": "CodeSystem",
+  "status": "draft",
+  "content": "complete",
+  "name": "IHEMHDEventTypeCodeSystem",
+  "id": "ihe-mhd-event-type-code-cs",
+  "title": "IHE MHD Event Type CodeSystem",
+  "description": "Local placeholder code system carrying the published IHE MHD event type codes so that ITI-65, ITI-66, ITI-67, and ITI-68 audit examples can validate in this repository until an authoritative package is available for direct dependency use.",
+  "url": "urn:ihe:event-type-code",
+  "concept": [
+    {
+      "code": "ITI-65",
+      "display": "Provide Document Bundle",
+      "definition": "IHE MHD ITI-65 Provide Document Bundle transaction."
+    },
+    {
+      "code": "ITI-66",
+      "display": "Find Document Lists",
+      "definition": "IHE MHD ITI-66 Find Document Lists transaction."
+    },
+    {
+      "code": "ITI-67",
+      "display": "Find Document References",
+      "definition": "IHE MHD ITI-67 Find Document References transaction."
+    },
+    {
+      "code": "ITI-68",
+      "display": "Retrieve Document",
+      "definition": "IHE MHD ITI-68 Retrieve Document transaction."
+    }
+  ],
+  "experimental": false,
+  "caseSensitive": true,
+  "count": 4
+}

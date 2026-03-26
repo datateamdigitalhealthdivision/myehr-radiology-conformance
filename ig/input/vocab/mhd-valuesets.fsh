@@ -12,11 +12,11 @@ Title: "MY Radiology XDS Format Code ValueSet"
 Description: "Required IHE formatCode values for packaged radiology documents."
 * ^status = #draft
 * ^experimental = false
-* $IHEFormatCode#urn:ihe:rad:TEXT "Radiology Report - Text"
-* $IHEFormatCode#urn:ihe:rad:PDF "Radiology Report - PDF"
-* $IHEFormatCode#urn:ihe:iti:xds:2017:mimeTypeSufficient "Format indicated by MIME type"
-* $IHEFormatCode#urn:ihe:iti:xds-sd:pdf:2008 "Scanned Document - PDF"
-* $IHEFormatCode#urn:ihe:rad:CDA:ImagingReportStructuredHeadings:2013 "Radiology CDA Imaging Report"
+* $IHEFormatCode#urn:ihe:rad:TEXT "RAD TEXT"
+* $IHEFormatCode#urn:ihe:rad:PDF "RAD PDF"
+* $IHEFormatCode#urn:ihe:iti:xds:2017:mimeTypeSufficient "mimeType Sufficient"
+* $IHEFormatCode#urn:ihe:iti:xds-sd:pdf:2008 "ITI XDS-SD PDF"
+* $IHEFormatCode#urn:ihe:rad:CDA:ImagingReportStructuredHeadings:2013 "RAD CDA"
 
 ValueSet: MYRadiologyXDSFacilityTypeVS
 Id: my-radiology-xds-facility-type-vs

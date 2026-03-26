@@ -1,6 +1,11 @@
 {
   "resourceType": "Location",
   "id": "my-location-example",
+  "meta": {
+    "profile": [
+      "http://fhir.hie.moh.gov.my/StructureDefinition/Location-my-core"
+    ]
+  },
   "identifier": [
     {
       "system": "https://facility.kkmhub.moh.gov.my/id/facility",

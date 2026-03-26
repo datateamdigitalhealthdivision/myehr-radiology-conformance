@@ -461,6 +461,9 @@ parameters:
     - https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology
   special-url:
     - https://terminology.kkmhub.moh.gov.my/CodeSystem/radlex-imaging-procedures
+    - https://profiles.ihe.net/ITI/MHD/StructureDefinition/ihe-sourceId
+    - https://profiles.ihe.net/ITI/MHD/StructureDefinition/ihe-designationType
+    - urn:ihe:event-type-code
   show-inherited-invariants: false
   usage-stats-opt-out: true
   excludettl: true

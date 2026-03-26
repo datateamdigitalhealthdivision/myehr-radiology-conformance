@@ -41,7 +41,9 @@ Implementation expectations for the optional operation are:
 - `_count` and `_page` support bulk retrieval without excessive response size
 - `patientId` narrows the response to one patient where needed
 - the RIS may query PACS or archive services for additional metadata before assembling the response bundle
-- the response is a `searchset` `Bundle` containing the matched `Patient`, `Practitioner`, `Location`, `ServiceRequest`, `ImagingStudy`, and `DiagnosticReport` resources
+- the response is a self-resolving `searchset` `Bundle` with a `self` link describing the requested polling window
+- the matched business resources are normally `ServiceRequest`, `ImagingStudy`, and `DiagnosticReport`
+- supporting resources such as `Patient`, `Encounter`, `Practitioner`, `PractitionerRole`, `Organisation`, `Location`, `Procedure`, `Observation`, and `Endpoint` should be included whenever they are referenced by the matched resources
 
 ## Future event-driven pattern
 

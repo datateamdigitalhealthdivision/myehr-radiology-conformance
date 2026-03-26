@@ -17,9 +17,12 @@ Verify that a document source can assemble and submit a valid ITI-65 Provide Doc
 3. Query `DocumentReference` by patient and category.
 4. Query `List` by patient and code.
 5. Retrieve the referenced `Binary` content.
+6. Verify that the stored `DocumentReference.content.format` remains `urn:ihe:rad:PDF` with display `RAD PDF` for the packaged PDF example.
 
 ## Expected outcome
 
 - the submitted `DocumentReference` and `List` are searchable
 - required metadata bindings are preserved
 - the retrieved `Binary` content is available as PDF
+- the transaction preserves a resolvable relationship between the SubmissionSet, the member `DocumentReference`, and the binary payload
+- the stored metadata retains the published IHE format code and document-sharing bindings

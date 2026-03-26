@@ -38,7 +38,7 @@ Description: "Example radiology report document populated with MHD and XDS-align
 * description = "Final CT report packaged for document sharing."
 * content[0].attachment.contentType = #application/pdf
 * content[0].attachment.url = "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/Binary/my-radiology-mhd-report-binary-example"
-* content[0].format = $IHEFormatCode#urn:ihe:rad:PDF "Radiology Report - PDF"
+* content[0].format = $IHEFormatCode#urn:ihe:rad:PDF "RAD PDF"
 * context.encounter[0] = Reference(MYEncounterExample)
 * context.facilityType = MYRadiologyXDSFacilityTypeCS#hospital "Hospital"
 * context.practiceSetting = MYRadiologyXDSPracticeSettingCS#radiology "Radiology"
@@ -78,15 +78,15 @@ Usage: #example
 Description: "Example ITI-65 Provide Document Bundle transaction containing a SubmissionSet, DocumentReference, and Binary payload."
 * id = "my-radiology-mhd-provide-document-bundle-example"
 * type = #transaction
-* entry[0].fullUrl = "urn:uuid:submission-set"
+* entry[0].fullUrl = "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/List/my-radiology-mhd-submission-set-example"
 * entry[0].resource = MYRadiologyMHDSubmissionSetExample
 * entry[0].request.method = #POST
 * entry[0].request.url = "List"
-* entry[1].fullUrl = "urn:uuid:document-reference"
+* entry[1].fullUrl = "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/DocumentReference/my-radiology-mhd-document-reference-example"
 * entry[1].resource = MYRadiologyMHDDocumentReferenceExample
 * entry[1].request.method = #POST
 * entry[1].request.url = "DocumentReference"
-* entry[2].fullUrl = "urn:uuid:report-binary"
+* entry[2].fullUrl = "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/Binary/my-radiology-mhd-report-binary-example"
 * entry[2].resource = MYRadiologyMHDReportBinaryExample
 * entry[2].request.method = #POST
 * entry[2].request.url = "Binary"
@@ -118,25 +118,45 @@ Usage: #example
 Description: "Example direct-RIS searchset bundle returned by the optional impacs-ris-sync operation."
 * id = "my-radiology-radioconnect-sync-bundle-example"
 * type = #searchset
-* total = 1
+* total = 3
+* link[0].relation = "self"
+* link[0].url = "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/$impacs-ris-sync?from=2026-03-22T00:00:00Z&to=2026-03-22T02:00:00Z&_count=50&_page=1&patientId=RIS-12345"
 * entry[0].fullUrl = "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/Patient/my-patient-example"
 * entry[0].resource = MYPatientExample
 * entry[0].search.mode = #include
 * entry[1].fullUrl = "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/Practitioner/my-practitioner-example"
 * entry[1].resource = MYPractitionerExample
 * entry[1].search.mode = #include
-* entry[2].fullUrl = "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/Location/my-location-example"
-* entry[2].resource = MYLocationExample
+* entry[2].fullUrl = "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/PractitionerRole/my-practitioner-role-example"
+* entry[2].resource = MYPractitionerRoleExample
 * entry[2].search.mode = #include
-* entry[3].fullUrl = "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/ServiceRequest/my-radiology-service-request-example"
-* entry[3].resource = MYRadiologyServiceRequestExample
+* entry[3].fullUrl = "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/Organization/my-organisation-example"
+* entry[3].resource = MYOrganisationExample
 * entry[3].search.mode = #include
-* entry[4].fullUrl = "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/ImagingStudy/my-radiology-imaging-study-example"
-* entry[4].resource = MYRadiologyImagingStudyExample
+* entry[4].fullUrl = "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/Location/my-location-example"
+* entry[4].resource = MYLocationExample
 * entry[4].search.mode = #include
-* entry[5].fullUrl = "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/DiagnosticReport/my-radiology-diagnostic-report-example"
-* entry[5].resource = MYRadiologyDiagnosticReportExample
-* entry[5].search.mode = #match
+* entry[5].fullUrl = "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/Encounter/my-encounter-example"
+* entry[5].resource = MYEncounterExample
+* entry[5].search.mode = #include
+* entry[6].fullUrl = "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/Endpoint/my-radiology-dicomweb-endpoint-example"
+* entry[6].resource = MYRadiologyDicomWebEndpointExample
+* entry[6].search.mode = #include
+* entry[7].fullUrl = "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/ServiceRequest/my-radiology-service-request-example"
+* entry[7].resource = MYRadiologyServiceRequestExample
+* entry[7].search.mode = #match
+* entry[8].fullUrl = "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/Procedure/my-radiology-procedure-example"
+* entry[8].resource = MYRadiologyProcedureExample
+* entry[8].search.mode = #include
+* entry[9].fullUrl = "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/ImagingStudy/my-radiology-imaging-study-example"
+* entry[9].resource = MYRadiologyImagingStudyExample
+* entry[9].search.mode = #match
+* entry[10].fullUrl = "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/Observation/my-radiology-observation-example"
+* entry[10].resource = MYRadiologyObservationExample
+* entry[10].search.mode = #include
+* entry[11].fullUrl = "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/DiagnosticReport/my-radiology-diagnostic-report-example"
+* entry[11].resource = MYRadiologyDiagnosticReportExample
+* entry[11].search.mode = #match
 
 Instance: MYRadiologyRadioConnectAccessionMismatchOOExample
 InstanceOf: OperationOutcome

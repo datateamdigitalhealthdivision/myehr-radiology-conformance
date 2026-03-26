@@ -58,7 +58,7 @@ The complete published index is available at [Artefact Index](artifacts.html).
 
 | Operation | Purpose | Notes |
 | --- | --- | --- |
-| [IMPACS RIS Sync](OperationDefinition-impacs-ris-sync.html) | Preserved optional direct-RIS retrieval operation for scheduled synchronisation. | `OPTIONAL`. Standard resource read and search interactions remain the national baseline. |
+| [IMPACS RIS Sync](OperationDefinition-impacs-ris-sync.html) | Preserved optional direct-RIS retrieval operation for scheduled synchronisation. | `OPTIONAL`. Returns a self-resolving `searchset` bundle when supported; standard resource read and search interactions remain the national baseline. |
 
 ## Examples and workflow payloads
 
@@ -66,9 +66,9 @@ The complete published index is available at [Artefact Index](artifacts.html).
 | --- | --- |
 | [Radiology Order Workflow Bundle](Bundle-my-radiology-order-workflow-bundle-example.html) | Shows the order-to-report journey as one machine-readable collection. |
 | [Radiology Order Submission Transaction](Bundle-my-radiology-order-submission-transaction-example.html) | Shows a realistic transaction-based onboarding or sandbox submission pattern. |
-| [MHD Provide Document Bundle](Bundle-my-radiology-mhd-provide-document-bundle-example.html) | Shows the complete ITI-65 transaction structure for document submission. |
-| [MHD Submission Set](List-my-radiology-mhd-submission-set-example.html), [MHD DocumentReference](DocumentReference-my-radiology-mhd-document-reference-example.html), [MHD AuditEvent](AuditEvent-my-radiology-mhd-audit-event-example.html) | Show the core MHD resources as standalone worked examples. |
-| [RadioConnect Sync Bundle](Bundle-my-radiology-radioconnect-sync-bundle-example.html) | Shows the preserved optional direct-RIS retrieval response shape. |
+| [MHD Provide Document Bundle](Bundle-my-radiology-mhd-provide-document-bundle-example.html) | Shows the complete ITI-65 transaction structure for document submission with stable `fullUrl` values and resolvable internal references. |
+| [MHD Submission Set](List-my-radiology-mhd-submission-set-example.html), [MHD DocumentReference](DocumentReference-my-radiology-mhd-document-reference-example.html), [MHD AuditEvent](AuditEvent-my-radiology-mhd-audit-event-example.html) | Show the core MHD resources as standalone worked examples, including the published IHE format code and ITI audit coding pattern. |
+| [RadioConnect Sync Bundle](Bundle-my-radiology-radioconnect-sync-bundle-example.html) | Shows the preserved optional direct-RIS retrieval response shape as a self-resolving `searchset` bundle with matched business resources and supporting references. |
 | [Invalid ServiceRequest OperationOutcome](OperationOutcome-my-radiology-invalid-service-request-operationoutcome-example.html) | Shows the expected rejection shape when a partner submits an invalid order payload. |
 | [Direct-RIS Accession Mismatch OperationOutcome](OperationOutcome-my-radiology-radioconnect-accession-mismatch-oo-example.html) | Shows the expected rejection or reconciliation failure response when accession linkage fails. |
 | [Patient](Patient-my-patient-example.html), [Encounter](Encounter-my-encounter-example.html), [Organisation](Organization-my-organisation-example.html), [Location](Location-my-location-example.html), [Practitioner](Practitioner-my-practitioner-example.html), [PractitionerRole](PractitionerRole-my-practitioner-role-example.html) | Provide the shared supporting context for the radiology examples. |

@@ -376,9 +376,9 @@
               {
                 "uid": "1.2.840.113619.2.55.3.604688321.783.1456849848.469",
                 "sopClass": {
-                  "system": "http://dicom.nema.org/resources/ontology/DCM",
-                  "code": "112031",
-                  "display": "Computed Tomography Image Storage"
+                  "code": "1.2.840.10008.5.1.4.1.1.2",
+                  "system": "urn:dicom:uid",
+                  "display": "CT Image Storage"
                 }
               }
             ]

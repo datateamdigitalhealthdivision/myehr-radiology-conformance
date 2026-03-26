@@ -4,7 +4,7 @@
   "type": "transaction",
   "entry": [
     {
-      "fullUrl": "urn:uuid:submission-set",
+      "fullUrl": "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/List/my-radiology-mhd-submission-set-example",
       "resource": {
         "resourceType": "List",
         "id": "my-radiology-mhd-submission-set-example",
@@ -60,7 +60,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:document-reference",
+      "fullUrl": "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/DocumentReference/my-radiology-mhd-document-reference-example",
       "resource": {
         "resourceType": "DocumentReference",
         "id": "my-radiology-mhd-document-reference-example",
@@ -131,7 +131,7 @@
             "format": {
               "code": "urn:ihe:rad:PDF",
               "system": "http://ihe.net/fhir/ihe.formatcode.fhir/CodeSystem/formatcode",
-              "display": "Radiology Report - PDF"
+              "display": "RAD PDF"
             }
           }
         ],
@@ -189,7 +189,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:report-binary",
+      "fullUrl": "https://sandbox.myehr.kkmhub.moh.gov.my/fhir/Binary/my-radiology-mhd-report-binary-example",
       "resource": {
         "resourceType": "Binary",
         "id": "my-radiology-mhd-report-binary-example",

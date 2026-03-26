@@ -1,6 +1,11 @@
 {
   "resourceType": "PractitionerRole",
   "id": "my-practitioner-role-example",
+  "meta": {
+    "profile": [
+      "http://fhir.hie.moh.gov.my/StructureDefinition/PractitionerRole-my-core"
+    ]
+  },
   "practitioner": {
     "reference": "Practitioner/my-practitioner-example"
   },
@@ -10,6 +15,11 @@
   "code": [
     {
       "text": "Consultant Radiologist"
+    }
+  ],
+  "specialty": [
+    {
+      "text": "Diagnostic Radiology"
     }
   ]
 }

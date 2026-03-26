@@ -68,7 +68,7 @@
       "format": {
         "code": "urn:ihe:rad:PDF",
         "system": "http://ihe.net/fhir/ihe.formatcode.fhir/CodeSystem/formatcode",
-        "display": "Radiology Report - PDF"
+        "display": "RAD PDF"
       }
     }
   ],

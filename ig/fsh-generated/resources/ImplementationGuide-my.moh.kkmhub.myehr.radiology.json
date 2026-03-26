@@ -151,6 +151,14 @@
       },
       {
         "reference": {
+          "reference": "CodeSystem/ihe-mhd-event-type-code-cs"
+        },
+        "name": "IHE MHD Event Type CodeSystem",
+        "description": "Local placeholder code system carrying the published IHE MHD event type codes so that ITI-65, ITI-66, ITI-67, and ITI-68 audit examples can validate in this repository until an authoritative package is available for direct dependency use.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
           "reference": "StructureDefinition/ihe-sourceid-extension"
         },
         "name": "IHE MHD SourceId Extension",
@@ -1043,6 +1051,18 @@
       {
         "code": "special-url",
         "value": "https://terminology.kkmhub.moh.gov.my/CodeSystem/radlex-imaging-procedures"
+      },
+      {
+        "code": "special-url",
+        "value": "https://profiles.ihe.net/ITI/MHD/StructureDefinition/ihe-sourceId"
+      },
+      {
+        "code": "special-url",
+        "value": "https://profiles.ihe.net/ITI/MHD/StructureDefinition/ihe-designationType"
+      },
+      {
+        "code": "special-url",
+        "value": "urn:ihe:event-type-code"
       },
       {
         "code": "show-inherited-invariants",

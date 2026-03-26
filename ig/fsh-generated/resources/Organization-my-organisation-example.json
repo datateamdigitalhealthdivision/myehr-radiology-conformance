@@ -1,12 +1,18 @@
 {
   "resourceType": "Organization",
   "id": "my-organisation-example",
+  "meta": {
+    "profile": [
+      "http://fhir.hie.moh.gov.my/StructureDefinition/Organization-my-core"
+    ]
+  },
   "identifier": [
     {
-      "system": "https://facility.kkmhub.moh.gov.my/id/facility",
+      "system": "http://fhir.hie.moh.gov.my/sid/organization-id",
       "value": "HSAH"
     }
   ],
+  "active": true,
   "name": "Hospital Sultan Abdul Halim",
   "telecom": [
     {

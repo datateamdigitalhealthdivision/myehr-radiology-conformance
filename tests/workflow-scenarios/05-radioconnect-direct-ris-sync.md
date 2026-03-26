@@ -9,12 +9,13 @@ Verify the preserved optional direct-RIS retrieval pattern using either standard
 ### Bulk Sync Success
 
 - request a two-hour window
-- expect a `searchset` bundle containing the patient, order, study, and report context
+- expect a `searchset` bundle with a `self` link and the requested polling window parameters
+- expect the matched order, study, and report resources together with the referenced patient, encounter, practitioner, role, organisation, location, procedure, observation, and endpoint context needed to resolve internal references
 
 ### Patient-Specific Query
 
 - supply `patientId`
-- expect only resources for the named patient
+- expect only resources for the named patient, with the same supporting references preserved for that patient context
 
 ### Missing Accession Error
 

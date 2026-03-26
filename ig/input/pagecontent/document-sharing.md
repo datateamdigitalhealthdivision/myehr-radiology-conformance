@@ -26,12 +26,18 @@ XDS Registry and Repository
 
 | Transaction | FHIR interaction | Primary artefacts |
 | --- | --- | --- |
-| ITI-65 Provide Document Bundle | `POST` `Bundle` with `type = transaction` | `List`, `DocumentReference`, optional `Binary` |
+| ITI-65 Provide Document Bundle | `POST` `Bundle` with `type = transaction` | SubmissionSet `List`, one or more `DocumentReference` resources, and optional `Binary` payloads |
 | ITI-66 Find Document Lists | `GET` `List` search | `List` |
 | ITI-67 Find Document References | `GET` `DocumentReference` search | `DocumentReference` |
 | ITI-68 Retrieve Document | `GET` `Binary/[id]` | `Binary` |
 
 The expected actor behaviour is published in the [MHD Document Source](CapabilityStatement-my-radiology-mhd-document-source.html) and [MHD Document Recipient](CapabilityStatement-my-radiology-mhd-document-recipient.html) CapabilityStatements.
+
+The published MHD examples are expected to be treated as the minimum quality bar for implementation and testing:
+
+- transaction bundles should use stable `fullUrl` values that keep internal references resolvable during submission
+- `DocumentReference.content.format` should carry the published IHE format code, for example `urn:ihe:rad:PDF` with display `RAD PDF` for a packaged PDF report
+- the submitted metadata should remain searchable after persistence through `DocumentReference`, `List`, and `Binary` interactions
 
 ## Affinity Domain Coded Metadata
 
@@ -73,7 +79,7 @@ The MHD Document Recipient must be able to resolve patient identity across docum
 
 - `DocumentReference` and `List` resources SHALL reference the patient using the national patient identifier system
 - submissions SHALL be rejected where patient identity cannot be resolved
-- FHIR `$match` is the preferred identity matching mechanism
+- FHIR `$match`, where a patient matching service is available, is the preferred identity matching mechanism
 - PIXm remains a deployment option for environments that must interoperate with legacy cross-reference services
 - cross-referencing between local MRNs and the national patient identifier remains a deployment responsibility and is outside the formal scope of this draft
 

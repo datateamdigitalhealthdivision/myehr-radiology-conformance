@@ -14,23 +14,23 @@
         "concept": [
           {
             "code": "urn:ihe:rad:TEXT",
-            "display": "Radiology Report - Text"
+            "display": "RAD TEXT"
           },
           {
             "code": "urn:ihe:rad:PDF",
-            "display": "Radiology Report - PDF"
+            "display": "RAD PDF"
           },
           {
             "code": "urn:ihe:iti:xds:2017:mimeTypeSufficient",
-            "display": "Format indicated by MIME type"
+            "display": "mimeType Sufficient"
           },
           {
             "code": "urn:ihe:iti:xds-sd:pdf:2008",
-            "display": "Scanned Document - PDF"
+            "display": "ITI XDS-SD PDF"
           },
           {
             "code": "urn:ihe:rad:CDA:ImagingReportStructuredHeadings:2013",
-            "display": "Radiology CDA Imaging Report"
+            "display": "RAD CDA"
           }
         ]
       }
