@@ -12,7 +12,7 @@
   "uniqueId": [
     {
       "type": "uri",
-      "value": "http://fhir.hie.moh.gov.my/sid/my-hcw",
+      "value": "http://fhir.myehr.kkmhub.moh.gov.my/sid/my-hcw",
       "preferred": true,
       "comment": "PROVISIONAL placeholder only."
     }

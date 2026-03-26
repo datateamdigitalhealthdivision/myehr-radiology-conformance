@@ -11,7 +11,7 @@
   "kind": "resource",
   "abstract": false,
   "type": "Appointment",
-  "baseDefinition": "http://fhir.hie.moh.gov.my/StructureDefinition/Appointment-my-core",
+  "baseDefinition": "http://fhir.myehr.kkmhub.moh.gov.my/StructureDefinition/Appointment-my-core",
   "derivation": "constraint",
   "differential": {
     "element": [
@@ -91,7 +91,7 @@
             "targetProfile": [
               "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-patient",
               "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-practitioner",
-              "http://fhir.hie.moh.gov.my/StructureDefinition/PractitionerRole-my-core",
+              "http://fhir.myehr.kkmhub.moh.gov.my/StructureDefinition/PractitionerRole-my-core",
               "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-location"
             ]
           }

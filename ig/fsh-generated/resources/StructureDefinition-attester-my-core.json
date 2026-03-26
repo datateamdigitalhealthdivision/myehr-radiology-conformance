@@ -1,7 +1,7 @@
 {
   "resourceType": "StructureDefinition",
   "id": "attester-my-core",
-  "url": "http://fhir.hie.moh.gov.my/StructureDefinition/attester-my-core",
+  "url": "http://fhir.myehr.kkmhub.moh.gov.my/StructureDefinition/attester-my-core",
   "name": "MYCoreAttesterExtension",
   "title": "MY Core Attester Extension Placeholder",
   "status": "draft",
@@ -35,7 +35,7 @@
       {
         "id": "Extension.url",
         "path": "Extension.url",
-        "fixedUri": "http://fhir.hie.moh.gov.my/StructureDefinition/attester-my-core"
+        "fixedUri": "http://fhir.myehr.kkmhub.moh.gov.my/StructureDefinition/attester-my-core"
       },
       {
         "id": "Extension.value[x]",
@@ -44,9 +44,9 @@
           {
             "code": "Reference",
             "targetProfile": [
-              "http://fhir.hie.moh.gov.my/StructureDefinition/Practitioner-my-core",
-              "http://fhir.hie.moh.gov.my/StructureDefinition/PractitionerRole-my-core",
-              "http://fhir.hie.moh.gov.my/StructureDefinition/Organization-my-core"
+              "http://fhir.myehr.kkmhub.moh.gov.my/StructureDefinition/Practitioner-my-core",
+              "http://fhir.myehr.kkmhub.moh.gov.my/StructureDefinition/PractitionerRole-my-core",
+              "http://fhir.myehr.kkmhub.moh.gov.my/StructureDefinition/Organization-my-core"
             ]
           }
         ]

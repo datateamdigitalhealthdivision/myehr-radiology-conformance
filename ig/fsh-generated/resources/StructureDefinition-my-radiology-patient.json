@@ -11,7 +11,7 @@
   "kind": "resource",
   "abstract": false,
   "type": "Patient",
-  "baseDefinition": "http://fhir.hie.moh.gov.my/StructureDefinition/Patient-my-core",
+  "baseDefinition": "http://fhir.myehr.kkmhub.moh.gov.my/StructureDefinition/Patient-my-core",
   "derivation": "constraint",
   "differential": {
     "element": [
@@ -46,7 +46,7 @@
         "id": "Patient.identifier:nationalId.system",
         "path": "Patient.identifier.system",
         "min": 1,
-        "fixedUri": "http://fhir.hie.moh.gov.my/sid/my-kad"
+        "fixedUri": "http://fhir.myehr.kkmhub.moh.gov.my/sid/my-kad"
       },
       {
         "id": "Patient.identifier:nationalId.value",
@@ -80,7 +80,7 @@
         "id": "Patient.identifier:localPatientId.system",
         "path": "Patient.identifier.system",
         "min": 1,
-        "fixedUri": "http://fhir.hie.moh.gov.my/sid/local-patient-id"
+        "fixedUri": "http://fhir.myehr.kkmhub.moh.gov.my/sid/local-patient-id"
       },
       {
         "id": "Patient.identifier:localPatientId.value",
@@ -106,7 +106,7 @@
         "id": "Patient.identifier:myHrn.system",
         "path": "Patient.identifier.system",
         "min": 1,
-        "fixedUri": "http://fhir.hie.moh.gov.my/sid/my-hrn"
+        "fixedUri": "http://fhir.myehr.kkmhub.moh.gov.my/sid/my-hrn"
       },
       {
         "id": "Patient.identifier:myHrn.value",

@@ -115,7 +115,7 @@ InstanceOf: $MYCoreOrganization
 Usage: #example
 Description: "Example imaging facility organisation used by the workflow examples and aligned to the site facility code used across the accompanying examples."
 * id = "my-organisation-example"
-* identifier[0].system = "http://fhir.hie.moh.gov.my/sid/organization-id"
+* identifier[0].system = "http://fhir.myehr.kkmhub.moh.gov.my/sid/organization-id"
 * identifier[0].value = "HSAH"
 * active = true
 * name = "Hospital Sultan Abdul Halim"
@@ -213,7 +213,7 @@ Description: "Example ambulatory encounter linked to the radiology order and rep
 * status = #in-progress
 * class.system = "http://terminology.hl7.org/CodeSystem/v3-ActCode"
 * class.code = #AMB
-* identifier[encounterNo].system = "http://fhir.hie.moh.gov.my/sid/encounter-id"
+* identifier[encounterNo].system = "http://fhir.myehr.kkmhub.moh.gov.my/sid/encounter-id"
 * identifier[encounterNo].value = "ENC-20260317-0001"
 * type[0].text = "Radiology outpatient encounter"
 * serviceType.text = "Diagnostic radiology service"

@@ -11,7 +11,7 @@
   "kind": "resource",
   "abstract": false,
   "type": "Practitioner",
-  "baseDefinition": "http://fhir.hie.moh.gov.my/StructureDefinition/Practitioner-my-core",
+  "baseDefinition": "http://fhir.myehr.kkmhub.moh.gov.my/StructureDefinition/Practitioner-my-core",
   "derivation": "constraint",
   "differential": {
     "element": [
@@ -46,7 +46,7 @@
         "id": "Practitioner.identifier:nationalId.system",
         "path": "Practitioner.identifier.system",
         "min": 1,
-        "fixedUri": "http://fhir.hie.moh.gov.my/sid/my-kad"
+        "fixedUri": "http://fhir.myehr.kkmhub.moh.gov.my/sid/my-kad"
       },
       {
         "id": "Practitioner.identifier:nationalId.value",
@@ -80,7 +80,7 @@
         "id": "Practitioner.identifier:localStaffId.system",
         "path": "Practitioner.identifier.system",
         "min": 1,
-        "fixedUri": "http://fhir.hie.moh.gov.my/sid/local-staff-id"
+        "fixedUri": "http://fhir.myehr.kkmhub.moh.gov.my/sid/local-staff-id"
       },
       {
         "id": "Practitioner.identifier:localStaffId.value",
@@ -106,7 +106,7 @@
         "id": "Practitioner.identifier:myHcwId.system",
         "path": "Practitioner.identifier.system",
         "min": 1,
-        "fixedUri": "http://fhir.hie.moh.gov.my/sid/my-hcw"
+        "fixedUri": "http://fhir.myehr.kkmhub.moh.gov.my/sid/my-hcw"
       },
       {
         "id": "Practitioner.identifier:myHcwId.value",

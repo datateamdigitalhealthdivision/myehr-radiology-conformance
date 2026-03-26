@@ -11,7 +11,7 @@
   "kind": "resource",
   "abstract": false,
   "type": "Procedure",
-  "baseDefinition": "http://fhir.hie.moh.gov.my/StructureDefinition/Procedure-my-core",
+  "baseDefinition": "http://fhir.myehr.kkmhub.moh.gov.my/StructureDefinition/Procedure-my-core",
   "derivation": "constraint",
   "differential": {
     "element": [
@@ -68,7 +68,7 @@
           {
             "code": "Reference",
             "targetProfile": [
-              "http://fhir.hie.moh.gov.my/StructureDefinition/Encounter-my-core"
+              "http://fhir.myehr.kkmhub.moh.gov.my/StructureDefinition/Encounter-my-core"
             ]
           }
         ],
@@ -87,7 +87,7 @@
             "code": "Reference",
             "targetProfile": [
               "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-practitioner",
-              "http://fhir.hie.moh.gov.my/StructureDefinition/PractitionerRole-my-core"
+              "http://fhir.myehr.kkmhub.moh.gov.my/StructureDefinition/PractitionerRole-my-core"
             ]
           }
         ],
@@ -106,8 +106,8 @@
             "code": "Reference",
             "targetProfile": [
               "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-practitioner",
-              "http://fhir.hie.moh.gov.my/StructureDefinition/PractitionerRole-my-core",
-              "http://fhir.hie.moh.gov.my/StructureDefinition/Organization-my-core"
+              "http://fhir.myehr.kkmhub.moh.gov.my/StructureDefinition/PractitionerRole-my-core",
+              "http://fhir.myehr.kkmhub.moh.gov.my/StructureDefinition/Organization-my-core"
             ]
           }
         ],

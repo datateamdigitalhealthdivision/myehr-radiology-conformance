@@ -17,7 +17,7 @@
           }
         ]
       },
-      "system": "http://fhir.hie.moh.gov.my/sid/my-kad",
+      "system": "http://fhir.myehr.kkmhub.moh.gov.my/sid/my-kad",
       "value": "800412-08-5123"
     },
     {
@@ -30,11 +30,11 @@
           }
         ]
       },
-      "system": "http://fhir.hie.moh.gov.my/sid/local-patient-id",
+      "system": "http://fhir.myehr.kkmhub.moh.gov.my/sid/local-patient-id",
       "value": "RIS-12345"
     },
     {
-      "system": "http://fhir.hie.moh.gov.my/sid/my-hrn",
+      "system": "http://fhir.myehr.kkmhub.moh.gov.my/sid/my-hrn",
       "type": {
         "text": "MyHRN"
       },

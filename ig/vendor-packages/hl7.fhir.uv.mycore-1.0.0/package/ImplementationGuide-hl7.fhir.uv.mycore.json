@@ -4231,7 +4231,7 @@
       "reference" : {
         "reference" : "ValueSet/value-set-dev-milestone-fine-motor-my-core"
       },
-      "name" : "http://fhir.hie.moh.gov.my/ValueSet/dev-milestone-fine-motor-my-core",
+      "name" : "http://fhir.myehr.kkmhub.moh.gov.my/ValueSet/dev-milestone-fine-motor-my-core",
       "description" : "Dev Milestone"
     },
     {
@@ -4242,7 +4242,7 @@
       "reference" : {
         "reference" : "ValueSet/value-set-dev-milestone-gross-motor-my-core"
       },
-      "name" : "http://fhir.hie.moh.gov.my/ValueSet/dev-milestone-gross-motor-my-core",
+      "name" : "http://fhir.myehr.kkmhub.moh.gov.my/ValueSet/dev-milestone-gross-motor-my-core",
       "description" : "Dev Milestone"
     },
     {
@@ -4264,7 +4264,7 @@
       "reference" : {
         "reference" : "ValueSet/value-set-dev-milestone-social-my-core"
       },
-      "name" : "http://fhir.hie.moh.gov.my/ValueSet/dev-milestone-social-my-core",
+      "name" : "http://fhir.myehr.kkmhub.moh.gov.my/ValueSet/dev-milestone-social-my-core",
       "description" : "Dev Milestone"
     },
     {
@@ -4275,7 +4275,7 @@
       "reference" : {
         "reference" : "ValueSet/value-set-dev-milestone-speech-my-core"
       },
-      "name" : "http://fhir.hie.moh.gov.my/ValueSet/dev-milestone-speech-my-core",
+      "name" : "http://fhir.myehr.kkmhub.moh.gov.my/ValueSet/dev-milestone-speech-my-core",
       "description" : "Dev Milestone"
     },
     {

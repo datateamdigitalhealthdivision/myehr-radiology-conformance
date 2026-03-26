@@ -167,7 +167,7 @@
             "code": "Reference",
             "targetProfile": [
               "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-practitioner",
-              "http://fhir.hie.moh.gov.my/StructureDefinition/PractitionerRole-my-core"
+              "http://fhir.myehr.kkmhub.moh.gov.my/StructureDefinition/PractitionerRole-my-core"
             ]
           }
         ],

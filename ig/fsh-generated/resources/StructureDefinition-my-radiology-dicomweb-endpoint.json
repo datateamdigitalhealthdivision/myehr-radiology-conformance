@@ -42,7 +42,7 @@
           {
             "code": "Reference",
             "targetProfile": [
-              "http://fhir.hie.moh.gov.my/StructureDefinition/Organization-my-core"
+              "http://fhir.myehr.kkmhub.moh.gov.my/StructureDefinition/Organization-my-core"
             ]
           }
         ],

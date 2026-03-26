@@ -11,7 +11,7 @@
   "kind": "resource",
   "abstract": false,
   "type": "ImagingStudy",
-  "baseDefinition": "http://fhir.hie.moh.gov.my/StructureDefinition/ImagingStudy-my-core",
+  "baseDefinition": "http://fhir.myehr.kkmhub.moh.gov.my/StructureDefinition/ImagingStudy-my-core",
   "derivation": "constraint",
   "differential": {
     "element": [
@@ -159,7 +159,7 @@
           {
             "code": "Reference",
             "targetProfile": [
-              "http://fhir.hie.moh.gov.my/StructureDefinition/Encounter-my-core"
+              "http://fhir.myehr.kkmhub.moh.gov.my/StructureDefinition/Encounter-my-core"
             ]
           }
         ],

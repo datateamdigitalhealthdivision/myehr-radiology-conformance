@@ -11,7 +11,7 @@
   "kind": "resource",
   "abstract": false,
   "type": "ServiceRequest",
-  "baseDefinition": "http://fhir.hie.moh.gov.my/StructureDefinition/ServiceRequest-my-core",
+  "baseDefinition": "http://fhir.myehr.kkmhub.moh.gov.my/StructureDefinition/ServiceRequest-my-core",
   "derivation": "constraint",
   "differential": {
     "element": [
@@ -170,7 +170,7 @@
           {
             "code": "Reference",
             "targetProfile": [
-              "http://fhir.hie.moh.gov.my/StructureDefinition/Encounter-my-core"
+              "http://fhir.myehr.kkmhub.moh.gov.my/StructureDefinition/Encounter-my-core"
             ]
           }
         ],
@@ -195,7 +195,7 @@
             "code": "Reference",
             "targetProfile": [
               "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-practitioner",
-              "http://fhir.hie.moh.gov.my/StructureDefinition/PractitionerRole-my-core"
+              "http://fhir.myehr.kkmhub.moh.gov.my/StructureDefinition/PractitionerRole-my-core"
             ]
           }
         ],

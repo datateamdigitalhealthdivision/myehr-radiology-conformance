@@ -17,7 +17,7 @@
           }
         ]
       },
-      "system": "http://fhir.hie.moh.gov.my/sid/my-kad",
+      "system": "http://fhir.myehr.kkmhub.moh.gov.my/sid/my-kad",
       "value": "820914-08-5234"
     },
     {
@@ -30,11 +30,11 @@
           }
         ]
       },
-      "system": "http://fhir.hie.moh.gov.my/sid/local-staff-id",
+      "system": "http://fhir.myehr.kkmhub.moh.gov.my/sid/local-staff-id",
       "value": "RAD-DR-456"
     },
     {
-      "system": "http://fhir.hie.moh.gov.my/sid/my-hcw",
+      "system": "http://fhir.myehr.kkmhub.moh.gov.my/sid/my-hcw",
       "type": {
         "text": "MyHCW"
       },

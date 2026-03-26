@@ -11,7 +11,7 @@
   "kind": "resource",
   "abstract": false,
   "type": "Location",
-  "baseDefinition": "http://fhir.hie.moh.gov.my/StructureDefinition/Location-my-core",
+  "baseDefinition": "http://fhir.myehr.kkmhub.moh.gov.my/StructureDefinition/Location-my-core",
   "derivation": "constraint",
   "differential": {
     "element": [
@@ -46,7 +46,7 @@
         "id": "Location.identifier:facilityId.system",
         "path": "Location.identifier.system",
         "min": 1,
-        "fixedUri": "http://fhir.hie.moh.gov.my/sid/my-facility"
+        "fixedUri": "http://fhir.myehr.kkmhub.moh.gov.my/sid/my-facility"
       },
       {
         "id": "Location.identifier:facilityId.value",

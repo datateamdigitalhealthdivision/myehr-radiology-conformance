@@ -8,7 +8,7 @@
   },
   "identifier": [
     {
-      "system": "http://fhir.hie.moh.gov.my/sid/my-facility",
+      "system": "http://fhir.myehr.kkmhub.moh.gov.my/sid/my-facility",
       "value": "HSAH"
     },
     {

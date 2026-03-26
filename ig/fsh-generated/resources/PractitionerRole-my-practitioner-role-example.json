@@ -3,7 +3,7 @@
   "id": "my-practitioner-role-example",
   "meta": {
     "profile": [
-      "http://fhir.hie.moh.gov.my/StructureDefinition/PractitionerRole-my-core"
+      "http://fhir.myehr.kkmhub.moh.gov.my/StructureDefinition/PractitionerRole-my-core"
     ]
   },
   "practitioner": {

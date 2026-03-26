@@ -91,7 +91,7 @@
           {
             "code": "Reference",
             "targetProfile": [
-              "http://fhir.hie.moh.gov.my/StructureDefinition/Encounter-my-core"
+              "http://fhir.myehr.kkmhub.moh.gov.my/StructureDefinition/Encounter-my-core"
             ]
           }
         ],
@@ -109,9 +109,9 @@
           {
             "code": "Reference",
             "targetProfile": [
-              "http://fhir.hie.moh.gov.my/StructureDefinition/Organization-my-core",
+              "http://fhir.myehr.kkmhub.moh.gov.my/StructureDefinition/Organization-my-core",
               "https://myehr.kkmhub.moh.gov.my/fhir/ImplementationGuide/my-radiology/StructureDefinition/my-radiology-practitioner",
-              "http://fhir.hie.moh.gov.my/StructureDefinition/PractitionerRole-my-core"
+              "http://fhir.myehr.kkmhub.moh.gov.my/StructureDefinition/PractitionerRole-my-core"
             ]
           }
         ],

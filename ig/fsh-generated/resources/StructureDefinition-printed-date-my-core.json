@@ -1,7 +1,7 @@
 {
   "resourceType": "StructureDefinition",
   "id": "printed-date-my-core",
-  "url": "http://fhir.hie.moh.gov.my/StructureDefinition/printed-date-my-core",
+  "url": "http://fhir.myehr.kkmhub.moh.gov.my/StructureDefinition/printed-date-my-core",
   "name": "MYCorePrintedDateExtension",
   "title": "MY Core Printed Date Extension Placeholder",
   "status": "draft",
@@ -35,7 +35,7 @@
       {
         "id": "Extension.url",
         "path": "Extension.url",
-        "fixedUri": "http://fhir.hie.moh.gov.my/StructureDefinition/printed-date-my-core"
+        "fixedUri": "http://fhir.myehr.kkmhub.moh.gov.my/StructureDefinition/printed-date-my-core"
       },
       {
         "id": "Extension.value[x]",

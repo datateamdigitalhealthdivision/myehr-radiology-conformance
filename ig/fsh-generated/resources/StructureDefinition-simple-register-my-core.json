@@ -1,7 +1,7 @@
 {
   "resourceType": "StructureDefinition",
   "id": "simple-register-my-core",
-  "url": "http://fhir.hie.moh.gov.my/StructureDefinition/simple-register-my-core",
+  "url": "http://fhir.myehr.kkmhub.moh.gov.my/StructureDefinition/simple-register-my-core",
   "name": "MYCoreSimpleRegisterExtension",
   "title": "MY Core Simple Register Extension Placeholder",
   "status": "draft",
@@ -35,7 +35,7 @@
       {
         "id": "Extension.url",
         "path": "Extension.url",
-        "fixedUri": "http://fhir.hie.moh.gov.my/StructureDefinition/simple-register-my-core"
+        "fixedUri": "http://fhir.myehr.kkmhub.moh.gov.my/StructureDefinition/simple-register-my-core"
       },
       {
         "id": "Extension.value[x]",

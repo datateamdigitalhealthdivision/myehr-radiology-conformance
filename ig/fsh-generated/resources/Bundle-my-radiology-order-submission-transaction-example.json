@@ -10,12 +10,12 @@
         "id": "my-organisation-example",
         "meta": {
           "profile": [
-            "http://fhir.hie.moh.gov.my/StructureDefinition/Organization-my-core"
+            "http://fhir.myehr.kkmhub.moh.gov.my/StructureDefinition/Organization-my-core"
           ]
         },
         "identifier": [
           {
-            "system": "http://fhir.hie.moh.gov.my/sid/organization-id",
+            "system": "http://fhir.myehr.kkmhub.moh.gov.my/sid/organization-id",
             "value": "HSAH"
           }
         ],
@@ -66,7 +66,7 @@
                 }
               ]
             },
-            "system": "http://fhir.hie.moh.gov.my/sid/my-kad",
+            "system": "http://fhir.myehr.kkmhub.moh.gov.my/sid/my-kad",
             "value": "820914-08-5234"
           },
           {
@@ -79,11 +79,11 @@
                 }
               ]
             },
-            "system": "http://fhir.hie.moh.gov.my/sid/local-staff-id",
+            "system": "http://fhir.myehr.kkmhub.moh.gov.my/sid/local-staff-id",
             "value": "RAD-DR-456"
           },
           {
-            "system": "http://fhir.hie.moh.gov.my/sid/my-hcw",
+            "system": "http://fhir.myehr.kkmhub.moh.gov.my/sid/my-hcw",
             "type": {
               "text": "MyHCW"
             },
@@ -116,7 +116,7 @@
         "id": "my-practitioner-role-example",
         "meta": {
           "profile": [
-            "http://fhir.hie.moh.gov.my/StructureDefinition/PractitionerRole-my-core"
+            "http://fhir.myehr.kkmhub.moh.gov.my/StructureDefinition/PractitionerRole-my-core"
           ]
         },
         "practitioner": {
@@ -162,7 +162,7 @@
                 }
               ]
             },
-            "system": "http://fhir.hie.moh.gov.my/sid/my-kad",
+            "system": "http://fhir.myehr.kkmhub.moh.gov.my/sid/my-kad",
             "value": "800412-08-5123"
           },
           {
@@ -175,11 +175,11 @@
                 }
               ]
             },
-            "system": "http://fhir.hie.moh.gov.my/sid/local-patient-id",
+            "system": "http://fhir.myehr.kkmhub.moh.gov.my/sid/local-patient-id",
             "value": "RIS-12345"
           },
           {
-            "system": "http://fhir.hie.moh.gov.my/sid/my-hrn",
+            "system": "http://fhir.myehr.kkmhub.moh.gov.my/sid/my-hrn",
             "type": {
               "text": "MyHRN"
             },
@@ -229,12 +229,12 @@
         "id": "my-encounter-example",
         "meta": {
           "profile": [
-            "http://fhir.hie.moh.gov.my/StructureDefinition/Encounter-my-core"
+            "http://fhir.myehr.kkmhub.moh.gov.my/StructureDefinition/Encounter-my-core"
           ]
         },
         "identifier": [
           {
-            "system": "http://fhir.hie.moh.gov.my/sid/encounter-id",
+            "system": "http://fhir.myehr.kkmhub.moh.gov.my/sid/encounter-id",
             "value": "ENC-20260317-0001"
           }
         ],
@@ -278,7 +278,7 @@
         },
         "identifier": [
           {
-            "system": "http://fhir.hie.moh.gov.my/sid/my-facility",
+            "system": "http://fhir.myehr.kkmhub.moh.gov.my/sid/my-facility",
             "value": "HSAH"
           },
           {

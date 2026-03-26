@@ -11,7 +11,7 @@
   "kind": "resource",
   "abstract": false,
   "type": "Task",
-  "baseDefinition": "http://fhir.hie.moh.gov.my/StructureDefinition/Task-my-core",
+  "baseDefinition": "http://fhir.myehr.kkmhub.moh.gov.my/StructureDefinition/Task-my-core",
   "derivation": "constraint",
   "differential": {
     "element": [
@@ -152,7 +152,7 @@
           {
             "code": "Reference",
             "targetProfile": [
-              "http://fhir.hie.moh.gov.my/StructureDefinition/Encounter-my-core"
+              "http://fhir.myehr.kkmhub.moh.gov.my/StructureDefinition/Encounter-my-core"
             ]
           }
         ],
@@ -177,7 +177,7 @@
           {
             "code": "Reference",
             "targetProfile": [
-              "http://fhir.hie.moh.gov.my/StructureDefinition/Organization-my-core"
+              "http://fhir.myehr.kkmhub.moh.gov.my/StructureDefinition/Organization-my-core"
             ]
           }
         ],
